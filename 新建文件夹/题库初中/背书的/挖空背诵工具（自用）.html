@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- © 2026 小阮 · 挖空背诵工具 · 试用 -->
+<!-- © 2026 小阮 · 挖空背诵工具 · 自用 -->
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"/>
@@ -394,9 +394,13 @@ textarea{min-height:160px;resize:vertical;line-height:1.8;overflow-y:auto}
 </nav>
 
 <script>
-// ==================== 授权激活（本地验证） ====================
-const AUTH_CODES = ['5826'];
-const AUTH_MINUTES = 10;
+// ==================== 授权激活（自用版无需密码） ====================
+const AUTH_CODE = '';
+
+function checkAuth() {
+  if (!AUTH_CODE) return true;
+  return localStorage.getItem('memorize_auth_' + AUTH_CODE) === '1';
+}
 
 function getAuthData() {
   try {
@@ -405,106 +409,11 @@ function getAuthData() {
   } catch(e) { return null; }
 }
 
-function isPermanentAuth() {
-  const d = getAuthData();
-  return d && d.permanent === true;
-}
-
-function checkAuth() {
-  if (isPermanentAuth()) return true;
-  const d = getAuthData();
-  if (!d || !d.expireAt) return false;
-  if (Date.now() >= d.expireAt) { localStorage.removeItem('memorize_auth_data'); return false; }
-  return true;
-}
+function isPermanentAuth() { return true; }
 
 function showAuthModal() {
-  localStorage.removeItem('memorize_auth_data');
-  let attempts = 0, locked = false;
-  const ov = document.createElement('div');
-  ov.className = 'modal-overlay';
-  ov.id = 'authModal';
-  ov.style.zIndex = '9999';
-  ov.innerHTML = `<div class="modal" style="border-radius:var(--radius);max-width:340px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:24px 20px">
-    <div style="text-align:center;font-size:48px;margin-bottom:12px">🔐</div>
-    <h3 style="text-align:center;margin-bottom:6px">授权验证</h3>
-    <p class="text-sm text-secondary" style="text-align:center;margin-bottom:16px">请输入授权密码，有效期 10 分钟</p>
-    <input type="text" inputmode="numeric" id="authInput" placeholder="输入密码" autocomplete="off" style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:20px;text-align:center;letter-spacing:6px">
-    <p class="text-sm" id="authError" style="text-align:center;color:var(--danger);margin-top:10px;display:none"></p>
-    <button class="btn btn-primary btn-block mt-12" id="authBtn">验证</button>
-    <p class="text-sm text-secondary" style="text-align:center;margin-top:16px">请联系微信获取密码</p>
-  </div>`;
-  document.body.appendChild(ov);
-
-  const input = document.getElementById('authInput');
-  const btn = document.getElementById('authBtn');
-  const err = document.getElementById('authError');
-
-  let lockTime = 0, countdownId = 0;
-  function doAuth() {
-    if (locked) return;
-    const password = input.value.trim();
-    if (!password) return;
-    btn.disabled = true; btn.textContent = '验证中...';
-
-    const currentLevel = (getAuthData() && getAuthData().level) || 0;
-
-    // 永久密码（最后一个）无论当前 level 都可以直接使用
-    if (password === AUTH_CODES[AUTH_CODES.length - 1]) {
-      localStorage.setItem('memorize_auth_data', JSON.stringify({
-        level: AUTH_CODES.length - 1,
-        expireAt: null,
-        permanent: true
-      }));
-      ov.remove();
-      try { initApp(); } catch(e) { console.error('initApp error:', e); showFatalError(e.message || '初始化异常'); }
-      return;
-    }
-
-    // 当前层级密码验证
-    if (password === AUTH_CODES[currentLevel]) {
-      const isLast = currentLevel >= AUTH_CODES.length - 1;
-      const expireAt = isLast ? null : Date.now() + AUTH_MINUTES * 60 * 1000;
-      const newLevel = isLast ? currentLevel : currentLevel + 1;
-      localStorage.setItem('memorize_auth_data', JSON.stringify({
-        level: newLevel,
-        expireAt: expireAt,
-        permanent: isLast
-      }));
-      ov.remove();
-      try { initApp(); } catch(e) { console.error('initApp error:', e); showFatalError(e.message || '初始化异常'); }
-      return;
-    }
-
-    // 密码错误
-    attempts++;
-    if (attempts >= 3) {
-      locked = true; lockTime = Date.now();
-      btn.disabled = true; input.disabled = true;
-      countdownId = setInterval(() => {
-        const remain = 30 - Math.floor((Date.now() - lockTime) / 1000);
-        if (remain <= 0) { clearInterval(countdownId); err.textContent = ''; return; }
-        err.textContent = '输错 3 次，已锁定 ' + remain + ' 秒';
-      }, 1000);
-      err.style.display = 'block';
-      setTimeout(() => {
-        locked = false; attempts = 0;
-        err.style.display = 'none';
-        btn.disabled = false; input.disabled = false;
-        input.value = ''; input.focus();
-      }, 30000);
-    } else {
-      err.textContent = '密码错误（' + attempts + '/3）';
-      err.style.display = 'block';
-      input.value = '';
-      input.focus();
-    }
-    btn.disabled = false; btn.textContent = '验证';
-  }
-
-  btn.onclick = doAuth;
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') doAuth(); });
-  // 不自动聚焦，让用户手动点击输入框（移动端键盘需要用户手势才能弹出）
+  // 自用版跳过授权，直接进入
+  initApp();
 }
 
 // ==================== localStorage 数据层 ====================
