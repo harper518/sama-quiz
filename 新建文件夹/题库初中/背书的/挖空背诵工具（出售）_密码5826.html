@@ -25,7 +25,7 @@
   --transition:0.2s cubic-bezier(.4,0,.2,1); --safe-bottom:env(safe-area-inset-bottom,16px);
 }
 /* ---- 主题色选择器 ---- */
-.color-dots { display:flex; gap:10px; flex-wrap:wrap; }
+.color-dots { display:grid; grid-template-columns:repeat(5,30px); gap:10px; justify-content:start; }
 .color-dot { width:30px; height:30px; border-radius:50%; cursor:pointer; border:3px solid transparent; transition:all .2s; display:inline-block; box-shadow:0 1px 3px rgba(0,0,0,.15); }
 .color-dot.active { border-color:var(--text); transform:scale(1.18); box-shadow:0 2px 6px rgba(0,0,0,.25); }
 .color-dot:active { transform:scale(.92); }
@@ -78,6 +78,20 @@
   --text:#1a1a1a; --text-secondary:#666;
   --primary:#555; --primary-hover:#333; --primary-light:#f0f0f0; --primary-soft:#e5e5e5;
   --border:#d4d4d4;
+}
+/* 护眼 · 米黄 */
+[data-color="cream"] {
+  --bg:#fffaf3; --bg-card:#fff; --bg-input:#fffaf3;
+  --text:#4a3728; --text-secondary:#8b7355;
+  --primary:#c8965c; --primary-hover:#a6773f; --primary-light:#fff8f0; --primary-soft:#fef0e0;
+  --border:#e8d5c0;
+}
+/* 护眼 · 豆沙绿 */
+[data-color="sage"] {
+  --bg:#f4faf0; --bg-card:#fff; --bg-input:#f4faf0;
+  --text:#2d4a2d; --text-secondary:#6b8e6b;
+  --primary:#6b9e6b; --primary-hover:#4a7c4a; --primary-light:#f0f8f0; --primary-soft:#e0f0e0;
+  --border:#c8dcc8;
 }
 
 [data-theme="dark"] {
@@ -164,7 +178,7 @@ input[type="text"],input[type="search"],textarea{user-select:text;-webkit-user-s
 .btn-block{width:100%;justify-content:center}
 
 /* ============ Cards ============ */
-.card{background:var(--bg-card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:12px}
+.card{background:var(--bg-card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:12px;overflow-wrap:break-word;word-break:break-word}
 
 /* ============ Bottom Tab Bar ============ */
 .tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:calc(68px + var(--safe-bottom));padding-bottom:var(--safe-bottom);background:var(--bg-card);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;z-index:100;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
@@ -190,8 +204,11 @@ input[type="text"],input[type="search"],textarea{user-select:text;-webkit-user-s
 .bank-item .actions{display:flex;gap:4px;flex-shrink:0}
 .bank-item .actions .btn-icon{width:36px;height:36px;padding:0;border-radius:50%;background:var(--bg-input);border:none;color:var(--text-secondary);font-size:var(--font-size);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
 .bank-item .actions .btn-icon:active{background:var(--primary-soft);color:var(--primary)}
-.btn-sort{width:24px;height:20px;padding:0;border:1px solid var(--border);border-radius:4px;background:var(--bg-input);color:var(--text-tertiary);font-size:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:all var(--transition)}
-.btn-sort:active{background:var(--primary-soft);color:var(--primary)}
+.btn-sort{width:44px;height:44px;padding:0;border:1px solid var(--border);border-radius:8px;background:var(--bg-input);color:var(--text-tertiary);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:all var(--transition);position:relative;z-index:2;appearance:none;-webkit-appearance:none;touch-action:manipulation}
+.btn-sort:hover:not(:disabled){background:var(--primary-soft);color:var(--primary);border-color:var(--primary)}
+.btn-sort:active:not(:disabled){background:var(--primary);color:#fff}
+.btn-sort:disabled{opacity:.25;cursor:not-allowed;pointer-events:none}
+.file-input{opacity:0;position:fixed;left:-9999px;top:-9999px}
 
 /* ============ Empty State ============ */
 .empty{text-align:center;padding:56px 24px;color:var(--text-secondary)}
@@ -206,8 +223,10 @@ input[type="text"],input[type="search"],textarea{user-select:text;-webkit-user-s
 .chip.active{background:var(--primary-light);border-color:var(--primary);color:var(--primary);font-weight:700;box-shadow:0 0 0 3px rgba(8,145,178,.12)}
 
 /* ============ Forms ============ */
-textarea,select,input[type="number"]{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:var(--font-size);font-family:inherit;background:var(--bg-card);color:var(--text);transition:all var(--transition);-webkit-appearance:none}
-textarea:focus,select:focus,input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(8,145,178,.08)}
+textarea,input[type="number"]{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:var(--font-size);font-family:inherit;background:var(--bg-card);color:var(--text);transition:all var(--transition);-webkit-appearance:none}
+select{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:var(--font-size);font-family:inherit;background:var(--bg-card);color:var(--text);transition:all var(--transition)}
+textarea:focus,input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(8,145,178,.08)}
+select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(8,145,178,.08)}
 textarea{min-height:160px;resize:vertical;line-height:1.8;overflow-y:auto}
 .form-group{margin-bottom:14px}
 .form-label{font-size:14px;font-weight:700;margin-bottom:8px;display:block;color:var(--text)}
@@ -216,7 +235,7 @@ textarea{min-height:160px;resize:vertical;line-height:1.8;overflow-y:auto}
 /* ============ Practice Card ============ */
 
 .practice-card{background:var(--bg-card);border-radius:var(--radius);padding:14px 14px;box-shadow:var(--shadow-md);border:1px solid var(--border);min-height:100px;margin-bottom:10px;position:relative}
-.practice-card .card-text{font-size:var(--font-size-lg);line-height:2.0;word-break:break-word}
+.practice-card .card-text{font-size:var(--font-size-lg);line-height:2.0;word-break:break-word;overflow-wrap:break-word;overflow-x:hidden}
 .practice-card .blank-input{
   display:inline-block;min-width:36px;max-width:120px;
   padding:2px 4px;border:none;border-bottom:2px dashed var(--blank-border);
@@ -302,7 +321,7 @@ textarea{min-height:160px;resize:vertical;line-height:1.8;overflow-y:auto}
 .preview-char.char-sel{background:var(--warning);border-color:var(--warning);color:#fff}
 .preview-char.saved{cursor:default}
 .preview-card{background:var(--bg-card);border-radius:var(--radius);padding:16px 18px;border:1px solid var(--border);margin-bottom:10px}
-.preview-card .preview-text{font-size:var(--font-size);line-height:2.2;word-break:break-word}
+.preview-card .preview-text{font-size:var(--font-size);line-height:2.2;word-break:break-word;overflow-wrap:break-word;overflow-x:hidden}
 .preview-card .blank-tag{display:inline-block;background:var(--warning);padding:3px 12px;border-radius:14px;font-size:12px;color:#fff;cursor:pointer;margin:2px;font-weight:600;transition:all var(--transition)}
 .preview-card .blank-tag.removed{background:var(--text-tertiary);text-decoration:line-through;opacity:.6}
 .preview-card .blank-highlight{background:var(--blank-bg);border-bottom:2px solid var(--blank-border);border-radius:3px;padding:1px 5px}
@@ -319,9 +338,9 @@ textarea{min-height:160px;resize:vertical;line-height:1.8;overflow-y:auto}
 
 /* ============ Utility ============ */
 .text-center{text-align:center}.text-sm{font-size:var(--font-size-sm)}.text-secondary{color:var(--text-secondary)}
-.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}
-.flex{display:flex}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
-.gap-6{gap:6px}.gap-8{gap:8px}.gap-10{gap:10px}.gap-12{gap:12px}.gap-16{gap:16px}.flex-1{flex:1}.hidden{display:none!important}.w-full{width:100%}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.mt-6{margin-top:6px}.mt-10{margin-top:10px}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-6{margin-bottom:6px}.mb-10{margin-bottom:10px}
+.flex{display:flex}.flex-between{display:flex;justify-content:space-between;align-items:center}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+.gap-4{gap:4px}.gap-6{gap:6px}.gap-8{gap:8px}.gap-10{gap:10px}.gap-12{gap:12px}.gap-16{gap:16px}.flex-1{flex:1}.hidden{display:none!important}.w-full{width:100%}
 .flex-wrap{flex-wrap:wrap}
 
 /* ============ Responsive ============ */
@@ -344,6 +363,12 @@ textarea{min-height:160px;resize:vertical;line-height:1.8;overflow-y:auto}
 }
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 
+@media (pointer: coarse) {
+  .btn, .chip, .tab-item, .bank-item, .setting-item { min-height: 44px; }
+  .color-dot { min-height: 30px; min-width: 30px; }
+  .btn-sm { min-height: 36px; }
+}
+
 </style>
 </head>
 <body>
@@ -361,6 +386,11 @@ textarea{min-height:160px;resize:vertical;line-height:1.8;overflow-y:auto}
     <button class="btn btn-outline" onclick="showMergeModal()" style="padding:10px 18px">🔀 合并</button>
   </div>
   <div id="banksContainer"></div>
+  <input type="file" id="csvFileInput" class="file-input" accept=".csv,.txt,.md" onchange="handleFileImport(this)">
+  <input type="file" id="wordFileInput" class="file-input" accept=".docx" onchange="handleWordImport(this)">
+  <input type="file" id="pdfFileInput" class="file-input" accept=".pdf" onchange="handlePdfImport(this)">
+  <input type="file" id="fileQuestionsInput" class="file-input" accept=".csv,.txt,.md" onchange="handleSplitFileImportQ(this)">
+  <input type="file" id="fileAnswersInput" class="file-input" accept=".csv,.txt,.md" onchange="handleSplitFileImportA(this)">
 </div>
 
 <!-- ====== 做题页面 ====== -->
@@ -421,18 +451,22 @@ function checkAuth() {
 function showAuthModal() {
   localStorage.removeItem('memorize_auth_data');
   let attempts = 0, locked = false;
-  const ov = document.createElement('div');
-  ov.className = 'modal-overlay';
+  // 隐藏所有页面内容，显示简洁验证页
+  var pages = document.querySelectorAll('.page');
+  for (var p = 0; p < pages.length; p++) pages[p].style.display = 'none';
+  var tabBar = document.querySelector('.tab-bar');
+  if (tabBar) tabBar.style.display = 'none';
+  var ov = document.createElement('div');
   ov.id = 'authModal';
-  ov.style.zIndex = '9999';
-  ov.innerHTML = `<div class="modal" style="border-radius:var(--radius);max-width:340px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:24px 20px">
-    <div style="text-align:center;font-size:48px;margin-bottom:12px">🔐</div>
-    <h3 style="text-align:center;margin-bottom:6px">授权验证</h3>
-    <p class="text-sm text-secondary" style="text-align:center;margin-bottom:16px">请输入授权密码，有效期 10 分钟</p>
+  ov.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:9999;padding:20px';
+  ov.innerHTML = `<div style="width:100%;max-width:340px;text-align:center">
+    <div style="font-size:48px;margin-bottom:12px">🔐</div>
+    <h3 style="margin-bottom:6px;font-size:20px;font-weight:700;color:var(--text)">授权验证</h3>
+    <p style="color:var(--text-secondary);font-size:14px;margin-bottom:16px">请输入授权密码，有效期 10 分钟</p>
     <input type="text" inputmode="numeric" id="authInput" placeholder="输入密码" autocomplete="off" style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:20px;text-align:center;letter-spacing:6px">
     <p class="text-sm" id="authError" style="text-align:center;color:var(--danger);margin-top:10px;display:none"></p>
-    <button class="btn btn-primary btn-block mt-12" id="authBtn">验证</button>
-    <p class="text-sm text-secondary" style="text-align:center;margin-top:16px">请联系微信获取密码</p>
+    <button class="btn btn-primary btn-block mt-12" id="authBtn" style="margin-top:12px">验证</button>
+    <p style="color:var(--text-tertiary);font-size:13px;margin-top:16px">请联系微信获取密码</p>
   </div>`;
   document.body.appendChild(ov);
 
@@ -457,6 +491,10 @@ function showAuthModal() {
         permanent: true
       }));
       ov.remove();
+      var pages2 = document.querySelectorAll('.page');
+      for (var q = 0; q < pages2.length; q++) pages2[q].style.display = '';
+      var tb2 = document.querySelector('.tab-bar');
+      if (tb2) tb2.style.display = '';
       try { initApp(); } catch(e) { console.error('initApp error:', e); showFatalError(e.message || '初始化异常'); }
       return;
     }
@@ -472,6 +510,10 @@ function showAuthModal() {
         permanent: isLast
       }));
       ov.remove();
+      var pages3 = document.querySelectorAll('.page');
+      for (var r = 0; r < pages3.length; r++) pages3[r].style.display = '';
+      var tb3 = document.querySelector('.tab-bar');
+      if (tb3) tb3.style.display = '';
       try { initApp(); } catch(e) { console.error('initApp error:', e); showFatalError(e.message || '初始化异常'); }
       return;
     }
@@ -531,7 +573,18 @@ function getPresetData_7666() {
   return {
     banks: {
       'preset_edu': { id:'preset_edu', name:'教育学简答题（示例）', createdAt: Date.now(), updatedAt: Date.now(), cards: eduCards },
-      'preset_med': { id:'preset_med', name:'内科护理学简答题（示例）', createdAt: Date.now()+1000, updatedAt: Date.now()+1000, cards: medCards }
+      'preset_med': { id:'preset_med', name:'内科护理学简答题（示例）', createdAt: Date.now()+1000, updatedAt: Date.now()+1000, cards: medCards },
+      'preset_fanli': { id:'preset_fanli', name:'范例', createdAt: Date.now()+2000, updatedAt: Date.now()+2000, cards: [
+        { id:'f92', question:'92.简述贯彻说服教育法的要求。', answer:'（1）要有明确的目的性和针对性。\\n（2）要富有知识性和趣味性。\\n（3）注意时机，善于捕捉教育契机。\\n（4）以诚待人。', koujue:'地（目的性）震（针对性）知（知识性）趣（趣味性），奇迹（教育契机）成人', chapter:'教育学' },
+        { id:'f93', question:'93.简述贯彻榜样示范法的要求。', answer:'（1）选好学习的榜样。选好榜样是学习榜样的前提。我们应根据时代要求和学生实际情况，指导他们选择好学习的榜样，获得前进的明确方向和巨大动力。\\n（2）激起学生对榜样的敬慕之情。要使榜样能对学生产生激励作用，推动他们前进，就需要引导学生了解榜样。\\n（3）引导学生用榜样来调节行为，提高修养。要及时地把学生的情感、冲动引导到行动上来，把敬慕之情转化为道德行为和习惯，逐步巩固、加深这种情感。', koujue:'好（选好榜样）情（敬慕之情）行（调节行为）', chapter:'教育学' },
+        { id:'f94', question:'94.简述中学德育的途径。', answer:'（1）思想政治课与其他学科教学。\\n（2）社会实践活动。\\n（3）课外活动。\\n（4）共青团组织的活动。\\n（5）班会、校会、周会、晨会。\\n（6）班主任工作。', koujue:'一教（学科教学）二班（班会和班主任工作）三活', chapter:'教育学' },
+        { id:'f95', question:'95.简述班集体的发展阶段。', answer:'（1）组建阶段：学生初进学校，同学们尽管形式上同属一个班级，实际上是一个个孤立的个体。\\n（2）核心形成阶段：同学之间开始相互了解，在班主任的引导培养下，涌现出了一批积极分子。\\n（3）发展阶段：班集体已成为教育主体。多数学生无须外在监督，已能自己管理和教育自己。\\n（4）成熟阶段：班集体趋向成熟，学生积极参与班级活动，形成强有力的舆论和班风。', koujue:'组（组建阶段）合（核心形成阶段）法（发展阶段）术（成熟阶段）', chapter:'教育学' },
+        { id:'f96', question:'96.简述班集体形成标志。', answer:'（1）坚定正确的政治方向与明确的奋斗目标。\\n（2）健全的组织机构与坚强的领导核心。\\n（3）严格的规章制度与严明的组织纪律。\\n（4）正确的集体舆论与良好的班风。', koujue:'健全班风是组织的目标', chapter:'教育学' },
+        { id:'f97', question:'97.简述良好班集体的培养措施。', answer:'（1）确定班集体的发展目标。\\n（2）建立班集体的核心队伍。\\n（3）建立班集体的正常秩序。\\n（4）组织形式多样的教育活动。\\n（5）培养正确的舆论和良好的班风。', koujue:'目标（发展目标）核心（核心队伍），治（正常秩序）活（教育活动）班风', chapter:'教育学' },
+        { id:'f98', question:'98.简述班主任的个别教育工作。', answer:'班主任对优等生的个别教育工作：\\n（1）严格要求，防止自满。\\n（2）不断激励，提高抗挫折能力。\\n（3）消除嫉妒，公平竞争。\\n（4）发挥优势，带动全班。\\n口诀：严要求，常激励，消嫉妒，用优势\\n\\n班主任对中等生的个别教育工作：\\n（1）重视对中等生的教育。\\n（2）根据中等生的不同特点有的放矢地进行个别教育。\\n（3）给中等生创造充分展示自己才能的机会，增强他们的自信心。\\n口诀：重视个别（个别教育）与食（展示）材（才能）\\n\\n班主任对后进生的个别教育工作：\\n（1）关心热爱与严格要求相结合。\\n（2）培养和激发学习动机。\\n（3）善于发掘后进生身上的"闪光点"，增强其自信心和集体荣誉感。\\n（4）针对后进生的个别差异，因材施教。\\n（5）对后进生的教育要持之以恒。', koujue:'恒（持之以恒）心（关心热爱）才（因材施教）发（培养与激发）光（闪光点）', chapter:'教育学' },
+        { id:'f99', question:'99.简述维持课堂纪律的策略。', answer:'（1）建立有效的课堂规则。\\n（2）合理组织课堂教学。\\n（3）做好课堂监控。\\n（4）培养学生的自律品质。', koujue:'自（自律）建（课堂监控）贵（规则）族（合理组织）', chapter:'教育学' },
+        { id:'f100', question:'100.简述教师教学能力的结构。', answer:'（1）教学认知能力。教学认知能力主要是指教师对教学目标、教学任务、学习者的特点、某一具体内容的教学方法与策略的选择以及教学情境的分析和判断能力。\\n（2）教学设计能力。教学设计能力是指教师事先对课堂教学的目标、内容、方法等重要的教学因素进行周密而详细的计划和安排。\\n（3）教学操作能力。教学操作能力主要是指教师在实现教学目标的过程中解决具体教学问题的能力。\\n（4）教学监控能力。教学监控能力是指教师为了保证教学成功，达到预期的教学目标，而在教学的全过程中，将教学活动本身作为意识的对象，不断对其进行积极、主动的计划、检查、评价、反馈、控制和调节的能力。', koujue:'自（教学认知能力）己（教学设计能力）操（教学操作能力）控（教学监控能力）', chapter:'教育学' }
+      ] }
     },
     settings: { density:'low', darkMode:false, fontSize:16, voiceEnabled:false, voiceRate:0.9, voicePitch:1.0 },
     seqProgress: {}, favorites: {}, wrongBooks: {}
@@ -737,7 +790,7 @@ function autoGenerateBlanks(cards, density, seed) {
     // 🏷️ 手动挖空：检测 @...@ 标记
     const atMatches = a.match(/@/g);
     if (atMatches && atMatches.length >= 2 && atMatches.length % 2 === 0) {
-      const blanks = [];
+      let blanks = [];
       const re = /@([^@]+)@/g;
       let m;
       while ((m = re.exec(a)) !== null) {
@@ -846,7 +899,24 @@ function parseImportText(rawText) {
       const idx = t.indexOf(sep);
       if (idx > 0 && idx < t.length - sep.length) {
         if (sep === ':' && (t.indexOf(':') !== t.lastIndexOf(':') || /^\d+:\d/.test(t) || /^https?:/.test(t))) continue;
-        cards.push({ question: t.substring(0, idx).trim(), answer: t.substring(idx + sep.length).trim() });
+        const q = t.substring(0, idx).trim();
+        var rest = t.substring(idx + sep.length).trim();
+
+        // 尝试从剩余部分提取口诀：查找分隔符，取最后一次出现位置
+        var koujue = '';
+        var bestJ = -1;
+        for (var k = 0; k < seps.length; k++) {
+          var j = rest.lastIndexOf(seps[k]);
+          if (j > 0 && j < rest.length - seps[k].length && j > bestJ) bestJ = j;
+        }
+        if (bestJ > 0) {
+          koujue = rest.substring(bestJ + 1).trim();
+          rest = rest.substring(0, bestJ).trim();
+          // 口诀不要太长（超过答案一半且>20字则不是口诀）
+          if (koujue.length > Math.max(rest.length * 0.6, 20)) { koujue = ''; rest = rest + ' | ' + koujue; }
+        }
+
+        cards.push({ question: q, answer: rest, koujue: koujue });
         found = true; break;
       }
     }
@@ -1024,6 +1094,89 @@ function copyExportContent(btn) {
 }
 function showToast(msg) { const c = $('toastContainer'); if (!c) return; const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; c.appendChild(t); setTimeout(function() { t.remove(); }, 2300); }
 
+// iPad 友好的题库选择弹窗（替代原生 select）
+var _bankPickerCallback = null;
+function showBankPicker(currentId, onPick) {
+  var banks = Object.values(appData.banks).sort(function(a, b) { return (a.order != null ? a.order : a.createdAt) - (b.order != null ? b.order : b.createdAt); });
+  _bankPickerCallback = onPick;
+  var ov = document.createElement('div'); ov.className = 'modal-overlay'; ov.style.animation = 'none';
+  var html = '<div class="modal" style="animation:none;border-radius:var(--radius);max-width:400px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px;max-height:70dvh;overflow-y:auto"><h3 style="margin-bottom:4px;font-size:18px">📚 选择题库</h3><p style="color:var(--text-secondary);font-size:13px;margin-bottom:14px">点击选择一个题库</p>';
+  for (var i = 0; i < banks.length; i++) {
+    var b = banks[i];
+    var isActive = b.id === currentId;
+    html += '<div class="bank-item" style="cursor:pointer;margin-bottom:6px;' + (isActive ? 'border:2px solid var(--primary);background:var(--primary-light)' : '') + '" onclick="var cb=_bankPickerCallback;this.closest(\'.modal-overlay\').remove();if(cb)cb(\'' + b.id + '\')"><div class="info"><div class="name">' + escapeHtml(b.name) + '</div><div class="meta">' + b.cards.length + ' 题</div></div></div>';
+  }
+  html += '</div>';
+  ov.innerHTML = html;
+  document.body.appendChild(ov);
+  ov.addEventListener('click', function(e) { if (e.target === ov) { ov.remove(); _bankPickerCallback = null; } });
+}
+
+// 朗读声音弹窗（代替原生 select，避免 iPad 旋转）
+var _availableVoices = [];
+function showVoicePicker() {
+  loadVoices(); // 确保语音列表是最新的
+  var currentVal = document.getElementById('voiceSelect').value;
+  var ov = document.createElement('div'); ov.className = 'modal-overlay'; ov.style.animation = 'none';
+  var html = '<div class="modal" style="animation:none;border-radius:var(--radius);max-width:400px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px;max-height:70dvh;overflow-y:auto"><h3 style="margin-bottom:4px;font-size:18px">🎙️ 选择朗读声音</h3><p style="color:var(--text-secondary);font-size:13px;margin-bottom:14px">点击选择一个声音</p>';
+  // 自动选择选项
+  var isActive = currentVal === '';
+  html += '<div style="cursor:pointer;padding:10px 12px;margin-bottom:6px;border-radius:8px;' + (isActive ? 'border:2px solid var(--primary);background:var(--primary-light);font-weight:600' : 'border:2px solid var(--border)') + '" onclick="updateVoiceName(\'\');this.closest(\'.modal-overlay\').remove()">自动选择</div>';
+  for (var i = 0; i < _availableVoices.length; i++) {
+    var v = _availableVoices[i];
+    isActive = v.name === currentVal;
+    html += '<div style="cursor:pointer;padding:10px 12px;margin-bottom:6px;border-radius:8px;' + (isActive ? 'border:2px solid var(--primary);background:var(--primary-light);font-weight:600' : 'border:2px solid var(--border)') + '" onclick="updateVoiceName(\'' + v.name.replace(/"/g, '&quot;').replace(/'/g, "\\'") + '\');this.closest(\'.modal-overlay\').remove()">' + escapeHtml(v.name) + ' <span style="color:var(--text-tertiary);font-size:12px">' + escapeHtml(v.lang) + '</span></div>';
+  }
+  html += '</div>';
+  ov.innerHTML = html;
+  document.body.appendChild(ov);
+  ov.addEventListener('click', function(e) { if (e.target === ov) ov.remove(); });
+}
+
+// 朗读模式弹窗（代替原生 select，避免 iPad 旋转）
+function showReadModePicker() {
+  var currentVal = document.getElementById('readModeSelect').value;
+  var modes = [
+    {value:'once', label:'仅读一遍'},
+    {value:'loop', label:'循环朗读'},
+    {value:'auto-next', label:'自动下一题'},
+    {value:'three-times', label:'每题三遍'}
+  ];
+  var ov = document.createElement('div'); ov.className = 'modal-overlay'; ov.style.animation = 'none';
+  var html = '<div class="modal" style="animation:none;border-radius:var(--radius);max-width:400px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px;max-height:70dvh;overflow-y:auto"><h3 style="margin-bottom:4px;font-size:18px">🔊 朗读模式</h3><p style="color:var(--text-secondary);font-size:13px;margin-bottom:14px">点击选择一个模式</p>';
+  for (var i = 0; i < modes.length; i++) {
+    var m = modes[i];
+    var isActive = m.value === currentVal;
+    html += '<div style="cursor:pointer;padding:10px 12px;margin-bottom:6px;border-radius:8px;' + (isActive ? 'border:2px solid var(--primary);background:var(--primary-light);font-weight:600' : 'border:2px solid var(--border)') + '" onclick="updateReadMode(\'' + m.value + '\');this.closest(\'.modal-overlay\').remove()">' + m.label + '</div>';
+  }
+  html += '</div>';
+  ov.innerHTML = html;
+  document.body.appendChild(ov);
+  ov.addEventListener('click', function(e) { if (e.target === ov) ov.remove(); });
+}
+
+// 口诀页题库选择弹窗（代替原生 select，避免 iPad 旋转）
+function showKjBankPicker() {
+  var currentVal = document.getElementById('kjBankSelect').value;
+  var banks = Object.values(appData.banks).sort(function(a, b) { return (a.order != null ? a.order : a.createdAt) - (b.order != null ? b.order : b.createdAt); });
+  var allKjBanks = [];
+  for (var i = 0; i < banks.length; i++) {
+    var kjCards = banks[i].cards.filter(function(x) { return x.koujue; });
+    if (kjCards.length) allKjBanks.push({ bankId: banks[i].id, bankName: banks[i].name, cards: kjCards });
+  }
+  var ov = document.createElement('div'); ov.className = 'modal-overlay'; ov.style.animation = 'none';
+  var html = '<div class="modal" style="animation:none;border-radius:var(--radius);max-width:400px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px;max-height:70dvh;overflow-y:auto"><h3 style="margin-bottom:4px;font-size:18px">💡 选择口诀库</h3><p style="color:var(--text-secondary);font-size:13px;margin-bottom:14px">点击选择一个题库</p>';
+  for (var i = 0; i < allKjBanks.length; i++) {
+    var b = allKjBanks[i];
+    var isActive = b.bankId === currentVal;
+    html += '<div style="cursor:pointer;padding:10px 12px;margin-bottom:6px;border-radius:8px;' + (isActive ? 'border:2px solid var(--primary);background:var(--primary-light);font-weight:600' : 'border:2px solid var(--border)') + '" onclick="var sel=document.getElementById(\'kjBankSelect\');sel.value=\'' + b.bankId + '\';this.closest(\'.modal-overlay\').remove();kjCategoryFilter=null;renderKoujueCards()">' + escapeHtml(b.bankName) + ' <span style="color:var(--text-tertiary);font-size:12px">' + b.cards.length + ' 条</span></div>';
+  }
+  html += '</div>';
+  ov.innerHTML = html;
+  document.body.appendChild(ov);
+  ov.addEventListener('click', function(e) { if (e.target === ov) ov.remove(); });
+}
+
 function fuzzyMatch(u, a) {
   if (!u && !a) return true;
   if (!u || !a) return false;
@@ -1070,6 +1223,26 @@ function init() {
   }
 }
 
+function showIntroModal() {
+  var count = parseInt(localStorage.getItem('memorize_intro_count') || '0', 10);
+  if (count >= 5) return;
+  localStorage.setItem('memorize_intro_count', String(count + 1));
+
+  var msg = '<div style="text-align:left;line-height:1.8;font-size:14px">' +
+    '<div style="font-size:20px;text-align:center;margin-bottom:14px">📖 欢迎使用挖空背诵工具</div>' +
+    '<div style="margin-bottom:12px"><b>📝 两种导入方式：</b></div>' +
+    '<div style="margin-bottom:8px"><b>方式一 · 直接粘贴：</b><br>在"题库"页点 <b>＋ 导入</b>，将题目粘贴进文本框。<br>格式：<code>题目|答案</code> 或 <code>题目：答案</code>，一行一题。</div>' +
+    '<div style="margin-bottom:8px"><b>方式二 · 豆包导入：</b><br>在豆包 App 中长按对话 → 复制全文 → 回到工具点 <b>＋ 导入</b>，粘贴后自动识别。</div>' +
+    '<div style="margin-bottom:14px;color:var(--text-secondary);font-size:12px">🔐 数据存储在浏览器本地，更换设备后需重新导入。</div>' +
+    '<div style="text-align:center;color:var(--text-tertiary);font-size:11px">提示 ' + count + '/5 次 · 点击下方按钮关闭</div>' +
+    '</div>';
+
+  var ov = document.createElement('div'); ov.className = 'modal-overlay'; ov.style.animation = 'none';
+  ov.innerHTML = '<div class="modal" style="animation:none;border-radius:var(--radius);max-width:400px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:24px 20px;max-height:80dvh;overflow-y:auto">' + msg + '<button class="btn btn-primary btn-block" style="margin-top:16px" onclick="this.closest(\'.modal-overlay\').remove()">知道了 👍</button></div>';
+  document.body.appendChild(ov);
+  ov.addEventListener('click', function(e) { if (e.target === ov) ov.remove(); });
+}
+
 function initApp() {
   try {
   // 试用版：每30秒检查授权是否过期
@@ -1101,18 +1274,44 @@ function initApp() {
     if (e.target && e.target.classList.contains('blank-input')) _lastBlankInput = e.target;
   });
 
-  document.addEventListener('keydown', e => {
+  function handleBlankEnter(e) {
     var activeEl = document.activeElement;
     // 如果当前焦点不在输入框上，用上次跟踪的
     if (!activeEl || !activeEl.classList.contains('blank-input')) {
       if (_lastBlankInput && document.body.contains(_lastBlankInput)) {
         activeEl = _lastBlankInput;
       } else {
+        // 焦点不在输入框 → 全局快捷键（仅练习模式）
+        if (practiceState && practiceState.cards && $('practiceActive').style.display !== 'none' && $('practiceResult').style.display === 'none') {
+          if (e.key === 'ArrowLeft' || e.keyCode === 37) {
+            e.preventDefault();
+            if (practiceState.index > 0) { saveCurrentAnswers(); practiceState.index--; renderPracticeCard(); }
+            return;
+          }
+          if (e.key === 'ArrowRight' || e.keyCode === 39) {
+            e.preventDefault();
+            if (practiceState.index < practiceState.total - 1) { saveCurrentAnswers(); practiceState.index++; renderPracticeCard(); }
+            else { saveCurrentAnswers(); practiceState.index++; renderPracticeCard(); }
+            return;
+          }
+          if (e.key === ' ' || e.keyCode === 32 || e.code === 'Space') {
+            e.preventDefault();
+            if (appData.settings.voiceEnabled) speakCard();
+            else showToast('请先在设置中开启语音朗读');
+            return;
+          }
+          if (e.key === 'Enter' || e.keyCode === 13 || e.code === 'Enter') {
+            e.preventDefault();
+            checkMyAnswers();
+            return;
+          }
+        }
         return;
       }
     }
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.keyCode === 13 || e.code === 'Enter') {
       e.preventDefault();
+      e.stopPropagation();
       // 练习模式：先用 saveCurrentAnswers 保存
       if (practiceState && practiceState.cards) {
         saveCurrentAnswers();
@@ -1154,10 +1353,12 @@ function initApp() {
       if (target === -1) {
         activeEl.blur();
       } else {
-        inputs[target].focus();
+        // 移动端 setTimeout 确保焦点切换可靠
+        setTimeout(function() { inputs[target].focus(); }, 10);
       }
     }
-  });
+  }
+  document.addEventListener('keydown', handleBlankEnter);
 
   // 首次打开检测：如果完全没数据，提示文件位置注意事项
   const banksExist = Object.keys(appData.banks).length > 0;
@@ -1171,6 +1372,7 @@ function initApp() {
   }
 
   switchTab('banks');
+  setTimeout(function() { showIntroModal(); }, 600);
   } catch(e) {
     console.error('initApp error:', e);
     showFatalError(e.message || '初始化异常');
@@ -1200,8 +1402,8 @@ function applySettings() {
   document.documentElement.setAttribute('data-color', s.color || 'teal');
   document.documentElement.style.setProperty('--font-size', s.fontSize + 'px');
   // 更新顶部状态栏颜色
-  const themeLight = {teal:'#f0fdfa',purple:'#faf5ff',blue:'#f0f7ff',rose:'#fff1f5',pink:'#fdf2f8',green:'#f0fdf4',yellow:'#fefce8',bw:'#f5f5f5'};
-  const themeDark = {teal:'#042f2e',purple:'#1a0a2e',blue:'#0a1628',rose:'#1f0a14',pink:'#200a18',green:'#051a10',yellow:'#1a1508',bw:'#1a1a1a'};
+  const themeLight = {teal:'#f0fdfa',purple:'#faf5ff',blue:'#f0f7ff',rose:'#fff1f5',pink:'#fdf2f8',green:'#f0fdf4',yellow:'#fefce8',bw:'#f5f5f5',cream:'#fffaf3',sage:'#f4faf0'};
+  const themeDark = {teal:'#042f2e',purple:'#1a0a2e',blue:'#0a1628',rose:'#1f0a14',pink:'#200a18',green:'#051a10',yellow:'#1a1508',bw:'#1a1a1a',cream:'#2a2018',sage:'#1a2a1a'};
   const mc = document.getElementById('themeColorMeta');
   if (mc) mc.content = s.darkMode ? (themeDark[s.color] || '#042f2e') : (themeLight[s.color] || '#f0fdfa');
 }
@@ -1239,6 +1441,81 @@ function switchTab(name) {
 }
 
 // ==================== 题库管理 ====================
+
+// ==================== 全局搜索 ====================
+var _globalSearchTimer = null;
+function doGlobalSearch() {
+  clearTimeout(_globalSearchTimer);
+  _globalSearchTimer = setTimeout(_doGlobalSearchReal, 200);
+}
+function _doGlobalSearchReal() {
+  var q = ($('globalSearchInput') || {}).value;
+  var resultsDiv = $('globalSearchResults');
+  var banksDiv = $('banksListContainer');
+  if (!resultsDiv || !banksDiv) return;
+  q = (q || '').trim();
+  if (!q) {
+    resultsDiv.style.display = 'none';
+    banksDiv.style.display = '';
+    return;
+  }
+  var results = [];
+  var banks = Object.values(appData.banks);
+  for (var i = 0; i < banks.length; i++) {
+    var bank = banks[i];
+    for (var j = 0; j < bank.cards.length; j++) {
+      var card = bank.cards[j];
+      var text = (card.question || '') + ' ' + (card.answer || '');
+      if (text.toLowerCase().indexOf(q.toLowerCase()) !== -1) {
+        results.push({ bankId: bank.id, bankName: bank.name, cardIndex: j, card: card });
+      }
+    }
+  }
+  if (!results.length) {
+    banksDiv.style.display = 'none';
+    resultsDiv.style.display = '';
+    resultsDiv.innerHTML = '<div style="text-align:center;padding:40px 20px;color:var(--text-tertiary)"><div style="font-size:40px;margin-bottom:10px">🔍</div><div>没有找到包含 "<b>' + escapeHtml(q) + '</b>" 的题目</div></div>';
+    return;
+  }
+  banksDiv.style.display = 'none';
+  resultsDiv.style.display = '';
+  var html = '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">找到 <b>' + results.length + '</b> 条结果</div>';
+  for (var i = 0; i < Math.min(results.length, 50); i++) {
+    var r = results[i];
+    var qHighlight = highlightMatch(r.card.question || '', q);
+    var aPreview = (r.card.answer || '').substring(0, 60);
+    if (r.card.answer && r.card.answer.length > 60) aPreview += '...';
+    html += '<div style="cursor:pointer;padding:12px 14px;margin-bottom:8px;background:var(--bg-card);border-radius:var(--radius-sm);border:1px solid var(--border)" onclick="navigateToSearchResult(\'' + r.bankId + '\', ' + r.cardIndex + ')">' +
+      '<div style="font-size:14px;font-weight:600;margin-bottom:4px;color:var(--text)">' + qHighlight + '</div>' +
+      '<div style="font-size:12px;color:var(--text-tertiary);margin-bottom:4px">' + escapeHtml(aPreview) + '</div>' +
+      '<div style="font-size:11px;color:var(--primary)">📚 ' + escapeHtml(r.bankName) + '</div>' +
+    '</div>';
+  }
+  if (results.length > 50) {
+    html += '<div style="text-align:center;font-size:12px;color:var(--text-tertiary);padding:8px">仅显示前 50 条，请输入更精确的关键词</div>';
+  }
+  resultsDiv.innerHTML = html;
+}
+function highlightMatch(text, query) {
+  var idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return escapeHtml(text);
+  var before = escapeHtml(text.substring(0, idx));
+  var match = escapeHtml(text.substring(idx, idx + query.length));
+  var after = escapeHtml(text.substring(idx + query.length));
+  return before + '<mark style="background:#fef08a;color:#854d0e;padding:0 2px;border-radius:2px">' + match + '</mark>' + after;
+}
+function navigateToSearchResult(bankId, cardIndex) {
+  var bank = appData.banks[bankId];
+  if (!bank) return;
+  // 先设 sessionStorage，让 renderBrowseStart 加载正确题库
+  sessionStorage.setItem('lastPracticeBank', bankId);
+  switchTab('browse');
+  // 覆盖为详情视图
+  browseState = { bankId: bankId, bankName: bank.name, cards: bank.cards, index: cardIndex, view: 'detail', filter: 'all', starSub: 'all', searchQuery: '', _filteredCards: bank.cards, answersHidden: false };
+  renderBrowseDetail();
+  window.scrollTo(0, 0);
+}
+
 function renderBanks() {
   const c = $('banksContainer');
   if (!c) return;
@@ -1257,32 +1534,33 @@ function renderBanks() {
     return;
   }
 
-  c.innerHTML = banks.map((b, idx) => {
+  // 全局搜索栏
+  var totalCards = 0;
+  banks.forEach(function(b) { totalCards += b.cards.length; });
+  var searchHtml = '<div style="margin-bottom:14px"><input type="search" id="globalSearchInput" placeholder="🔍 搜索全部 ' + totalCards + ' 道题..." style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:14px" oninput="doGlobalSearch()" onfocus="doGlobalSearch()"></div><div id="globalSearchResults" style="display:none"></div><div id="banksListContainer">';
+  c.innerHTML = searchHtml;
+    c.innerHTML += banks.map((b, idx) => {
     const isFirst = idx === 0;
     const isLast = idx === banks.length - 1;
-    return `<div class="bank-item" data-bank-id="${b.id}" data-bank-idx="${idx}">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div class="info" onclick="startPracticeSetup('${b.id}')" style="flex:1;min-width:0">
-          <div class="name" onclick="event.stopPropagation();renameBankPrompt(this, '${b.id}')" title="点击修改名称" style="cursor:pointer">${escapeHtml(b.name)}</div>
-          <div class="meta">
-            <span>${b.cards.length} 题</span>
-            <span>·</span>
-            <span>${fmtDate(b.createdAt)}</span>
-            <span style="margin-left:8px;display:inline-flex;gap:2px">
-              <button class="btn-sort" onclick="event.stopPropagation();event.preventDefault();moveBankUp('${b.id}')"${isFirst ? ' disabled style="opacity:.2"' : ''} title="上移">←</button>
-              <button class="btn-sort" onclick="event.stopPropagation();event.preventDefault();moveBankDown('${b.id}')"${isLast ? ' disabled style="opacity:.2"' : ''} title="下移">→</button>
-            </span>
-          </div>
-        </div>
-        <div class="actions" style="flex-shrink:0">
-          <button class="btn-icon" onclick="event.stopPropagation();editBank('${b.id}')" title="编辑挖空">✏️</button>
-          <button class="btn-icon" onclick="event.stopPropagation();exportBank('${b.id}')" title="导出文本">📤</button>
-          <button class="btn-icon" onclick="event.stopPropagation();exportBankFull('${b.id}')" title="导出含挖空">💾</button>
-          <button class="btn-icon" onclick="event.stopPropagation();deleteBankConfirm('${b.id}')" title="删除">🗑️</button>
+    return `<div class="bank-item">
+      <div class="info" onclick="startPracticeSetup('${b.id}')" style="flex:1;min-width:0;cursor:pointer">
+        <div class="name" onclick="event.stopPropagation();renameBankPrompt(this, '${b.id}')" title="点击修改名称" style="cursor:pointer">${escapeHtml(b.name)}</div>
+        <div class="meta">
+          ${b.cards.length} 题${(() => { var wb = appData.wrongBooks && appData.wrongBooks[b.id]; var wc = 0; if (wb) { if (Array.isArray(wb)) wc = wb.length; else wc = Object.keys(wb).length; } return wc > 0 ? " | 错题 " + wc : ""; })()} | ${fmtDate(b.createdAt)}
+          <span style="margin-left:8px;display:inline-flex;gap:2px">
+            <button type="button" class="btn-sort" onclick="event.stopPropagation();event.preventDefault();moveBankUp('${b.id}')"${isFirst ? ' disabled' : ''} title="上移">↑</button>
+            <button type="button" class="btn-sort" onclick="event.stopPropagation();event.preventDefault();moveBankDown('${b.id}')"${isLast ? ' disabled' : ''} title="下移">↓</button>
+          </span>
         </div>
       </div>
+      <div class="actions">
+        <button class="btn-icon" onclick="event.stopPropagation();editBank('${b.id}')" title="编辑挖空">✏️</button>
+        <button class="btn-icon" onclick="event.stopPropagation();exportBank('${b.id}')" title="导出文本">📤</button>
+        <button class="btn-icon" onclick="event.stopPropagation();exportBankFull('${b.id}')" title="导出含挖空">💾</button>
+        <button class="btn-icon" onclick="event.stopPropagation();deleteBankConfirm('${b.id}')" title="删除">🗑️</button>
+      </div>
     </div>`;
-  }).join('');
+  }).join('') + '</div>';
 }
 
 // ==================== 题库排序 ====================
@@ -1339,8 +1617,9 @@ function renameBankPrompt(el, id) {
 	    saveData(appData);
 	    el.textContent = v;
 	  };
-	  input.onblur = save;
-	  input.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); save(); } if (e.key === 'Escape') { el.textContent = oldName; } };
+	  let cancelled = false;
+  input.onblur = () => { if (!cancelled) save(); };
+  input.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); save(); } if (e.key === 'Escape') { cancelled = true; el.textContent = oldName; } };
 	}
 
 	function deleteBankConfirm(id) {
@@ -1376,6 +1655,7 @@ function editBank(id) {
   showImportPreview(bank.name, cards);
 }
 
+
 function exportBank(id) {
   if (!isPermanentAuth()) { showToast('试用版不支持导出'); return; }
   const bank = appData.banks[id];
@@ -1409,40 +1689,151 @@ function exportBankFull(id) {
 }
 
 // ==================== 导入 ====================
+var _importFormat = 'auto';
 function showImportModal() {
-  const ov = document.createElement('div'); ov.className = 'modal-overlay'; ov.id = 'importModal';
-  ov.innerHTML = `<div class="modal"><div class="modal-header"><h2 class="modal-title">导入题库</h2><button class="btn btn-ghost btn-sm" style="min-width:40px;padding:8px" onclick="closeImportModal()">✕</button></div>
-    <div class="form-group"><label class="form-label">题库名称</label><input id="bankNameInput" type="text" placeholder="例如：生物第三章" style="padding:12px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:var(--font-size);width:100%"></div>
-    <div class="form-group" style="position:relative"><label class="form-label">粘贴题目</label><button class="btn btn-ghost btn-sm" onclick="toggleTextareaExpand()" style="position:absolute;top:0;right:0;padding:2px 8px;font-size:14px" title="放大/缩小文本框">⛶</button><textarea id="importTextarea" placeholder="每行一题，用 | 分隔题目和答案&#10;&#10;示例：&#10;光合作用的场所是|叶绿体&#10;植物细胞的基本结构包括|细胞壁、细胞膜、细胞质、细胞核"></textarea></div>
-    <div class="text-center text-sm text-secondary mb-12">—— 或者上传文件 ——</div>
-    <div class="form-group"><input type="file" id="csvFileInput" accept=".csv,.txt,.md" style="display:none"><button class="btn btn-outline btn-block" onclick="document.getElementById('csvFileInput').click()">📁 选择 TXT / CSV / MD 文件</button></div>
-    <div class="form-group"><input type="file" id="wordFileInput" accept=".docx" style="display:none"><button class="btn btn-outline btn-block" id="wordImportBtn" onclick="document.getElementById('wordFileInput').click()">📄 选择 Word 文件 (.docx)</button></div>
-    <div class="form-group"><input type="file" id="pdfFileInput" accept=".pdf" style="display:none"><button class="btn btn-outline btn-block" id="pdfImportBtn" onclick="document.getElementById('pdfFileInput').click()">📑 选择 PDF 文件 (.pdf)</button></div>
-    <div class="flex gap-6 mb-12" style="flex-wrap:wrap"><button class="btn btn-sm btn-outline" onclick="cleanEmptyLines()">🧹 删除空行</button><button class="btn btn-sm btn-outline" onclick="cleanNumberPrefix()">🔢 去编号前缀</button><button class="btn btn-sm btn-outline" onclick="cleanMergeLines()">↔️ 合并断行</button><button class="btn btn-sm btn-outline" onclick="cleanHtmlTags()">🏷️ 去HTML标签</button></div>
-    <div class="form-group"><label class="form-label">识别格式</label><select id="importFormat" style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:var(--font-size)"><option value="auto">🤖 自动检测（推荐）</option><option value="sep">📋 分隔符格式（| ： → = 等）</option><option value="jianda">📝 简答题格式（编号+口诀）</option><option value="qa">💬 Q&A格式（问/答 标记）</option><option value="hashpct">🏷️ #%格式（#题目 %答案）</option></select></div>
-    <div class="form-hint mb-16">💡 支持的分隔符：<b>|</b> <b>：</b> <b>:</b> <b>→</b> <b>=</b> <b>——</b> <b>-</b> <b>~</b> <b>Tab</b>。也支持简答题和 Q&A 格式。</div>
-    <div class="flex gap-10"><button class="btn btn-ghost flex-1" onclick="closeImportModal()">取消</button><button class="btn btn-primary flex-1" onclick="doImport()">预览 →</button></div></div>`;
+  var ov = document.createElement('div'); ov.id = 'importModal';
+  ov.style.cssText = 'display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:150;overflow-y:auto;padding:16px;padding-bottom:100px';
+  ov.innerHTML = '<div class="flex-between mb-8">' +
+    '<h2 style="font-size:18px;margin:0">📋 导入题库</h2>' +
+    '<button class="btn btn-sm" style="background:var(--border);border:none;min-width:40px;padding:8px;border-radius:8px;cursor:pointer;font-size:16px" onclick="closeImportModal()">✕</button>' +
+    '</div>' +
+    '<div class="card">' +
+    '<div class="form-group mb-10"><label class="form-label">题库名称</label>' +
+    '<input type="text" id="bankNameInput" placeholder="例如：生物第三章" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:var(--font-size)"></div>' +
+    '<div class="form-group mb-10"><label class="form-label">内容格式</label>' +
+    '<div class="chip-group mb-8" id="importFormatGroup">' +
+      '<span class="chip active" data-fmt="auto" onclick="selectImportFormat(\'auto\', this)">🤖 自动检测</span>' +
+      '<span class="chip" data-fmt="sep" onclick="selectImportFormat(\'sep\', this)">📋 分隔符</span>' +
+      '<span class="chip" data-fmt="jianda" onclick="selectImportFormat(\'jianda\', this)">📝 简答题</span>' +
+    '</div>' +
+    '<p class="form-hint" id="importFormatHint">自动识别粘贴内容的格式，推荐使用</p></div>' +
+    '<div class="form-group mb-10"><label class="form-label">题目内容</label>' +
+    '<p class="form-hint mb-8" id="importFormatExample"><code>题目|答案</code> 或 <code>题目|答案|口诀</code>，一行一题；挖空用<b>【】</b>标记，如 <code>光合作用场所是【叶绿体】</code></p>' +
+    '<textarea id="importTextarea" placeholder="每行一题，用 | 分隔\n\n示例：\n光合作用场所是|【叶绿体】|光→叶\n植物细胞结构包括|【细胞壁】【细胞膜】【细胞质】【细胞核】\n1.简述教党62号文|1.坚持【育人导向】，突出【价值引领】 2.坚持【遵循规律】，勇于【改革创新】|育人规律，问题协同" style="width:100%;min-height:180px;padding:12px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:var(--font-size);resize:vertical;font-family:inherit;line-height:1.6"></textarea>' +
+    '<div class="flex gap-8 mt-6">' +
+      '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="pasteFromTextarea(\'importTextarea\')">📋 粘贴</button>' +
+      '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="document.getElementById(\'csvFileInput\').click()">📂 上传</button>' +
+      '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="copyFromTextarea(\'importTextarea\')">📝 复制</button>' +
+      '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1;color:var(--danger)" onclick="clearTextareaById(\'importTextarea\')">🗑 清空</button>' +
+    '</div>' +
+    '<div class="flex gap-6 mt-6" style="align-items:center;flex-wrap:wrap">' +
+      '<button class="btn btn-sm btn-ghost" style="font-size:11px" onclick="cleanMergeLines()">↔️ 合并断行</button>' +
+      '<button class="btn btn-sm btn-ghost" style="font-size:11px" onclick="cleanEmptyLines()">🧹 去空行</button>' +
+      '<button class="btn btn-sm btn-ghost" style="font-size:11px" onclick="cleanHtmlTags()">🏷️ 去HTML</button>' +
+      '<span style="flex:1"></span>' +
+      '<button class="btn btn-sm" style="background:var(--primary-light);border:none;font-size:11px;color:var(--primary);font-weight:600" onclick="copyFormatPrompt()">🤖 AI格式话术</button>' +
+    '</div></div>' +
+    '<div style="border-top:2px dashed var(--border);padding-top:14px;margin-top:12px;margin-bottom:12px">' +
+      '<p style="font-size:14px;font-weight:600;margin-bottom:12px;color:var(--text)">📂 或：题目和答案分开粘贴</p>' +
+      '<p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">如果题目和答案分别在两个地方，分别粘贴到下面两个框，自动按顺序合并。</p>' +
+      '<div class="form-group mb-10"><label class="form-label">📝 题目（一行一题）</label>' +
+        '<textarea id="importQuestions" placeholder="1. 光合作用的场所是\n2. 植物细胞的基本结构包括" style="width:100%;min-height:80px;padding:10px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:14px;resize:vertical;font-family:inherit;line-height:1.6"></textarea>' +
+        '<div class="flex gap-8 mt-6 mb-6">' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="pasteFromTextarea(\'importQuestions\')">📋 粘贴</button>' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="document.getElementById(\'fileQuestionsInput\').click()">📂 上传</button>' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="copyFromTextarea(\'importQuestions\')">📝 复制</button>' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1;color:var(--danger)" onclick="clearTextareaById(\'importQuestions\')">🗑 清空</button>' +
+        '</div></div>' +
+      '<div class="form-group mb-8"><label class="form-label">✅ 答案（一行一答案）</label>' +
+        '<textarea id="importAnswers" placeholder="叶绿体\n细胞壁、细胞膜、细胞质、细胞核" style="width:100%;min-height:80px;padding:10px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:14px;resize:vertical;font-family:inherit;line-height:1.6"></textarea>' +
+        '<div class="flex gap-8 mt-6">' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="pasteFromTextarea(\'importAnswers\')">📋 粘贴</button>' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="document.getElementById(\'fileAnswersInput\').click()">📂 上传</button>' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1" onclick="copyFromTextarea(\'importAnswers\')">📝 复制</button>' +
+          '<button class="btn btn-sm btn-ghost" style="font-size:12px;flex:1;color:var(--danger)" onclick="clearTextareaById(\'importAnswers\')">🗑 清空</button>' +
+        '</div></div>' +
+      '<p style="font-size:12px;color:var(--text-tertiary);margin-bottom:12px">两边的第1行配对为第1题，第2行配对为第2题，以此类推。</p>' +
+    '</div>' +
+    '<button class="btn btn-primary btn-block mt-8" onclick="doImport()">📥 预览 →</button>' +
+    '</div>'
   document.body.appendChild(ov);
-  document.getElementById('csvFileInput').onchange = handleFileImport;
-  document.getElementById('wordFileInput').onchange = handleWordImport;
-  document.getElementById('pdfFileInput').onchange = handlePdfImport;
-  setTimeout(() => { var el = $('bankNameInput'); if (el) el.focus(); }, 350);
+  setTimeout(function() { var el = document.getElementById('bankNameInput'); if (el) el.focus(); }, 350);
 }
 
-function closeImportModal() { const m = $('importModal'); if (m) m.remove(); }
+function closeImportModal() { var m = document.getElementById('importModal'); if (m) m.remove(); }
 
-async function handleFileImport(e) {
-  const file = e.target.files[0]; if (!file) return;
+function selectImportFormat(fmt, el) {
+  _importFormat = fmt;
+  document.querySelectorAll('#importFormatGroup .chip').forEach(function(c) { c.classList.remove('active'); });
+  if (el) el.classList.add('active');
+  var hint = document.getElementById('importFormatHint');
+  var example = document.getElementById('importFormatExample');
+  var hints = {
+    'auto': '自动识别粘贴内容的格式，推荐使用',
+    'sep': '用分隔符（| ：→ = ——）连接题目和答案',
+    'jianda': '简答题格式：编号开头为题目，后续行为答案，支持【】挖空和口诀'
+  };
+  var examples = {
+    'auto': '<code>题目|答案</code> 或 <code>题目|答案|口诀</code>，一行一题；挖空用<b>【】</b>标记',
+    'sep': '示例：<code>光合作用场所是|叶绿体</code><br>支持的分隔符：<b>|</b> <b>：</b> <b>:</b> <b>→</b> <b>=</b> <b>——</b>',
+    'jianda': '示例：<code>1.简述教党62号文（三级）<br>1.坚持【育人导向】，突出【价值引领】<br>口诀：育人规律，问题协同</code>'
+  };
+  if (hint) hint.textContent = hints[fmt] || hints['auto'];
+  if (example) example.innerHTML = examples[fmt] || examples['auto'];
+}
+
+function toggleSplitImport() {
+  var sec = document.getElementById('splitImportSection');
+  var arrow = document.getElementById('splitImportArrow');
+  if (!sec) return;
+  var isOpen = sec.style.display !== 'none';
+  sec.style.display = isOpen ? 'none' : 'block';
+  if (arrow) {
+    arrow.textContent = isOpen ? '▸' : '▾';
+    arrow.style.transform = isOpen ? '' : 'rotate(0deg)';
+  }
+}
+
+function pasteFromTextarea(id) {
+  var ta = document.getElementById(id); if (!ta) return;
+  navigator.clipboard.readText().then(function(text) {
+    if (text) { ta.value = text; showToast('已粘贴（' + text.length + ' 字符）'); }
+    else showToast('剪贴板为空');
+  }).catch(function() { showToast('无法读取剪贴板，请长按手动粘贴'); });
+}
+
+function copyFromTextarea(id) {
+  var ta = document.getElementById(id); if (!ta) return;
+  var text = ta.value.trim();
+  if (!text) { showToast('文本框为空'); return; }
+  navigator.clipboard.writeText(text).then(function() { showToast('已复制'); })
+    .catch(function() { showToast('复制失败，请手动选择复制'); });
+}
+
+function clearTextareaById(id) {
+  var ta = document.getElementById(id); if (!ta) return;
+  if (!ta.value.trim()) return;
+  ta.value = ''; showToast('已清空');
+}
+
+async function handleSplitFileImportQ(el) {
+  var file = el.files[0]; if (!file) return;
+  var text = await file.text();
+  var ta = document.getElementById('importQuestions');
+  if (ta) ta.value = text;
+  showToast('题目文件已加载（' + text.length + ' 字符）');
+  el.value = '';
+}
+async function handleSplitFileImportA(el) {
+  var file = el.files[0]; if (!file) return;
+  var text = await file.text();
+  var ta = document.getElementById('importAnswers');
+  if (ta) ta.value = text;
+  showToast('答案文件已加载（' + text.length + ' 字符）');
+  el.value = '';
+}
+
+async function handleFileImport(el) {
+  const file = el.files[0]; if (!file) return;
   const text = await file.text();
   $('importTextarea').value = text;
   if (!$('bankNameInput').value) $('bankNameInput').value = file.name.replace(/\.(csv|txt)$/i, '');
   showToast('文件已加载');
 }
 
-async function handleWordImport(e) {
-  const file = e.target.files[0]; if (!file) return;
-  const btn = document.getElementById('wordImportBtn');
-  btn.disabled = true; btn.textContent = '⏳ 解析中...';
+async function handleWordImport(el) {
+  const file = el.files[0]; if (!file) return;
+  showToast('⏳ Word 解析中...');
   try {
     if (!window.mammoth) {
       await new Promise((resolve, reject) => {
@@ -1462,14 +1853,12 @@ async function handleWordImport(e) {
   } catch(err) {
     showToast('Word 解析失败：' + err.message);
   }
-  btn.disabled = false; btn.textContent = '📄 选择 Word 文件 (.docx)';
-  e.target.value = '';
+  el.value = '';
 }
 
-async function handlePdfImport(e) {
-  const file = e.target.files[0]; if (!file) return;
-  const btn = document.getElementById('pdfImportBtn');
-  btn.disabled = true; btn.textContent = '⏳ 解析中...';
+async function handlePdfImport(el) {
+  const file = el.files[0]; if (!file) return;
+  showToast('⏳ PDF 解析中...');
   try {
     if (!window.pdfjsLib) {
       await new Promise((resolve, reject) => {
@@ -1488,7 +1877,7 @@ async function handlePdfImport(e) {
       const content = await page.getTextContent();
       const pageText = content.items.map(it => it.str).join(' ');
       if (pageText.trim()) texts.push(pageText.trim());
-      btn.textContent = '⏳ 解析中... (' + i + '/' + pdf.numPages + ')';
+      // progress
     }
     const text = texts.join('\n\n');
     if (!text.trim()) { showToast('PDF 为空或无法读取文字（可能是扫描件）'); return; }
@@ -1498,15 +1887,8 @@ async function handlePdfImport(e) {
   } catch(err) {
     showToast('PDF 解析失败：' + err.message);
   }
-  btn.disabled = false; btn.textContent = '📑 选择 PDF 文件 (.pdf)';
-  e.target.value = '';
+  el.value = '';
 }
-
-function toggleTextareaExpand() {
-	  const ta = $('importTextarea'); if (!ta) return;
-	  if (ta.style.minHeight) { ta.style.minHeight = ''; ta.style.fontSize = ''; showToast('已缩小'); }
-	  else { ta.style.minHeight = '60vh'; ta.style.fontSize = '16px'; showToast('已放大，再次点击缩小'); }
-	}
 
 	// ==================== 格式清洗 ====================
 		function cleanEmptyLines() {
@@ -1514,14 +1896,7 @@ function toggleTextareaExpand() {
 		  ta.value = ta.value.split(/\n/).filter(l => l.trim()).join("\n");
 		  showToast("空行已删除");
 		}
-		function cleanNumberPrefix() {
-		  const ta = $("importTextarea"); if (!ta) return;
-		  ta.value = ta.value.split(/\n/).map(l => {
-		    return l.replace(/^[\d]+[\.\、\)）]\s*/, "").replace(/^[①-⑳]+[\.\、]?\s*/, "").replace(/^\([\d]+\)\s*/, "").replace(/^（[\d]+）\s*/, "").replace(/^\w\.\s*/, "").trim();
-		  }).join("\n");
-		  showToast("编号前缀已去除");
-		}
-		function cleanMergeLines() {
+				function cleanMergeLines() {
 		  const ta = $("importTextarea"); if (!ta) return;
 		  ta.value = ta.value.split(/\n/).reduce((acc, l) => {
 		    const t = l.trim();
@@ -1538,7 +1913,16 @@ function toggleTextareaExpand() {
 		  ta.value = ta.value.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/&quot;/g, "\"");
 		  showToast("HTML标签已去除");
 		}
-	// 解析含【】挖空标记的文本
+
+function copyFormatPrompt() {
+  var prompt = '请将以下内容整理为挖空背诵格式，严格按以下规则输出：\n\n【格式规则】\n1. 每行一题，题目和答案用 | 分隔\n2. 格式：题目|答案 或 题目|答案|口诀\n3. 如果答案中需要挖空，用【关键词】标记要挖掉的位置\n4. 每一道题的所有内容必须在同一行，不能换行\n5. 如有口诀，加在答案后面：题目|答案|口诀\n\n【输出示例】\n光合作用的场所是哪里|【叶绿体】|光→叶\n植物细胞的结构包括什么|【细胞壁】【细胞膜】【细胞质】【细胞核】\n1.简述教党62号文|1.坚持【育人导向】，突出【价值引领】 2.坚持【遵循规律】，勇于【改革创新】|育人规律，问题协同\n\n【要求】\n- 只输出整理好的题目，不要任何开场白、结束语或额外说明\n- 保持题目原文内容不变，只调整格式\n- 如果原内容缺少答案，答案部分留空\n- 所有挖空标记用【】，不要用@';
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(prompt).then(function() { showToast('📋 格式话术已复制，可粘贴到豆包/AI使用'); });
+  } else {
+    showToast('⚠️ 复制失败，请手动复制');
+  }
+}
+
 function parseMbakText(rawText) {
   const lines = rawText.split(/\n/), cards = [];
   for (const line of lines) {
@@ -1567,11 +1951,15 @@ function parseMbakText(rawText) {
 
 function doImport() {
   const name = $('bankNameInput').value.trim();
-  const raw = $('importTextarea').value.trim();
+  var raw = $('importTextarea').value.trim();
+  // 将字面量 \n 转为真正的换行符
+  raw = raw.replace(/\\n/g, '\n');
   if (!name) { showToast('请输入题库名称'); return; }
-  if (!raw) { showToast('请粘贴题目或上传文件'); return; }
+  var qSplitCheck = ($('importQuestions')?.value || '').trim().replace(/\\n/g, '\n');
+  var aSplitCheck = ($('importAnswers')?.value || '').trim().replace(/\\n/g, '\n');
+  if (!raw && !(qSplitCheck && aSplitCheck)) { showToast('请粘贴题目或上传文件'); return; }
 
-  var _fmtEl = $('importFormat'); const format = (_fmtEl ? _fmtEl.value : null) || 'auto';
+  const format = _importFormat || 'auto';
   let cards, hasBlanks = false;
 
   if (format === 'sep') {
@@ -1607,6 +1995,29 @@ function doImport() {
     else if (isQAFormat(raw)) { cards = parseQAText(raw); showToast('Q&A 格式'); }
     else if (isHashPctFormat(raw)) { cards = parseHashPctText(raw); showToast('#%格式'); }
     else { cards = parseImportText(raw); }
+  }
+
+  // 分开导入：题目和答案分别粘贴
+  var qSplit = ($('importQuestions')?.value || '').trim();
+  var aSplit = ($('importAnswers')?.value || '').trim();
+  if (qSplit && aSplit) {
+    qSplit = qSplit.replace(/\\n/g, '\n');
+    aSplit = aSplit.replace(/\\n/g, '\n');
+    var qLines = qSplit.split(/\n/).filter(function(l) { return l.trim(); });
+    var aLines = aSplit.split(/\n/).filter(function(l) { return l.trim(); });
+    var minLen = Math.min(qLines.length, aLines.length);
+    var splitCards = [];
+    for (var si = 0; si < minLen; si++) {
+      var sq = qLines[si].replace(/^[\d\.\、\s]+/, '').trim();
+      var sa = aLines[si].trim();
+      if (sq && sa) splitCards.push({ question: sq, answer: sa });
+    }
+    if (splitCards.length) {
+      cards = cards.concat(splitCards);
+      if (splitCards.length < qLines.length || splitCards.length < aLines.length) {
+        showToast('分开导入：配对 ' + splitCards.length + ' 题（题目' + qLines.length + '行/答案' + aLines.length + '行，取较少者）');
+      }
+    }
   }
 
   if (!cards.length) { showToast('未能解析题目，请检查格式'); return; }
@@ -1677,19 +2088,6 @@ function showImportPreview(name, cards) {
   saveBtn.onmouseenter = () => { saveBtn.style.opacity = '.5'; };
   saveBtn.onmouseleave = () => { saveBtn.style.opacity = '.15'; };
   ov.appendChild(saveBtn);
-  // 回车保存当前选中
-  ov._keyHandler = e => {
-    if (e.key !== 'Enter') return;
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    if (!previewData || previewData.mode !== 'manual') return;
-    const idx = previewData._activeIdx;
-    if (idx == null) return;
-    const sel = previewData.cards[idx]._charSelected || {};
-    if (!Object.values(sel).some(v => v)) return;
-    e.preventDefault();
-    saveCardSelection(idx);
-  };
-  document.addEventListener('keydown', ov._keyHandler);
 }
 
 function switchPreviewMode(mode, el) {
@@ -1759,6 +2157,7 @@ function renderPreviewCards() {
   container.innerHTML = html;
 }
 
+let _wasDragging = false, _touchJustHappened = 0;
 function renderAnswerChars(card, idx) {
   const a = card.answer || '';
   if (!a) return '<span style="color:var(--text-tertiary)">（无答案）</span>';
@@ -1774,6 +2173,7 @@ function renderAnswerChars(card, idx) {
     onmouseleave="mouseSelectEnd(${idx})">`;
   for (let i = 0; i < a.length; i++) {
     const ch = a[i];
+    if (ch === '\\' && a[i+1] === 'n') { h += '<span style="opacity:.2">↵</span>'; i++; continue; }
     if (ch === '\n') { h += '<span style="opacity:.2">↵</span>'; continue; }
     if (/\s/.test(ch)) { h += ' '; continue; }
     if (saved[i]) {
@@ -1861,7 +2261,7 @@ function swipeSelectEnd(idx) {
 }
 
 // 鼠标选择（桌面端）：mousedown 即时响应，拖动连续选中
-let _wasDragging = false, _lastX = 0, _lastY = 0;
+let _lastX = 0, _lastY = 0;
 function mouseSelectStart(e, idx) {
   if (Date.now() - _touchJustHappened < 500) return; // 移动端刚摸过，跳过鼠标事件
   swipeStartX = _lastX = e.clientX; swipeStartY = _lastY = e.clientY;
@@ -1905,7 +2305,6 @@ function mouseSelectMove(e, idx) {
 }
 function mouseSelectEnd(idx) { swipeSelectMode = null; _wasDragging = false; }
 
-let _touchJustHappened = 0;
 function toggleImportChar(idx, charIdx) {
   const card = previewData.cards[idx];
   previewData._activeIdx = idx;
@@ -2174,13 +2573,14 @@ function saveEditPreviewCard(idx) {
   if (!newA) { showToast('答案不能为空'); return; }
 
   const ansChanged = newA !== card.answer;
+  const qChanged = newQ !== card.question;
   card.question = newQ;
   card.answer = newA;
   card.koujue = newKj || '';
   card.fullText = card.question + '\n' + card.answer;
 
-  // 答案变了，清除挖空选择
-  if (ansChanged) {
+  // 答案或题目变了，清除挖空选择（偏移量已过期）
+  if (ansChanged || qChanged) {
     card._charSelected = {};
     card._savedChars = {};
     card.blanks = [];
@@ -2248,13 +2648,51 @@ function confirmImport() {
   renderBanks();
 }
 
+// 合并弹窗题库选择（代替原生 select，避免 iPad 旋转）
+function showMergeBankPicker(which) {
+  var selId = which === 'src' ? 'mergeSrc' : 'mergeDst';
+  var btnId = which === 'src' ? 'mergeSrcBtn' : 'mergeDstBtn';
+  var currentVal = document.getElementById(selId).value;
+  var banks = Object.values(appData.banks).sort(function(a, b) { return (a.order != null ? a.order : a.createdAt) - (b.order != null ? b.order : b.createdAt); });
+  var ov = document.createElement('div'); ov.className = 'modal-overlay'; ov.style.animation = 'none';
+  var title = which === 'src' ? '源' : '目标';
+  var html = '<div class="modal" style="animation:none;border-radius:var(--radius);max-width:400px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px;max-height:70dvh;overflow-y:auto"><h3 style="margin-bottom:4px;font-size:18px">📚 选择' + title + '题库</h3><p style="color:var(--text-secondary);font-size:13px;margin-bottom:14px">点击选择一个题库</p>';
+  for (var i = 0; i < banks.length; i++) {
+    var b = banks[i];
+    var isActive = b.id === currentVal;
+    var style = 'cursor:pointer;padding:10px 12px;margin-bottom:6px;border-radius:8px;' + (isActive ? 'border:2px solid var(--primary);background:var(--primary-light);font-weight:600' : 'border:2px solid var(--border)');
+    html += '<div style="' + style + '" class="merge-bank-pick-item" data-bank-id="' + b.id + '" data-bank-name="' + escapeHtml(b.name) + '" data-bank-count="' + b.cards.length + '" data-sel-id="' + selId + '" data-btn-id="' + btnId + '">' + escapeHtml(b.name) + ' <span style="color:var(--text-tertiary);font-size:12px">' + b.cards.length + ' 题</span></div>';
+  }
+  html += '</div>';
+  ov.innerHTML = html;
+  document.body.appendChild(ov);
+  // 事件委托：点击题库项
+  ov.addEventListener('click', function(e) {
+    var item = e.target.closest('.merge-bank-pick-item');
+    if (item) {
+      var bankId = item.getAttribute('data-bank-id');
+      var bankName = item.getAttribute('data-bank-name');
+      var bankCount = item.getAttribute('data-bank-count');
+      var targetSelId = item.getAttribute('data-sel-id');
+      var targetBtnId = item.getAttribute('data-btn-id');
+      var sel = document.getElementById(targetSelId);
+      if (sel) sel.value = bankId;
+      var btn = document.getElementById(targetBtnId);
+      if (btn) btn.textContent = bankName + ' （' + bankCount + '题） ▾';
+      ov.remove();
+      return;
+    }
+    if (e.target === ov) ov.remove();
+  });
+}
+
 // ==================== 合并题库 ====================
 function showMergeModal() {
   const banks = Object.values(appData.banks).sort((a, b) => b.createdAt - a.createdAt);
   if (banks.length < 2) { showToast('至少需要两个题库才能合并'); return; }
   const opts = banks.map(b => '<option value="' + b.id + '">' + escapeHtml(b.name) + '（' + b.cards.length + '题）</option>').join('');
   const ov = document.createElement('div'); ov.className = 'modal-overlay';
-  ov.innerHTML = '<div class="modal" style="max-width:360px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px 18px;border-radius:var(--radius)"><h3 style="margin-bottom:16px;font-size:17px">🔀 合并题库</h3><div style="margin-bottom:12px"><div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px">将 A 题库合并到 B 题库</div><div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">A 的所有题目会移入 B，A 将被删除</div><div style="margin-bottom:8px"><label style="font-size:13px;font-weight:600">A（源题库）</label><select id="mergeSrc" style="width:100%;padding:8px;border:2px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);margin-top:4px">' + opts + '</select></div><div style="margin-bottom:12px"><label style="font-size:13px;font-weight:600">B（目标题库）</label><select id="mergeDst" style="width:100%;padding:8px;border:2px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);margin-top:4px">' + opts + '</select></div></div><div class="flex gap-10"><button class="btn btn-ghost flex-1" id="mergeCancel">取消</button><button class="btn btn-primary flex-1" id="mergeConfirm">确认合并</button></div></div>';
+  ov.innerHTML = '<div class="modal" style="max-width:360px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px 18px;border-radius:var(--radius)"><h3 style="margin-bottom:16px;font-size:17px">🔀 合并题库</h3><div style="margin-bottom:12px"><div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px">将 A 题库合并到 B 题库</div><div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">A 的所有题目会移入 B，A 将被删除</div><div style="margin-bottom:8px"><label style="font-size:13px;font-weight:600">A（源题库）</label><input type="hidden" id="mergeSrc" value="' + banks[0].id + '"><button class="btn btn-ghost btn-sm" id="mergeSrcBtn" onclick="showMergeBankPicker(&#39;src&#39;)" style="width:100%;padding:8px;margin-top:4px;text-align:left;font-size:13px">' + escapeHtml(banks[0].name) + ' （' + banks[0].cards.length + '题） ▾</button></div><div style="margin-bottom:12px"><label style="font-size:13px;font-weight:600">B（目标题库）</label><input type="hidden" id="mergeDst" value="' + banks[1].id + '"><button class="btn btn-ghost btn-sm" id="mergeDstBtn" onclick="showMergeBankPicker(&#39;dst&#39;)" style="width:100%;padding:8px;margin-top:4px;text-align:left;font-size:13px">' + escapeHtml(banks[1].name) + ' （' + banks[1].cards.length + '题） ▾</button></div></div><div class="flex gap-10"><button class="btn btn-ghost flex-1" id="mergeCancel">取消</button><button class="btn btn-primary flex-1" id="mergeConfirm">确认合并</button></div></div>';
   document.body.appendChild(ov);
   ov.querySelector('#mergeCancel').onclick = () => ov.remove();
   ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
@@ -2334,7 +2772,11 @@ function renderPracticeSetup() {
     <div class="card" style="padding:20px">
       <div class="form-group">
         <label class="form-label">📚 选择题库</label>
-        <select id="bankSelect" onchange="onBankChange()" style="padding:12px 14px">${opts}</select>
+        <input type="hidden" id="bankSelect" value="${lastBank || (banks[0] && banks[0].id) || ''}">
+        <button class="btn btn-outline btn-block" onclick="showBankPicker(document.getElementById('bankSelect').value, function(bid){document.getElementById('bankSelect').value=bid;sessionStorage.setItem('lastPracticeBank',bid);onBankChange()})" style="justify-content:space-between;text-align:left">
+          <span id="bankSelectLabel">${lastBank && appData.banks[lastBank] ? escapeHtml(appData.banks[lastBank].name) + '（' + appData.banks[lastBank].cards.length + ' 题）' : (banks[0] ? escapeHtml(banks[0].name) + '（' + banks[0].cards.length + ' 题）' : '请选择题库')}</span>
+          <span style="font-size:18px">▾</span>
+        </button>
         <div id="categoryFilter" style="margin-top:10px"></div>
         <div id="categoryFilterHint" style="font-size:12px;color:var(--text-tertiary);margin-top:4px"></div>
       </div>
@@ -2593,7 +3035,8 @@ function startPractice() {
     answers: {}, revealed: new Set(),
     questionHidden: qh, koujueExpanded: {},
     total: selected.length,
-    _streak: 0
+    _streak: 0,
+    answersHidden: false
   };
 
   $('practiceSetup').style.display = 'none';
@@ -2622,7 +3065,7 @@ function renderPracticeCard() {
 
   const card = st.cards[st.index];
   const cur = st.index + 1, total = st.total;
-  const revealed = st.revealed.has(card.id);
+  const revealed = !st.answersHidden && st.revealed.has(card.id);
   const qHidden = st.questionHidden.has(card.id);
   const density = appData.settings.density || 'low';
   const textHtml = renderCardWithBlanks(card, revealed, qHidden);
@@ -2648,7 +3091,8 @@ function renderPracticeCard() {
       <button class="btn btn-ghost btn-sm" onclick="editCurrentCardBlanks()" style="padding:6px 8px;font-size:var(--font-size)" title="手动挖空">🐑</button>
 	      <button class="btn btn-ghost btn-sm" onclick="regenerateCurrentBlanks()" style="padding:6px 8px;font-size:var(--font-size)" title="换一批空">🔄</button>
       <div class="flex gap-4" style="margin-left:auto">
-        <button class="btn btn-ghost btn-sm" onclick="toggleRevealCurrent()" style="padding:6px 8px;font-size:var(--font-size)" title="显示原文">💡</button>
+        <button class="btn btn-ghost btn-sm" onclick="toggleRevealCurrent()" style="padding:6px 8px;font-size:var(--font-size)" title="显示原文">✨</button>
+        <button class="btn btn-ghost btn-sm" id="btnToggleAllAnswers" onclick="toggleAllAnswers()" style="padding:6px 8px;font-size:var(--font-size)" title="隐藏/显示全部答案">💐</button>
         ${hasKj ? `<button class="btn btn-ghost btn-sm" onclick="toggleKoujuePanel()" style="padding:6px 8px;font-size:var(--font-size);color:var(--primary)" title="口诀">💡</button>` : ''}
         ${hasVoice ? `<button class="btn btn-ghost btn-sm" onclick="speakCard()" style="padding:6px 8px;font-size:var(--font-size)" title="朗读">🔊</button>` : ''}
       </div>
@@ -2748,6 +3192,12 @@ function renderCardWithBlanks(card, revealed, hideQ) {
   if (!a) return h;
   h += `<div style="font-size:11px;color:var(--text-tertiary);margin-bottom:6px;font-weight:600;letter-spacing:.5px">── 填空区 ──</div>`;
 
+  // 用户主动隐藏 → 统一显示提示
+  if (practiceState.answersHidden) {
+    h += `<div style="line-height:1.9;color:var(--text-tertiary)">答案已隐藏，点击 💐 按钮显示</div>`;
+    return h;
+  }
+
   // 解决重叠空：分组后每组选一个
   const blanks = resolveBlanks(card);
   if (!blanks.length) {
@@ -2794,6 +3244,7 @@ function resolveBlanks(card) {
 }
 
 function saveCurrentAnswers() {
+  if (practiceState.answersHidden) return; // 隐藏状态下不保存，避免空值覆盖已有答案
   const inputs = document.querySelectorAll('#cardText .blank-input');
   const ans = {};
   inputs.forEach(inp => {
@@ -2976,12 +3427,6 @@ function applyCheckToInputs(card) {
       const emojis = {5:'🔥',10:'💥',15:'⚡',20:'🌟',30:'💎',50:'👑'};
       showToast(emojis[practiceState._streak] + ' 完美连击！×' + practiceState._streak);
     }
-    // 随机幸运题：~12% 概率
-    if (Math.random() < 0.12) {
-      appData.unicorns = (appData.unicorns || 0) + 2;
-      saveData(appData);
-      showToast('🍀 幸运题！额外获得 +2 🦄');
-    }
   } else {
     practiceState._streak = 0;
   }
@@ -2990,6 +3435,12 @@ function toggleRevealCurrent() {
   saveCurrentAnswers();
   const card = practiceState.cards[practiceState.index];
   practiceState.revealed.has(card.id) ? practiceState.revealed.delete(card.id) : practiceState.revealed.add(card.id);
+  renderPracticeCard();
+}
+
+function toggleAllAnswers() {
+  if (!practiceState.answersHidden) saveCurrentAnswers(); // 隐藏前先保存当前输入
+  practiceState.answersHidden = !practiceState.answersHidden;
   renderPracticeCard();
 }
 
@@ -3157,18 +3608,30 @@ function doSpeakCard() {
   if (!card) return;
   const ss = window.speechSynthesis;
   ss.cancel();
-  const u = new SpeechSynthesisUtterance(card.fullText || card.question + card.answer);
-  u.lang = 'zh-CN'; u.rate = appData.settings.voiceRate || 0.9; u.pitch = appData.settings.voicePitch || 1.0;
-  const voiceName = appData.settings.voiceName;
-  if (voiceName) {
-    const voices = ss.getVoices();
-    const picked = voices.find(v => v.name === voiceName);
-    if (picked) u.voice = picked;
+  const rawText = card.fullText || card.question + card.answer;
+  const cleanText = rawText.replace(/\\n/g, '，').replace(/\n/g, '，');
+  var u = new SpeechSynthesisUtterance(cleanText);
+  u.rate = appData.settings.voiceRate || 0.9;
+  u.pitch = appData.settings.voicePitch || 1.0;
+
+  var voices = ss.getVoices();
+  // 1. 优先使用用户保存的指定语音
+  var voiceName = appData.settings.voiceName;
+  if (voiceName && voices.length) {
+    var picked = voices.find(function(v) { return v.name === voiceName; });
+    if (picked) { u.voice = picked; u.lang = picked.lang || 'zh-CN'; }
   }
-  if (!u.voice) {
-    const zh = ss.getVoices().find(v => v.lang.startsWith('zh'));
-    if (zh) u.voice = zh;
+  // 2. 没指定语音 → 自动匹配中文语音（兼容QQ浏览器/讯飞等）
+  if (!u.voice && voices.length) {
+    var zhVoice = voices.find(isChineseVoice);
+    if (zhVoice) { u.voice = zhVoice; u.lang = zhVoice.lang || 'zh-CN'; }
   }
+  // 3. 没找到中文语音 → 用第一个可用语音 + 中文 lang
+  if (!u.voice && voices.length) {
+    u.voice = voices[0];
+  }
+  // 4. 没有任何语音 → 设 lang 为 zh-CN，让引擎自行处理
+  u.lang = u.lang || 'zh-CN';
   // 朗读结束后的行为
   const readMode = appData.settings.readMode || 'once';
   u.onend = () => {
@@ -3231,27 +3694,13 @@ function showPracticeResult() {
   }
   saveData(appData);
 
-  // 练习轮次计数
-  appData.roundCount = (appData.roundCount || 0) + 1;
-  // 🦄 印章累积
-  appData.unicorns = (appData.unicorns || 0) + total;
-
-  // 📊 每日统计
-  if (!appData.dailyStats) appData.dailyStats = {};
-  const today = new Date().toISOString().slice(0, 10);
-  if (!appData.dailyStats[today]) appData.dailyStats[today] = { cards: 0, unicorns: 0 };
-  appData.dailyStats[today].cards += total;
-  appData.dailyStats[today].unicorns += total;
-  saveData(appData);
-
   const rc = $('practiceResult');
+  $('practiceActive').style.display = 'none';
   rc.style.display = 'block';
   rc.innerHTML = `<div class="card" style="text-align:center;padding:24px 20px">
     <div style="font-size:48px;margin-bottom:8px">✅</div>
     <div style="font-size:20px;font-weight:800;margin-bottom:4px">本轮完成</div>
     <div class="text-sm text-secondary">共 ${total} 题 · ${escapeHtml(st.bankName)}</div>
-    <div style="margin-top:14px;font-size:28px;letter-spacing:2px">${'🦄'.repeat(Math.min(total, 20))}</div>
-    <div style="font-size:14px;color:var(--text-secondary);margin-top:4px">本轮获得 <b style="color:var(--primary);font-size:18px">${total}</b> 个印章</div>
     <div class="flex gap-8 flex-wrap justify-center mt-16">
       <button class="btn btn-primary btn-sm" onclick="retrySameSettings()">▶ 再来一轮</button>
       <button class="btn btn-ghost btn-sm" onclick="backToPracticeSetup()">🔄 重新设置</button>
@@ -3260,64 +3709,6 @@ function showPracticeResult() {
       <span style="font-size:12px;color:var(--text-tertiary);cursor:pointer;text-decoration:underline" onclick="copyBackup()">💾 复制备份码保存</span>
     </div>
   </div>`;
-
-  // 每5轮提醒
-  if (appData.roundCount % 5 === 0) {
-    setTimeout(() => showToast('📋 已练习 ' + appData.roundCount + ' 轮，记得备份数据哦'), 1500);
-  }
-
-  // 📊 周日弹出每周回顾
-  if (new Date().getDay() === 0) {
-    showWeeklyReview();
-  }
-}
-
-function showWeeklyReview() {
-  const ds = appData.dailyStats || {};
-  const now = new Date();
-  const getWeekRange = (offset) => {
-    const d = new Date(now);
-    d.setDate(d.getDate() - d.getDay() + offset); // Sunday-based
-    const start = new Date(d);
-    start.setDate(start.getDate() - (offset ? 0 : 7));
-    const end = new Date(start);
-    end.setDate(end.getDate() + 6);
-    return { start, end };
-  };
-  const fmtD = d => d.toISOString().slice(0, 10);
-
-  const thisWeek = getWeekRange(0);
-  const lastWeek = getWeekRange(-7);
-
-  let thisCards = 0, thisUnicorns = 0, thisDays = 0;
-  let lastCards = 0, lastUnicorns = 0;
-
-  for (let d = new Date(thisWeek.start); d <= thisWeek.end; d.setDate(d.getDate() + 1)) {
-    const key = fmtD(d);
-    if (ds[key]) { thisCards += ds[key].cards; thisUnicorns += ds[key].unicorns; thisDays++; }
-  }
-  for (let d = new Date(lastWeek.start); d <= lastWeek.end; d.setDate(d.getDate() + 1)) {
-    const key = fmtD(d);
-    if (ds[key]) { lastCards += ds[key].cards; lastUnicorns += ds[key].unicorns; }
-  }
-
-  const diff = thisCards - lastCards;
-  let compareMsg = '';
-  if (lastCards === 0 && thisCards > 0) compareMsg = '这是你的第一周，好的开始！';
-  else if (diff > 0) compareMsg = '比上周多了 <b>' + diff + '</b> 题，进步明显！📈';
-  else if (diff < 0) compareMsg = '比上周少了 <b>' + Math.abs(diff) + '</b> 题，下周加油！💪';
-  else compareMsg = '和上周持平，保持稳定！✊';
-
-  const msg = '<div style="text-align:center;line-height:2">' +
-    '<div style="font-size:40px;margin-bottom:8px">📊</div>' +
-    '<div style="font-size:18px;font-weight:800;margin-bottom:12px">本周回顾</div>' +
-    '<div>📝 刷了 <b>' + thisCards + '</b> 题</div>' +
-    '<div>🦄 获得 <b>' + thisUnicorns + '</b> 个印章</div>' +
-    '<div>🔥 练习 <b>' + thisDays + '</b> 天</div>' +
-    '<div style="margin-top:8px;color:var(--text-secondary)">' + compareMsg + '</div>' +
-    '</div>';
-
-  setTimeout(() => showInfoModal('每周回顾', msg, '继续加油！🎉'), 2000);
 }
 
 function showInfoModal(title, htmlMsg, btnText) {
@@ -3350,10 +3741,7 @@ const MANUALS = {
 <div>• <b>收藏</b>：可按题目 / 口诀 / 错题三个子分类筛选，搜索框快速查找</div>
 
 <div style="font-weight:700;margin-top:12px;color:var(--primary)">▎激励</div>
-<div>• 🦄 印章：做一题得一印章，设置页看累计 + 里程碑鼓励语</div>
 <div>• 🔥 连击：连续答对5/10/15/20/30/50题弹出彩蛋</div>
-<div>• 🍀 幸运题：约12%概率答对额外 +2🦄</div>
-<div>• 📊 周回顾：周日刷完弹出本周统计，和上周对比</div>
 
 <div style="font-weight:700;margin-top:12px;color:var(--primary)">▎设置</div>
 <div>• 暗色模式 + 8种主题色 + 字体大小可调</div>
@@ -3376,7 +3764,6 @@ const MANUALS = {
 <div>• 错题本定期清零：设置 → 清空错题本</div>
 <div>• 用 <code>@答案@</code> 手动标空比自动挖空更精准</div>
 <div>• 用 <b>← →</b> 把常用题库排最上面</div>
-<div>• 每天刷几轮凑连击，印章积少成多</div>
 </div>`},
 
   simple: { title: '📋 简约说明书', content: `<div style="line-height:2">
@@ -3384,7 +3771,6 @@ const MANUALS = {
 <div><b>手动挖空</b>：答案中写 <code>@关键词@</code> 标记要挖的位置</div>
 <div><b>刷题</b>：填完自动诊断，回车手动诊断，⭐收藏 💡口诀</div>
 <div><b>错题</b>：答错自动进错题本，底部标签可复习</div>
-<div><b>印章</b>：做一题得一🦄，设置页查看</div>
 <div><b>备份</b>：设置 → 复制备份码 → 粘贴到别处保存</div>
 <div><b>密码</b>：试用 <code>5826</code>，永久找 <b>小红书2750492576（说明购买永久）低价</b></div>
 </div>`},
@@ -3407,8 +3793,8 @@ const MANUALS = {
 <div>• 刷题：选题库 → 设题数 → 开始 → 填空 → 自动诊断</div>
 <div>• 复习：错题本 + 收藏分类筛选</div>
 <div>• 备份：设置 → 复制备份码 → 存到微信/备忘录</div>
-<div style="margin-top:8px">🦄 <b>激励</b></div>
-<div>• 印章累计 + 里程碑 / 连击彩蛋 / 幸运题 +2 / 周日周报</div>
+<div style="margin-top:8px">🔥 <b>激励</b></div>
+<div>• 连击彩蛋</div>
 <div style="margin-top:8px">✏️ <b>手动挖空</b></div>
 <div>• 答案中写 <code>@要挖的词@</code>，导入时自动识别</div>
 <div style="margin-top:8px">🔐 <b>密码</b></div>
@@ -3457,7 +3843,7 @@ function retrySameSettings() {
   }
   const qh = new Set();
   if (hideQuestionStart) { for (const c of selected) qh.add(c.id); }
-  practiceState = { ...practiceState, cards: selected, index: 0, answers: {}, revealed: new Set(), questionHidden: qh, koujueExpanded: {}, total: selected.length };
+  practiceState = { ...practiceState, cards: selected, index: 0, answers: {}, revealed: new Set(), questionHidden: qh, koujueExpanded: {}, total: selected.length, answersHidden: false };
   $('practiceResult').style.display = 'none';
   $('practiceActive').style.display = 'block';
   renderPracticeCard();
@@ -3486,7 +3872,7 @@ function renderBrowseStart() {
   let bankId = sessionStorage.getItem('lastPracticeBank');
   if (!bankId || !appData.banks[bankId]) bankId = banks[0].id;
   const bank = appData.banks[bankId];
-  browseState = { bankId, bankName: bank.name, cards: bank.cards, index: 0, view: 'list', filter: 'all', starSub: 'all', searchQuery: '', _filteredCards: bank.cards };
+  browseState = { bankId, bankName: bank.name, cards: bank.cards, index: 0, view: 'list', filter: 'all', starSub: 'all', searchQuery: '', _filteredCards: bank.cards, answersHidden: false };
 
   const wrongCount = Object.keys(getWrongBook(bankId)).length;
   const favCount = bank.cards.filter(c => c.starred).length;
@@ -3494,9 +3880,10 @@ function renderBrowseStart() {
 
   c.innerHTML = `<div class="flex justify-between items-center mb-10">
     <h1 style="font-size:20px;font-weight:800">📖 目录</h1>
-    <select id="browseBankSelect" style="width:auto;min-width:130px;padding:8px 10px;border:2px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:13px" onchange="changeBrowseBank()">
-      ${banks.map(b => `<option value="${b.id}"${b.id === bankId ? ' selected' : ''}>${escapeHtml(b.name)}</option>`).join('')}
-    </select>
+    <input type="hidden" id="browseBankSelect" value="${bankId}">
+    <button class="btn btn-ghost btn-sm" onclick="showBankPicker(document.getElementById('browseBankSelect').value, function(bid){document.getElementById('browseBankSelect').value=bid;var bk=appData.banks[bid];if(bk){sessionStorage.setItem('lastPracticeBank',bid);changeBrowseBank()}})" style="font-size:13px">
+      ${escapeHtml(bank.name)} ▾
+    </button>
   </div>
   <div style="margin-bottom:10px">
     <input type="search" id="browseSearchInput" placeholder="🔍 搜索题目..." style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:14px" oninput="doBrowseSearch()">
@@ -3564,11 +3951,16 @@ function changeBrowseBank() {
   const wrongCount = Object.keys(getWrongBook(bankId)).length;
   const favCount = bank.cards.filter(c => c.starred).length;
 	  const kjCount = bank.cards.filter(c => c.koujue).length;
-  browseState = { bankId, bankName: bank.name, cards: bank.cards, index: 0, view: 'list', filter: 'all', starSub: 'all', searchQuery: '', _filteredCards: bank.cards };
+  browseState = { bankId, bankName: bank.name, cards: bank.cards, index: 0, view: 'list', filter: 'all', starSub: 'all', searchQuery: '', _filteredCards: bank.cards, answersHidden: false };
   // 更新 chip 数量
   const chips = document.querySelectorAll('#browseFilterChips .chip');
   if (chips[1]) chips[1].textContent = '⭐ 收藏' + (favCount ? ' · ' + favCount : '');
-  	  if (chips[2]) chips[2].textContent = '💡 口诀' + (kjCount ? ' · ' + kjCount : '');
+  if (chips[2]) chips[2].textContent = '💡 口诀' + (kjCount ? ' · ' + kjCount : '');
+  // 重置所有 chip 的 active 类到"全部"
+  chips.forEach(function(c) { c.classList.remove('active'); });
+  if (chips[0]) chips[0].classList.add('active');
+  var subChips = document.getElementById('browseStarSubChips');
+  if (subChips) subChips.style.display = 'none';
   renderBrowseList();
 }
 
@@ -3694,15 +4086,19 @@ function renderBrowseDetail() {
   const isWrong = card.id in wbDetail;
   const wrongDetail = wbDetail[card.id] || null;
 
+    const ansHidden = st.answersHidden;
   c.innerHTML = `<div>
     <div class="flex justify-between items-center mb-10">
       <button class="btn btn-ghost btn-sm" onclick="backToBrowseList()">← 目录</button>
       <span class="text-sm text-secondary">${cur} / ${total}</span>
-      <button style="background:none;border:none;font-size:24px;cursor:pointer;padding:8px 12px;line-height:1;min-width:44px;min-height:44px" onclick="toggleBrowseStar()">${card.starred ? '⭐' : '☆'}</button>
+      <div class="flex gap-8" style="align-items:center">
+        <button class="btn btn-ghost btn-sm" onclick="toggleBrowseAnswers()" style="padding:6px 8px;font-size:var(--font-size)" title="隐藏/显示答案">💐</button>
+        <button style="background:none;border:none;font-size:24px;cursor:pointer;padding:8px 12px;line-height:1;min-width:44px;min-height:44px" onclick="toggleBrowseStar()">${card.starred ? '⭐' : '☆'}</button>
+      </div>
     </div>
     <div style="line-height:2;font-size:var(--font-size-lg)">
       <div style="margin-bottom:12px;font-weight:500">${escNl(card.question)}</div>
-      ${wrongDetail && wrongDetail.wrongIndices ? renderWrongCardInteractive(card, wrongDetail) : (card.answer ? `<div style="color:var(--text-secondary)">${escNl(card.answer)}</div>` : '')}
+      ${ansHidden ? `<div style="line-height:1.9;color:var(--text-tertiary)">答案已隐藏，点击 💐 按钮显示</div>` : (wrongDetail && wrongDetail.wrongIndices ? renderWrongCardInteractive(card, wrongDetail) : (card.answer ? `<div style="color:var(--text-secondary)">${escNl(card.answer)}</div>` : ''))}
     </div>
     ${isWrong ? `<div class="text-center mt-10"><button class="btn btn-ghost btn-sm" style="color:var(--danger)" onclick="removeFromWrongBook('${card.id}')">🗑 移出错题本</button></div>` : ''}
     <div class="flex gap-8 mt-16">
@@ -3710,6 +4106,11 @@ function renderBrowseDetail() {
       <button class="btn btn-ghost flex-1" onclick="browseNext()"${st.index >= total - 1 ? ' disabled style="opacity:.4"' : ''}>下一题 →</button>
     </div>
   </div>`;
+}
+
+function toggleBrowseAnswers() {
+  browseState.answersHidden = !browseState.answersHidden;
+  renderBrowseDetail();
 }
 
 function backToBrowseList() {
@@ -3829,9 +4230,7 @@ function renderKoujueStart() {
 
   c.innerHTML = `<div class="flex justify-between items-center mb-16">
     <h1 style="font-size:24px;font-weight:800;letter-spacing:-.02em">口诀背诵</h1>
-    <select id="kjBankSelect" style="width:auto;min-width:150px;padding:10px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:14px" onchange="kjCategoryFilter=null;renderKoujueCards()">
-      ${allKjBanks.map(b => `<option value="${b.bankId}"${b.bankId === bankId ? ' selected' : ''}>${escapeHtml(b.bankName)} (${b.cards.length}条)</option>`).join('')}
-    </select>
+    <input type="hidden" id="kjBankSelect" value="${bankId}"><button class="btn btn-ghost btn-sm" onclick="showKjBankPicker()" style="font-size:14px;padding:10px 14px;min-width:150px;white-space:nowrap">${escapeHtml(allKjBanks.find(function(b){return b.bankId===bankId})?.bankName || '')} (${(allKjBanks.find(function(b){return b.bankId===bankId})?.cards.length || 0)}条) ▾</button>
   </div>
   <div id="kjCategoryFilter" style="margin-bottom:12px"></div>
   <div id="kjCategoryHint" style="font-size:12px;color:var(--text-tertiary);margin-bottom:12px"></div>
@@ -4049,20 +4448,18 @@ function renderWrongBookStart() {
 
   let html = '<div class="flex justify-between items-center mb-16">';
   html += '<h1 style="font-size:24px;font-weight:800;letter-spacing:-.02em">错题本</h1>';
-  html += '<select id="wrongbookBankSelect" style="width:auto;min-width:150px;padding:10px 14px;border:2px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);font-size:14px" onchange="changeWrongBookBank()">';
-  banksWithWrong.forEach(bw => {
-    html += '<option value="' + bw.bank.id + '"' + (bw.bank.id === currentBankId ? ' selected' : '') + '>' + escapeHtml(bw.bank.name) + ' (' + bw.wrongIds.length + '题)</option>';
-  });
-  html += '</select></div>';
+  html += '<input type="hidden" id="wrongbookBankSelect" value="' + currentBankId + '">';
+  var curBankName = currentData ? currentData.bank.name : '选择题库';
+  html += '<button class="btn btn-ghost btn-sm" onclick="showBankPicker(document.getElementById(\'wrongbookBankSelect\').value, function(bid){document.getElementById(\'wrongbookBankSelect\').value=bid;sessionStorage.setItem(\'wrongbookBank\',bid);changeWrongBookBank()})" style="font-size:13px">' + escapeHtml(curBankName) + ' (' + currentData.wrongIds.length + '题) ▾</button></div>';
 
   for (const chapter in groups) {
     html += '<div class="section-title">' + escapeHtml(chapter) + ' · ' + groups[chapter].length + ' 题</div>';
     groups[chapter].forEach(item => {
       const card = item.card;
       html += '<div class="card" style="margin-bottom:10px;padding:14px 16px">';
-      html += '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">';
+      html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:8px">';
       html += '<div style="font-weight:500;line-height:1.8;font-size:var(--font-size);flex:1">' + escNl(card.question) + '</div>';
-      html += '<button class="btn btn-ghost btn-sm" style="color:var(--danger);flex-shrink:0;margin-left:8px;font-size:11px;padding:2px 6px;min-height:auto" data-card-id="' + card.id + '" onclick="removeFromWrongBookPage(this.dataset.cardId)">🗑</button>';
+      html += '<button class="btn btn-ghost btn-sm" style="color:var(--danger);flex-shrink:0;font-size:14px;padding:6px 8px;min-height:36px;min-width:36px;align-self:center" data-card-id="' + card.id + '" onclick="removeFromWrongBookPage(this.dataset.cardId)">🗑</button>';
       html += '</div>';
       if (card.koujue) {
         html += '<div style="font-size:12px;color:var(--primary);margin-bottom:4px;font-weight:600;cursor:pointer" onclick="var n=this.nextElementSibling;n.style.display=n.style.display===\'none\'?\'\':\'none\'">💡 口诀（点击查看）</div>';
@@ -4095,126 +4492,228 @@ function removeFromWrongBookPage(cardId) {
 
 
 // ==================== 设置 ====================
+// ====== 分享/导出备份 ======
+async function shareBackupCode() {
+  try {
+    showToast('正在生成备份码...');
+    var data = JSON.parse(JSON.stringify(appData));
+    var code = await makeBackupCode(JSON.stringify(data));
+    var today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    var textToShare = '挖空背诵工具 - 进度备份 ' + today + '\n\n' + code + '\n\n📌 使用方法：复制全部内容 → 打开工具设置页 → 粘贴备份码恢复';
+    if (navigator.canShare && navigator.canShare({ text: textToShare })) {
+      try {
+        await navigator.share({ text: textToShare, title: '挖空背诵备份 - ' + today });
+        appData.settings.lastBackup = Date.now();
+        saveData(appData);
+        showToast('✅ 备份码已分享');
+        return;
+      } catch (err) { if (err.name === 'AbortError') return; }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(code);
+        appData.settings.lastBackup = Date.now();
+        saveData(appData);
+        showToast('📋 分享不支持，已改为复制到剪贴板');
+      } catch(e) { showToast('复制失败'); }
+    } else { showToast('复制失败'); }
+  } catch(e) { showToast('导出失败'); }
+}
+
+async function shareBackupFile() {
+  try {
+    var data = JSON.parse(JSON.stringify(appData));
+    var json = JSON.stringify(data);
+    var today = new Date().toISOString().slice(0, 10);
+    var filename = '挖空背诵备份_' + today + '.json';
+    var blob = new Blob([json], { type: 'application/json' });
+    var file = new File([blob], filename, { type: 'application/json' });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: '挖空背诵数据备份', text: '挖空背诵工具数据备份 - ' + today });
+        appData.settings.lastBackup = Date.now();
+        saveData(appData);
+        showToast('✅ 分享成功');
+        return;
+      } catch (err) { if (err.name === 'AbortError') return; }
+    }
+    // Fallback: 下载 JSON
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    appData.settings.lastBackup = Date.now();
+    saveData(appData);
+    showToast('✅ 已下载 ' + filename);
+  } catch(e) { showToast('导出失败'); }
+}
+
+function restoreFromJsonFile(input) {
+  var file = input.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var backup = JSON.parse(e.target.result);
+      if (!backup.banks) { showToast('❌ 无效的备份文件（缺少题库数据）'); return; }
+      if (!confirm('将用此备份完全替换当前所有数据（题库、进度、设置），确定继续吗？')) return;
+      if (!backup.settings) backup.settings = { density: 'low', darkMode: false, fontSize: 16 };
+      if (!backup.seqProgress) backup.seqProgress = {};
+      if (!backup.favorites) backup.favorites = {};
+      if (!backup.wrongBooks) backup.wrongBooks = {};
+      appData = backup;
+      saveData(appData);
+      applySettings();
+      renderBanks();
+      renderSettings();
+      updateBadges();
+      switchTab('banks');
+      showToast('✅ 数据已全部恢复');
+    } catch(err) { showToast('❌ 文件格式错误，无法解析'); }
+  };
+  reader.readAsText(file);
+  input.value = '';
+}
+
 function renderSettings() {
   const c = $('settingsContainer');
+  if (!c) return;
   const s = appData.settings;
   const density = s.density || 'low';
 
-  c.innerHTML = `<div class="section"><div class="section-title">数据管理</div>
-    <div class="setting-item" style="flex-direction:column;align-items:stretch;gap:10px">
-      <button class="btn btn-outline btn-block" onclick="copyBackup()">📋 复制备份码</button>
-      <button class="btn btn-outline btn-block" onclick="showRestorePrompt()">📥 粘贴备份码恢复</button>
-      <button class="btn btn-ghost btn-block" onclick="clearWrongBook()">🗑 清空错题本</button>
-    </div></div>
+  var colorNames = { teal: '青绿', purple: '浅紫', blue: '浅蓝', rose: '玫红', pink: '粉色', green: '浅绿', yellow: '浅黄', bw: '黑白', cream: '护眼·米黄', sage: '护眼·豆沙绿' };
+  var colors = ['teal', 'purple', 'blue', 'rose', 'pink', 'green', 'yellow', 'bw', 'cream', 'sage'];
+  var colorBgs = { teal: '#0891b2', purple: '#9333ea', blue: '#3b82f6', rose: '#e11d48', pink: '#ec4899', green: '#22c55e', yellow: '#eab308', bw: '#555', cream: '#c8965c', sage: '#6b9e6b' };
 
-  <div class="section"><div class="section-title">🦄 我的印章</div>
-    <div class="unicorn-stats" style="text-align:center;padding:16px 0">
-      <div style="font-size:42px;letter-spacing:3px;line-height:1.4;word-break:break-all" id="unicornHerd"></div>
-      <div style="font-size:15px;color:var(--text-secondary);margin-top:8px">
-        累计获得 <b style="color:var(--primary);font-size:22px">${(appData.unicorns || 0)}</b> 个印章
-      </div>
-      <div style="font-size:13px;color:var(--text-tertiary);margin-top:4px" id="unicornMilestone"></div>
-      <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px">累计练习 <b>${appData.roundCount || 0}</b> 轮</div>
-    </div></div>
+  c.innerHTML = '<div class="section"><div class="section-title">数据管理</div>' +
+    '<div class="setting-item" style="flex-direction:column;align-items:stretch;gap:10px">' +
+      '<button class="btn btn-primary btn-block" onclick="shareBackupFile()" style="font-size:15px">📤 分享/导出备份文件</button>' +
+      '<div style="font-size:12px;color:var(--text-tertiary);text-align:center;margin:-4px 0 4px">📱 手机直接分享到微信/QQ/存文件 &nbsp;|&nbsp; 💻 电脑自动下载</div>' +
+      '<div style="display:flex;gap:8px">' +
+        '<button class="btn btn-outline" style="flex:1" onclick="copyBackup()">📋 复制备份码</button>' +
+        '<button class="btn btn-outline" style="flex:1" onclick="shareBackupCode()">📤 分享备份码</button>' +
+      '</div>' +
+      '<button class="btn btn-outline btn-block" id="restoreToggleBtn" onclick="toggleRestoreSection()">📥 粘贴备份码恢复</button>' +
+      '<div id="restoreSection" style="display:none;margin-top:12px;padding:14px;background:var(--bg-input);border-radius:10px">' +
+        '<textarea id="restoreTextarea" placeholder="在此粘贴之前复制的备份码..." style="width:100%;min-height:100px;font-size:13px;padding:10px;border:2px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text)"></textarea>' +
+        '<div class="flex gap-8 mt-12">' +
+          '<button class="btn btn-ghost flex-1" onclick="toggleRestoreSection()">取消</button>' +
+          '<button class="btn btn-primary flex-1" onclick="doRestore()">恢复</button>' +
+        '</div>' +
+        '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);text-align:center">' +
+          '<span style="font-size:12px;color:var(--text-tertiary)">或直接上传备份文件</span>' +
+          '<label class="btn btn-outline btn-block" style="margin-top:6px;cursor:pointer;display:block;text-align:center;min-height:38px;line-height:38px;padding:0">📂 上传 JSON 备份文件<input type="file" accept=".json" onchange="restoreFromJsonFile(this)" style="display:none"></label>' +
+        '</div>' +
+      '</div>' +
+      '<button class="btn btn-ghost btn-block" onclick="clearWrongBook()">🗑 清空错题本</button>' +
+    '</div></div>' +
 
-  <div class="section"><div class="section-title">挖空设置</div>
-    <div class="setting-item"><div><div class="setting-label">默认挖空密度</div><div class="setting-desc">每道题的挖空数量，做题时随时可调</div></div>
-      <div class="segmented" id="settingsDensity">
-        <button class="seg${density === 'low' ? ' active' : ''}" data-v="low" onclick="updateDensitySetting('low', this)">低</button>
-        <button class="seg${density === 'high' ? ' active' : ''}" data-v="high" onclick="updateDensitySetting('high', this)">高</button>
-      </div></div></div>
+    // 📊 存储状态
+    (function() {
+      var storageJson = localStorage.getItem('memorize_v2_trial_7666') || '';
+      var storageBytes = storageJson.length * 2;
+      var storageKB = storageBytes / 1024;
+      var storageMB = storageBytes / (1024 * 1024);
+      var storageMax = 5;
+      var storagePercent = Math.min(100, Math.round((storageMB / storageMax) * 100));
+      var bankCount = Object.keys(appData.banks || {}).length;
+      var totalQ = 0, totalW = 0;
+      Object.values(appData.banks || {}).forEach(function(b) { totalQ += (b.cards || []).length; });
+      Object.values(appData.wrongBooks || {}).forEach(function(w) {
+        if (Array.isArray(w)) totalW += w.length; else totalW += Object.keys(w).length;
+      });
 
-  <div class="section"><div class="section-title">语音</div>
-    <div class="setting-item"><div><div class="setting-label">语音朗读</div><div class="setting-desc">使用手机 TTS 朗读，再次点击暂停</div></div>
-      <label class="toggle"><input type="checkbox" id="voiceToggle"${s.voiceEnabled ? ' checked' : ''} onchange="saveSetting('voiceEnabled', this.checked)"><span class="slider"></span></label></div>
-    <div class="setting-item"><div><div class="setting-label">朗读声音</div><div class="setting-desc" id="voiceNameVal">${s.voiceName || '自动选择'}</div></div>
-      <select class="text-sm" id="voiceSelect" style="width:auto;min-width:120px;padding:6px 10px;border:2px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:13px" onchange="updateVoiceName(this.value)"><option value="">自动选择</option></select></div>
-    <div class="setting-item"><div><div class="setting-label">朗读模式</div><div class="setting-desc" id="readModeVal">${{once:'仅读一遍',loop:'循环朗读','auto-next':'自动下一题','three-times':'每题三遍'}[s.readMode||'once']}</div></div>
-      <select id="readModeSelect" style="width:auto;min-width:120px;padding:6px 10px;border:2px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:13px" onchange="updateReadMode(this.value)">
-        <option value="once"${(s.readMode||'once')==='once'?' selected':''}>仅读一遍</option>
-        <option value="loop"${s.readMode==='loop'?' selected':''}>循环朗读</option>
-        <option value="auto-next"${s.readMode==='auto-next'?' selected':''}>自动下一题</option>
-        <option value="three-times"${s.readMode==='three-times'?' selected':''}>每题三遍</option>
-      </select></div>
-    <div class="setting-item"><div><div class="setting-label">朗读语速</div><div class="setting-desc" id="rateVal">${s.voiceRate || 0.9}x</div></div>
-      <div style="width:140px"><input type="range" min="0.5" max="2" value="${s.voiceRate || 0.9}" step="0.1" oninput="updateVoiceRate(parseFloat(this.value))" onchange="updateVoiceRate(parseFloat(this.value))"></div></div>
-    <div class="setting-item"><div><div class="setting-label">朗读音调</div><div class="setting-desc" id="pitchVal">${s.voicePitch || 1.0}x</div></div>
-      <div style="width:140px"><input type="range" min="0.5" max="2" value="${s.voicePitch || 1.0}" step="0.1" oninput="updateVoicePitch(parseFloat(this.value))" onchange="updateVoicePitch(parseFloat(this.value))"></div></div></div>
+      var barColor = storagePercent > 80 ? '#e74c3c' : storagePercent > 50 ? '#e67e22' : 'var(--primary)';
+      var sizeInfo = storageMB >= 1 ? storageMB.toFixed(1) + ' MB' : storageKB.toFixed(0) + ' KB';
+      var statusText = storagePercent > 90 ? '⚠️ 即将用满，建议导出备份后清理'
+        : storagePercent > 70 ? '⚡ 使用中，建议定期备份'
+        : '✅ 空间充裕';
 
-  <div class="section"><div class="section-title">外观</div>
-    <div class="setting-item"><div><div class="setting-label">夜间模式</div><div class="setting-desc">暗色主题，夜间刷题更护眼</div></div>
-      <label class="toggle"><input type="checkbox" id="darkToggle"${s.darkMode ? ' checked' : ''} onchange="saveSetting('darkMode', this.checked)"><span class="slider"></span></label></div>
-    <div class="setting-item"><div><div class="setting-label">主题颜色</div><div class="setting-desc" id="colorVal">${({teal:'青绿',purple:'浅紫',blue:'浅蓝',rose:'玫红',pink:'粉色',green:'浅绿',yellow:'浅黄',bw:'黑白'})[s.color||'teal']}</div></div>
-      <div class="color-dots"><span class="color-dot${(s.color||'teal')==='teal'?' active':''}" style="background:#0891b2" onclick="saveThemeColor('teal')"></span><span class="color-dot${s.color==='purple'?' active':''}" style="background:#9333ea" onclick="saveThemeColor('purple')"></span><span class="color-dot${s.color==='blue'?' active':''}" style="background:#3b82f6" onclick="saveThemeColor('blue')"></span><span class="color-dot${s.color==='rose'?' active':''}" style="background:#e11d48" onclick="saveThemeColor('rose')"></span><span class="color-dot${s.color==='pink'?' active':''}" style="background:#ec4899" onclick="saveThemeColor('pink')"></span><span class="color-dot${s.color==='green'?' active':''}" style="background:#22c55e" onclick="saveThemeColor('green')"></span><span class="color-dot${s.color==='yellow'?' active':''}" style="background:#eab308" onclick="saveThemeColor('yellow')"></span><span class="color-dot${s.color==='bw'?' active':''}" style="background:#555" onclick="saveThemeColor('bw')"></span></div></div>
-    <div class="setting-item"><div><div class="setting-label">字体大小</div><div class="setting-desc" id="fontVal">${s.fontSize}px</div></div>
-      <div class="flex items-center gap-8" style="width:140px"><span style="font-size:13px">A</span><input type="range" min="14" max="24" value="${s.fontSize}" step="1" oninput="updateFontSize(parseInt(this.value))" onchange="updateFontSize(parseInt(this.value))"><span style="font-size:18px;font-weight:700">A</span></div></div></div>
+      var lastBackup = (appData.settings || {}).lastBackup;
+      var backupDays = lastBackup ? Math.floor((Date.now() - lastBackup) / 86400000) : null;
+      var backupWarn = '';
+      if (backupDays === null) {
+        backupWarn = '<div style="margin-top:6px;padding:8px 12px;background:#fff3cd;border:1px solid #ffc107;border-radius:6px;font-size:12px;color:#856404">⚠️ 尚未备份过！建议立即导出备份</div>';
+      } else if (backupDays > 30) {
+        backupWarn = '<div style="margin-top:6px;padding:8px 12px;background:#ffe0e0;border:1px solid #e74c3c;border-radius:6px;font-size:12px;color:#a33">🔴 已 <b>' + backupDays + ' 天</b>未备份！数据风险极高，请立即备份</div>';
+      } else if (backupDays > 7) {
+        backupWarn = '<div style="margin-top:6px;padding:8px 12px;background:#fff3cd;border:1px solid #ffc107;border-radius:6px;font-size:12px;color:#856404">🟡 已 <b>' + backupDays + ' 天</b>未备份，建议尽快导出</div>';
+      } else if (backupDays > 0) {
+        backupWarn = '<div style="margin-top:6px;padding:8px 12px;background:#e8f5e9;border:1px solid #4caf50;border-radius:6px;font-size:12px;color:#2e7d32">🟢 ' + backupDays + ' 天前备份过，状态良好</div>';
+      } else {
+        backupWarn = '<div style="margin-top:6px;padding:8px 12px;background:#e8f5e9;border:1px solid #4caf50;border-radius:6px;font-size:12px;color:#2e7d32">✅ 今天已备份</div>';
+      }
 
-  <div class="section"><div class="section-title">关于</div>
+      return '<div class="section"><div class="section-title">📊 存储状态</div>' +
+        '<div class="setting-item" style="flex-direction:column;align-items:stretch;gap:8px">' +
+          '<div style="display:flex;justify-content:space-between;align-items:baseline">' +
+            '<span style="font-size:14px;font-weight:600">' + statusText + '</span>' +
+            '<span style="font-size:13px;color:var(--text-secondary)">' + sizeInfo + ' / ' + storageMax + ' MB</span>' +
+          '</div>' +
+          '<div style="height:10px;background:var(--border);border-radius:5px;overflow:hidden">' +
+            '<div style="height:100%;width:' + storagePercent + '%;background:' + barColor + ';border-radius:5px;transition:width .3s"></div>' +
+          '</div>' +
+          backupWarn +
+          '<div style="display:flex;gap:10px;margin-top:4px">' +
+            '<div style="flex:1;background:var(--bg-input);border-radius:8px;padding:10px;text-align:center">' +
+              '<div style="font-size:22px;font-weight:700;color:var(--primary)">' + bankCount + '</div>' +
+              '<div style="font-size:11px;color:var(--text-tertiary)">个题库</div>' +
+            '</div>' +
+            '<div style="flex:1;background:var(--bg-input);border-radius:8px;padding:10px;text-align:center">' +
+              '<div style="font-size:22px;font-weight:700;color:var(--primary)">' + totalQ + '</div>' +
+              '<div style="font-size:11px;color:var(--text-tertiary)">道题目</div>' +
+            '</div>' +
+            '<div style="flex:1;background:var(--bg-input);border-radius:8px;padding:10px;text-align:center">' +
+              '<div style="font-size:22px;font-weight:700;color:' + (totalW > 0 ? '#e74c3c' : 'var(--text-tertiary)') + '">' + totalW + '</div>' +
+              '<div style="font-size:11px;color:var(--text-tertiary)">道错题</div>' +
+            '</div>' +
+          '</div>' +
+        '</div></div>';
+    })() +
 
-    <div class="setting-item" style="cursor:pointer" onclick="showManualMenu()"><div><div class="setting-label">📖 使用说明</div><div class="setting-desc"></div></div><div style="display:flex;align-items:center">→</div></div>
-    <div class="setting-item"><div><div class="setting-label">挖空背诵工具 · 小阮出品</div><div class="setting-desc">手机刷题背书工具 · 纯前端离线可用</div></div></div>
-    <div class="setting-item" style="cursor:pointer" onclick="clearAllData()"><div><div class="setting-label" style="color:#e91e63">🗑️ 删除所有数据</div><div class="setting-desc">清空全部题库和设置，不可恢复</div></div><div style="display:flex;align-items:center;color:#e91e63">→</div></div>
-	    <div class="setting-item" style="cursor:pointer" onclick="checkUpdate()"><div><div class="setting-label">🔄 检查更新</div><div class="setting-desc">点击清除缓存并刷新，获取最新版本</div></div><div style="display:flex;align-items:center">→</div></div></div>`;
+    '<div class="section"><div class="section-title">挖空设置</div>' +
+      '<div class="setting-item"><div><div class="setting-label">默认挖空密度</div><div class="setting-desc">每道题的挖空数量，做题时随时可调</div></div>' +
+        '<div class="segmented" id="settingsDensity">' +
+          '<button class="seg' + (density === 'low' ? ' active' : '') + '" data-v="low" onclick="updateDensitySetting(\'low\', this)">低</button>' +
+          '<button class="seg' + (density === 'high' ? ' active' : '') + '" data-v="high" onclick="updateDensitySetting(\'high\', this)">高</button>' +
+        '</div></div></div>' +
+
+    '<div class="section"><div class="section-title">语音</div>' +
+      '<div class="setting-item"><div><div class="setting-label">语音朗读</div><div class="setting-desc">使用手机 TTS 朗读，再次点击暂停</div></div>' +
+        '<label class="toggle"><input type="checkbox" id="voiceToggle"' + (s.voiceEnabled ? ' checked' : '') + ' onchange="saveSetting(\'voiceEnabled\', this.checked)"><span class="slider"></span></label></div>' +
+      '<div class="setting-item"><div><div class="setting-label">朗读声音</div><div class="setting-desc" id="voiceNameVal">' + (s.voiceName || '自动选择') + '</div></div>' +
+        '<input type="hidden" id="voiceSelect" value="' + (s.voiceName || '') + '"><button class="btn btn-ghost btn-sm" id="voicePickBtn" onclick="showVoicePicker()" style="font-size:13px;padding:6px 10px;min-width:120px;white-space:nowrap">' + (s.voiceName || '自动选择') + ' ▾</button></div>' +
+      '<div class="setting-item"><div><div class="setting-label">朗读模式</div><div class="setting-desc" id="readModeVal">' + ({once:'仅读一遍',loop:'循环朗读','auto-next':'自动下一题','three-times':'每题三遍'}[s.readMode||'once']) + '</div></div>' +
+        '<input type="hidden" id="readModeSelect" value="' + (s.readMode||'once') + '"><button class="btn btn-ghost btn-sm" id="readModePickBtn" onclick="showReadModePicker()" style="font-size:13px;padding:6px 10px;min-width:120px;white-space:nowrap">' + ({once:'仅读一遍',loop:'循环朗读','auto-next':'自动下一题','three-times':'每题三遍'}[s.readMode||'once']) + ' ▾</button></div>' +
+      '<div class="setting-item"><div><div class="setting-label">朗读语速</div><div class="setting-desc" id="rateVal">' + (s.voiceRate || 0.9) + 'x</div></div>' +
+        '<div style="width:140px"><input type="range" min="0.5" max="2" value="' + (s.voiceRate || 0.9) + '" step="0.1" oninput="updateVoiceRate(parseFloat(this.value))" onchange="updateVoiceRate(parseFloat(this.value))"></div></div>' +
+      '<div class="setting-item"><div><div class="setting-label">朗读音调</div><div class="setting-desc" id="pitchVal">' + (s.voicePitch || 1.0) + 'x</div></div>' +
+        '<div style="width:140px"><input type="range" min="0.5" max="2" value="' + (s.voicePitch || 1.0) + '" step="0.1" oninput="updateVoicePitch(parseFloat(this.value))" onchange="updateVoicePitch(parseFloat(this.value))"></div></div></div>' +
+
+    '<div class="section"><div class="section-title">外观</div>' +
+      '<div class="setting-item"><div><div class="setting-label">夜间模式</div><div class="setting-desc">暗色主题，夜间刷题更护眼</div></div>' +
+        '<label class="toggle"><input type="checkbox" id="darkToggle"' + (s.darkMode ? ' checked' : '') + ' onchange="saveSetting(\'darkMode\', this.checked)"><span class="slider"></span></label></div>' +
+      '<div class="setting-item"><div><div class="setting-label">主题颜色</div><div class="setting-desc" id="colorVal">' + (colorNames[s.color||'teal']) + '</div></div>' +
+        '<div class="color-dots">' +
+          colors.map(function(clr) {
+            return '<span class="color-dot' + (s.color === clr ? ' active' : '') + '" style="background:' + colorBgs[clr] + '" onclick="saveThemeColor(\'' + clr + '\')"></span>';
+          }).join('') +
+        '</div></div>' +
+      '<div class="setting-item"><div><div class="setting-label">字体大小</div><div class="setting-desc" id="fontVal">' + s.fontSize + 'px</div></div>' +
+        '<div style="display:flex;align-items:center;gap:6px;min-width:120px;flex:1;max-width:180px"><span style="font-size:12px;flex-shrink:0">A</span><input type="range" min="14" max="24" value="' + s.fontSize + '" step="1" oninput="updateFontSize(parseInt(this.value))" onchange="updateFontSize(parseInt(this.value))" style="flex:1;min-width:0"><span style="font-size:16px;font-weight:700;flex-shrink:0">A</span></div></div>' +
+    '</div>' +
+
+    '<div class="section"><div class="section-title">关于</div>' +
+      '<div class="setting-item" style="cursor:pointer" onclick="showManualMenu()"><div><div class="setting-label">📖 使用说明</div><div class="setting-desc">查看使用指南</div></div><div style="display:flex;align-items:center">→</div></div>' +
+      '<div class="setting-item"><div><div class="setting-label">挖空背诵工具 · 小阮出品</div><div class="setting-desc">手机刷题背书工具 · 纯前端离线可用</div></div></div>' +
+      '<div class="setting-item" style="cursor:pointer" onclick="clearAllData()"><div><div class="setting-label" style="color:var(--danger)">🗑️ 删除所有数据</div><div class="setting-desc">清空全部题库和设置，不可恢复</div></div><div style="display:flex;align-items:center;color:var(--danger)">→</div></div>' +
+      '<div class="setting-item" style="cursor:pointer" onclick="checkUpdate()"><div><div class="setting-label">🔄 检查更新</div><div class="setting-desc">点击清除缓存并刷新，获取最新版本</div></div><div style="display:flex;align-items:center">→</div></div>' +
+    '</div>';
   loadVoices();
-  renderUnicornHerd();
 }
 
-function renderUnicornHerd() {
-  const total = appData.unicorns || 0;
-  const herdEl = document.getElementById("unicornHerd");
-  const msEl = document.getElementById("unicornMilestone");
-  if (!herdEl) return;
-  const display = Math.min(total, 50);
-  if (display === 0) {
-    herdEl.innerHTML = "<span style=\"color:var(--text-tertiary);font-size:14px\">还没有印章，快去刷题吧！</span>";
-  } else {
-    let herd = "";
-    for (let i = 0; i < display; i++) {
-      herd += "🦄";
-      if ((i + 1) % 10 === 0 && i + 1 < display) herd += " ";
-    }
-    if (total > 50) herd += "<span style=\"font-size:14px;color:var(--text-tertiary)\"> …+" + (total - 50) + "</span>";
-    herdEl.innerHTML = herd;
-  }
-  if (msEl) {
-    const milestones = [
-      [1, "🎉 第一枚印章！坚持下去"],
-      [10, "🌟 已经10个印章了，渐入佳境"],
-      [30, "🔥 30个印章！你是个狠人"],
-      [50, "💪 50印章达成，记忆力在变强"],
-      [100, "👑 百章大师，所向披靡"],
-      [200, "🏆 200印章，传说级的坚持"],
-      [500, "🐉 500印章！你是记忆之王"]
-    ];
-    let msg = "";
-    for (const [n, m] of milestones) {
-      if (total >= n) msg = m;
-    }
-    msEl.textContent = msg;
-  }
-}
-
-function addToDesktop() {
-		  var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-		  var isAndroid = /Android/.test(navigator.userAgent);
-		  var title = '挖空背诵工具';
-		  if (isIOS) {
-		    showConfirm('添加到主屏幕', '1. 点下方工具栏的 <b>分享</b> 图标（方块带箭头）<br>2. 滑动找到 <b>添加到主屏幕</b><br>3. 点右上角"添加"', null, '知道了', true);
-		  } else if (isAndroid) {
-		    showConfirm('添加到主屏幕', '1. 点浏览器右上角 <b>⋮</b> 菜单<br>2. 选择 <b>添加到主屏幕</b><br>3. 点"添加"确认', null, '知道了', true);
-		  } else {
-		    var url = location.protocol === 'file:' ? location.href : 'https://laylll.github.io/beisong-trial/';
-		    var blob = new Blob(['[InternetShortcut]\\nURL=' + url], {type: 'text/plain'});
-		    var a = document.createElement('a');
-		    a.href = URL.createObjectURL(blob);
-		    a.download = title + '.url';
-		    document.body.appendChild(a);
-		    a.click();
-		    document.body.removeChild(a);
-		    URL.revokeObjectURL(a.href);
-		    showToast('快捷方式已下载，放到桌面即可');
-		  }
-		}
 	function checkUpdate() {
   showToast('正在清除缓存...');
   // 清除 Service Worker 缓存
@@ -4246,32 +4745,39 @@ function updateReadMode(val) {
   document.getElementById('readModeVal').textContent = {once:'仅读一遍',loop:'循环朗读','auto-next':'自动下一题','three-times':'每题三遍'}[val];
 }
 
+function isChineseVoice(v) {
+  const lang = (v.lang || '').toLowerCase();
+  const name = (v.name || '').toLowerCase();
+  // 标准中文 lang 标签
+  if (lang.startsWith('zh')) return true;
+  // ISO 639-3 官话
+  if (lang.startsWith('cmn')) return true;
+  // 部分引擎（如讯飞）使用 yue 粤语也算中文
+  if (lang.startsWith('yue')) return true;
+  // 按语音名称匹配：常见中文 TTS 引擎的关键词
+  const cnKeywords = ['中文', '普通话', '国语', 'chinese', 'mandarin', 'cantonese', '讯飞', 'xunfei', 'xiaoxiao', 'yunyang', 'hanhan', 'yating', 'zhiwei', 'kangkang', 'yaoyao', '小小', '云希', '晓晓', '云扬'];
+  for (var i = 0; i < cnKeywords.length; i++) {
+    if (name.indexOf(cnKeywords[i].toLowerCase()) !== -1) return true;
+  }
+  return false;
+}
+
 function loadVoices() {
   if (!window.speechSynthesis) return;
-  const voices = window.speechSynthesis.getVoices();
+  var voices = window.speechSynthesis.getVoices();
   if (!voices.length) {
     // Chrome 等浏览器异步加载语音列表，监听 voiceschanged 事件
-    window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.onvoiceschanged = function() {
       window.speechSynthesis.onvoiceschanged = null;
       loadVoices();
     };
-    // 兜底：200ms 后重试
-    setTimeout(() => { if (window.speechSynthesis) loadVoices(); }, 200);
+    // 兜底：200ms 后重试（QQ浏览器可能需要更长时间）
+    setTimeout(function() { if (window.speechSynthesis) loadVoices(); }, 500);
     return;
   }
-  const sel = document.getElementById('voiceSelect');
-  if (!sel) return;
-  // 清空旧选项（保留第一个"自动选择"）
-  while (sel.options.length > 1) sel.remove(1);
-  // Show all Chinese voices, fallback to all voices
-  const zhVoices = voices.filter(v => v.lang.startsWith("zh"));
-	  const filtered = zhVoices.length ? zhVoices : voices;
-  for (const v of filtered) {
-    const opt = document.createElement('option');
-    opt.value = v.name; opt.textContent = v.name + ' (' + v.lang + ')';
-    if (v.name === appData.settings.voiceName) opt.selected = true;
-    sel.appendChild(opt);
-  }
+  // 过滤中文语音，兼容各种引擎（系统TTS、讯飞、QQ浏览器等）
+  var zhVoices = voices.filter(isChineseVoice);
+  _availableVoices = zhVoices.length ? zhVoices : voices;
 }
 
 async function makeBackupCode() {
@@ -4309,14 +4815,18 @@ async function makeBackupCode() {
 async function copyBackup() {
   if (!isPermanentAuth()) { showToast('试用版不支持导出'); return; }
   try {
+    showToast('正在生成备份码...');
     const code = await makeBackupCode();
-    showBackupModal(code);
-    // 同时尝试自动复制
+    // 直接复制，不弹窗
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(code).then(function() {
-        showToast('备份码已自动复制');
-      }).catch(function() {});
+      try {
+        await navigator.clipboard.writeText(code);
+        showToast('✅ 备份码已复制到剪贴板（' + code.length + '字符）');
+        return;
+      } catch(e) {}
     }
+    // 兜底：fallback 到旧版弹窗
+    showBackupModal(code);
   } catch(e) { showToast('导出失败'); }
 }
 
@@ -4348,21 +4858,22 @@ function copyBackupCode() {
   }
 }
 
-function showRestorePrompt() {
-  const ov = document.createElement('div'); ov.className = 'modal-overlay';
-  ov.innerHTML = `<div class="modal" style="border-radius:var(--radius);max-width:380px;margin:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:20px">
-    <h3 style="margin-bottom:10px">📥 粘贴备份码</h3>
-    <textarea id="restoreTextarea" placeholder="在此粘贴之前复制的备份码..." style="width:100%;min-height:100px;font-size:13px;padding:10px;border:2px solid var(--border);border-radius:8px;background:var(--bg-input);color:var(--text)"></textarea>
-    <div class="flex gap-8 mt-12">
-      <button class="btn btn-ghost flex-1" onclick="this.closest('.modal-overlay').remove()">取消</button>
-      <button class="btn btn-primary flex-1" onclick="doRestore(this)">恢复</button>
-    </div>
-  </div>`;
-  document.body.appendChild(ov);
-  ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
+function toggleRestoreSection() {
+  const sec = document.getElementById('restoreSection');
+  const btn = document.getElementById('restoreToggleBtn');
+  if (!sec || !btn) return;
+  const showing = sec.style.display !== 'none';
+  sec.style.display = showing ? 'none' : 'block';
+  if (!showing) {
+    // 展开时聚焦输入框
+    setTimeout(function() {
+      var ta = document.getElementById('restoreTextarea');
+      if (ta) ta.focus();
+    }, 100);
+  }
 }
 
-async function doRestore(btn) {
+async function doRestore() {
   const code = document.getElementById('restoreTextarea').value.trim();
   if (!code) { showToast('请粘贴备份码'); return; }
   try {
