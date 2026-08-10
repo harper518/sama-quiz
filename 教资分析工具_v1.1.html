@@ -190,12 +190,36 @@ body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hove
 <body>
 
 <div class="theme-switcher" id="themeSwitcher" style="position:fixed; top:16px; right:16px; z-index:1000; display:flex; gap:6px; background:var(--card); border:1px solid var(--border); border-radius:24px; padding:6px 12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-  <button class="theme-dot" data-theme="blue" title="深蓝（原版）"><span class="dot-inner" style="background:#0f172a;border:2px solid #38bdf8;"></span></button>
-  <button class="theme-dot" data-theme="green" title="深绿护眼"><span class="dot-inner" style="background:#0a2a1a;border:2px solid #4ade80;"></span></button>
-  <button class="theme-dot" data-theme="purple" title="深紫"><span class="dot-inner" style="background:#1a1028;border:2px solid #a78bfa;"></span></button>
-  <button class="theme-dot" data-theme="warm" title="暖棕"><span class="dot-inner" style="background:#1e160c;border:2px solid #fb923c;"></span></button>
-  <button class="theme-dot" data-theme="light" title="浅色"><span class="dot-inner" style="background:#f1f5f9;border:2px solid #94a3b8;"></span></button>
+  <button class="theme-dot" data-theme="blue" title="深蓝（原版）" onclick="switchTheme('blue',this)"><span class="dot-inner" style="background:#0f172a;border:2px solid #38bdf8;"></span></button>
+  <button class="theme-dot" data-theme="green" title="深绿护眼" onclick="switchTheme('green',this)"><span class="dot-inner" style="background:#0a2a1a;border:2px solid #4ade80;"></span></button>
+  <button class="theme-dot" data-theme="purple" title="深紫" onclick="switchTheme('purple',this)"><span class="dot-inner" style="background:#1a1028;border:2px solid #a78bfa;"></span></button>
+  <button class="theme-dot" data-theme="warm" title="暖棕" onclick="switchTheme('warm',this)"><span class="dot-inner" style="background:#1e160c;border:2px solid #fb923c;"></span></button>
+  <button class="theme-dot" data-theme="light" title="浅色" onclick="switchTheme('light',this)"><span class="dot-inner" style="background:#f1f5f9;border:2px solid #94a3b8;"></span></button>
 </div>
+
+<script>
+// Inline theme switcher — runs immediately, not affected by later JS errors
+function switchTheme(t, el) {
+  if (t === 'blue') { document.body.removeAttribute('data-theme'); }
+  else { document.body.setAttribute('data-theme', t); }
+  localStorage.setItem('qb-theme', t);
+  var dots = document.querySelectorAll('.theme-dot');
+  dots.forEach(function(d) { d.style.boxShadow = 'none'; });
+  if (el) el.style.boxShadow = '0 0 0 2px var(--accent)';
+}
+// Load saved theme on page start
+(function() {
+  var saved = localStorage.getItem('qb-theme');
+  if (saved && saved !== 'blue') {
+    document.body.setAttribute('data-theme', saved);
+    var dot = document.querySelector('.theme-dot[data-theme="' + saved + '"]');
+    if (dot) dot.style.boxShadow = '0 0 0 2px var(--accent)';
+  } else {
+    var blueDot = document.querySelector('.theme-dot[data-theme="blue"]');
+    if (blueDot) blueDot.style.boxShadow = '0 0 0 2px var(--accent)';
+  }
+})();
+</script>
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
@@ -651,12 +675,13 @@ body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hove
 
     <div class="changelog-entry open">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
-        <h3><span class="badge badge-new">v1.9</span> 2026年8月11日 — 颜色切换按钮触控优化</h3>
+        <h3><span class="badge badge-new">v1.9</span> 2026年8月11日 — 颜色切换按钮触控优化+修复</h3>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="changelog-body"><ul>
         <li><span class="fix">优化</span> 颜色切换按钮触摸区域从36px增大到≥44px（满足全设备响应式标准）</li>
         <li><span class="fix">优化</span> 采用内层span做视觉圆点+外层button做触控容器的结构</li>
+        <li><span class="fix">修复</span> 改用inline onclick事件，不受页面其他JS错误影响，确保切换功能可靠</li>
       </ul></div>
     </div>
 
