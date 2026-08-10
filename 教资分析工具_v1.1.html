@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.5</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.6</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -171,7 +171,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.5</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.6</p>
 </div>
 
 <div class="container">
@@ -623,6 +623,18 @@ td.num { text-align:center; font-weight:600; }
 
     <div class="changelog-entry open">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.6</span> 2026年8月11日 — 刷题库修复+事件委托重构</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="fix">修复</span> 刷题库知识点列表点击无响应问题（inline onclick → 事件委托）</li>
+        <li><span class="fix">修复</span> 答案解析按钮改用事件委托，避免动态生成元素的引用转义问题</li>
+        <li><span class="opt">优化</span> 浏览器兼容性——事件委托不依赖HTML属性中的引号嵌套</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
         <h3><span class="badge badge-new">v1.5</span> 2026年8月10日 — 知识点精讲+预测升级+科学修复</h3>
         <span class="toggle-icon">▼</span>
       </div>
@@ -791,7 +803,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="footer">
   <p>🤖 基于科学频次分析+趋势预测+回溯验证 | 数据来源：2019下～2026上 13套真题</p>
-  <p>预测模型仅供参考，最终以实际考试为准 | v1.5 | 2026年8月 | 新增：刷题库(589题)←粉笔6套模考+精选题 | 新增：知识点精讲(30个考点+真题解析)+预测升级知识点级+科学措辞修复</p>
+  <p>预测模型仅供参考，最终以实际考试为准 | v1.6 | 2026年8月 | 修复：刷题库点击切换改用事件委托 | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
 </div>
 
 <script>
@@ -1482,7 +1494,7 @@ function renderQBKpList() {
       var name = KP_NAMES[k] || k;
       var pri = KP_PRIORITY[k] || 'low';
       var priIcon = pri==='must'?'🔴':pri==='high'?'🟡':pri==='mid'?'🟢':'🔵';
-      html += '<div class="qb-kp-item" data-kp="' + k + '" onclick="selectQBKp(\x27" + k + "\x27)">';
+      html += '<div class="qb-kp-item" data-kp="' + k + '">';
       html += '<span class="kp-name">' + priIcon + ' ' + k + ' ' + name.substring(0, 12) + '</span>';
       html += '<span class="kp-count">' + count + '题</span>';
       html += '</div>';
@@ -1512,7 +1524,7 @@ function selectQBKp(kp) {
       html += '<div class="q-opt">' + letter + '. ' + (q.o[oi] || '').replace(/^[A-D][.．、]s*/, '') + '</div>';
     });
     html += '</div>';
-    html += '<button class="qb-answer-toggle" onclick="toggleAnswer(this)" style="min-height:44px;">🔍 显示答案与解析</button>';
+    html += '<button class="qb-answer-toggle" style="min-height:44px;">🔍 显示答案与解析</button>';
     html += '<div class="qb-answer-content">';
     html += '<div class="q-ans">✅ 正确答案：' + ansLetter + '</div>';
     html += '<div class="q-exp">💡 ' + (q.e || '暂无解析') + '</div>';
@@ -1540,6 +1552,21 @@ function toggleAnswer(btn) {
 
 // Initialize question bank list
 renderQBKpList();
+
+// Event delegation for KP item clicks — avoids quote-escaping issues with inline onclick
+document.getElementById('qbKpList').addEventListener('click', function(e) {
+  var item = e.target.closest('.qb-kp-item');
+  if (item) {
+    var kp = item.getAttribute('data-kp');
+    if (kp) selectQBKp(kp);
+  }
+});
+
+// Event delegation for answer toggle buttons (generated dynamically by selectQBKp)
+document.getElementById('qbQuestions').addEventListener('click', function(e) {
+  var btn = e.target.closest('.qb-answer-toggle');
+  if (btn) toggleAnswer(btn);
+});
 
 // ========== TAB SWITCHING ==========
 function switchTab(name) {
