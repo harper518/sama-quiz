@@ -210,9 +210,13 @@ body[data-theme="light-purple"] .badge-hot, body[data-theme="light-purple"] .bad
 body[data-theme="light-purple"] .strategy-box { background:linear-gradient(135deg, #ede9fe, #f5f3ff); }
 body[data-theme="light-purple"] .tab-btn.active, body[data-theme="light-purple"] .tab-btn:hover { color:#fff; }
 
-/* 多巴胺撞色 A — 深紫底+亮黄撞色 */
-body[data-theme="dopamine-a"] { --bg:#1a1028; --bg2:#2d1b4e; --card:#3b2468; --border:#5b3d9e; --text:#ede9fe; --text2:#c4b5fd; --text3:#a78bfa; --accent:#fde68a; --green:#86efac; --red:#fca5a5; --yellow:#fbbf24; --opt-bg:rgba(26,16,40,0.5); }
-body[data-theme="dopamine-a"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); border-bottom:2px solid var(--accent); }
+/* 多巴胺撞色 A — 浅紫底+亮黄撞色（白天版） */
+body[data-theme="dopamine-a"] { --bg:#faf5ff; --bg2:#f3e8ff; --card:#ffffff; --border:#d8b4fe; --text:#3b0764; --text2:#6b21a8; --text3:#9333ea; --accent:#eab308; --green:#16a34a; --red:#dc2626; --yellow:#d97706; --opt-bg:#f3e8ff; }
+body[data-theme="dopamine-a"] .header { background:linear-gradient(135deg, #f3e8ff, #faf5ff); border-bottom:2px solid var(--accent); }
+body[data-theme="dopamine-a"] th { background:var(--bg2); }
+body[data-theme="dopamine-a"] .badge-hot, body[data-theme="dopamine-a"] .badge-new, body[data-theme="dopamine-a"] .badge-warn { color:#fff; }
+body[data-theme="dopamine-a"] .strategy-box { background:linear-gradient(135deg, #f3e8ff, #fef9c3); border:1px solid var(--accent); }
+body[data-theme="dopamine-a"] .tab-btn.active, body[data-theme="dopamine-a"] .tab-btn:hover { color:#fff; }
 
 /* 多巴胺撞色 B — 亮黄底+紫撞色 */
 body[data-theme="dopamine-b"] { --bg:#fefce8; --bg2:#fef08a; --card:#ffffff; --border:#eab308; --text:#422006; --text2:#713f12; --text3:#a16207; --accent:#7c3aed; --green:#16a34a; --red:#dc2626; --yellow:#d97706; --opt-bg:#fef9c3; }
@@ -240,7 +244,7 @@ body[data-theme="dopamine-c"] .tab-btn.active, body[data-theme="dopamine-c"] .ta
   <button class="theme-dot" data-theme="cream" title="护眼暖白" onclick="switchTheme('cream',this)"><span class="dot-inner" style="background:#fef9ef;border:2px solid #d97706;"></span></button>
   <button class="theme-dot" data-theme="mint" title="清新薄荷" onclick="switchTheme('mint',this)"><span class="dot-inner" style="background:#f0fdf4;border:2px solid #059669;"></span></button>
   <button class="theme-dot" data-theme="light-purple" title="浅紫梦幻" onclick="switchTheme('light-purple',this)"><span class="dot-inner" style="background:#f5f3ff;border:2px solid #7c3aed;"></span></button>
-  <button class="theme-dot" data-theme="dopamine-a" title="多巴胺·深紫黄撞色" onclick="switchTheme('dopamine-a',this)"><span class="dot-inner" style="background:#1a1028;border:2px solid #fde68a;"></span></button>
+  <button class="theme-dot" data-theme="dopamine-a" title="多巴胺·浅紫黄撞色" onclick="switchTheme('dopamine-a',this)"><span class="dot-inner" style="background:#faf5ff;border:2px solid #eab308;"></span></button>
   <button class="theme-dot" data-theme="dopamine-b" title="多巴胺·亮黄紫撞色" onclick="switchTheme('dopamine-b',this)"><span class="dot-inner" style="background:#fefce8;border:2px solid #7c3aed;"></span></button>
   <button class="theme-dot" data-theme="dopamine-c" title="多巴胺·白底紫黄点缀" onclick="switchTheme('dopamine-c',this)"><span class="dot-inner" style="background:#fefce8;border:2px solid #7c3aed;"></span></button>
 </div>
