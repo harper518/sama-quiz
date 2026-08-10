@@ -1482,7 +1482,7 @@ function renderQBKpList() {
       var name = KP_NAMES[k] || k;
       var pri = KP_PRIORITY[k] || 'low';
       var priIcon = pri==='must'?'🔴':pri==='high'?'🟡':pri==='mid'?'🟢':'🔵';
-      html += '<div class="qb-kp-item" data-kp="' + k + '" onclick="selectQBKp('' + k + '')">';
+      html += '<div class="qb-kp-item" data-kp="' + k + '" onclick="selectQBKp(\x27" + k + "\x27)">';
       html += '<span class="kp-name">' + priIcon + ' ' + k + ' ' + name.substring(0, 12) + '</span>';
       html += '<span class="kp-count">' + count + '题</span>';
       html += '</div>';
