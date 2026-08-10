@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.7</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.8</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
-  --bg: #0f172a; --card: #1e293b; --border: #334155;
-  --text: #e2e8f0; --text2: #94a3b8; --accent: #38bdf8;
+  --bg: #0f172a; --bg2: #1a2332; --card: #1e293b; --border: #334155;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b; --accent: #38bdf8;
   --green: #4ade80; --red: #f87171; --yellow: #fbbf24;
   --purple: #a78bfa; --pink: #f472b6;
   --m1: #f87171; --m2: #fb923c; --m3: #fbbf24; --m4: #4ade80;
@@ -20,7 +20,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .container { max-width: 1200px; margin: 0 auto; padding: 16px; }
 
 /* Header */
-.header { text-align:center; padding: 32px 16px; background: linear-gradient(135deg, #1e293b, #0f172a); border-bottom: 2px solid var(--accent); margin-bottom: 24px; }
+.header { text-align:center; padding: 32px 16px; background: linear-gradient(135deg, var(--card), var(--bg)); border-bottom: 2px solid var(--accent); margin-bottom: 24px; }
 .header h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--accent); margin-bottom: 8px; }
 .header p { color: var(--text2); font-size: 0.95rem; }
 
@@ -45,34 +45,34 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 /* Tables */
 table { width:100%; border-collapse:collapse; font-size:0.9rem; margin:12px 0; }
 th, td { padding: 10px 12px; text-align:left; border-bottom:1px solid var(--border); }
-th { background: #1a2332; color: var(--accent); font-weight:600; position:sticky; top:0; }
+th { background: var(--bg2); color: var(--accent); font-weight:600; position:sticky; top:0; }
 tr:hover { background: rgba(56,189,248,0.05); }
 td.num { text-align:center; font-weight:600; }
 
 /* Prediction Cards */
 .pred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
-.pred-card { background: #1a2332; border-radius: var(--radius); padding: 16px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
+.pred-card { background: var(--bg2); border-radius: var(--radius); padding: 16px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
 .pred-card .mod-tag { font-size:0.75rem; padding:2px 8px; border-radius:20px; display:inline-block; margin-bottom:6px; }
 .pred-card .q-title { font-size:0.9rem; margin-bottom:4px; line-height:1.4; }
 .pred-card .confidence { font-size:0.8rem; color: var(--text2); }
 .pred-card .confidence span { font-weight:700; }
-.pred-card .alt { font-size:0.78rem; color: #64748b; margin-top:4px; }
+.pred-card .alt { font-size:0.78rem; color: var(--text3); margin-top:4px; }
 
 /* Tabs */
 .tab-nav { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:16px; }
 .tab-btn { padding: 8px 18px; border:1px solid var(--border); background:transparent; color:var(--text2); border-radius:20px; cursor:pointer; font-size:0.9rem; transition:all 0.2s; }
-.tab-btn.active, .tab-btn:hover { background:var(--accent); color:#0f172a; border-color:var(--accent); }
+.tab-btn.active, .tab-btn:hover { background:var(--accent); color:var(--bg); border-color:var(--accent); }
 .tab-panel { display:none; }
 .tab-panel.active { display:block; }
 
 /* Badge */
 .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:0.7rem; font-weight:600; }
 .badge-hot { background:var(--red); color:#fff; }
-.badge-new { background:var(--green); color:#0f172a; }
-.badge-warn { background:var(--yellow); color:#0f172a; }
+.badge-new { background:var(--green); color:var(--bg); }
+.badge-warn { background:var(--yellow); color:var(--bg); }
 
 /* Progress bar */
-.progress-bar { height:8px; border-radius:4px; background:#1a2332; margin:4px 0; overflow:hidden; }
+.progress-bar { height:8px; border-radius:4px; background:var(--bg2); margin:4px 0; overflow:hidden; }
 .progress-fill { height:100%; border-radius:4px; transition:width 0.5s; }
 
 /* Highlight text */
@@ -82,7 +82,7 @@ td.num { text-align:center; font-weight:600; }
 .text-yellow { color:var(--yellow); }
 
 /* Strategy box */
-.strategy-box { background: linear-gradient(135deg, #1a2332, #1e293b); border: 1px solid var(--accent); border-radius: var(--radius); padding: 20px; margin: 16px 0; }
+.strategy-box { background: linear-gradient(135deg, var(--bg2), var(--card)); border: 1px solid var(--accent); border-radius: var(--radius); padding: 20px; margin: 16px 0; }
 .strategy-box h3 { color: var(--accent); margin-bottom: 8px; }
 
 /* Knowledge Points */
@@ -90,7 +90,7 @@ td.num { text-align:center; font-weight:600; }
 .kp-filter-btn { padding:6px 16px; border:1px solid var(--border); background:transparent; color:var(--text2); border-radius:20px; cursor:pointer; font-size:0.85rem; transition:all 0.2s; }
 .kp-filter-btn.active, .kp-filter-btn:hover { border-color:var(--accent); color:var(--accent); }
 .kp-mod-section { margin-bottom:24px; }
-.kp-mod-title { font-size:1.1rem; font-weight:700; padding:10px 16px; background:#1a2332; border-radius:8px 8px 0 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+.kp-mod-title { font-size:1.1rem; font-weight:700; padding:10px 16px; background:var(--bg2); border-radius:8px 8px 0 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
 .kp-mod-body { background:var(--card); border-radius:0 0 8px 8px; border:1px solid var(--border); border-top:none; }
 .kp-mod-body.collapsed { display:none; }
 .kp-card { padding:18px 20px; border-bottom:1px solid var(--border); transition:background 0.15s; }
@@ -100,9 +100,9 @@ td.num { text-align:center; font-weight:600; }
 .kp-card-title { font-weight:700; font-size:1rem; }
 .kp-priority { display:inline-block; padding:2px 10px; border-radius:12px; font-size:0.75rem; font-weight:600; flex-shrink:0; }
 .kp-priority.must { background:var(--red); color:#fff; }
-.kp-priority.high { background:var(--yellow); color:#0f172a; }
-.kp-priority.mid { background:var(--accent); color:#0f172a; }
-.kp-priority.low { background:#64748b; color:#fff; }
+.kp-priority.high { background:var(--yellow); color:var(--bg); }
+.kp-priority.mid { background:var(--accent); color:var(--bg); }
+.kp-priority.low { background:var(--text3); color:#fff; }
 .kp-def { color:var(--accent); font-size:0.9rem; margin-bottom:6px; }
 .kp-detail { font-size:0.85rem; color:var(--text2); line-height:1.8; }
 .kp-detail strong { color:var(--text); }
@@ -112,7 +112,7 @@ td.num { text-align:center; font-weight:600; }
 .kp-example .q-exp { color:var(--text2); font-size:0.8rem; margin-top:4px; }
 .kp-trap { color:var(--red); font-size:0.82rem; margin-top:4px; }
 .kp-trap::before { content:'⚠️ '; }
-.changelog-entry { background:#1a2332; border-radius:var(--radius); margin-bottom:16px; border:1px solid var(--border); overflow:hidden; }
+.changelog-entry { background:var(--bg2); border-radius:var(--radius); margin-bottom:16px; border:1px solid var(--border); overflow:hidden; }
 .changelog-header { padding:14px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background 0.2s; }
 .changelog-header:hover { background:rgba(56,189,248,0.05); }
 .changelog-header h3 { margin:0; font-size:1rem; }
@@ -146,8 +146,8 @@ td.num { text-align:center; font-weight:600; }
 .qb-kp-item:hover { background:rgba(56,189,248,0.08); }
 .qb-kp-item.active { background:rgba(56,189,248,0.15); border-left-color:var(--accent); }
 .qb-kp-item .kp-name { font-size:0.82rem; }
-.qb-kp-item .kp-count { font-size:0.7rem; color:var(--text2); background:#1a2332; padding:2px 8px; border-radius:10px; }
-.qb-question { background:#1a2332; border-radius:var(--radius); padding:16px; margin-bottom:12px; border:1px solid var(--border); }
+.qb-kp-item .kp-count { font-size:0.7rem; color:var(--text2); background:var(--bg2); padding:2px 8px; border-radius:10px; }
+.qb-question { background:var(--bg2); border-radius:var(--radius); padding:16px; margin-bottom:12px; border:1px solid var(--border); }
 .qb-question .q-stem { font-weight:600; margin-bottom:10px; font-size:0.9rem; line-height:1.6; }
 .qb-question .q-options { display:grid; grid-template-columns: 1fr 1fr; gap:4px; margin-bottom:10px; font-size:0.85rem; }
 @media (max-width: 600px) { .qb-question .q-options { grid-template-columns: 1fr; } }
@@ -156,24 +156,47 @@ td.num { text-align:center; font-weight:600; }
 .qb-question .q-opt.correct { background:rgba(74,222,128,0.15); border:1px solid var(--green); color:var(--green); }
 .qb-question .q-opt.wrong { background:rgba(248,113,113,0.15); border:1px solid #f87171; color:#f87171; text-decoration:line-through; }
 .qb-answer-toggle { display:inline-block; padding:6px 16px; border:1px solid var(--accent); background:transparent; color:var(--accent); border-radius:20px; cursor:pointer; font-size:0.8rem; transition:all 0.2s; min-height:44px; }
-.qb-answer-toggle:hover { background:var(--accent); color:#0f172a; }
+.qb-answer-toggle:hover { background:var(--accent); color:var(--bg); }
 .qb-answer-content { display:none; margin-top:10px; padding:12px; background:rgba(74,222,128,0.05); border-radius:8px; border-left:3px solid var(--green); }
 .qb-answer-content.show { display:block; }
 .qb-answer-content .q-ans { color:var(--green); font-weight:700; font-size:0.9rem; }
 .qb-answer-content .q-exp { color:var(--text2); font-size:0.82rem; margin-top:6px; line-height:1.6; }
-.qb-source-tag { font-size:0.7rem; color:#64748b; margin-left:8px; }
+.qb-source-tag { font-size:0.7rem; color:var(--text3); margin-left:8px; }
 
 
 /* Footer */
 .footer { text-align:center; padding:20px; color:var(--text2); font-size:0.8rem; }
 .footer a { color:var(--accent); }
 </style>
+
+/* ====== COLOR THEMES ====== */
+body[data-theme="green"] { --bg:#0a2a1a; --bg2:#0f3322; --card:#163a2a; --border:#2a5a3a; --text:#d8ead8; --text2:#88aa88; --text3:#5a7a5a; --accent:#4ade80; --green:#6ee7a0; --red:#fca5a5; --yellow:#fde68a; }
+body[data-theme="green"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
+body[data-theme="purple"] { --bg:#1a1028; --bg2:#221838; --card:#2a1e40; --border:#4a3870; --text:#e0d8f0; --text2:#a090c8; --text3:#7060a0; --accent:#a78bfa; --green:#86efac; --red:#fca5a5; --yellow:#fde68a; }
+body[data-theme="purple"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
+body[data-theme="warm"] { --bg:#1e160c; --bg2:#2a1e10; --card:#2e2218; --border:#5a4030; --text:#e8dcc8; --text2:#b0a088; --text3:#807060; --accent:#fb923c; --green:#86efac; --red:#fca5a5; --yellow:#fde68a; }
+body[data-theme="warm"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
+body[data-theme="light"] { --bg:#f1f5f9; --bg2:#e2e8f0; --card:#ffffff; --border:#cbd5e1; --text:#0f172a; --text2:#475569; --text3:#64748b; --accent:#0284c7; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; }
+body[data-theme="light"] .header { background:linear-gradient(135deg, #e0f2fe, #f0f9ff); border-bottom:2px solid var(--accent); }
+body[data-theme="light"] th { background:var(--bg2); }
+body[data-theme="light"] .badge-hot, body[data-theme="light"] .badge-new, body[data-theme="light"] .badge-warn { color:#fff; }
+body[data-theme="light"] .strategy-box { background:linear-gradient(135deg, #e0f2fe, #f0f9ff); }
+body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hover { color:#fff; }
+
 </head>
 <body>
 
+<div class="theme-switcher" id="themeSwitcher" style="position:fixed; top:16px; right:16px; z-index:1000; display:flex; gap:6px; background:var(--card); border:1px solid var(--border); border-radius:24px; padding:6px 12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+  <button class="theme-dot" data-theme="blue" title="深蓝（原版）" style="width:26px;height:26px;border-radius:50%;background:#0f172a;border:2px solid #38bdf8;cursor:pointer;transition:transform 0.15s;"></button>
+  <button class="theme-dot" data-theme="green" title="深绿护眼" style="width:26px;height:26px;border-radius:50%;background:#0a2a1a;border:2px solid #4ade80;cursor:pointer;transition:transform 0.15s;"></button>
+  <button class="theme-dot" data-theme="purple" title="深紫" style="width:26px;height:26px;border-radius:50%;background:#1a1028;border:2px solid #a78bfa;cursor:pointer;transition:transform 0.15s;"></button>
+  <button class="theme-dot" data-theme="warm" title="暖棕" style="width:26px;height:26px;border-radius:50%;background:#1e160c;border:2px solid #fb923c;cursor:pointer;transition:transform 0.15s;"></button>
+  <button class="theme-dot" data-theme="light" title="浅色" style="width:26px;height:26px;border-radius:50%;background:#f1f5f9;border:2px solid #94a3b8;cursor:pointer;transition:transform 0.15s;"></button>
+</div>
+
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.7</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.8</p>
 </div>
 
 <div class="container">
@@ -341,7 +364,7 @@ td.num { text-align:center; font-weight:600; }
           <td>2022年4月</td>
           <td>2023上</td>
           <td>持续影响中</td>
-          <td><span class="badge" style="background:#fbbf24;color:#0f172a;">模块2</span></td>
+          <td><span class="badge" style="background:#fbbf24;color:var(--bg);">模块2</span></td>
           <td style="font-size:0.85rem;">"九年一贯制课程设置"、课程类型辨析</td>
         </tr>
         <tr>
@@ -373,7 +396,7 @@ td.num { text-align:center; font-weight:600; }
           <td>2024-2026年</td>
           <td>未直接出</td>
           <td>—</td>
-          <td><span class="badge" style="background:#fbbf24;color:#0f172a;">模块3</span></td>
+          <td><span class="badge" style="background:#fbbf24;color:var(--bg);">模块3</span></td>
           <td style="font-size:0.85rem;">可能融入教学方法/教学手段现代化相关题目</td>
         </tr>
       </tbody>
@@ -399,7 +422,7 @@ td.num { text-align:center; font-weight:600; }
         <div style="font-size:0.85rem;color:var(--text2);margin:6px 0;">
           2023年17部门行动计划2025年收官，2026年进入评估深化阶段。连续在2023下~2026上出现，<span class="highlight">2026下极大概率继续出题</span>。
         </div>
-        <div style="font-size:0.82rem;color:#64748b;">
+        <div style="font-size:0.82rem;color:var(--text3);">
           可能考法：中学生常见心理问题识别(强迫/焦虑/抑郁)、心理辅导方法辨析(理性情绪/系统脱敏/代币法)、心理辅导原则(发展性/主体性)
         </div>
         <div class="confidence">出题概率: <span class="text-green">极高 (95%)</span></div>
@@ -411,19 +434,19 @@ td.num { text-align:center; font-weight:600; }
         <div style="font-size:0.85rem;color:var(--text2);margin:6px 0;">
           连续3次出现(2024下、2025上、2025下)，2026上<span class="highlight">未出现</span>。按规律，连续3次后可能休息1次也可能继续。
         </div>
-        <div style="font-size:0.82rem;color:#64748b;">
+        <div style="font-size:0.82rem;color:var(--text3);">
           可能考法(若出现)：劳动教育的地位/作用、与其他教育的关系、实施途径。不太可能再考具体课时数字。
         </div>
         <div class="confidence">出题概率: <span class="text-yellow">中等 (60%)</span></div>
       </div>
 
       <div class="pred-card" style="border-left-color:#4ade80;">
-        <span class="mod-tag" style="background:#fbbf24;color:#0f172a;">模块2/3</span>
+        <span class="mod-tag" style="background:#fbbf24;color:var(--bg);">模块2/3</span>
         <div class="q-title"><strong>🥉 新课标(2022版)持续渗透</strong></div>
         <div style="font-size:0.85rem;color:var(--text2);margin:6px 0;">
           2022版义教新课标影响深远，命题人已习惯用新课标框架出题。<span class="highlight">核心素养导向</span>是高频考点。
         </div>
-        <div style="font-size:0.82rem;color:#64748b;">
+        <div style="font-size:0.82rem;color:var(--text3);">
           可能考法：课程类型辨析(综合课程/跨学科主题学习)、教学方式变革(探究式/项目式)、课程评价改革
         </div>
         <div class="confidence">出题概率: <span class="text-green">高 (85%)</span></div>
@@ -435,19 +458,19 @@ td.num { text-align:center; font-weight:600; }
         <div style="font-size:0.85rem;color:var(--text2);margin:6px 0;">
           2023年9月习近平提出，热度持续上升，但教资考试有滞后。可能在<span class="highlight">2026下首次试探性出题</span>。
         </div>
-        <div style="font-size:0.82rem;color:#64748b;">
+        <div style="font-size:0.82rem;color:var(--text3);">
           可能考法：教育家精神的内涵(信念/道德/智慧/仁爱等)、与教师职业道德的关系
         </div>
         <div class="confidence">出题概率: <span class="text-red">低 (30%)</span></div>
       </div>
 
       <div class="pred-card" style="border-left-color:#38bdf8;">
-        <span class="mod-tag" style="background:#fbbf24;color:#0f172a;">模块3</span>
+        <span class="mod-tag" style="background:#fbbf24;color:var(--bg);">模块3</span>
         <div class="q-title"><strong>AI+教育 / 教育数字化</strong></div>
         <div style="font-size:0.85rem;color:var(--text2);margin:6px 0;">
           2025-2026年最热话题，但教资考试出题<span class="highlight">滞后4年</span>。直接出题概率低，可能间接融入。
         </div>
-        <div style="font-size:0.82rem;color:#64748b;">
+        <div style="font-size:0.82rem;color:var(--text3);">
           可能考法：教学手段现代化(属于固有的教学方法考点)、信息技术与课程整合
         </div>
         <div class="confidence">出题概率: <span class="text-red">低 (25%)</span></div>
@@ -597,7 +620,7 @@ td.num { text-align:center; font-weight:600; }
     <p style="color:var(--text2);margin-bottom:8px;">
       按高频考点优先级排列，每个知识点包含：<span class="highlight">一句话定义</span> + <span class="text-green">关键辨析</span> + <span class="text-yellow">真题示例</span> + <span class="text-red">⚠️常见陷阱</span>
     </p>
-    <p style="font-size:0.82rem;color:#64748b;margin-bottom:16px;">
+    <p style="font-size:0.82rem;color:var(--text3);margin-bottom:16px;">
       优先级：<span class="kp-priority must">必考</span> 出现≥10次 | <span class="kp-priority high">高频</span> 5-9次 | <span class="kp-priority mid">中频</span> 3-4次 | <span class="kp-priority low">低频</span> 1-2次（备考时间紧可先跳过）
     </p>
 
@@ -624,6 +647,19 @@ td.num { text-align:center; font-weight:600; }
     </p>
 
     <div class="changelog-entry open">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.8</span> 2026年8月11日 — 5套颜色主题+UI优化</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 5套颜色主题：深蓝(原版)/深绿护眼/深紫/暖棕/浅色</li>
+        <li><span class="add">新增</span> 右上角固定颜色切换器🎨，点色块即可切换</li>
+        <li><span class="add">新增</span> 主题偏好自动保存（localStorage），刷新不丢失</li>
+        <li><span class="opt">优化</span> 全局颜色CSS变量化，替换20+处硬编码颜色</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
         <h3><span class="badge badge-new">v1.7</span> 2026年8月11日 — 刷题库选项可交互点击</h3>
         <span class="toggle-icon">▼</span>
@@ -706,7 +742,7 @@ td.num { text-align:center; font-weight:600; }
 
     <div class="changelog-entry">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
-        <h3><span class="badge" style="background:#64748b;">v1.0</span> 2026年8月8日 — 首次发布</h3>
+        <h3><span class="badge" style="background:var(--text3);">v1.0</span> 2026年8月8日 — 首次发布</h3>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="changelog-body"><ul>
@@ -818,7 +854,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="footer">
   <p>🤖 基于科学频次分析+趋势预测+回溯验证 | 数据来源：2019下～2026上 13套真题</p>
-  <p>预测模型仅供参考，最终以实际考试为准 | v1.7 | 2026年8月 | 新增：刷题库选项可点击作答(即时判断对错) | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
+  <p>预测模型仅供参考，最终以实际考试为准 | v1.8 | 2026年8月 | 新增：刷题库选项可点击作答(即时判断对错) | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
 </div>
 
 <script>
@@ -1049,7 +1085,7 @@ const DATA = {
 // ========== CHART INIT ==========
 const chartFont = { family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" };
 Chart.defaults.color = '#94a3b8';
-Chart.defaults.borderColor = '#334155';
+Chart.defaults.borderColor = 'var(--border)';
 
 // Colors for 8 modules
 const mColors = ['#f87171','#fb923c','#fbbf24','#4ade80','#38bdf8','#a78bfa','#f472b6','#94a3b8'];
@@ -1062,7 +1098,7 @@ new Chart(document.getElementById('modulePieChart'), {
     datasets: [{
       data: Object.values(DATA.moduleFreq),
       backgroundColor: mColors,
-      borderColor: '#0f172a',
+      borderColor: 'var(--bg)',
       borderWidth: 2
     }]
   },
@@ -1104,7 +1140,7 @@ const heatDatasets = [1,2,3,4,5,6,7,8].map(m => ({
   label: DATA.moduleNames[m],
   data: periods.map(p => DATA.periodModules[p][m] || 0),
   backgroundColor: mColors[m-1],
-  borderColor: '#0f172a',
+  borderColor: 'var(--bg)',
   borderWidth: 1
 }));
 
@@ -1194,7 +1230,7 @@ new Chart(document.getElementById('trendLineChart'), {
 document.getElementById('topSubTopics').innerHTML = DATA.subTopicFreq.map((s,i) => `
   <tr>
     <td class="num">${i+1}</td>
-    <td><span class="badge" style="background:${mColors[s.m-1]};color:#0f172a;">模块${s.m}</span></td>
+    <td><span class="badge" style="background:${mColors[s.m-1]};color:var(--bg);">模块${s.m}</span></td>
     <td>${s.name}</td>
     <td class="num highlight">${s.freq}次</td>
     <td class="num">${(s.freq/273*100).toFixed(1)}%</td>
@@ -1207,7 +1243,7 @@ document.getElementById('predDetailCards').innerHTML = DATA.predKnowledgePoints.
   var confColor = c.conf >= 90 ? '#4ade80' : c.conf >= 80 ? '#fbbf24' : '#94a3b8';
   var confLabel = c.conf >= 90 ? '极高' : c.conf >= 80 ? '高' : '中';
   return '<div class="pred-card" style="border-left-color:' + confColor + ';">' +
-    '<span class="mod-tag" style="background:' + mColors[c.m-1] + ';color:#0f172a;">M' + c.m + ' ' + c.st + '</span>' +
+    '<span class="mod-tag" style="background:' + mColors[c.m-1] + ';color:var(--bg);">M' + c.m + ' ' + c.st + '</span>' +
     '<div class="q-title">' + c.title + '</div>' +
     '<div class="confidence">出题概率: <span style="color:' + confColor + ';">' + confLabel + ' (' + c.conf + '%)</span></div>' +
     '<div class="alt">💡 ' + c.reason + '</div>' +
@@ -1220,7 +1256,7 @@ document.getElementById('predTable').innerHTML = `
     <thead><tr><th>模块</th><th>预测题数</th><th>占选择题比</th><th>可信度</th></tr></thead>
     <tbody>${DATA.pred2026下.map(p => `
       <tr>
-        <td><span class="badge" style="background:${mColors[p.module-1]};color:#0f172a;">M${p.module}</span> ${DATA.moduleNames[p.module]}</td>
+        <td><span class="badge" style="background:${mColors[p.module-1]};color:var(--bg);">M${p.module}</span> ${DATA.moduleNames[p.module]}</td>
         <td class="num highlight">${p.predicted}</td>
         <td class="num">${(p.predicted/21*100).toFixed(0)}%</td>
         <td><div class="progress-bar"><div class="progress-fill" style="width:${p.module===1||p.module===4?95:p.module===2||p.module===6?85:90}%;background:var(--green);"></div></div></td>
@@ -1327,7 +1363,7 @@ new Chart(document.getElementById('syllabusSplitChart'), {
     datasets: [{
       data: [192, 81],
       backgroundColor: ['#38bdf8', '#a78bfa'],
-      borderColor: '#0f172a',
+      borderColor: 'var(--bg)',
       borderWidth: 2
     }]
   },
@@ -1347,7 +1383,7 @@ document.getElementById('syllabusCoverageBody').innerHTML = DATA.syllabus.covera
   if (c.covered && c.freq >= 5) {
     statusHtml = '<span class="badge badge-new">✓已覆盖</span>';
   } else if (c.covered) {
-    statusHtml = '<span class="badge" style="background:#64748b;">✓已覆盖</span>';
+    statusHtml = '<span class="badge" style="background:var(--text3);">✓已覆盖</span>';
   } else {
     statusHtml = '<span class="badge badge-warn">⚠选择题未考</span>';
   }
@@ -1356,7 +1392,7 @@ document.getElementById('syllabusCoverageBody').innerHTML = DATA.syllabus.covera
     noteHtml = '<span class="badge badge-hot" style="margin-right:4px;">📋主观题常考</span>' + c.note;
   }
   return '<tr>' +
-    '<td><span class="badge" style="background:' + mColors[c.m-1] + ';color:#0f172a;">M' + c.m + '</span></td>' +
+    '<td><span class="badge" style="background:' + mColors[c.m-1] + ';color:var(--bg);">M' + c.m + '</span></td>' +
     '<td style="font-size:0.85rem;">' + c.requirement + '</td>' +
     '<td>' + statusHtml + '</td>' +
     '<td class="num">' + c.freq + '次</td>' +
@@ -1373,15 +1409,15 @@ const moduleDetailHTML = [1,2,3,4,5,6,7,8].map(m => {
   const freqPct = (totalFreq / 273 * 100).toFixed(1);
   const officialGroup = [1,3,4,7].includes(m) ? '68%组' : '32%组';
   return `
-    <div style="margin-bottom:16px;padding:14px;background:#1a2332;border-radius:8px;border-left:4px solid ${mColors[m-1]};">
+    <div style="margin-bottom:16px;padding:14px;background:var(--bg2);border-radius:8px;border-left:4px solid ${mColors[m-1]};">
       <h3 style="margin:0 0 8px 0;color:${mColors[m-1]};">
         模块${m}：${DATA.moduleNames[m]}
-        <span class="badge" style="background:${[1,3,4,7].includes(m)?'#38bdf8':'#a78bfa'};color:#0f172a;margin-left:8px;">${officialGroup}</span>
+        <span class="badge" style="background:${[1,3,4,7].includes(m)?'#38bdf8':'#a78bfa'};color:var(--bg);margin-left:8px;">${officialGroup}</span>
       </h3>
       <p style="font-size:0.85rem;color:var(--text2);margin:4px 0;">
         考纲子知识点：${totalCount}个 | 已考查：${coveredCount}个 | 累计出题${totalFreq}次（占选择题${freqPct}%）
       </p>
-      <p style="font-size:0.82rem;color:#64748b;">
+      <p style="font-size:0.82rem;color:var(--text3);">
         ${items.map(c => `${c.st.split('.')[1]}. ${c.requirement.substring(0,30)}...`).join(' | ')}
       </p>
     </div>
@@ -1481,6 +1517,36 @@ function filterQB(level) {
     }
   });
   renderQBKpList();
+
+// ========== COLOR THEME ==========
+var themeDots = document.querySelectorAll('.theme-dot');
+themeDots.forEach(function(d) {
+  d.addEventListener('mouseenter', function() { this.style.transform = 'scale(1.3)'; });
+  d.addEventListener('mouseleave', function() { this.style.transform = 'scale(1)'; });
+  d.addEventListener('click', function() {
+    var t = this.getAttribute('data-theme');
+    if (t === 'blue') { document.body.removeAttribute('data-theme'); }
+    else { document.body.setAttribute('data-theme', t); }
+    localStorage.setItem('qb-theme', t);
+    // Highlight active
+    themeDots.forEach(function(dd) { dd.style.boxShadow = 'none'; });
+    this.style.boxShadow = '0 0 0 2px var(--accent)';
+  });
+});
+
+// Load saved theme
+(function() {
+  var saved = localStorage.getItem('qb-theme');
+  if (saved && saved !== 'blue') {
+    document.body.setAttribute('data-theme', saved);
+    var dot = document.querySelector('.theme-dot[data-theme="' + saved + '"]');
+    if (dot) dot.style.boxShadow = '0 0 0 2px var(--accent)';
+  } else {
+    var blueDot = document.querySelector('.theme-dot[data-theme="blue"]');
+    if (blueDot) blueDot.style.boxShadow = '0 0 0 2px var(--accent)';
+  }
+})();
+
   // Reset question area
   qbCurrentKp = null;
   document.getElementById('qbTitle').textContent = '📝 请从左侧选择知识点';
