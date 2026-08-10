@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.6</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.7</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -151,8 +151,10 @@ td.num { text-align:center; font-weight:600; }
 .qb-question .q-stem { font-weight:600; margin-bottom:10px; font-size:0.9rem; line-height:1.6; }
 .qb-question .q-options { display:grid; grid-template-columns: 1fr 1fr; gap:4px; margin-bottom:10px; font-size:0.85rem; }
 @media (max-width: 600px) { .qb-question .q-options { grid-template-columns: 1fr; } }
-.qb-question .q-opt { padding:6px 10px; border-radius:6px; background:rgba(15,23,42,0.5); cursor:default; }
+.qb-question .q-opt { padding:6px 10px; border-radius:6px; background:rgba(15,23,42,0.5); cursor:pointer; transition:all 0.15s; }
+.qb-question .q-opt:hover { background:rgba(56,189,248,0.1); }
 .qb-question .q-opt.correct { background:rgba(74,222,128,0.15); border:1px solid var(--green); color:var(--green); }
+.qb-question .q-opt.wrong { background:rgba(248,113,113,0.15); border:1px solid #f87171; color:#f87171; text-decoration:line-through; }
 .qb-answer-toggle { display:inline-block; padding:6px 16px; border:1px solid var(--accent); background:transparent; color:var(--accent); border-radius:20px; cursor:pointer; font-size:0.8rem; transition:all 0.2s; min-height:44px; }
 .qb-answer-toggle:hover { background:var(--accent); color:#0f172a; }
 .qb-answer-content { display:none; margin-top:10px; padding:12px; background:rgba(74,222,128,0.05); border-radius:8px; border-left:3px solid var(--green); }
@@ -171,7 +173,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.6</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.7</p>
 </div>
 
 <div class="container">
@@ -623,6 +625,19 @@ td.num { text-align:center; font-weight:600; }
 
     <div class="changelog-entry open">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.7</span> 2026年8月11日 — 刷题库选项可交互点击</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 刷题库选项可点击作答——点击A/B/C/D即时判断对错</li>
+        <li><span class="add">新增</span> 答对显示🎉绿色高亮，答错显示❌红色划线+同时标出正确答案</li>
+        <li><span class="add">新增</span> 点击选项后自动展开答案解析，无需额外操作</li>
+        <li><span class="opt">优化</span> 选项添加hover效果，交互更直观</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
         <h3><span class="badge badge-new">v1.6</span> 2026年8月11日 — 刷题库修复+事件委托重构</h3>
         <span class="toggle-icon">▼</span>
       </div>
@@ -803,7 +818,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="footer">
   <p>🤖 基于科学频次分析+趋势预测+回溯验证 | 数据来源：2019下～2026上 13套真题</p>
-  <p>预测模型仅供参考，最终以实际考试为准 | v1.6 | 2026年8月 | 修复：刷题库点击切换改用事件委托 | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
+  <p>预测模型仅供参考，最终以实际考试为准 | v1.7 | 2026年8月 | 新增：刷题库选项可点击作答(即时判断对错) | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
 </div>
 
 <script>
@@ -1517,14 +1532,14 @@ function selectQBKp(kp) {
   var html = '';
   questions.forEach(function(q, idx) {
     var ansLetter = q.a;
-    html += '<div class="qb-question">';
+    html += '<div class="qb-question" data-ans="' + ansLetter + '" data-answered="0">';
     html += '<div class="q-stem">' + (idx + 1) + '. ' + q.s + '</div>';
     html += '<div class="q-options">';
     ['A','B','C','D'].forEach(function(letter, oi) {
-      html += '<div class="q-opt">' + letter + '. ' + (q.o[oi] || '').replace(/^[A-D][.．、]s*/, '') + '</div>';
+      var optText = (q.o[oi] || '').replace(/^[A-D][.．、]\s*/, '');
+      html += '<div class="q-opt" data-letter="' + letter + '" style="cursor:pointer;">' + letter + '. ' + optText + '</div>';
     });
     html += '</div>';
-    html += '<button class="qb-answer-toggle" style="min-height:44px;">🔍 显示答案与解析</button>';
     html += '<div class="qb-answer-content">';
     html += '<div class="q-ans">✅ 正确答案：' + ansLetter + '</div>';
     html += '<div class="q-exp">💡 ' + (q.e || '暂无解析') + '</div>';
@@ -1562,8 +1577,39 @@ document.getElementById('qbKpList').addEventListener('click', function(e) {
   }
 });
 
-// Event delegation for answer toggle buttons (generated dynamically by selectQBKp)
+// Event delegation for answer toggle buttons and option clicks
 document.getElementById('qbQuestions').addEventListener('click', function(e) {
+  // Option click — interactive answer selection
+  var opt = e.target.closest('.q-opt');
+  if (opt) {
+    var qDiv = opt.closest('.qb-question');
+    if (qDiv && qDiv.getAttribute('data-answered') === '0') {
+      var chosen = opt.getAttribute('data-letter');
+      var correct = qDiv.getAttribute('data-ans');
+      qDiv.setAttribute('data-answered', '1');
+      // Mark all options
+      qDiv.querySelectorAll('.q-opt').forEach(function(o) {
+        o.style.pointerEvents = 'none';
+        var lt = o.getAttribute('data-letter');
+        if (lt === correct) { o.classList.add('correct'); }
+        if (lt === chosen && lt !== correct) { o.classList.add('wrong'); }
+      });
+      // Always show answer content
+      var content = qDiv.querySelector('.qb-answer-content');
+      if (content) { content.classList.add('show'); }
+      // Update feedback text
+      var ansDiv = qDiv.querySelector('.q-ans');
+      if (chosen === correct) {
+        ansDiv.innerHTML = '🎉 回答正确！正确答案：' + correct;
+        ansDiv.style.color = 'var(--green)';
+      } else {
+        ansDiv.innerHTML = '❌ 回答错误！正确答案：' + correct;
+        ansDiv.style.color = '#f87171';
+      }
+    }
+    return;
+  }
+  // Answer toggle button (kept as alternative)
   var btn = e.target.closest('.qb-answer-toggle');
   if (btn) toggleAnswer(btn);
 });
