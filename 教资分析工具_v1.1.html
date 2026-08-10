@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.2</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.3</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -85,6 +85,22 @@ td.num { text-align:center; font-weight:600; }
 .strategy-box { background: linear-gradient(135deg, #1a2332, #1e293b); border: 1px solid var(--accent); border-radius: var(--radius); padding: 20px; margin: 16px 0; }
 .strategy-box h3 { color: var(--accent); margin-bottom: 8px; }
 
+/* Changelog */
+.changelog-entry { background:#1a2332; border-radius:var(--radius); margin-bottom:16px; border:1px solid var(--border); overflow:hidden; }
+.changelog-header { padding:14px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background 0.2s; }
+.changelog-header:hover { background:rgba(56,189,248,0.05); }
+.changelog-header h3 { margin:0; font-size:1rem; }
+.changelog-header .toggle-icon { font-size:1.2rem; transition:transform 0.3s; }
+.changelog-entry.open .toggle-icon { transform:rotate(180deg); }
+.changelog-body { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+.changelog-entry.open .changelog-body { max-height:2000px; }
+.changelog-body ul { list-style:none; margin:0; padding:0 20px 16px; line-height:2; }
+.changelog-body li { position:relative; padding-left:20px; font-size:0.9rem; }
+.changelog-body li::before { content:'›'; position:absolute; left:4px; color:var(--accent); font-weight:700; }
+.changelog-body .add { color:var(--green); }
+.changelog-body .fix { color:var(--yellow); }
+.changelog-body .opt { color:var(--accent); }
+
 /* Responsive */
 @media (max-width: 768px) {
   .chart-row { grid-template-columns: 1fr; }
@@ -107,7 +123,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.2 考纲对照</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.3</p>
 </div>
 
 <div class="container">
@@ -129,6 +145,7 @@ td.num { text-align:center; font-weight:600; }
   <button class="tab-btn" onclick="switchTab('trend')">📈 趋势分析</button>
   <button class="tab-btn" onclick="switchTab('hotspot')">🔥 热点追踪</button>
   <button class="tab-btn" onclick="switchTab('syllabus')">📋 考纲对照</button>
+  <button class="tab-btn" onclick="switchTab('changelog')">📝 更新日志</button>
   <button class="tab-btn" onclick="switchTab('strategy')">💡 备考策略</button>
   <button class="tab-btn" onclick="switchTab('report')">📝 详细报告</button>
 </div>
@@ -521,6 +538,81 @@ td.num { text-align:center; font-weight:600; }
   </div>
 </div>
 
+<!-- Tab: Changelog -->
+<div id="tab-changelog" class="tab-panel">
+  <div class="section">
+    <h2>📝 更新日志</h2>
+    <p style="color:var(--text2);margin-bottom:20px;">
+      记录每次版本的功能新增、优化和修复。点击版本标题展开/折叠详情。
+    </p>
+
+    <div class="changelog-entry open">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.3</span> 2026年8月10日 — 新增更新日志模块</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 更新日志标签页，记录每次版本改动历史</li>
+        <li><span class="add">新增</span> 折叠式版本条目，默认展开最新版本</li>
+        <li><span class="opt">优化</span> 详细报告末尾添加更新日志链接</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.2</span> 2026年8月10日 — 官方考纲对照验证</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 考纲对照标签页，与教育部考试大纲和考试标准逐条对比</li>
+        <li><span class="add">新增</span> 官方68%/32%模块分组可视化对比</li>
+        <li><span class="add">新增</span> 知识考点覆盖检查表（考纲要求 vs 已考 vs 未考）</li>
+        <li><span class="add">新增</span> 考试标准三级指标体系完整展示（教育部2011年制定）</li>
+        <li><span class="fix">修复</span> 切换标签页时图表自适应大小问题（Chart.js resize）</li>
+        <li><span class="opt">优化</span> 预测模型经官方权重验证，可信度标注更准确</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge" style="background:#38bdf8;">v1.1</span> 2026年8月9日 — 热点追踪+以不变应万变策略</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 热点追踪标签页：历史热点→真题映射表</li>
+        <li><span class="add">新增</span> 热点"滞后效应"分析（政策发布→进入考题需3-5年）</li>
+        <li><span class="add">新增</span> "以不变应万变"实战策略表（6类热点场景→考点映射）</li>
+        <li><span class="add">新增</span> 2026下热点预测（心理健康教育/劳动教育/新课标/AI教育/教育家精神）</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge" style="background:#64748b;">v1.0</span> 2026年8月8日 — 首次发布</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 273道选择题完整数据库（2019下~2026上，13套真题）</li>
+        <li><span class="add">新增</span> 6维分析框架：频次/趋势/交替/答案分布/交叉对比/空白潜力</li>
+        <li><span class="add">新增</span> 回溯验证：用前12套预测第13套，6/8精确命中、8/8±1内命中</li>
+        <li><span class="add">新增</span> 2026下逐题预测清单（模块+知识点+置信度+替代考点）</li>
+        <li><span class="add">新增</span> 7大标签页：总览仪表盘/预测/回溯验证/趋势分析/备考策略/详细报告</li>
+        <li><span class="add">新增</span> Chart.js可视化：模块饼图/答案分布/趋势折线/堆叠柱状图</li>
+        <li><span class="add">新增</span> 蒙题策略：基于273题答案分布（B>A>C>D，慎选D）</li>
+        <li><span class="add">新增</span> 全设备响应式适配（手机/平板/电脑）</li>
+      </ul></div>
+    </div>
+
+    <div class="strategy-box" style="margin-top:24px;border-color:var(--purple);">
+      <h3 style="color:var(--purple);">💬 反馈与建议</h3>
+      <p style="font-size:0.9rem;">
+        如果你发现数据错误、有新的分析需求、或对功能有改进建议，随时告诉我。<br>
+        所有版本更新同步部署到 <a href="https://harper518.github.io/sama-quiz/%E6%95%99%E8%B5%84%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7_v1.1.html" style="color:var(--accent);">GitHub Pages</a> 和 <a href="https://jiaozifenxi.pages.dev/" style="color:var(--accent);">Cloudflare Pages</a>。
+      </p>
+    </div>
+  </div>
+</div>
+
 <!-- Tab: Strategy -->
 <div id="tab-strategy" class="tab-panel">
   <div class="section">
@@ -577,7 +669,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="footer">
   <p>🤖 基于科学频次分析+趋势预测+回溯验证 | 数据来源：2019下～2026上 13套真题</p>
-  <p>预测模型仅供参考，最终以实际考试为准 | v1.2 | 2026年8月 | 新增：官方考纲对照+考试标准三级指标体系</p>
+  <p>预测模型仅供参考，最终以实际考试为准 | v1.3 | 2026年8月 | 新增：更新日志模块+折叠式版本历史</p>
 </div>
 
 <script>
@@ -994,6 +1086,8 @@ document.getElementById('detailedReport').innerHTML = `
 
   <h3>6. 风险提示</h3>
   <p>考试大纲可能在2026年有微调，特别是<b>劳动教育、心理健康教育</b>等近年政策热点可能在选择题中增加比重。建议关注2025-2026年教育部新发布的教育政策文件。</p>
+
+  <p style="margin-top:16px;color:var(--text2);font-size:0.85rem;">📝 查看完整版本更新历史，请切换到 <a href="javascript:void(0)" onclick="switchTab('changelog')" style="color:var(--accent);">更新日志</a> 标签页。</p>
 `;
 
 // ========== SYLLABUS TAB RENDERING ==========
@@ -1060,11 +1154,14 @@ document.getElementById('moduleSyllabusDetail').innerHTML = moduleDetailHTML;
 function switchTab(name) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  event.target.classList.add('active');
+  var panel = document.getElementById('tab-' + name);
+  if (panel) panel.classList.add('active');
+  // Find and highlight the correct tab button (works for both button clicks and inline links)
+  var btn = document.querySelector('.tab-btn[onclick*="switchTab(\'' + name + '\')"]');
+  if (btn) btn.classList.add('active');
   // Resize all Chart.js instances when tab becomes visible
-  setTimeout(() => {
-    Object.values(Chart.instances).forEach(c => { try { c.resize(); } catch(e) {} });
+  setTimeout(function() {
+    Object.values(Chart.instances).forEach(function(c) { try { c.resize(); } catch(e) {} });
   }, 50);
 }
 </script>
