@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.10</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.11</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -172,29 +172,44 @@ td.num { text-align:center; font-weight:600; }
 .theme-dot { width:44px; height:44px; min-width:44px; min-height:44px; border-radius:50%; border:none; background:transparent; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; transition:transform 0.15s; padding:0; -webkit-tap-highlight-color:transparent; }
 .theme-dot .dot-inner { display:block; width:28px; height:28px; border-radius:50%; box-sizing:border-box; }
 
-/* ====== COLOR THEMES ====== */
-body[data-theme="green"] { --bg:#0a2a1a; --bg2:#0f3322; --card:#163a2a; --border:#2a5a3a; --text:#d8ead8; --text2:#88aa88; --text3:#5a7a5a; --accent:#4ade80; --green:#6ee7a0; --red:#fca5a5; --yellow:#fde68a; }
-body[data-theme="green"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
+/* ====== COLOR THEMES (v1.11) ====== */
+/* purple — kept from original */
 body[data-theme="purple"] { --bg:#1a1028; --bg2:#221838; --card:#2a1e40; --border:#4a3870; --text:#e0d8f0; --text2:#a090c8; --text3:#7060a0; --accent:#a78bfa; --green:#86efac; --red:#fca5a5; --yellow:#fde68a; }
 body[data-theme="purple"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
-body[data-theme="warm"] { --bg:#1e160c; --bg2:#2a1e10; --card:#2e2218; --border:#5a4030; --text:#e8dcc8; --text2:#b0a088; --text3:#807060; --accent:#fb923c; --green:#86efac; --red:#fca5a5; --yellow:#fde68a; }
-body[data-theme="warm"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
-body[data-theme="light"] { --bg:#f1f5f9; --bg2:#e2e8f0; --card:#ffffff; --border:#cbd5e1; --text:#0f172a; --text2:#475569; --text3:#64748b; --accent:#0284c7; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; }
-body[data-theme="light"] .header { background:linear-gradient(135deg, #e0f2fe, #f0f9ff); border-bottom:2px solid var(--accent); }
+
+/* light — 浅色清爽，适合白天 */
+body[data-theme="light"] { --bg:#f8fafc; --bg2:#e2e8f0; --card:#ffffff; --border:#cbd5e1; --text:#1e293b; --text2:#475569; --text3:#64748b; --accent:#2563eb; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; }
+body[data-theme="light"] .header { background:linear-gradient(135deg, #dbeafe, #eff6ff); border-bottom:2px solid var(--accent); }
 body[data-theme="light"] th { background:var(--bg2); }
 body[data-theme="light"] .badge-hot, body[data-theme="light"] .badge-new, body[data-theme="light"] .badge-warn { color:#fff; }
-body[data-theme="light"] .strategy-box { background:linear-gradient(135deg, #e0f2fe, #f0f9ff); }
+body[data-theme="light"] .strategy-box { background:linear-gradient(135deg, #dbeafe, #eff6ff); }
 body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hover { color:#fff; }
+
+/* cream — 护眼暖白，长时间阅读舒适 */
+body[data-theme="cream"] { --bg:#fef9ef; --bg2:#f5ecd7; --card:#fffdf7; --border:#e0d5bb; --text:#3d3027; --text2:#6b5d4f; --text3:#8c7b6b; --accent:#d97706; --green:#65a30d; --red:#dc2626; --yellow:#ca8a04; }
+body[data-theme="cream"] .header { background:linear-gradient(135deg, #fef3c7, #fffbeb); border-bottom:2px solid var(--accent); }
+body[data-theme="cream"] th { background:var(--bg2); }
+body[data-theme="cream"] .badge-hot, body[data-theme="cream"] .badge-new, body[data-theme="cream"] .badge-warn { color:#fff; }
+body[data-theme="cream"] .strategy-box { background:linear-gradient(135deg, #fef3c7, #fffbeb); }
+body[data-theme="cream"] .tab-btn.active, body[data-theme="cream"] .tab-btn:hover { color:#fff; }
+
+/* mint — 清新薄荷，缓解眼疲劳 */
+body[data-theme="mint"] { --bg:#f0fdf4; --bg2:#dcfce7; --card:#ffffff; --border:#bbf7d0; --text:#14532d; --text2:#166534; --text3:#4ade80; --accent:#059669; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; }
+body[data-theme="mint"] .header { background:linear-gradient(135deg, #dcfce7, #f0fdf4); border-bottom:2px solid var(--accent); }
+body[data-theme="mint"] th { background:var(--bg2); }
+body[data-theme="mint"] .badge-hot, body[data-theme="mint"] .badge-new, body[data-theme="mint"] .badge-warn { color:#fff; }
+body[data-theme="mint"] .strategy-box { background:linear-gradient(135deg, #dcfce7, #f0fdf4); }
+body[data-theme="mint"] .tab-btn.active, body[data-theme="mint"] .tab-btn:hover { color:#fff; }
 </style>
 </head>
 <body>
 
 <div class="theme-switcher" id="themeSwitcher" style="position:fixed; top:16px; right:16px; z-index:1000; display:flex; gap:6px; background:var(--card); border:1px solid var(--border); border-radius:24px; padding:6px 12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
   <button class="theme-dot" data-theme="blue" title="深蓝（原版）" onclick="switchTheme('blue',this)"><span class="dot-inner" style="background:#0f172a;border:2px solid #38bdf8;"></span></button>
-  <button class="theme-dot" data-theme="green" title="深绿护眼" onclick="switchTheme('green',this)"><span class="dot-inner" style="background:#0a2a1a;border:2px solid #4ade80;"></span></button>
   <button class="theme-dot" data-theme="purple" title="深紫" onclick="switchTheme('purple',this)"><span class="dot-inner" style="background:#1a1028;border:2px solid #a78bfa;"></span></button>
-  <button class="theme-dot" data-theme="warm" title="暖棕" onclick="switchTheme('warm',this)"><span class="dot-inner" style="background:#1e160c;border:2px solid #fb923c;"></span></button>
-  <button class="theme-dot" data-theme="light" title="浅色" onclick="switchTheme('light',this)"><span class="dot-inner" style="background:#f1f5f9;border:2px solid #94a3b8;"></span></button>
+  <button class="theme-dot" data-theme="light" title="浅色清爽" onclick="switchTheme('light',this)"><span class="dot-inner" style="background:#f8fafc;border:2px solid #2563eb;"></span></button>
+  <button class="theme-dot" data-theme="cream" title="护眼暖白" onclick="switchTheme('cream',this)"><span class="dot-inner" style="background:#fef9ef;border:2px solid #d97706;"></span></button>
+  <button class="theme-dot" data-theme="mint" title="清新薄荷" onclick="switchTheme('mint',this)"><span class="dot-inner" style="background:#f0fdf4;border:2px solid #059669;"></span></button>
 </div>
 
 <script>
@@ -223,7 +238,7 @@ function switchTheme(t, el) {
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.10</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.11</p>
 </div>
 
 <div class="container">
@@ -675,7 +690,30 @@ function switchTheme(t, el) {
 
     <div class="changelog-entry open">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
-        <h3><span class="badge badge-new">v1.10</span> 2026年8月11日 — 颜色切换按钮触控优化+修复</h3>
+        <h3><span class="badge badge-new">v1.11</span> 2026年8月11日 — 白天主题色+删除暗色主题</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 3套白天主题：浅色清爽/护眼暖白/清新薄荷，白天阅读不费力</li>
+        <li><span class="fix">删除</span> 暗绿/暖棕/旧浅色主题，保留深蓝原版+深紫</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.10</span> 2026年8月11日 — 修复题库题目答案解析错位</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="fix">修复</span> 正则提取bug致精选题合并+答案级联错位（378/589题受影响）</li>
+        <li><span class="fix">修复</span> 模考3第13题缺失，找回1题</li>
+        <li><span class="add">新增</span> 题库从589题增至600题（+11题）</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge">v1.9</span> 2026年8月11日 — 颜色切换按钮触控优化+修复</h3>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="changelog-body"><ul>
@@ -687,7 +725,7 @@ function switchTheme(t, el) {
 
     <div class="changelog-entry">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
-        <h3><span class="badge badge-new">v1.8</span> 2026年8月11日 — 5套颜色主题+UI优化</h3>
+        <h3><span class="badge">v1.8</span> 2026年8月11日 — 5套颜色主题+UI优化</h3>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="changelog-body"><ul>
@@ -893,7 +931,7 @@ function switchTheme(t, el) {
 
 <div class="footer">
   <p>🤖 基于科学频次分析+趋势预测+回溯验证 | 数据来源：2019下～2026上 13套真题</p>
-  <p>预测模型仅供参考，最终以实际考试为准 | v1.10 | 2026年8月 | 新增：刷题库选项可点击作答(即时判断对错) | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
+  <p>预测模型仅供参考，最终以实际考试为准 | v1.11 | 2026年8月 | 新增：刷题库选项可点击作答(即时判断对错) | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
 </div>
 
 <script>
