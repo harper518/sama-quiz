@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.8</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.9</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -168,6 +168,10 @@ td.num { text-align:center; font-weight:600; }
 .footer { text-align:center; padding:20px; color:var(--text2); font-size:0.8rem; }
 .footer a { color:var(--accent); }
 
+/* Theme dot buttons — ≥44px touch target */
+.theme-dot { width:44px; height:44px; min-width:44px; min-height:44px; border-radius:50%; border:none; background:transparent; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; transition:transform 0.15s; padding:0; -webkit-tap-highlight-color:transparent; }
+.theme-dot .dot-inner { display:block; width:28px; height:28px; border-radius:50%; box-sizing:border-box; }
+
 /* ====== COLOR THEMES ====== */
 body[data-theme="green"] { --bg:#0a2a1a; --bg2:#0f3322; --card:#163a2a; --border:#2a5a3a; --text:#d8ead8; --text2:#88aa88; --text3:#5a7a5a; --accent:#4ade80; --green:#6ee7a0; --red:#fca5a5; --yellow:#fde68a; }
 body[data-theme="green"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
@@ -186,16 +190,16 @@ body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hove
 <body>
 
 <div class="theme-switcher" id="themeSwitcher" style="position:fixed; top:16px; right:16px; z-index:1000; display:flex; gap:6px; background:var(--card); border:1px solid var(--border); border-radius:24px; padding:6px 12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-  <button class="theme-dot" data-theme="blue" title="深蓝（原版）" style="width:36px;height:36px;border-radius:50%;min-width:36px;min-height:36px;background:#0f172a;border:2px solid #38bdf8;cursor:pointer;transition:transform 0.15s;"></button>
-  <button class="theme-dot" data-theme="green" title="深绿护眼" style="width:36px;height:36px;border-radius:50%;min-width:36px;min-height:36px;background:#0a2a1a;border:2px solid #4ade80;cursor:pointer;transition:transform 0.15s;"></button>
-  <button class="theme-dot" data-theme="purple" title="深紫" style="width:36px;height:36px;border-radius:50%;min-width:36px;min-height:36px;background:#1a1028;border:2px solid #a78bfa;cursor:pointer;transition:transform 0.15s;"></button>
-  <button class="theme-dot" data-theme="warm" title="暖棕" style="width:36px;height:36px;border-radius:50%;min-width:36px;min-height:36px;background:#1e160c;border:2px solid #fb923c;cursor:pointer;transition:transform 0.15s;"></button>
-  <button class="theme-dot" data-theme="light" title="浅色" style="width:36px;height:36px;border-radius:50%;min-width:36px;min-height:36px;background:#f1f5f9;border:2px solid #94a3b8;cursor:pointer;transition:transform 0.15s;"></button>
+  <button class="theme-dot" data-theme="blue" title="深蓝（原版）"><span class="dot-inner" style="background:#0f172a;border:2px solid #38bdf8;"></span></button>
+  <button class="theme-dot" data-theme="green" title="深绿护眼"><span class="dot-inner" style="background:#0a2a1a;border:2px solid #4ade80;"></span></button>
+  <button class="theme-dot" data-theme="purple" title="深紫"><span class="dot-inner" style="background:#1a1028;border:2px solid #a78bfa;"></span></button>
+  <button class="theme-dot" data-theme="warm" title="暖棕"><span class="dot-inner" style="background:#1e160c;border:2px solid #fb923c;"></span></button>
+  <button class="theme-dot" data-theme="light" title="浅色"><span class="dot-inner" style="background:#f1f5f9;border:2px solid #94a3b8;"></span></button>
 </div>
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.8</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.9</p>
 </div>
 
 <div class="container">
@@ -647,6 +651,17 @@ body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hove
 
     <div class="changelog-entry open">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.9</span> 2026年8月11日 — 颜色切换按钮触控优化</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="fix">优化</span> 颜色切换按钮触摸区域从36px增大到≥44px（满足全设备响应式标准）</li>
+        <li><span class="fix">优化</span> 采用内层span做视觉圆点+外层button做触控容器的结构</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
         <h3><span class="badge badge-new">v1.8</span> 2026年8月11日 — 5套颜色主题+UI优化</h3>
         <span class="toggle-icon">▼</span>
       </div>
@@ -853,7 +868,7 @@ body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hove
 
 <div class="footer">
   <p>🤖 基于科学频次分析+趋势预测+回溯验证 | 数据来源：2019下～2026上 13套真题</p>
-  <p>预测模型仅供参考，最终以实际考试为准 | v1.8 | 2026年8月 | 新增：刷题库选项可点击作答(即时判断对错) | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
+  <p>预测模型仅供参考，最终以实际考试为准 | v1.9 | 2026年8月 | 新增：刷题库选项可点击作答(即时判断对错) | 原有：刷题库(589题)←粉笔6套模考+精选题 | 知识点精讲(30个考点+真题解析)+预测升级知识点级</p>
 </div>
 
 <script>
