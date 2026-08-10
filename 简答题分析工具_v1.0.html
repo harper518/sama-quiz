@@ -273,74 +273,96 @@ function switchTheme(t,el){
 
 <!-- Tab 4: Universal Templates -->
 <div id="tab-templates" class="tab-panel">
+
+<div class="section" style="border-left:4px solid var(--green);">
+<h2>💡 核心思路：别管具体问法，所有简答题只分3种逻辑</h2>
+<p style="color:var(--text2);margin-bottom:8px;">不需要背6种模板。任何简答题的答案，底层都是这3种逻辑之一。判断题目要你"说什么"比判断"什么问法"更重要。</p>
 <div class="decision-tree">
 <span class="step" style="background:var(--accent);color:var(--bg);">看到题目</span>
 <span class="arrow">→</span>
-<span class="step" style="background:var(--bg2);">判断问法类型</span>
+<span class="step" style="background:var(--bg2);">要我"介绍事物本身"？</span>
 <span class="arrow">→</span>
-<span class="step" style="background:var(--bg2);">选对应模板</span>
+<span class="step" style="background:#4ade80;color:var(--bg);">模式A: 分解式</span>
 <span class="arrow">→</span>
-<span class="step" style="background:var(--bg2);">填入具体内容</span>
+<span class="step" style="background:var(--bg2);">要我"说明怎么做"？</span>
+<span class="arrow">→</span>
+<span class="step" style="background:#fbbf24;color:var(--bg);">模式B: 流程式</span>
+<span class="arrow">→</span>
+<span class="step" style="background:var(--bg2);">要我"解释为什么/有什么用"？</span>
+<span class="arrow">→</span>
+<span class="step" style="background:#f87171;color:#fff;">模式C: 因果式</span>
+</div>
 </div>
 
-<div class="tmpl-card">
-<h4>1️⃣ 要求/标准类 — "简述...的基本要求/标准"</h4>
-<p style="color:var(--text2);margin-bottom:8px;">万能踩分角度：目的→内容→方法→过程→结果→反馈</p>
-<div class="angles">
-<span class="angle">目的明确</span><span class="angle">内容正确/全面</span><span class="angle">方法得当/科学</span>
-<span class="angle">过程合理/有序</span><span class="angle">结果有效/达标</span><span class="angle">反馈及时/改进</span>
+<div class="tmpl-card" style="border-left:4px solid #4ade80;">
+<h4>模式A · 分解式 — "这个东西由哪些部分/类型/特点组成？"</h4>
+<p style="color:var(--text2);margin-bottom:8px;">适用问法：简述...的特点/特征/构成/分类/种类/类型/内容/表现/环节</p>
+<p style="color:var(--accent);margin-bottom:8px;font-weight:600;">万能拆解维度（按"人-事-物-时"四维往下拆）：</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px;margin:8px 0;">
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>👤 主体维</strong><br><span style="font-size:0.78rem;color:var(--text2);">谁参与？有什么特征？教师/学生/内容的特性</span></div>
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>📋 属性维</strong><br><span style="font-size:0.78rem;color:var(--text2);">按性质/类型/层次怎么分？每个类别是什么</span></div>
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>⏳ 过程维</strong><br><span style="font-size:0.78rem;color:var(--text2);">按时间/阶段/步骤怎么分？先后顺序是什么</span></div>
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>🎯 功能维</strong><br><span style="font-size:0.78rem;color:var(--text2);">按作用/目的怎么分？对谁有什么效果</span></div>
 </div>
-<p style="font-size:0.8rem;color:var(--text3);margin-top:8px;">📌 真题示例："一堂好课的基本标准"→目的明确、内容正确、方法得当、结构合理、语言艺术、气氛热烈、板书有序、态度从容</p>
-</div>
-
-<div class="tmpl-card">
-<h4>2️⃣ 特点/特征类 — "简述...的特点/特征"</h4>
-<p style="color:var(--text2);margin-bottom:8px;">万能踩分角度：主体特点→对象特点→过程特点→结果特点→与相关概念的区别</p>
-<div class="angles">
-<span class="angle">主体独特性</span><span class="angle">对象针对性</span><span class="angle">过程动态性</span>
-<span class="angle">结果多样性</span><span class="angle">条件依赖性</span><span class="angle">与他者的区别</span>
-</div>
-<p style="font-size:0.8rem;color:var(--text3);margin-top:8px;">📌 真题示例："学科课程的特点"→逻辑性、系统性、简约性</p>
+<p style="font-size:0.8rem;color:var(--text3);margin:8px 0;"><strong>万能句式：</strong>"从___角度看，...表现为/包括/分为..." × 4-5个角度 = 4-5个得分点</p>
+<p style="font-size:0.78rem;color:var(--text3);"><strong>📌 真题套用：</strong>"人格的特征" → 主体(独特性-每个人不同) + 属性(稳定性-跨时间一致) + 过程(统合性-各特质整合) + 功能(功能性-影响行为) + 属性(社会性-后天形成) + 属性(复杂性-多面统一) = 6个得分点</p>
 </div>
 
-<div class="tmpl-card">
-<h4>3️⃣ 方法/途径类 — "简述...的方法/途径/措施"</h4>
-<p style="color:var(--text2);margin-bottom:8px;">万能踩分角度：认知层面→情感层面→行为层面→环境/制度层面→评价/反馈层面</p>
-<div class="angles">
-<span class="angle">提高认知/明确目标</span><span class="angle">激发情感/培养态度</span><span class="angle">训练行为/实践操作</span>
-<span class="angle">创设环境/制度保障</span><span class="angle">评价反馈/持续改进</span>
+<div class="tmpl-card" style="border-left:4px solid #fbbf24;">
+<h4>模式B · 流程式 — "这件事怎么做/要达到什么标准？"</h4>
+<p style="color:var(--text2);margin-bottom:8px;">适用问法：简述...的方法/途径/措施/要求/标准/原则/策略</p>
+<p style="color:var(--accent);margin-bottom:8px;font-weight:600;">万能流程链（从准备到收尾走一遍）：</p>
+<div style="overflow-x:auto;padding:8px 0;">
+<span class="angle" style="background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);">① 前提/准备<br><span style="font-size:0.7rem;">先明确什么？准备什么？</span></span>
+<span style="color:var(--accent);">→</span>
+<span class="angle" style="background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);">② 内容/对象<br><span style="font-size:0.7rem;">做什么？对谁做？</span></span>
+<span style="color:var(--accent);">→</span>
+<span class="angle" style="background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);">③ 方法/手段<br><span style="font-size:0.7rem;">用什么方式？怎么操作？</span></span>
+<span style="color:var(--accent);">→</span>
+<span class="angle" style="background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);">④ 过程/步骤<br><span style="font-size:0.7rem;">按什么顺序？注意什么？</span></span>
+<span style="color:var(--accent);">→</span>
+<span class="angle" style="background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);">⑤ 结果/评价<br><span style="font-size:0.7rem;">达到什么效果？怎么检查？</span></span>
 </div>
-<p style="font-size:0.8rem;color:var(--text3);margin-top:8px;">📌 真题示例："培养学生创造性的主要途径"→创设环境、塑造个性、开设课程</p>
-</div>
-
-<div class="tmpl-card">
-<h4>4️⃣ 功能/意义类 — "简述...的功能/作用/意义/任务"</h4>
-<p style="color:var(--text2);margin-bottom:8px;">万能踩分角度：对个体→对群体/组织→对社会→对长远发展</p>
-<div class="angles">
-<span class="angle">对个体发展</span><span class="angle">对群体/组织</span><span class="angle">对社会/国家</span>
-<span class="angle">对长远/未来</span><span class="angle">直接功能</span><span class="angle">间接功能</span>
-</div>
-<p style="font-size:0.8rem;color:var(--text3);margin-top:8px;">📌 真题示例："教育的文化功能"→传递保存、传播交流、选择提升、更新创造</p>
-</div>
-
-<div class="tmpl-card">
-<h4>5️⃣ 理论/观点类 — "简述...的理论/观点/阶段论"</h4>
-<p style="color:var(--text2);margin-bottom:8px;">万能踩分角度：代表人物→核心观点→关键概念→发展阶段→教育启示</p>
-<div class="angles">
-<span class="angle">代表人物/提出者</span><span class="angle">核心观点/理论框架</span><span class="angle">关键概念/术语</span>
-<span class="angle">发展阶段/分类</span><span class="angle">教育启示/应用</span><span class="angle">评价/局限</span>
-</div>
-<p style="font-size:0.8rem;color:var(--text3);margin-top:8px;">📌 真题示例："皮亚杰认知发展阶段论"→感知运动、前运算、具体运算、形式运算</p>
+<p style="font-size:0.8rem;color:var(--text3);margin:8px 0;"><strong>万能句式：</strong>"要做到/实现___，需要在___方面___" × 4-5个流程节点 = 4-5个得分点</p>
+<p style="font-size:0.78rem;color:var(--text3);"><strong>📌 真题套用：</strong>"一堂好课的基本标准" → ①准备(目的明确) → ②内容(内容正确) → ③方法(方法得当) → ④过程(结构合理) → ⑤表达(语言艺术) → ⑥氛围(气氛热烈) → ⑦板书(板书有序) → ⑧态度(态度从容) = 8个得分点，但按流程串起来就好记了</p>
 </div>
 
-<div class="tmpl-card">
-<h4>6️⃣ 构成/分类类 — "简述...的构成/分类/种类/环节"</h4>
-<p style="color:var(--text2);margin-bottom:8px;">万能踩分角度：按性质分→按过程分→按对象分→按层次分</p>
-<div class="angles">
-<span class="angle">按性质/类型分</span><span class="angle">按过程/阶段分</span><span class="angle">按对象/主体分</span>
-<span class="angle">按层次/级别分</span><span class="angle">按功能/作用分</span>
+<div class="tmpl-card" style="border-left:4px solid #f87171;">
+<h4>模式C · 因果式 — "这个东西为什么重要/有什么用/受什么影响？"</h4>
+<p style="color:var(--text2);margin-bottom:8px;">适用问法：简述...的功能/作用/意义/任务/因素/原因/条件/规律</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px;margin:8px 0;">
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>🔍 近端→远端</strong><br><span style="font-size:0.78rem;color:var(--text2);">直接影响是什么？长远影响是什么？</span></div>
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>👤 个体→群体→社会</strong><br><span style="font-size:0.78rem;color:var(--text2);">对一个人？对一群人？对整个系统？</span></div>
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>💡 理论→实践</strong><br><span style="font-size:0.78rem;color:var(--text2);">知识层面？行为层面？结果层面？</span></div>
+<div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>➕ 直接→间接</strong><br><span style="font-size:0.78rem;color:var(--text2);">本来就要达成的？附带产生的？</span></div>
 </div>
-<p style="font-size:0.8rem;color:var(--text3);margin-top:8px;">📌 真题示例："教学工作的基本环节"→备课、上课、作业布置批改、课外辅导、学业评价</p>
+<p style="font-size:0.8rem;color:var(--text3);margin:8px 0;"><strong>万能句式：</strong>"___对___具有___作用/影响，具体表现为___" × 3-5个层次 = 3-5个得分点</p>
+<p style="font-size:0.78rem;color:var(--text3);"><strong>📌 真题套用：</strong>"教育的文化功能" → 近端直接(传递保存-把文化传下去) → 空间扩展(传播交流-文化跨区域流动) → 纵向发展(选择提升-取其精华去其糟粕) → 长远创新(更新创造-文化不是静止的) = 4个得分点，从近到远，从保存到创新</p>
+</div>
+
+<div class="section">
+<h3>🚨 实战速查：52道真题→3种模式对应表</h3>
+<table style="font-size:0.78rem;">
+<tr><th>模式</th><th>涵盖的问法</th><th>真题数量</th><th>第一反应口诀</th></tr>
+<tr><td style="color:#4ade80;font-weight:600;">A·分解式</td><td>特点/特征/构成/分类/种类/内容/表现/环节</td><td><strong>25题 (48%)</strong></td><td>"人-事-物-时 四个维度往下拆"</td></tr>
+<tr><td style="color:#fbbf24;font-weight:600;">B·流程式</td><td>方法/途径/措施/要求/标准/原则/策略</td><td><strong>16题 (31%)</strong></td><td>"准备→内容→方法→过程→结果 走一遍"</td></tr>
+<tr><td style="color:#f87171;font-weight:600;">C·因果式</td><td>功能/作用/意义/任务/因素/原因/条件/规律</td><td><strong>11题 (21%)</strong></td><td>"对个人→对群体→对社会 或 近→远 或 直接→间接"</td></tr>
+</table>
+<p style="font-size:0.78rem;color:var(--text3);margin-top:8px;">💡 如果一道题判断不出属于哪种，先用模式A拆解试试（大部分题都能拆），不行就用B（走流程），最后用C（讲因果）。三个都套不上的题<1%。</p>
+</div>
+
+<div class="section" style="border-left:4px solid var(--purple);">
+<h3>📝 实在想不出来的保底话术（每道题凑3-5点）</h3>
+<p style="color:var(--text2);font-size:0.82rem;">以下句子可以直接填入任何简答题，保证不是空话：</p>
+<div style="font-size:0.8rem;line-height:1.8;">
+<p>1. <strong style="color:var(--accent);">"___需要遵循教育规律和学生身心发展特点"</strong> — 几乎所有教育类题目都能用，1个得分点</p>
+<p>2. <strong style="color:var(--accent);">"___应理论与实践相结合，注重知行统一"</strong> — 方法/要求类通用</p>
+<p>3. <strong style="color:var(--accent);">"___是教育目标实现的重要保障/关键环节"</strong> — 功能/意义类通用</p>
+<p>4. <strong style="color:var(--accent);">"___因材施教，考虑学生的个体差异"</strong> — 几乎所有教学相关题目都能用</p>
+<p>5. <strong style="color:var(--accent);">"___需要学校、家庭、社会多方协同配合"</strong> — 德育/班级管理/心理健康通用</p>
+</div>
+<p style="font-size:0.75rem;color:var(--text3);margin-top:8px;">⚠️ 这些是"实在写不出3个点时的救命稻草"，不是让你只写这些。优先回想知识点，这些只是补充凑数用的。</p>
+</div>
 </div>
 </div>
 
@@ -435,154 +457,154 @@ function switchTheme(t,el){
 <option value="all">全部年份</option><option value="2019下">2019下</option><option value="2020下">2020下</option><option value="2021上">2021上</option><option value="2021下">2021下</option><option value="2022上">2022上</option><option value="2022下">2022下</option><option value="2023上">2023上</option><option value="2023下">2023下</option><option value="2024上">2024上</option><option value="2024下">2024下</option><option value="2025上">2025上</option><option value="2025下">2025下</option><option value="2026上">2026上</option>
 </select>
 </div>
-<div class="q-card" data-deep-year="2019下" data-deep-idx="0"><div class="q-stem">一堂好课的基本标准有哪些?</div><div class="q-meta">2019下 Q26 · M3 中学教学</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块的核心知识点，属于要求类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题8个得分点，每点约1分。关键踩分词：目的明确、内容正确、方法得当、结构合理、语言艺术、气氛热烈、板书有序、态度从容。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 目的明确。
+<div class="q-card" data-deep-year="2019下" data-deep-idx="0"><div class="q-stem">一堂好课的基本标准有哪些?</div><div class="q-meta">2019下 Q26 · M3 中学教学</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>准备→内容→方法→过程→结果</strong><br>实际点串起来：目的明确。 → 内容正确。 → 方法得当。 → 结构合理。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块，属于要求类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题8个得分点，每点约1分。踩分词：目的明确、内容正确、方法得当、结构合理、语言艺术、气氛热烈、板书有序、态度从容。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 目的明确。
 2. 内容正确。
 3. 方法得当。
 4. 结构合理。
 5. 语言艺术。
 6. 气氛热烈。
 7. 板书有序。
-8. 态度从容。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：态度从容（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：目內方結語言板態 — 目的明确、内容正确、方法得当、结构合理、语言艺术、气氛热烈、板书有序、态度从容</div></div><div class="q-card" data-deep-year="2019下" data-deep-idx="1"><div class="q-stem">简述学校美育的基本任务。</div><div class="q-meta">2019下 Q27 · M1 教育基础</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块的核心知识点，属于功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。关键踩分词：向学生传授基本的美学知识、培养学生正确的审美观点、培养学生的审美能力、培养学生创造美的能力、培养学生内在美与外在美的统一。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 向学生传授基本的美学知识。
+8. 态度从容。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：态度从容（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：目內方結語言板態 — 目的明确、内容正确、方法得当、结构合理、语言艺术、气氛热烈、板书有序、态度从容</div></div><div class="q-card" data-deep-year="2019下" data-deep-idx="1"><div class="q-stem">简述学校美育的基本任务。</div><div class="q-meta">2019下 Q27 · M1 教育基础</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>近→远 | 个体→群体→社会</strong><br>实际点串起来：向学生传授基本的美学知识。 → 培养学生正确的审美观点。 → 培养学生的审美能力。 → 培养学生创造美的能力。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块，属于功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。踩分词：向学生传授基本的美学知识、培养学生正确的审美观点、培养学生的审美能力、培养学生创造美的能力、培养学生内在美与外在美的统一。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 向学生传授基本的美学知识。
 2. 培养学生正确的审美观点。
 3. 培养学生的审美能力。
 4. 培养学生创造美的能力。
-5. 培养学生内在美与外在美的统一。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：培养学生内在美与外在美的统一（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：知审能创统一 — 美学知识、审美观点、审美能力、创造美、内外统一</div></div><div class="q-card" data-deep-year="2019下" data-deep-idx="2"><div class="q-stem">简述元认知策略的种类。</div><div class="q-meta">2019下 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：计划策略、监控策略、调节策略。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 计划策略是根据认知活动的目标，在进行一项认知活动之前，进一步明确认知目标、确定认知过程和环节、预计认知结果、选择认知策略并评估其有效性。元认 知计划策略包括设置学习目标、浏览学习材料、产生待回答的问题、分析完成任务的 方法等。
+5. 培养学生内在美与外在美的统一。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：培养学生内在美与外在美的统一（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：知审能创统一 — 美学知识、审美观点、审美能力、创造美、内外统一</div></div><div class="q-card" data-deep-year="2019下" data-deep-idx="2"><div class="q-stem">简述元认知策略的种类。</div><div class="q-meta">2019下 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：计划策略是根据认知活动的目标，在进行一项 → 监控策略是一种常用的元认知策略，是指在认 → 调节策略是指根据对认知活动结果的检查，如</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：计划策略、监控策略、调节策略。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 计划策略是根据认知活动的目标，在进行一项认知活动之前，进一步明确认知目标、确定认知过程和环节、预计认知结果、选择认知策略并评估其有效性。元认 知计划策略包括设置学习目标、浏览学习材料、产生待回答的问题、分析完成任务的 方法等。
 2. 监控策略是一种常用的元认知策略，是指在认知活动中，根据认知目标不断 反省和监控自己的认知活动是否在沿着正确的方向进行，正确估计自己达到认知目标 的程度、水平，并根据有效性标准评价各种认知行动、策略的效果。监控策略包括阅 读时对注意加以跟踪、对材料进行自我提问，考试时监控自己的速度和时间等。
-3. 调节策略是指根据对认知活动结果的检查，如发现问题、遇到困难或偏离目标 时，采取相应的补救措施，根据对认知策略的效果的检查，及时修正、调整认知策略。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：调节策略（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：計監調 — 计划策略、监控策略、调节策略</div></div><div class="q-card" data-deep-year="2019下" data-deep-idx="3"><div class="q-stem">简述品德的心理结构。三、简答题</div><div class="q-meta">2019下 Q29 · M7 中学德育</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学德育模块的核心知识点，属于构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：道德认识亦称道德观念、道德情感、道德意志、道德行为。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 道德认识亦称道德观念，是指对道德行为准则及其执行意义的认识，是个体 品德中的核心部分，是学生品德形成的基础。
+3. 调节策略是指根据对认知活动结果的检查，如发现问题、遇到困难或偏离目标 时，采取相应的补救措施，根据对认知策略的效果的检查，及时修正、调整认知策略。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：调节策略（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：計監調 — 计划策略、监控策略、调节策略</div></div><div class="q-card" data-deep-year="2019下" data-deep-idx="3"><div class="q-stem">简述品德的心理结构。三、简答题</div><div class="q-meta">2019下 Q29 · M7 中学德育</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：道德认识亦称道德观念，是指对道德行为准则 → 道德情感是指根据道德观念来评价他人或自己 → 道德意志是指个体自觉地调节道德行为，克服 → 道德行为是指实现道德动机的行为意向及外部</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学德育模块，属于构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：道德认识亦称道德观念、道德情感、道德意志、道德行为。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 道德认识亦称道德观念，是指对道德行为准则及其执行意义的认识，是个体 品德中的核心部分，是学生品德形成的基础。
 2. 道德情感是指根据道德观念来评价他人或自己行为时产生的内心体验。它与 道德认识一起，是推动人产生道德行为或抑制不道德行为的内在动力。
 3. 道德意志是指个体自觉地调节道德行为，克服困难，以实现道德目标的心理 过程。
-4. 道德行为是指实现道德动机的行为意向及外部表现。道德行为是衡量品德的 重要标志。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：道德行为（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="4"><div class="q-stem">简述教育的文化功能。</div><div class="q-meta">2020下 Q26 · M1 教育基础</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块的核心知识点，属于功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：传递和保存文化的功能、传播、交流与丰富文化的功能、选择、提升文化的功能、更新、创造文化的功能。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 传递和保存文化的功能。
+4. 道德行为是指实现道德动机的行为意向及外部表现。道德行为是衡量品德的 重要标志。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：道德行为（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="4"><div class="q-stem">简述教育的文化功能。</div><div class="q-meta">2020下 Q26 · M1 教育基础</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>近→远 | 个体→群体→社会</strong><br>实际点串起来：传递和保存文化的功能。 → 传播、交流与丰富文化的功能。 → 选择、提升文化的功能。 → 更新、创造文化的功能。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块，属于功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：传递和保存文化的功能、传播、交流与丰富文化的功能、选择、提升文化的功能、更新、创造文化的功能。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 传递和保存文化的功能。
 2. 传播、交流与丰富文化的功能。
 3. 选择、提升文化的功能。
-4. 更新、创造文化的功能。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：更新、创造文化的功能（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：传交选创 — 传递保存、传播交流、选择提升、更新创造</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="5"><div class="q-stem">班主任工作的基本内容有哪些?</div><div class="q-meta">2020下 Q27 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于构成类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。关键踩分词：常规工作、个别教育工作。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 常规工作。①了解和研究学生(班主任工作的前提和基础)。②组织和培养班集体(班主任工作的中心环节)。③建立学生成长档案。④组织班会和课外活动。⑤协调各种教育影响。⑥操行评定。⑦写好班主任工作计划与总结。
-2. 个别教育工作。个别教育工作包括优等生的个别教育、中等生的个别教育和后进生的个别教育。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：个别教育工作（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="6"><div class="q-stem">简述能力发展的个体差异。</div><div class="q-meta">2020下 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：能力发展水平的差异、能力发展类型的差异、能力表现早晚的差异。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 能力发展水平的差异。能力发展水平的差异主要体现在智力上。智力分布近似正态分布，有些人的智力 发展水平较高，有些人的智力发展水平较低，大多数人的智力属于中等水平。
+4. 更新、创造文化的功能。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：更新、创造文化的功能（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：传交选创 — 传递保存、传播交流、选择提升、更新创造</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="5"><div class="q-stem">班主任工作的基本内容有哪些?</div><div class="q-meta">2020下 Q27 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：常规工作。①了解和研究学生(班主任工作的 → 个别教育工作。个别教育工作包括优等生的个</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于构成类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。踩分词：常规工作、个别教育工作。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 常规工作。①了解和研究学生(班主任工作的前提和基础)。②组织和培养班集体(班主任工作的中心环节)。③建立学生成长档案。④组织班会和课外活动。⑤协调各种教育影响。⑥操行评定。⑦写好班主任工作计划与总结。
+2. 个别教育工作。个别教育工作包括优等生的个别教育、中等生的个别教育和后进生的个别教育。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：个别教育工作（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="6"><div class="q-stem">简述能力发展的个体差异。</div><div class="q-meta">2020下 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>拆解为3-5个并列维度</strong><br>实际点串起来：能力发展水平的差异。能力发展水平的差异主 → 能力发展类型的差异。能力发展类型的差异是 → 能力表现早晚的差异。能力表现早晚的差异主</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：能力发展水平的差异、能力发展类型的差异、能力表现早晚的差异。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 能力发展水平的差异。能力发展水平的差异主要体现在智力上。智力分布近似正态分布，有些人的智力 发展水平较高，有些人的智力发展水平较低，大多数人的智力属于中等水平。
 2. 能力发展类型的差异。能力发展类型的差异是指构成能力的各种因素存在质的差异，主要表现在知觉、 记忆、想象、思维的类型和品质方面。
-3. 能力表现早晚的差异。能力表现早晚的差异主要体现在能力早期的显露和大器晚成两个方面。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：能力表现早晚的差异（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="7"><div class="q-stem">教师职业倦怠的主要特征有哪些?三、简答题</div><div class="q-meta">2020下 Q29 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于特点类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：情绪耗竭、去人性化、个人成就感低。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 情绪耗竭，主要表现在生理耗竭和心理耗竭两方面，如极度的慢性疲劳、力 不从心、丧失工作热情、情绪波动大等。
+3. 能力表现早晚的差异。能力表现早晚的差异主要体现在能力早期的显露和大器晚成两个方面。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：能力表现早晚的差异（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2020下" data-deep-idx="7"><div class="q-stem">教师职业倦怠的主要特征有哪些?三、简答题</div><div class="q-meta">2020下 Q29 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：情绪耗竭，主要表现在生理耗竭和心理耗竭两 → 去人性化，即刻意在自身和工作对象间保持距 → 个人成就感低，表现为消极地评价自己，贬低</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于特点类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：情绪耗竭、去人性化、个人成就感低。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 情绪耗竭，主要表现在生理耗竭和心理耗竭两方面，如极度的慢性疲劳、力 不从心、丧失工作热情、情绪波动大等。
 2. 去人性化，即刻意在自身和工作对象间保持距离，对工作对象和环境采取冷 漠和忽视的态度。教师以一种消极的、否定的态度和情感对待学生。
-3. 个人成就感低，表现为消极地评价自己，贬低自己工作的意义和价值。DD 才 业 八 析 题</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：个人成就感低（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="8"><div class="q-stem">简述教学工作的基本环节。</div><div class="q-meta">2021上 Q26 · M3 中学教学</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块的核心知识点，属于构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。关键踩分词：备课 —上课前的准备工作、上课——教学工作的中心环节、课外作业的布置与批改、课外辅导、学生学业成绩的评价。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 备课 —上课前的准备工作，教学工作的起始环节，是教好课的前提。
+3. 个人成就感低，表现为消极地评价自己，贬低自己工作的意义和价值。DD 才 业 八 析 题</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：个人成就感低（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="8"><div class="q-stem">简述教学工作的基本环节。</div><div class="q-meta">2021上 Q26 · M3 中学教学</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：备课 —上课前的准备工作，教学工作的起始 → 上课——教学工作的中心环节，提高教学质量 → 课外作业的布置与批改。 → 课外辅导。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块，属于构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。踩分词：备课 —上课前的准备工作、上课——教学工作的中心环节、课外作业的布置与批改、课外辅导、学生学业成绩的评价。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 备课 —上课前的准备工作，教学工作的起始环节，是教好课的前提。
 2. 上课——教学工作的中心环节，提高教学质量的关键。128
 3. 课外作业的布置与批改。
 4. 课外辅导。
-5. 学生学业成绩的评价。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：学生学业成绩的评价（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：备上作辅评 — 备课、上课、作业布置批改、课外辅导、学业评价</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="9"><div class="q-stem">简述班主任培养班集体的方法。</div><div class="q-meta">2021上 Q27 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于方法类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。关键踩分词：确定班集体的发展目标、建立得力的班集体核心、建立班集体的正常秩序、组织形式多样的教育活动、培养正确的集体舆论与良好的班风。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 确定班集体的发展目标。
+5. 学生学业成绩的评价。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：学生学业成绩的评价（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：备上作辅评 — 备课、上课、作业布置批改、课外辅导、学业评价</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="9"><div class="q-stem">简述班主任培养班集体的方法。</div><div class="q-meta">2021上 Q27 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：确定班集体的发展目标。 → 建立得力的班集体核心。 → 建立班集体的正常秩序。 → 组织形式多样的教育活动。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于方法类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。踩分词：确定班集体的发展目标、建立得力的班集体核心、建立班集体的正常秩序、组织形式多样的教育活动、培养正确的集体舆论与良好的班风。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 确定班集体的发展目标。
 2. 建立得力的班集体核心。
 3. 建立班集体的正常秩序。
 4. 组织形式多样的教育活动。
-5. 培养正确的集体舆论与良好的班风。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：培养正确的集体舆论与良好的班风（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：目标核心秩序活动舆论 — 发展目标、班委核心、正常秩序、教育活动、正确舆论</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="10"><div class="q-stem">简述建构主义学习理论。</div><div class="q-meta">2021上 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于理论类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：建构主义知识观①知识并不、建构主义学生观①、建构主义学习观①。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 建构主义知识观①知识并不是对现实的准确表征，也不是最终答案，而只是一种解释、一种假设；②知识并不能精确地概括世界的法则，在具体问题中，并不能拿来就用，一用就灵， 而是要针对具体情境进行再创造；③理解知识取决于特定情境下的学习历程。
+5. 培养正确的集体舆论与良好的班风。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：培养正确的集体舆论与良好的班风（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：目标核心秩序活动舆论 — 发展目标、班委核心、正常秩序、教育活动、正确舆论</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="10"><div class="q-stem">简述建构主义学习理论。</div><div class="q-meta">2021上 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>代表→概念→阶段→应用→评价</strong><br>实际点串起来：建构主义知识观①知识并不是对现实的准确表 → 建构主义学生观①建构主义强调学生经验世界 → 建构主义学习观①建构主义强调学习的主动建</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于理论类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：建构主义知识观①知识并不、建构主义学生观①、建构主义学习观①。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 建构主义知识观①知识并不是对现实的准确表征，也不是最终答案，而只是一种解释、一种假设；②知识并不能精确地概括世界的法则，在具体问题中，并不能拿来就用，一用就灵， 而是要针对具体情境进行再创造；③理解知识取决于特定情境下的学习历程。
 2. 建构主义学生观①建构主义强调学生经验世界的丰富性，强调学生的巨大潜能；②建构主义强调 学生经验世界的差异性。
-3. 建构主义学习观①建构主义强调学习的主动建构性；②建构主义强调学习的社会互动性；③建构 主义强调学习的情境性。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：建构主义学习观①（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：知生学三观 — 知识观、学生观、学习观</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="11"><div class="q-stem">简述培养学生创造性的主要途径。三、简答题</div><div class="q-meta">2021上 Q29 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于方法类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：创设有利于创造性产生的适宜环境、注重创造性个性的塑造、开设培养创造性的课程。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 创设有利于创造性产生的适宜环境。①创设宽松的心理环境。②给学生留有充分选择的余地。③改革考试制度与考试内容。
+3. 建构主义学习观①建构主义强调学习的主动建构性；②建构主义强调学习的社会互动性；③建构 主义强调学习的情境性。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：建构主义学习观①（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：知生学三观 — 知识观、学生观、学习观</div></div><div class="q-card" data-deep-year="2021上" data-deep-idx="11"><div class="q-stem">简述培养学生创造性的主要途径。三、简答题</div><div class="q-meta">2021上 Q29 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：创设有利于创造性产生的适宜环境。①创设宽 → 注重创造性个性的塑造。①保护好奇心。②解 → 开设培养创造性的课程，进行创造性思维训练</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于方法类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：创设有利于创造性产生的适宜环境、注重创造性个性的塑造、开设培养创造性的课程。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 创设有利于创造性产生的适宜环境。①创设宽松的心理环境。②给学生留有充分选择的余地。③改革考试制度与考试内容。
 2. 注重创造性个性的塑造。①保护好奇心。②解除个体对答错问题的恐惧心理。③鼓励独立性和创新精神。④重视非逻辑思维。⑤给学生提供具有创造性的榜样。
-3. 开设培养创造性的课程，进行创造性思维训练。① 发 散 思 维 训 练 。② 推 测 与 假 设 训 练 。③ 自 我 设 计 训 练 。④ 头 脑 风 暴 训 练 。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：开设培养创造性的课程（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="12"><div class="q-stem">为什么说教育在人的身心发展中起主导作用?</div><div class="q-meta">2021下 Q26 · M1 教育基础</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块的核心知识点，属于功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：学校教育、学校教育、学校教育能有效地、学校教育给人的影。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 学校教育是有目的、有计划、有组织地培养人的活动。
+3. 开设培养创造性的课程，进行创造性思维训练。① 发 散 思 维 训 练 。② 推 测 与 假 设 训 练 。③ 自 我 设 计 训 练 。④ 头 脑 风 暴 训 练 。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：开设培养创造性的课程（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="12"><div class="q-stem">为什么说教育在人的身心发展中起主导作用?</div><div class="q-meta">2021下 Q26 · M1 教育基础</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>近→远 | 个体→群体→社会</strong><br>实际点串起来：学校教育是有目的、有计划、有组织地培养人 → 学校教育是通过专门训练的教师来进行的，相 → 学校教育能有效地控制影响学生发展的各种因 → 学校教育给人的影响比较全面、系统和深刻。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块，属于功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：学校教育、学校教育、学校教育能有效地、学校教育给人的影。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 学校教育是有目的、有计划、有组织地培养人的活动。
 2. 学校教育是通过专门训练的教师来进行的，相对而言效果较好。
 3. 学校教育能有效地控制影响学生发展的各种因素。
-4. 学校教育给人的影响比较全面、系统和深刻。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：学校教育给人的影（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="13"><div class="q-stem">简述学校教学工作的意义。</div><div class="q-meta">2021下 Q27 · M3 中学教学</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块的核心知识点，属于功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：教学、教学、教学。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教学是传播系统知识、促进学生发展的最有效的形式，是社会经验再生产、 适应并促进社会发展的有力手段。
+4. 学校教育给人的影响比较全面、系统和深刻。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：学校教育给人的影（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="13"><div class="q-stem">简述学校教学工作的意义。</div><div class="q-meta">2021下 Q27 · M3 中学教学</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>近→远 | 个体→群体→社会</strong><br>实际点串起来：教学是传播系统知识、促进学生发展的最有效 → 教学是进行全面发展教育，实现培养目标的基 → 教学是学校教育的中心工作，学校教育工作必</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块，属于功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：教学、教学、教学。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教学是传播系统知识、促进学生发展的最有效的形式，是社会经验再生产、 适应并促进社会发展的有力手段。
 2. 教学是进行全面发展教育，实现培养目标的基本途径，为个人全面发展提供 科学的基础和实践，是培养学生个性全面发展的重要环节。
-3. 教学是学校教育的中心工作，学校教育工作必须坚持以教学为主。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：教学（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="14"><div class="q-stem">注意的品质有哪些?</div><div class="q-meta">2021下 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于特点类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：注意的广度、注意的稳定性、注意的分配、注意的转移。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 注意的广度：也称注意的范围，是指在同一时间内，人们能够清楚地知觉出 的对象的数目。
+3. 教学是学校教育的中心工作，学校教育工作必须坚持以教学为主。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：教学（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="14"><div class="q-stem">注意的品质有哪些?</div><div class="q-meta">2021下 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：注意的广度：也称注意的范围，是指在同一时 → 注意的稳定性：也称注意的持久性，是指注意 → 注意的分配：是指在同一时间内把注意力集中 → 注意的转移：是指主体根据新的任务，主动地</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于特点类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：注意的广度、注意的稳定性、注意的分配、注意的转移。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 注意的广度：也称注意的范围，是指在同一时间内，人们能够清楚地知觉出 的对象的数目。
 2. 注意的稳定性：也称注意的持久性，是指注意集中在一定对象上的持续时间。
 3. 注意的分配：是指在同一时间内把注意力集中于两种或两种以上对象或活动 上的特性。
-4. 注意的转移：是指主体根据新的任务，主动地把注意从一个对象转移到另一 个对象或由一种活动转移到另一种活动的现象。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：注意的转移（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="15"><div class="q-stem">简述福勒的教师成长三阶段论。三、简答题</div><div class="q-meta">2021下 Q29 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于理论类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：关注生存阶段、关注情境阶段、关注学生阶段。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 关注生存阶段。处于这一阶段的一般是新教师，他们非常关注自己的生存适 应性，会更多地关注人际关系。
+4. 注意的转移：是指主体根据新的任务，主动地把注意从一个对象转移到另一 个对象或由一种活动转移到另一种活动的现象。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：注意的转移（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2021下" data-deep-idx="15"><div class="q-stem">简述福勒的教师成长三阶段论。三、简答题</div><div class="q-meta">2021下 Q29 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>代表→概念→阶段→应用→评价</strong><br>实际点串起来：关注生存阶段。处于这一阶段的一般是新教师 → 关注情境阶段。当教师感到自己完全能够适应 → 关注学生阶段。这一阶段，教师将更多地考虑</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于理论类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：关注生存阶段、关注情境阶段、关注学生阶段。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 关注生存阶段。处于这一阶段的一般是新教师，他们非常关注自己的生存适 应性，会更多地关注人际关系。
 2. 关注情境阶段。当教师感到自己完全能够适应时，便把关注的焦点投向了提 高学生的成绩，即进入了关注情境阶段。
-3. 关注学生阶段。这一阶段，教师将更多地考虑学生的个别差异，认识到不同 发展水平的学生有不同的需要，某些教学材料和方式不一定适合所有学生。自觉关注 学生是衡量一个教师成长成熟的重要标志之一。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：关注学生阶段（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="16"><div class="q-stem">简述制约课程内容选择的因素。</div><div class="q-meta">2022上 Q26 · M2 中学课程</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块的核心知识点，属于构成类、因素类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：社会因素、受教育者的身心发展规律、科学文化知识。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 社会因素。社会发展对学生素质发展的一般要求，是课程内容选择的客观 依据。
+3. 关注学生阶段。这一阶段，教师将更多地考虑学生的个别差异，认识到不同 发展水平的学生有不同的需要，某些教学材料和方式不一定适合所有学生。自觉关注 学生是衡量一个教师成长成熟的重要标志之一。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：关注学生阶段（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="16"><div class="q-stem">简述制约课程内容选择的因素。</div><div class="q-meta">2022上 Q26 · M2 中学课程</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：社会因素。社会发展对学生素质发展的一般要 → 受教育者的身心发展规律。受教育者身心发展 → 科学文化知识。课程内容的基本要素是知识。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块，属于构成类、因素类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：社会因素、受教育者的身心发展规律、科学文化知识。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 社会因素。社会发展对学生素质发展的一般要求，是课程内容选择的客观 依据。
 2. 受教育者的身心发展规律。受教育者身心发展的规律、水平和需要，制约着 课程的内容。102
-3. 科学文化知识。课程内容的基本要素是知识。因此，课程内容的选择必须考 虑人类科学文化知识和技术本身的特点及其发展趋势。知识是制约课程内容选择的基 本因素。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：科学文化知识（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="17"><div class="q-stem">简述贯彻启发性教学原则的基本要求。</div><div class="q-meta">2022上 Q27 · M3 中学教学</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块的核心知识点，属于要求类、理论类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：加强学习的目的性教育、启发学生独立思考、让学生自己动手、发扬教学民主。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 加强学习的目的性教育，调动学生学习的主动性。
+3. 科学文化知识。课程内容的基本要素是知识。因此，课程内容的选择必须考 虑人类科学文化知识和技术本身的特点及其发展趋势。知识是制约课程内容选择的基 本因素。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：科学文化知识（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="17"><div class="q-stem">简述贯彻启发性教学原则的基本要求。</div><div class="q-meta">2022上 Q27 · M3 中学教学</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>准备→内容→方法→过程→结果</strong><br>实际点串起来：加强学习的目的性教育，调动学生学习的主动 → 启发学生独立思考，发展学生的逻辑思维能力 → 让学生自己动手，培养学生独立解决问题的能 → 发扬教学民主。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块，属于要求类、理论类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：加强学习的目的性教育、启发学生独立思考、让学生自己动手、发扬教学民主。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 加强学习的目的性教育，调动学生学习的主动性。
 2. 启发学生独立思考，发展学生的逻辑思维能力。
 3. 让学生自己动手，培养学生独立解决问题的能力。
-4. 发扬教学民主。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：发扬教学民主（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：主思做民 — 主动性、独立思考、动手、教学民主</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="18"><div class="q-stem">简述皮亚杰认知发展阶段论。</div><div class="q-meta">2022上 Q28 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于理论类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：感知运动阶段、前运算阶段、具体运算阶段、形式运算阶段。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 感知运动阶段(0～2岁)。该阶段的主要特征包括：形成了低级的行为图 式；获得了客体永恒性。
+4. 发扬教学民主。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：发扬教学民主（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：主思做民 — 主动性、独立思考、动手、教学民主</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="18"><div class="q-stem">简述皮亚杰认知发展阶段论。</div><div class="q-meta">2022上 Q28 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>代表→概念→阶段→应用→评价</strong><br>实际点串起来：感知运动阶段(0～2岁)。该阶段的主要特 → 前运算阶段(2～7岁)。该阶段的主要特征 → 具体运算阶段(7～11岁)。该阶段的主要 → 形式运算阶段(11～16岁)。该阶段的主</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于理论类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：感知运动阶段、前运算阶段、具体运算阶段、形式运算阶段。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 感知运动阶段(0～2岁)。该阶段的主要特征包括：形成了低级的行为图 式；获得了客体永恒性。
 2. 前运算阶段(2～7岁)。该阶段的主要特征包括：“万物有灵论”;一切以 自我为中心；思维具有不可逆性、刻板性；没有守恒概念；集中化思维。
 3. 具体运算阶段(7～11岁)。该阶段的主要特征包括：去自我中心性(去中 心化);可逆性；能够进行简单的抽象思维，但需要具体事物的支持；守恒。
-4. 形式运算阶段(11～16岁)。该阶段的主要特征包括：命题推理；假设一演 绎推理；类比推理；思维具有灵活性。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：形式运算阶段（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：感前具形 — 感知运动(0-2)、前运算(2-7)、具体运算(7-11)、形式运算(11-16)</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="19"><div class="q-stem">简述教师自我促进心理健康的有效方法。三、简答题</div><div class="q-meta">2022上 Q29 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于方法类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。关键踩分词：教师要认识自我、教师要树立正确的职业观念、善于调节心理状态、学校要给予教师帮助、社会要给予教师支持。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教师要认识自我，加强个性修养。一个理智的教师要尽量做到有自知之明， 从而在教育教学中，扬长避短，长善救失。
+4. 形式运算阶段(11～16岁)。该阶段的主要特征包括：命题推理；假设一演 绎推理；类比推理；思维具有灵活性。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：形式运算阶段（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：感前具形 — 感知运动(0-2)、前运算(2-7)、具体运算(7-11)、形式运算(11-16)</div></div><div class="q-card" data-deep-year="2022上" data-deep-idx="19"><div class="q-stem">简述教师自我促进心理健康的有效方法。三、简答题</div><div class="q-meta">2022上 Q29 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：教师要认识自我，加强个性修养。一个理智的 → 教师要树立正确的职业观念。教师要学会正确 → 善于调节心理状态，增强教师角色适应能力。 → 学校要给予教师帮助。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于方法类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。踩分词：教师要认识自我、教师要树立正确的职业观念、善于调节心理状态、学校要给予教师帮助、社会要给予教师支持。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教师要认识自我，加强个性修养。一个理智的教师要尽量做到有自知之明， 从而在教育教学中，扬长避短，长善救失。
 2. 教师要树立正确的职业观念。教师要学会正确看待自己的工作，培养乐观的 人生态度；要正确认识到教师工作的复杂性，也要树立信心。
 3. 善于调节心理状态，增强教师角色适应能力。教师要正确认识自己，结合自 身实际，对工作做出合理期望，勇于接纳自己。
 4. 学校要给予教师帮助。
-5. 社会要给予教师支持。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：社会要给予教师支持（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="20"><div class="q-stem">简述学科课程的特点。</div><div class="q-meta">2022下 Q26 · M2 中学课程</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块的核心知识点，属于特点类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：逻辑性、系统性、简约性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 逻辑性：按照学科固有的逻辑组织知识。
+5. 社会要给予教师支持。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：社会要给予教师支持（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="20"><div class="q-stem">简述学科课程的特点。</div><div class="q-meta">2022下 Q26 · M2 中学课程</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：逻辑性：按照学科固有的逻辑组织知识。 → 系统性：有助于学生掌握系统的文化知识。 → 简约性：保证学生在有效时间内高效率地获取</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块，属于特点类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：逻辑性、系统性、简约性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 逻辑性：按照学科固有的逻辑组织知识。
 2. 系统性：有助于学生掌握系统的文化知识。
-3. 简约性：保证学生在有效时间内高效率地获取知识。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：简约性（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：逻辑系统简约 — 逻辑性、系统性、简约性</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="21"><div class="q-stem">简述中学教师布置作业的基本要求。</div><div class="q-meta">2022下 Q27 · M3 中学教学</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块的核心知识点，属于要求类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：内容符合课程标准和教科书的要求、分量适宜、要求明确、作业反馈清晰、及时。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 内容符合课程标准和教科书的要求。
+3. 简约性：保证学生在有效时间内高效率地获取知识。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：简约性（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：逻辑系统简约 — 逻辑性、系统性、简约性</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="21"><div class="q-stem">简述中学教师布置作业的基本要求。</div><div class="q-meta">2022下 Q27 · M3 中学教学</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>准备→内容→方法→过程→结果</strong><br>实际点串起来：内容符合课程标准和教科书的要求。 → 分量适宜，难易适度。 → 要求明确，规定完成时间。 → 作业反馈清晰、及时。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块，属于要求类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：内容符合课程标准和教科书的要求、分量适宜、要求明确、作业反馈清晰、及时。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 内容符合课程标准和教科书的要求。
 2. 分量适宜，难易适度。
 3. 要求明确，规定完成时间。
-4. 作业反馈清晰、及时。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：作业反馈清晰、及时（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="22"><div class="q-stem">简述中学生情绪情感的特点。</div><div class="q-meta">2022下 Q28 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于特点类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题7个得分点，每点约1分。关键踩分词：情绪体验的迅速、强烈性、不稳定性、情绪的外露性和内隐性、体验的时间延长、自我意识增强、情感有文饰、内隐和曲折性、情感容易受挫。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 情绪体验的迅速、强烈性。
+4. 作业反馈清晰、及时。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：作业反馈清晰、及时（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="22"><div class="q-stem">简述中学生情绪情感的特点。</div><div class="q-meta">2022下 Q28 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：情绪体验的迅速、强烈性。 → 不稳定性(波动性)和两极性交替。 → 情绪的外露性和内隐性(掩饰性)并存。 → 体验的时间延长，出现心境化的特点。中学生</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于特点类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题7个得分点，每点约1分。踩分词：情绪体验的迅速、强烈性、不稳定性、情绪的外露性和内隐性、体验的时间延长、自我意识增强、情感有文饰、内隐和曲折性、情感容易受挫。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 情绪体验的迅速、强烈性。
 2. 不稳定性(波动性)和两极性交替。
 3. 情绪的外露性和内隐性(掩饰性)并存。
 4. 体验的时间延长，出现心境化的特点。中学生的情感特点有：
 1. 自我意识增强，自尊的需要迫切。
 2. 情感有文饰、内隐和曲折性。
-3. 情感容易受挫，忍受能力差。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：情感容易受挫（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：强波隐长+自文挫 — 强烈性、波动性、内隐性、心境化</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="23"><div class="q-stem">简述人格的特征。三、简答题</div><div class="q-meta">2022下 Q29 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于特点类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题6个得分点，每点约2分。关键踩分词：独特性、稳定性、统合性、功能性、社会性、复杂性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 独特性。不同的遗传、生存及教育环境，形成了各自独特的心理特点。
+3. 情感容易受挫，忍受能力差。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：情感容易受挫（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：强波隐长+自文挫 — 强烈性、波动性、内隐性、心境化</div></div><div class="q-card" data-deep-year="2022下" data-deep-idx="23"><div class="q-stem">简述人格的特征。三、简答题</div><div class="q-meta">2022下 Q29 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：独特性。不同的遗传、生存及教育环境，形成 → 稳定性。人格具有稳定性。在行为中偶然发生 → 统合性。统合性又称整体性，人格是由多种成 → 功能性。当一个人的人格具有功能性时，表现</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于特点类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题6个得分点，每点约2分。踩分词：独特性、稳定性、统合性、功能性、社会性、复杂性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 独特性。不同的遗传、生存及教育环境，形成了各自独特的心理特点。
 2. 稳定性。人格具有稳定性。在行为中偶然发生的、一时性的心理特性，不能 称为人格。
 3. 统合性。统合性又称整体性，人格是由多种成分构成的一个有机整体，具有 内在的一致性，受自我意识的调控。人格的统合性是心理健康的重要指标。当一个人 的人格结构各方面彼此和谐一致时，就会呈现出健康的人格特征；否则就会使人发生 心理冲突，产生各种生活适应困难，甚至出现“分裂人格”。
 4. 功能性。当一个人的人格具有功能性时，表现为健康而有力，支配着一个人 的生活与成败；而当人格功能失调时，就会出现软弱、无力、失控，甚至变态。
 5. 社会性。人格的社会性是指社会化把人这样的动物变成社会的成员。即使是 人的生物性需要和本能，也是受人的社会性制约的。
-6. 复杂性。人格表现绝非静水一潭，各种人格结构的组合千变万化，使人格的 表现千姿百态，表现出多元化、多层面的特征。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：复杂性（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="24"><div class="q-stem">简述教育促进社会生产力发展表现在哪些方面。</div><div class="q-meta">2023上 Q26 · M1 教育基础</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块的核心知识点，属于构成类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：教育、教育、教育。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教育是劳动力再生产的基本途径。
+6. 复杂性。人格表现绝非静水一潭，各种人格结构的组合千变万化，使人格的 表现千姿百态，表现出多元化、多层面的特征。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：复杂性（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="24"><div class="q-stem">简述教育促进社会生产力发展表现在哪些方面。</div><div class="q-meta">2023上 Q26 · M1 教育基础</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：教育是劳动力再生产的基本途径。 → 教育是科学知识再生产的最有效形式。 → 教育是进行技术创新的一个重要手段。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块，属于构成类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：教育、教育、教育。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教育是劳动力再生产的基本途径。
 2. 教育是科学知识再生产的最有效形式。
-3. 教育是进行技术创新的一个重要手段。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：教育（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="25"><div class="q-stem">简述校本课程开发的基本特点。</div><div class="q-meta">2023上 Q27 · M2 中学课程</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块的核心知识点，属于特点类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：针对性、过程性、民主性、多元性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 针对性：校本课程要针对地方和学校的实际，同时要满足学生的兴趣和需要。
+3. 教育是进行技术创新的一个重要手段。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：教育（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="25"><div class="q-stem">简述校本课程开发的基本特点。</div><div class="q-meta">2023上 Q27 · M2 中学课程</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：针对性：校本课程要针对地方和学校的实际， → 过程性：首先，校本课程不仅是一个静态的课 → 民主性：校本课程的开发与决策遵循着民主开 → 多元性：表现在开发主体的多元化，如教师、</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块，属于特点类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：针对性、过程性、民主性、多元性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 针对性：校本课程要针对地方和学校的实际，同时要满足学生的兴趣和需要。
 2. 过程性：首先，校本课程不仅是一个静态的课程类型，还是一个促进教师成 长、学生个性培养的过程；其次，校本课程是基于教师不断实践反思基础上的不断完 善的过程。另外，校本课程注重对学生进行过程性评价。
 3. 民主性：校本课程的开发与决策遵循着民主开放的原则。
-4. 多元性：表现在开发主体的多元化，如教师、学生、家长以及社会人士都可 以参与其中。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：多元性（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="26"><div class="q-stem">简述中学生发散思维的基本特征。</div><div class="q-meta">2023上 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于特点类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：流畅性、变通性、独创性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 流畅性。流畅性指个人面对问题情境时，在规定的时间内产生不同观念的数量的多少。
+4. 多元性：表现在开发主体的多元化，如教师、学生、家长以及社会人士都可 以参与其中。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：多元性（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="26"><div class="q-stem">简述中学生发散思维的基本特征。</div><div class="q-meta">2023上 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：流畅性。流畅性指个人面对问题情境时，在规 → 变通性。变通性即灵活性，指个人面对问题情 → 独创性。独创性指个人面对问题情境时，能独</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于特点类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：流畅性、变通性、独创性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 流畅性。流畅性指个人面对问题情境时，在规定的时间内产生不同观念的数量的多少。
 2. 变通性。变通性即灵活性，指个人面对问题情境时，不墨守成规，不钻牛角尖，能随机应 变、触类旁通。
-3. 独创性。独创性指个人面对问题情境时，能独具匠心，想出不同寻常的、超越自己也超越 前辈的意见，具有新奇性。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：独创性（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="27"><div class="q-stem">简述良好性格的培养途径。三、简答题</div><div class="q-meta">2023上 Q29 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于方法类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题6个得分点，每点约2分。关键踩分词：加强人生观、世界观和价值观教育、及时强化学生的积极行为、充分利用榜样人物的示范作用、利用集体的教育力量、依据性格倾向因材施教、提高学生的自我教育能力。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 加强人生观、世界观和价值观教育。
+3. 独创性。独创性指个人面对问题情境时，能独具匠心，想出不同寻常的、超越自己也超越 前辈的意见，具有新奇性。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：独创性（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023上" data-deep-idx="27"><div class="q-stem">简述良好性格的培养途径。三、简答题</div><div class="q-meta">2023上 Q29 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：加强人生观、世界观和价值观教育。 → 及时强化学生的积极行为。 → 充分利用榜样人物的示范作用。 → 利用集体的教育力量。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于方法类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题6个得分点，每点约2分。踩分词：加强人生观、世界观和价值观教育、及时强化学生的积极行为、充分利用榜样人物的示范作用、利用集体的教育力量、依据性格倾向因材施教、提高学生的自我教育能力。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 加强人生观、世界观和价值观教育。
 2. 及时强化学生的积极行为。
 3. 充分利用榜样人物的示范作用。
 4. 利用集体的教育力量。
 5. 依据性格倾向因材施教。
-6. 提高学生的自我教育能力。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：提高学生的自我教育能力（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="28"><div class="q-stem">简述综合实践活动课程的特点。</div><div class="q-meta">2023下 Q26 · M2 中学课程</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块的核心知识点，属于特点类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。关键踩分词：整体性、实践性、开放性、生成性、自主性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 整体性(综合性)：对任何主题的探究都必须体现个人、社会、自然的内在整合，体现科学、艺术、道德的内在整合。
+6. 提高学生的自我教育能力。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：提高学生的自我教育能力（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="28"><div class="q-stem">简述综合实践活动课程的特点。</div><div class="q-meta">2023下 Q26 · M2 中学课程</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：整体性(综合性)：对任何主题的探究都必须 → 实践性：强调学生的亲身经历，要求学生积极 → 开放性：课程目标具有开放性，课程内容具有 → 生成性：随着活动的不断展开，新的目标不断</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块，属于特点类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。踩分词：整体性、实践性、开放性、生成性、自主性。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 整体性(综合性)：对任何主题的探究都必须体现个人、社会、自然的内在整合，体现科学、艺术、道德的内在整合。
 2. 实践性：强调学生的亲身经历，要求学生积极参与到各项活动中去。
 3. 开放性：课程目标具有开放性，课程内容具有开放性，评价标准具有多元性。
 4. 生成性：随着活动的不断展开，新的目标不断生成，新的主题不断生成，认识和体验不断加深，创造性的火花不断迸发。
-5. 自主性：学生自己选择学习的目标、内容、方式及指导教师，自己决定活动结果呈现的形式。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：自主性（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="29"><div class="q-stem">简述读书指导法的基本要求。</div><div class="q-meta">2023下 Q27 · M3 中学教学</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块的核心知识点，属于要求类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：提出明确的目的、要求和思考题、教给学生读书的方法、善于在读书中发现问题和解决问题、适当组织学生交流读书心得。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 提出明确的目的、要求和思考题。
+5. 自主性：学生自己选择学习的目标、内容、方式及指导教师，自己决定活动结果呈现的形式。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：自主性（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="29"><div class="q-stem">简述读书指导法的基本要求。</div><div class="q-meta">2023下 Q27 · M3 中学教学</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>准备→内容→方法→过程→结果</strong><br>实际点串起来：提出明确的目的、要求和思考题。 → 教给学生读书的方法。 → 善于在读书中发现问题和解决问题。 → 适当组织学生交流读书心得。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块，属于要求类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：提出明确的目的、要求和思考题、教给学生读书的方法、善于在读书中发现问题和解决问题、适当组织学生交流读书心得。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 提出明确的目的、要求和思考题。
 2. 教给学生读书的方法。
 3. 善于在读书中发现问题和解决问题。
-4. 适当组织学生交流读书心得。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：适当组织学生交流读书心得（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="30"><div class="q-stem">简述布鲁纳认知结构学习理论的主要观点。</div><div class="q-meta">2023下 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于理论类、构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。关键踩分词：学习观、教学观。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 学习观：①学习的实质是主动地形成认知结构。②学习包括获得、转化和评价三个过程。
-2. 教学观：①教学的目的在于理解学科的基本结构。②掌握学科基本结构的教学原则：动机原则、结构原则、程序原则、强化原则。③发现学习。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：教学观（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="31"><div class="q-stem">简述学习策略中资源管理策略的主要构成。三、简答题2</div><div class="q-meta">2023下 Q29 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：时间管理策略、环境管理策略、努力管理策略、资源利用策略。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 时间管理策略：统筹安排学习时间；高效利用最佳时间；灵活利用零碎时间。
+4. 适当组织学生交流读书心得。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：适当组织学生交流读书心得（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="30"><div class="q-stem">简述布鲁纳认知结构学习理论的主要观点。</div><div class="q-meta">2023下 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>代表→概念→阶段→应用→评价</strong><br>实际点串起来：学习观：①学习的实质是主动地形成认知结构 → 教学观：①教学的目的在于理解学科的基本结</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于理论类、构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。踩分词：学习观、教学观。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 学习观：①学习的实质是主动地形成认知结构。②学习包括获得、转化和评价三个过程。
+2. 教学观：①教学的目的在于理解学科的基本结构。②掌握学科基本结构的教学原则：动机原则、结构原则、程序原则、强化原则。③发现学习。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：教学观（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2023下" data-deep-idx="31"><div class="q-stem">简述学习策略中资源管理策略的主要构成。三、简答题2</div><div class="q-meta">2023下 Q29 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：时间管理策略：统筹安排学习时间；高效利用 → 环境管理策略：一方面，要注意调节自然条件 → 努力管理策略：激发内在动机；树立为了掌握 → 资源利用策略：①学习工具的利用，如善于利</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：时间管理策略、环境管理策略、努力管理策略、资源利用策略。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 时间管理策略：统筹安排学习时间；高效利用最佳时间；灵活利用零碎时间。
 2. 环境管理策略：一方面，要注意调节自然条件，如流通的空气、适宜的温度、明亮的光线及和谐 的色彩等；另一方面，要设计好学习的空间，如空间范围、室内布置、用具摆放等 因素。
 3. 努力管理策略：激发内在动机；树立为了掌握而学习的信念；选择有挑战性的任务；调节成败的 标准；正确认识成败的原因；自我奖励。
-4. 资源利用策略：①学习工具的利用，如善于利用参考资料、电脑与网络、工具书、图书馆、广播电视等工具学习；②社会性人力资源的利用，如善于利用老师的帮助以及通过同学间 的合作与讨论来加深对内容的理解。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：资源利用策略（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="32"><div class="q-stem">简述人本主义学习理论的基本观点。</div><div class="q-meta">2024上 Q26 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于理论类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：知情统一的教学目标观、有意义的自由学习观、学生中心的教学观。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 知情统一的教学目标观。教育理想就是要培养既用认知的方式也用情感的方 式行事的知情合一的人。
+4. 资源利用策略：①学习工具的利用，如善于利用参考资料、电脑与网络、工具书、图书馆、广播电视等工具学习；②社会性人力资源的利用，如善于利用老师的帮助以及通过同学间 的合作与讨论来加深对内容的理解。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：资源利用策略（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="32"><div class="q-stem">简述人本主义学习理论的基本观点。</div><div class="q-meta">2024上 Q26 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>代表→概念→阶段→应用→评价</strong><br>实际点串起来：知情统一的教学目标观。教育理想就是要培养 → 有意义的自由学习观。有意义学习是指一种使 → 学生中心的教学观。学生中心模式又称非指导</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于理论类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：知情统一的教学目标观、有意义的自由学习观、学生中心的教学观。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 知情统一的教学目标观。教育理想就是要培养既用认知的方式也用情感的方 式行事的知情合一的人。
 2. 有意义的自由学习观。有意义学习是指一种使个体的行为、态度、个性及在 未来选择行动方针时发生重大变化的学习。这不仅是一种增长知识的学习，而且是一 种与每个人各部分经验都融合在一起的学习。
-3. 学生中心的教学观。学生中心模式又称非指导模式，教师的角色是“助产士” 或“催化剂”。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：学生中心的教学观（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：知情意 — 知情统一目标、有意义自由学习、学生中心</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="33"><div class="q-stem">简述提高知识直观效果的途径。</div><div class="q-meta">2024上 Q27 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于方法类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。关键踩分词：灵活选用实物直观和模象直观、加强词和形象的配合、运用感知规律、培养学生的观察能力、让学生充分参与直观过程。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 灵活选用实物直观和模象直观。
+3. 学生中心的教学观。学生中心模式又称非指导模式，教师的角色是“助产士” 或“催化剂”。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：学生中心的教学观（最后一点最容易忘）</div><div class="q-mnemonic">🧠 口诀：知情意 — 知情统一目标、有意义自由学习、学生中心</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="33"><div class="q-stem">简述提高知识直观效果的途径。</div><div class="q-meta">2024上 Q27 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：灵活选用实物直观和模象直观。 → 加强词和形象的配合。 → 运用感知规律，突出直观对象的特点。 → 培养学生的观察能力。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于方法类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。踩分词：灵活选用实物直观和模象直观、加强词和形象的配合、运用感知规律、培养学生的观察能力、让学生充分参与直观过程。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 灵活选用实物直观和模象直观。
 2. 加强词和形象的配合。
 3. 运用感知规律，突出直观对象的特点。
 4. 培养学生的观察能力。
-5. 让学生充分参与直观过程。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：让学生充分参与直观过程（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="34"><div class="q-stem">简述学校德育的陶冶法及其运用的具体要求。</div><div class="q-meta">2024上 Q28 · M7 中学德育</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学德育模块的核心知识点，属于要求类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。关键踩分词：陶冶法、陶冶法运用的基本要求包括。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 陶冶法是指教育者有目的地创设良好的教育情境，使受教育者在道德和思想 情感方面受到潜移默化的感染、熏陶的方法。陶冶法包括人格感化、环境陶冶、艺术 陶冶等。
-2. 陶冶法运用的基本要求包括：①创设良好的环境；②与启发引导相结合；③引导学生参与情境的创设。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：陶冶法运用的基本要求包括（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="35"><div class="q-stem">简述学校教育中课程的表现形式。三、简答题</div><div class="q-meta">2024上 Q29 · M2 中学课程</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块的核心知识点，属于构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：课程计划、课程标准、教材。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 课程计划是根据教育目的和不同类型学校的教育任务，由国家教育主管部门 制定的有关教学和教育工作的指导性文件。课程计划是课程设置的整体规划，它对学r校的教学、生产劳动、课外活动等做出全面安排。
+5. 让学生充分参与直观过程。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：让学生充分参与直观过程（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="34"><div class="q-stem">简述学校德育的陶冶法及其运用的具体要求。</div><div class="q-meta">2024上 Q28 · M7 中学德育</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>准备→内容→方法→过程→结果</strong><br>实际点串起来：陶冶法是指教育者有目的地创设良好的教育情 → 陶冶法运用的基本要求包括：①创设良好的环</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学德育模块，属于要求类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。踩分词：陶冶法、陶冶法运用的基本要求包括。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 陶冶法是指教育者有目的地创设良好的教育情境，使受教育者在道德和思想 情感方面受到潜移默化的感染、熏陶的方法。陶冶法包括人格感化、环境陶冶、艺术 陶冶等。
+2. 陶冶法运用的基本要求包括：①创设良好的环境；②与启发引导相结合；③引导学生参与情境的创设。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：陶冶法运用的基本要求包括（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2024上" data-deep-idx="35"><div class="q-stem">简述学校教育中课程的表现形式。三、简答题</div><div class="q-meta">2024上 Q29 · M2 中学课程</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：课程计划是根据教育目的和不同类型学校的教 → 课程标准是课程计划的具体化，是课程计划中 → 教材是教师和学生据以进行教学活动的材料，</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块，属于构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：课程计划、课程标准、教材。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 课程计划是根据教育目的和不同类型学校的教育任务，由国家教育主管部门 制定的有关教学和教育工作的指导性文件。课程计划是课程设置的整体规划，它对学r校的教学、生产劳动、课外活动等做出全面安排。
 2. 课程标准是课程计划的具体化，是课程计划中每门学科以纲要的形式编订的、 有关学科教学内容的指导性文件。它规定了学科的教学目的和任务，知识的范围、深 度和结构，教学进度以及有关教学法的基本要求。课程标准是教材编写、教学、评价 和考试命题的依据。
-3. 教材是教师和学生据以进行教学活动的材料，包括教科书、讲义、讲授提纲、参考书、活动指导书以及各种视听材料。其中，教科书和讲义是教材的主体部分。TT 上 n1八 一n</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：教材（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="36"><div class="q-stem">教学是学校的中心工作，学校的一切工作必须围绕教学开展。王老师作为一 名新入职的老师，就“教学的作用”这一主题与同事展开了深人讨论。请简述教学的 作用。</div><div class="q-meta">2024下 Q26 · M3 中学教学</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块的核心知识点，属于功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：教学、教学、教学。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教学是传播系统知识、促进学生发展的最有效的形式，是社会经验再生产、 适应并促进社会发展的有力手段。
+3. 教材是教师和学生据以进行教学活动的材料，包括教科书、讲义、讲授提纲、参考书、活动指导书以及各种视听材料。其中，教科书和讲义是教材的主体部分。TT 上 n1八 一n</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：教材（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="36"><div class="q-stem">教学是学校的中心工作，学校的一切工作必须围绕教学开展。王老师作为一 名新入职的老师，就“教学的作用”这一主题与同事展开了深人讨论。请简述教学的 作用。</div><div class="q-meta">2024下 Q26 · M3 中学教学</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>近→远 | 个体→群体→社会</strong><br>实际点串起来：教学是传播系统知识、促进学生发展的最有效 → 教学是进行全面发展教育，实现培养目标的基 → 教学是学校教育的中心工作，学校教育工作必</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学教学模块，属于功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：教学、教学、教学。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 教学是传播系统知识、促进学生发展的最有效的形式，是社会经验再生产、 适应并促进社会发展的有力手段。
 2. 教学是进行全面发展教育，实现培养目标的基本途径，为个人全面发展提供 科学的基础和实践，是培养学生个性全面发展的重要环节。
-3. 教学是学校教育的中心工作，学校教育工作必须坚持以教学为主。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：教学（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="37"><div class="q-stem">张老师是某中学的一名新任班主任，不熟悉班级管理工作，班级管理效果一 团糟。对此，学校德育主任告诉他，班级管理是有规律的，要遵循一定的原则。请简 述班级管理的原则。</div><div class="q-meta">2024下 Q27 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于理论类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题8个得分点，每点约1分。关键踩分词：方向性原则、全面管理原则、自主参与原则、教管结合原则、全员激励原则、平行管理原则、情通理达原则、协同管理原则。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 方向性原则。
+3. 教学是学校教育的中心工作，学校教育工作必须坚持以教学为主。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：教学（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="37"><div class="q-stem">张老师是某中学的一名新任班主任，不熟悉班级管理工作，班级管理效果一 团糟。对此，学校德育主任告诉他，班级管理是有规律的，要遵循一定的原则。请简 述班级管理的原则。</div><div class="q-meta">2024下 Q27 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>代表→概念→阶段→应用→评价</strong><br>实际点串起来：方向性原则。 → 全面管理原则。 → 自主参与原则。 → 教管结合原则。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于理论类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题8个得分点，每点约1分。踩分词：方向性原则、全面管理原则、自主参与原则、教管结合原则、全员激励原则、平行管理原则、情通理达原则、协同管理原则。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 方向性原则。
 2. 全面管理原则。
 3. 自主参与原则。
 4. 教管结合原则。
 5. 全员激励原则。
 6. 平行管理原则。
 7. 情通理达原则。
-8. 协同管理原则。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：协同管理原则（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="38"><div class="q-stem">康老师是一名资深的中学教师。她与新教师进行教学研讨时，提醒新教师要 依据中学生情绪的矛盾性开展针对性教学。请简述中学生情绪矛盾性的主要表现。</div><div class="q-meta">2024下 Q28 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：强烈、狂暴性与温和、细腻性共存、情绪的可变性与固执性共存、情绪的内向性与表现性共存。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 强烈、狂暴性与温和、细腻性共存。
+8. 协同管理原则。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：协同管理原则（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="38"><div class="q-stem">康老师是一名资深的中学教师。她与新教师进行教学研讨时，提醒新教师要 依据中学生情绪的矛盾性开展针对性教学。请简述中学生情绪矛盾性的主要表现。</div><div class="q-meta">2024下 Q28 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：强烈、狂暴性与温和、细腻性共存。 → 情绪的可变性与固执性共存。 → 情绪的内向性与表现性共存。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：强烈、狂暴性与温和、细腻性共存、情绪的可变性与固执性共存、情绪的内向性与表现性共存。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 强烈、狂暴性与温和、细腻性共存。
 2. 情绪的可变性与固执性共存。
-3. 情绪的内向性与表现性共存。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：情绪的内向性与表现性共存（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="39"><div class="q-stem">进入中学后，学生的交往方式与小学阶段相比，发生了很大变化，越来越重 视同伴关系。请简述中学生同伴关系的特点。 三、简答题</div><div class="q-meta">2024下 Q29 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于特点类、方法类、理论类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：逐渐改变了团伙式的交往方式、朋友关系日益重要、出现了异性友谊。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 逐渐改变了团伙式的交往方式。
+3. 情绪的内向性与表现性共存。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：情绪的内向性与表现性共存（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2024下" data-deep-idx="39"><div class="q-stem">进入中学后，学生的交往方式与小学阶段相比，发生了很大变化，越来越重 视同伴关系。请简述中学生同伴关系的特点。 三、简答题</div><div class="q-meta">2024下 Q29 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：逐渐改变了团伙式的交往方式。 → 朋友关系日益重要，择友标准高。 → 出现了异性友谊。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于特点类、方法类、理论类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：逐渐改变了团伙式的交往方式、朋友关系日益重要、出现了异性友谊。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 逐渐改变了团伙式的交往方式。
 2. 朋友关系日益重要，择友标准高。
-3. 出现了异性友谊。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：出现了异性友谊（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="40"><div class="q-stem">教育具有促进个体发展的功能，但并非所有的教育都能促进个体发展，如“划 一性的教育”“陈腐的教育观念”“落后的教育方法”反而会阻碍个体发展。因此，要 发挥教育促进个体发展的功能，必须正确把握教育促进个体发展的基本条件。请简述 教育促进个体发展的条件。</div><div class="q-meta">2025上 Q26 · M1 教育基础</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块的核心知识点，属于方法类、功能类、因素类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：要确立“育人为本”的教育理念、在活动中要确保学生的主体地位、要创新教育理念、。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 要确立“育人为本”的教育理念。
+3. 出现了异性友谊。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：出现了异性友谊（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="40"><div class="q-stem">教育具有促进个体发展的功能，但并非所有的教育都能促进个体发展，如“划 一性的教育”“陈腐的教育观念”“落后的教育方法”反而会阻碍个体发展。因此，要 发挥教育促进个体发展的功能，必须正确把握教育促进个体发展的基本条件。请简述 教育促进个体发展的条件。</div><div class="q-meta">2025上 Q26 · M1 教育基础</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：要确立“育人为本”的教育理念。 → 在活动中要确保学生的主体地位，发挥学生的 → 要创新教育理念、机制、方式、方法，寻找适</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块，属于方法类、功能类、因素类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：要确立“育人为本”的教育理念、在活动中要确保学生的主体地位、要创新教育理念、。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 要确立“育人为本”的教育理念。
 2. 在活动中要确保学生的主体地位，发挥学生的主体作用。
-3. 要创新教育理念、机制、方式、方法，寻找适合个体发展需要的个性化、特 色化教育。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：要创新教育理念、（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="41"><div class="q-stem">课程是学校教育系统的核心要素，是社会主导的教育价值观念在学校教育中 的具体表现和集中反映，可以说没有课程就没有学校教育。请简述课程在学校教育中 的作用。</div><div class="q-meta">2025上 Q27 · M2 中学课程</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块的核心知识点，属于功能类、构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。关键踩分词：课程、课程、课程、合理的课程设置对、课程。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 课程是学校培养人才蓝图的具体表现。
+3. 要创新教育理念、机制、方式、方法，寻找适合个体发展需要的个性化、特 色化教育。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：要创新教育理念、（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="41"><div class="q-stem">课程是学校教育系统的核心要素，是社会主导的教育价值观念在学校教育中 的具体表现和集中反映，可以说没有课程就没有学校教育。请简述课程在学校教育中 的作用。</div><div class="q-meta">2025上 Q27 · M2 中学课程</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>近→远 | 个体→群体→社会</strong><br>实际点串起来：课程是学校培养人才蓝图的具体表现。 → 课程是教师从事教育活动的基本依据。 → 课程是学生吸取知识的主要来源。 → 合理的课程设置对学生的全面发展起决定性作</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块，属于功能类、构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题5个得分点，每点约2分。踩分词：课程、课程、课程、合理的课程设置对、课程。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 课程是学校培养人才蓝图的具体表现。
 2. 课程是教师从事教育活动的基本依据。
 3. 课程是学生吸取知识的主要来源。
 4. 合理的课程设置对学生的全面发展起决定性作用。
-5. 课程是评估教学质量的主要依据和标准。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：课程（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="42"><div class="q-stem">孙老师在教学过程中发现，初中生与小学生相比，对自己的认知更加稳定， 对自己的评价更加客观，自尊的行为表现更加明显。通过查阅资料，孙老师了解到这 些差异是由自我概念不同而导致的。请简述青少年自我概念的特点。</div><div class="q-meta">2025上 Q28 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于特点类、构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题6个得分点，每点约2分。关键踩分词：自我概念日益抽象化和理想化、自我概念在结构上更加分化、自我概念的组织性和整合性增强、自我概念的发展存在起伏变化、自我概念的发展存在性别差异、自我概念和学业成绩密切相关。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 自我概念日益抽象化和理想化，并能区分真实自我和理想自我。
+5. 课程是评估教学质量的主要依据和标准。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：课程（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="42"><div class="q-stem">孙老师在教学过程中发现，初中生与小学生相比，对自己的认知更加稳定， 对自己的评价更加客观，自尊的行为表现更加明显。通过查阅资料，孙老师了解到这 些差异是由自我概念不同而导致的。请简述青少年自我概念的特点。</div><div class="q-meta">2025上 Q28 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：自我概念日益抽象化和理想化，并能区分真实 → 自我概念在结构上更加分化，出现了多领域的 → 自我概念的组织性和整合性增强，能够把自我 → 自我概念的发展存在起伏变化，有升有降，其</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于特点类、构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题6个得分点，每点约2分。踩分词：自我概念日益抽象化和理想化、自我概念在结构上更加分化、自我概念的组织性和整合性增强、自我概念的发展存在起伏变化、自我概念的发展存在性别差异、自我概念和学业成绩密切相关。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 自我概念日益抽象化和理想化，并能区分真实自我和理想自我。
 2. 自我概念在结构上更加分化，出现了多领域的自我描述的区别，倾向于把一 些特质同特定情境相联系而非泛泛使用这些特质。
 3. 自我概念的组织性和整合性增强，能够把自我的不同方面整合成一个富有逻 辑性和连贯性的整体。
 4. 自我概念的发展存在起伏变化，有升有降，其中初中阶段是关键期。
 5. 自我概念的发展存在性别差异，一般而言，女生的语文自我概念高于男生，V25男生的数学自我概念高于女生。
-6. 自我概念和学业成绩密切相关。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：自我概念和学业成绩密切相关（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="43"><div class="q-stem">《中小学心理健康教育指导纲要(2012年修订)》提出，学校应将心理健康教 育始终贯穿于教育教学全过程，多种途径开展心理健康教育，完成心理健康教育的基 本任务，实现学校心理健康教育的目标。请简述学校心理健康教育的基本任务。三、简答题</div><div class="q-meta">2025上 Q29 · M6 心理辅导</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查心理辅导模块的核心知识点，属于方法类、功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。关键踩分词：面向全体学生、对于少数有心理困。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 面向全体学生，开展预防性与发展性的心理健康教育，帮助学生在自我认识、 承受挫折、适应环境，以及学习、择业、交友等方面获得充分发展，以努力提高全体 学生心理素质和人格水平。这是学校心理健康教育的基础和工作重点。
-2. 对于少数有心理困扰或心理障碍的学生，给予有效的心理咨询和辅导。对于 极少数有严重心理疾病的学生，能够及时识别并转介到医学心理诊治部门。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：对于少数有心理困（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="44"><div class="q-stem">班主任王老师常言：“喊破嗓子，不如做出样子。”在言为士则、行为世范的 引领下，有名的“乱班”变成了学校的优秀班级。王老师的育人方法发挥了榜样示范 作用。请简述德育工作中运用榜样示范法的基本要求。</div><div class="q-meta">2025下 Q26 · M7 中学德育</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学德育模块的核心知识点，属于要求类、方法类、功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：选好学习的榜样、激起学生对榜样的敬慕之情、引导学生用榜样来调节自身行为。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 选好学习的榜样。选好榜样是学习榜样的前提，用来示范的榜样主要有家长 和教师、同学、英雄人物、革命领袖、历史伟人和文艺形象。
+6. 自我概念和学业成绩密切相关。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：自我概念和学业成绩密切相关（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025上" data-deep-idx="43"><div class="q-stem">《中小学心理健康教育指导纲要(2012年修订)》提出，学校应将心理健康教 育始终贯穿于教育教学全过程，多种途径开展心理健康教育，完成心理健康教育的基 本任务，实现学校心理健康教育的目标。请简述学校心理健康教育的基本任务。三、简答题</div><div class="q-meta">2025上 Q29 · M6 心理辅导</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：面向全体学生，开展预防性与发展性的心理健 → 对于少数有心理困扰或心理障碍的学生，给予</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查心理辅导模块，属于方法类、功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题2个得分点，每点约5分。踩分词：面向全体学生、对于少数有心理困。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 面向全体学生，开展预防性与发展性的心理健康教育，帮助学生在自我认识、 承受挫折、适应环境，以及学习、择业、交友等方面获得充分发展，以努力提高全体 学生心理素质和人格水平。这是学校心理健康教育的基础和工作重点。
+2. 对于少数有心理困扰或心理障碍的学生，给予有效的心理咨询和辅导。对于 极少数有严重心理疾病的学生，能够及时识别并转介到医学心理诊治部门。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：对于少数有心理困（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="44"><div class="q-stem">班主任王老师常言：“喊破嗓子，不如做出样子。”在言为士则、行为世范的 引领下，有名的“乱班”变成了学校的优秀班级。王老师的育人方法发挥了榜样示范 作用。请简述德育工作中运用榜样示范法的基本要求。</div><div class="q-meta">2025下 Q26 · M7 中学德育</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>准备→内容→方法→过程→结果</strong><br>实际点串起来：选好学习的榜样。选好榜样是学习榜样的前提 → 激起学生对榜样的敬慕之情。要使榜样能对学 → 引导学生用榜样来调节自身行为，提高修养。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学德育模块，属于要求类、方法类、功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：选好学习的榜样、激起学生对榜样的敬慕之情、引导学生用榜样来调节自身行为。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 选好学习的榜样。选好榜样是学习榜样的前提，用来示范的榜样主要有家长 和教师、同学、英雄人物、革命领袖、历史伟人和文艺形象。
 2. 激起学生对榜样的敬慕之情。要使榜样能对学生产生力量，推动他们前进， 就需要学生了解榜样。榜样人格具体、生动、形象，对学生具有巨大的感染力和说服力，易于为学生所领会和模仿。
-3. 引导学生用榜样来调节自身行为，提高修养。引导学生向榜样人物学习，要 及时地把学生的情感、冲动引导到行动上来，从而使学生把对榜样的敬慕之情转化为 道德行动和习惯。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：引导学生用榜样来调节自身行为（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="45"><div class="q-stem">学校课程包括显性课程和隐性课程。育英中学不仅重视学生的语文、数学等 显性课程，而且关注学校的校风、班风等隐性课程对学生潜移默化的影响。请简述显 性课程与隐性课程的内在联系。</div><div class="q-meta">2025下 Q27 · M2 中学课程</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块的核心知识点，属于阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：显性课程的实施总、隐性课程也在不断转化为显性课程、显性课程与隐性课。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 显性课程的实施总是伴随着隐性课程。课程的实施过程绝非机械地执行既定 课程方案的过程，而是具有不可预期性，这个过程必然存在非计划性、非预期性的教 育影响，必然存在隐性课程。
+3. 引导学生用榜样来调节自身行为，提高修养。引导学生向榜样人物学习，要 及时地把学生的情感、冲动引导到行动上来，从而使学生把对榜样的敬慕之情转化为 道德行动和习惯。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：引导学生用榜样来调节自身行为（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="45"><div class="q-stem">学校课程包括显性课程和隐性课程。育英中学不仅重视学生的语文、数学等 显性课程，而且关注学校的校风、班风等隐性课程对学生潜移默化的影响。请简述显 性课程与隐性课程的内在联系。</div><div class="q-meta">2025下 Q27 · M2 中学课程</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>拆解为3-5个并列维度</strong><br>实际点串起来：显性课程的实施总是伴随着隐性课程。课程的 → 隐性课程也在不断转化为显性课程。任何显性 → 显性课程与隐性课程的动态转化过程是永恒的</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查中学课程模块，属于阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：显性课程的实施总、隐性课程也在不断转化为显性课程、显性课程与隐性课。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 显性课程的实施总是伴随着隐性课程。课程的实施过程绝非机械地执行既定 课程方案的过程，而是具有不可预期性，这个过程必然存在非计划性、非预期性的教 育影响，必然存在隐性课程。
 2. 隐性课程也在不断转化为显性课程。任何显性课程都会产生隐性课程，其影 响可能是积极的，也可能是消极的。当这种影响达到一定程度时，人们一般会在后续 的课程开发和实施过程中进行相应的调整，在努力控制消极影响的同时，把那些有较 大积极影响的隐性课程转化为有计划的、预期性的课程，即显性课程。这些显性课程 在实施过程中又会产生新的隐性课程。
-3. 显性课程与隐性课程的动态转化过程是永恒的、无止境的。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：显性课程与隐性课（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="46"><div class="q-stem">进人中学后，学生开始喜欢与他人辩论，并能运用形式运算来解决诸如组合、 包含、概率等问题，这些表现均与其思维的发展变化密切相关。请简述中学生思维发 展的主要特征。</div><div class="q-meta">2025下 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于特点类、构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：抽象逻辑思维占主导地位、形式逻辑思维占优势、思维的独立性和批判性日益增强。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 抽象逻辑思维占主导地位，并由“经验型”向“理论型”转化。理论型逻辑 思维发展的转折期是在14～15岁。
+3. 显性课程与隐性课程的动态转化过程是永恒的、无止境的。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：显性课程与隐性课（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="46"><div class="q-stem">进人中学后，学生开始喜欢与他人辩论，并能运用形式运算来解决诸如组合、 包含、概率等问题，这些表现均与其思维的发展变化密切相关。请简述中学生思维发 展的主要特征。</div><div class="q-meta">2025下 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：抽象逻辑思维占主导地位，并由“经验型”向 → 形式逻辑思维占优势，辩证逻辑思维迅速发展 → 思维的独立性和批判性日益增强。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于特点类、构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：抽象逻辑思维占主导地位、形式逻辑思维占优势、思维的独立性和批判性日益增强。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 抽象逻辑思维占主导地位，并由“经验型”向“理论型”转化。理论型逻辑 思维发展的转折期是在14～15岁。
 2. 形式逻辑思维占优势，辩证逻辑思维迅速发展。
-3. 思维的独立性和批判性日益增强。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：思维的独立性和批判性日益增强（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="47"><div class="q-stem">金老师在新教师入职培训上，聆听了多位经验丰富的老师的成长经验，认识 到有多种途径可以提升自己的学科能力和学科素养，实现专业水平的发展。请简述教 师专业成长与发展的途径。三、简答题</div><div class="q-meta">2025下 Q29 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于方法类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题8个得分点，每点约1分。关键踩分词：观摩和分析优秀教师的教学活动、开展微格教学、进行专门训练、反思教学经验、职前培训、入职培训、在职培训、自我教育。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 观摩和分析优秀教师的教学活动。观摩和分析优秀教师的教学活动有利于提 高新手型教师的教学能力和水平；有利于帮助新手型教师掌握专业知识和获得教学管 理的能力，并能够充分调动学生的学习积极性。
+3. 思维的独立性和批判性日益增强。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：思维的独立性和批判性日益增强（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2025下" data-deep-idx="47"><div class="q-stem">金老师在新教师入职培训上，聆听了多位经验丰富的老师的成长经验，认识 到有多种途径可以提升自己的学科能力和学科素养，实现专业水平的发展。请简述教 师专业成长与发展的途径。三、简答题</div><div class="q-meta">2025下 Q29 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>认知→情感→行为→环境→评价</strong><br>实际点串起来：观摩和分析优秀教师的教学活动。观摩和分析 → 开展微格教学。微格教学指以少数的学生为对 → 进行专门训练。要想促进新教师的成长，也可 → 反思教学经验。反思教学经验又称反思性实践</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于方法类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题8个得分点，每点约1分。踩分词：观摩和分析优秀教师的教学活动、开展微格教学、进行专门训练、反思教学经验、职前培训、入职培训、在职培训、自我教育。答出4个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 观摩和分析优秀教师的教学活动。观摩和分析优秀教师的教学活动有利于提 高新手型教师的教学能力和水平；有利于帮助新手型教师掌握专业知识和获得教学管 理的能力，并能够充分调动学生的学习积极性。
 2. 开展微格教学。微格教学指以少数的学生为对象，在较短的时间内(5～20 分钟),尝试做小型的课堂教学，可以把这种教学过程摄制成录像，课后再进行分析。
 3. 进行专门训练。要想促进新教师的成长，也可以对他们进行专门化训练。
 4. 反思教学经验。反思教学经验又称反思性实践或反思性教学，是指教师以自 己的教学活动为意识对象，对自己的教育理念、教学行为、决策以及由此所产生的结 果进行认真的自我审视、评价、反馈、控制、调节、分析的过程。版本二：
 1. 职前培训。职前培训是教师从事专业工作重要的基础阶段，是人职前的准备阶段。
 2. 入职培训。人职培训是经历过教师职前培训的人，在刚获得的教职岗位上进 一步了解、学习和掌握岗位知识和能力的培训。
 3. 在职培训。在职教育被认为是教师专业发展最为关键的环节。
-4. 自我教育。教师的自我教育是教师个体专业化发展最直接、最普遍的途径。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：自我教育（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="48"><div class="q-stem">《教育强国建设规划纲要(2024—2035年)》提出，落实健康第一教育理念， 实施学生体质强健计划，中小学生每天综合体育活动时间不低于2小时。这表明了学 校体育工作的重要性。简述中学体育的意义。</div><div class="q-meta">2026上 Q26 · M1 教育基础</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块的核心知识点，属于功能类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。关键踩分词：体育中有极丰富的、通过体育增强体质、体育与美育密切联系、体育训练可以促进。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 体育中有极丰富的思想品德教育因素。
+4. 自我教育。教师的自我教育是教师个体专业化发展最直接、最普遍的途径。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：自我教育（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="48"><div class="q-stem">《教育强国建设规划纲要(2024—2035年)》提出，落实健康第一教育理念， 实施学生体质强健计划，中小学生每天综合体育活动时间不低于2小时。这表明了学 校体育工作的重要性。简述中学体育的意义。</div><div class="q-meta">2026上 Q26 · M1 教育基础</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>近→远 | 个体→群体→社会</strong><br>实际点串起来：体育中有极丰富的思想品德教育因素。 → 通过体育增强体质，特别是记忆力、思维力等 → 体育与美育密切联系，健与美历来一致。 → 体育训练可以促进学生劳动技能的提高。</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查教育基础模块，属于功能类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题4个得分点，每点约3分。踩分词：体育中有极丰富的、通过体育增强体质、体育与美育密切联系、体育训练可以促进。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 体育中有极丰富的思想品德教育因素。
 2. 通过体育增强体质，特别是记忆力、思维力等相应增强，可促使学生智力 发展。
 3. 体育与美育密切联系，健与美历来一致。
-4. 体育训练可以促进学生劳动技能的提高。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：体育训练可以促进（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="49"><div class="q-stem">班主任是保障教育教学秩序、提高教育教学质量的中坚力量。简述中学班主 任的角色。</div><div class="q-meta">2026上 Q27 · M8 班级管理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块的核心知识点，属于阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题10个得分点，每点约1分。关键踩分词：学生思想道德的教育者、学生日常生活的管理者、学生健康成长的引导者、学校文化的建设者、学生健康成长的守护者、班集体的组织者和领导者、学校教育计划的贯彻者、班级人际关系的协调者、学校、家庭和社会的沟通者、中小学生人生导师。答出5个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 学生思想道德的教育者。
+4. 体育训练可以促进学生劳动技能的提高。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：体育训练可以促进（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="49"><div class="q-stem">班主任是保障教育教学秩序、提高教育教学质量的中坚力量。简述中学班主 任的角色。</div><div class="q-meta">2026上 Q27 · M8 班级管理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>拆解为3-5个并列维度</strong><br>实际点串起来：学生思想道德的教育者。 → 学生日常生活的管理者。 → 学生健康成长的引导者。 → 学校文化的建设者。版本二：</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查班级管理模块，属于阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题10个得分点，每点约1分。踩分词：学生思想道德的教育者、学生日常生活的管理者、学生健康成长的引导者、学校文化的建设者、学生健康成长的守护者、班集体的组织者和领导者、学校教育计划的贯彻者、班级人际关系的协调者、学校、家庭和社会的沟通者、中小学生人生导师。答出5个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 学生思想道德的教育者。
 2. 学生日常生活的管理者。
 3. 学生健康成长的引导者。
 4. 学校文化的建设者。版本二：
@@ -591,11 +613,11 @@ function switchTheme(t,el){
 3. 学校教育计划的贯彻者。
 4. 班级人际关系的协调者。
 5. 学校、家庭和社会的沟通者。
-6. 中小学生人生导师。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：中小学生人生导师（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="50"><div class="q-stem">张林在阅读时遇到读不懂的内容便会慢慢再读一遍，或者退回到更前面的内 容重新阅读，这种学习策略被称为元认知策略。简述元认知策略的内涵及分类。</div><div class="q-meta">2026上 Q28 · M4 学习心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块的核心知识点，属于构成类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：计划策略、监控策略、调节策略。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 计划策略是根据认知活动的目标，在进行一项认知活动之前，进一步明确认 知目标、确定认知过程和环节、预计认知结果、选择认知策略并评估其有效性。
+6. 中小学生人生导师。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：中小学生人生导师（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="50"><div class="q-stem">张林在阅读时遇到读不懂的内容便会慢慢再读一遍，或者退回到更前面的内 容重新阅读，这种学习策略被称为元认知策略。简述元认知策略的内涵及分类。</div><div class="q-meta">2026上 Q28 · M4 学习心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>简单/基础→复杂/高级</strong><br>实际点串起来：计划策略是根据认知活动的目标，在进行一项 → 监控策略是指在认知活动中，根据认知目标不 → 调节策略是指根据对认知活动结果的检查，如</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查学习心理模块，属于构成类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：计划策略、监控策略、调节策略。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 计划策略是根据认知活动的目标，在进行一项认知活动之前，进一步明确认 知目标、确定认知过程和环节、预计认知结果、选择认知策略并评估其有效性。
 2. 监控策略是指在认知活动中，根据认知目标不断反省和监控自己的认知活动 是否在沿着正确的方向进行，正确估计自己达到认知目标的程度水平，并根据有效性 标准评价各种认知行动、策略的效果。
-3. 调节策略是指根据对认知活动结果的检查，如发现问题、遇到困难或偏离目 标时，采取相应的补救措施，根据对认知策略的效果的检查，及时修正、调整认知策略。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：调节策略（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="51"><div class="q-stem">科尔伯格通过“道德两难故事法”,发现学生道德判断的发展呈现阶段性特点。 简述科尔伯格的道德发展阶段论。三、简答题</div><div class="q-meta">2026上 Q29 · M5 发展心理</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块的核心知识点，属于特点类、理论类、阐述类题型。要求考生准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。关键踩分词：前习俗水平、习俗水平、后习俗水平。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 前习俗水平(9岁以下),包括惩罚与服从道德定向阶段、相对功利道德定向 阶段。
+3. 调节策略是指根据对认知活动结果的检查，如发现问题、遇到困难或偏离目 标时，采取相应的补救措施，根据对认知策略的效果的检查，及时修正、调整认知策略。</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：调节策略（最后一点最容易忘）</div></div><div class="q-card" data-deep-year="2026上" data-deep-idx="51"><div class="q-stem">科尔伯格通过“道德两难故事法”,发现学生道德判断的发展呈现阶段性特点。 简述科尔伯格的道德发展阶段论。三、简答题</div><div class="q-meta">2026上 Q29 · M5 发展心理</div><div style="margin:8px 0;background:var(--bg);padding:10px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;">💡 记忆逻辑链：<strong>内在属性→外在表现→发展变化</strong><br>实际点串起来：前习俗水平(9岁以下),包括惩罚与服从道 → 习俗水平(9～16岁),包括寻求认可定向 → 后习俗水平(16岁以后),包括社会契约定</div><div style="margin:8px 0;"><strong>🎯 出题意图：</strong>本题考查发展心理模块，属于特点类、理论类、阐述类题型。要求准确回忆并分点作答。</div><div style="margin:8px 0;"><strong>📐 踩分逻辑：</strong>本题3个得分点，每点约3分。踩分词：前习俗水平、习俗水平、后习俗水平。答出3个以上可得及格分。</div><div style="margin:8px 0;"><strong>✅ 满分示范：</strong><br>1. 前习俗水平(9岁以下),包括惩罚与服从道德定向阶段、相对功利道德定向 阶段。
 2. 习俗水平(9～16岁),包括寻求认可定向阶段(“好孩子”定向阶段)、维 护权威或秩序的道德定向阶段。
-3. 后习俗水平(16岁以后),包括社会契约定向阶段、普遍原则的道德定向阶段(原则或良心定向阶段)。·.l 1 1一□</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>易漏点：后习俗水平（最后一点最容易遗忘）</div><div class="q-mnemonic">🧠 口诀：暂无口诀</div></div>
+3. 后习俗水平(16岁以后),包括社会契约定向阶段、普遍原则的道德定向阶段(原则或良心定向阶段)。·.l 1 1一□</div><div style="margin:8px 0;"><strong>⚠️ 易漏点：</strong>⚠️ 易漏：后习俗水平（最后一点最容易忘）</div></div>
 </div>
 
 </div><!-- /.container -->
@@ -740,10 +762,27 @@ function updateStStats(){
 }
 updateStStats();
 
+// ============ RELATED TOPICS TOGGLE ============
+function toggleRelated(el){
+  var body = el.nextElementSibling;
+  if (!body) return;
+  var isOpen = body.classList.toggle('show');
+  var label = el.getAttribute('data-label') || '关联考点';
+  var extra = el.getAttribute('data-extra') || '';
+  el.textContent = isOpen ? '🔽 收起'+label : '🔗 '+label+extra;
+}
+
 // ============ RELATED TOPICS ENRICHMENT ============
-// For predictions: try to match prediction stem to existing question, show same-module siblings
-// For knowledge base: each card already has exam+number, use JD_RELATED directly
 function enrichRelated(){
+  // Build blank spots lookup by module name
+  var blanksByMod = {};
+  for (var k in JD_RELATED){
+    var r = JD_RELATED[k];
+    if (r.blankSpots && r.blankSpots.length > 0 && r.moduleName){
+      blanksByMod[r.moduleName] = r.blankSpots;
+    }
+  }
+
   // 1. Enrich prediction cards
   document.querySelectorAll('#tab-predict .pred-card').forEach(function(card){
     var modSpan = card.querySelector('.pred-mod');
@@ -751,83 +790,60 @@ function enrichRelated(){
     var modMatch = modSpan.textContent.match(/M(d)/);
     if (!modMatch) return;
     var mod = parseInt(modMatch[1]);
+    var modName = JD_MOD_NAMES[mod];
 
-    // Try to find matching question in allQ by stem similarity
-    var predText = card.querySelector('div') && card.querySelectorAll('div')[1] ? card.querySelectorAll('div')[1].textContent.substring(0,30) : '';
-    var matchedQ = null;
-    JD_ALL_Q.forEach(function(q){
-      var qSig = q.stem.substring(0,15);
-      var pSig = predText.substring(0,15);
-      if (qSig === pSig || (qSig.length>5 && pSig.indexOf(qSig.substring(0,6))!==-1) || (pSig.length>5 && qSig.indexOf(pSig.substring(0,6))!==-1)){
-        matchedQ = q;
-      }
-    });
+    // Find all questions in this module
+    var modQs = JD_ALL_Q.filter(function(q){return q.module === mod;});
+    var blankSpots = blanksByMod[modName] || [];
 
-    // Get same-module siblings
+    // Deduplicate siblings
+    var seen = {};
     var siblings = [];
-    if (matchedQ){
-      var uid = matchedQ.exam+'-Q'+matchedQ.number;
-      if (JD_RELATED[uid]){
-        siblings = JD_RELATED[uid].siblings;
-      }
-    } else {
-      // For blank spots, get all questions from same module
-      JD_ALL_Q.forEach(function(q){
-        if (q.module === mod && siblings.length < 5){
-          var exists = siblings.some(function(s){return s.stem===q.stem.substring(0,50);});
-          if (!exists) siblings.push({stem: q.stem.substring(0,50), exam: q.exam, priority: q.priority, keywords: q.keywords.slice(0,3)});
-        }
-      });
-    }
-
-    // Get blank spots for this module
-    var blankSpots = [];
-    for (var m in JD_RELATED){
-      var info = JD_RELATED[JD_RELATED_KEYS[m]];
-      if (info && info.blankSpots && info.moduleName === JD_MOD_NAMES[mod]){
-        blankSpots = info.blankSpots;
-        break;
-      }
-    }
-    // Actually find blank spots correctly
-    var foundBlanks = null;
-    Object.keys(JD_RELATED).forEach(function(k){
-      if (JD_RELATED[k].moduleName === JD_MOD_NAMES[mod] && JD_RELATED[k].blankSpots.length > 0){
-        foundBlanks = JD_RELATED[k].blankSpots;
+    modQs.forEach(function(q){
+      var key = q.stem.substring(0,20);
+      if (!seen[key]){
+        seen[key] = true;
+        siblings.push({stem: q.stem.substring(0,50), exam: q.exam, priority: q.priority, keywords: q.keywords?q.keywords.slice(0,3):[]});
       }
     });
-    blankSpots = foundBlanks || [];
 
     if (siblings.length === 0 && blankSpots.length === 0) return;
 
+    var total = siblings.length + blankSpots.length;
     var box = document.createElement('div');
     box.className = 'related-box';
-    var html = '<div class="related-title" onclick="var b=this.nextElementSibling;b.classList.toggle('show');this.textContent=b.classList.contains('show')?'🔽 收起关联考点':'🔗 这个知识点还可能考什么？('+siblings.length+'个相关考点';
-    if (blankSpots.length>0) html += ' + '+blankSpots.length+'个空白考点';
-    html += ')';">🔗 这个知识点还可能考什么？('+siblings.length+'个相关考点';
-    if (blankSpots.length>0) html += ' + '+blankSpots.length+'个空白考点';
-    html += ')</div><div class="related-body">';
 
+    var titleDiv = document.createElement('div');
+    titleDiv.className = 'related-title';
+    titleDiv.setAttribute('data-label','相关考点('+total+'个)');
+    titleDiv.setAttribute('data-extra','('+siblings.length+'个已考 + '+blankSpots.length+'个空白)');
+    titleDiv.textContent = '🔗 相关考点('+total+'个)('+siblings.length+'个已考 + '+blankSpots.length+'个空白)';
+    titleDiv.onclick = function(){toggleRelated(this);};
+    titleDiv.style.cursor = 'pointer';
+    box.appendChild(titleDiv);
+
+    var bodyDiv = document.createElement('div');
+    bodyDiv.className = 'related-body';
+    var bodyHtml = '';
     if (siblings.length > 0){
-      html += '<span style="font-size:0.72rem;color:var(--text3);">📋 同模块已考考点：</span> ';
+      bodyHtml += '<span style="font-size:0.72rem;color:var(--text3);">📋 同模块已考考点：</span> ';
       siblings.forEach(function(s){
-        html += '<span class="related-chip hot" title="'+s.exam+' 考过">'+s.stem.substring(0,30)+'...</span>';
+        bodyHtml += '<span class="related-chip hot" title="'+s.exam+'">'+s.stem+'...</span>';
       });
     }
     if (blankSpots.length > 0){
-      html += '<br><span style="font-size:0.72rem;color:var(--text3);">⚠️ 考纲未考空白点：</span> ';
+      bodyHtml += '<br><span style="font-size:0.72rem;color:var(--text3);">⚠️ 考纲未考空白点：</span> ';
       blankSpots.forEach(function(b){
-        html += '<span class="related-chip blank">'+b+'</span>';
+        bodyHtml += '<span class="related-chip blank">'+b+'</span>';
       });
     }
-    html += '</div>';
-    box.innerHTML = html;
+    bodyDiv.innerHTML = bodyHtml;
+    box.appendChild(bodyDiv);
     card.appendChild(box);
   });
 
   // 2. Enrich knowledge base cards
   document.querySelectorAll('#tab-knowledge .q-card').forEach(function(card){
-    // Since knowledge base cards don't have a unique ID, find by stem
     var stemEl = card.querySelector('.q-stem');
     if (!stemEl) return;
     var cardStem = stemEl.textContent.trim();
@@ -842,9 +858,22 @@ function enrichRelated(){
 
     var box = document.createElement('div');
     box.className = 'related-box';
-    box.innerHTML = '<div class="related-title" onclick="var b=this.nextElementSibling;b.classList.toggle('show');this.textContent=b.classList.contains('show')?'🔽 收起关联考点':'🔗 同模块相关考点('+rel.siblings.length+'个)';">🔗 同模块相关考点('+rel.siblings.length+'个)</div><div class="related-body">'+
-      rel.siblings.map(function(s){return '<span class="related-chip hot" title="'+s.exam+'">'+s.stem+'...</span>';}).join('')+
-    '</div>';
+
+    var titleDiv = document.createElement('div');
+    titleDiv.className = 'related-title';
+    titleDiv.setAttribute('data-label','同模块相关考点('+rel.siblings.length+'个)');
+    titleDiv.setAttribute('data-extra','');
+    titleDiv.textContent = '🔗 同模块相关考点('+rel.siblings.length+'个)';
+    titleDiv.onclick = function(){toggleRelated(this);};
+    titleDiv.style.cursor = 'pointer';
+    box.appendChild(titleDiv);
+
+    var bodyDiv = document.createElement('div');
+    bodyDiv.className = 'related-body';
+    bodyDiv.innerHTML = rel.siblings.map(function(s){
+      return '<span class="related-chip hot" title="'+s.exam+'">'+s.stem+'...</span>';
+    }).join('');
+    box.appendChild(bodyDiv);
     card.appendChild(box);
   });
 }
