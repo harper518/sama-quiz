@@ -105,7 +105,7 @@
 
 <script>
 // Auto version check — fetches links_version.json, compares with embedded version
-var EMBEDDED_VERSION = 6;
+var EMBEDDED_VERSION = 7;
 (function checkUpdate() {
   var url = 'https://harper518.github.io/sama-quiz/links_version.json?t=' + Date.now();
   fetch(url).then(function(r) { return r.json(); }).then(function(data) {
