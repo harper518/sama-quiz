@@ -177,7 +177,7 @@ body[data-theme="dopamine-c"] .tab-btn.active,body[data-theme="dopamine-c"] .tab
 </head>
 <body>
 
-<div class="theme-switcher" id="themeSwitcher" style="position:fixed;top:12px;right:12px;z-index:1000;display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:5px 10px;box-shadow:0 4px 12px rgba(0,0,0,0.3);flex-wrap:wrap;max-width:calc(100vw-24px);">
+<div class="theme-switcher" id="themeSwitcher" style="display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:5px 10px;justify-content:center;flex-wrap:wrap;max-width:400px;margin:8px auto 0;">
 <button class="theme-dot" data-theme="blue" title="深蓝(原版)" onclick="switchTheme('blue',this)"><span class="dot-inner" style="background:#0f172a;border:2px solid #38bdf8;"></span></button>
 <button class="theme-dot" data-theme="purple" title="深紫" onclick="switchTheme('purple',this)"><span class="dot-inner" style="background:#1a1028;border:2px solid #a78bfa;"></span></button>
 <button class="theme-dot" data-theme="light" title="浅色清爽" onclick="switchTheme('light',this)"><span class="dot-inner" style="background:#f8fafc;border:2px solid #2563eb;"></span></button>
@@ -336,7 +336,11 @@ function switchTheme(t,el){
 <div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>🎯 功能维</strong><br><span style="font-size:0.78rem;color:var(--text2);">按作用/目的怎么分？对谁有什么效果</span></div>
 </div>
 <p style="font-size:0.8rem;color:var(--text3);margin:8px 0;"><strong>万能句式：</strong>"从___角度看，...表现为/包括/分为..." × 4-5个角度 = 4-5个得分点</p>
-<p style="font-size:0.78rem;color:var(--text3);"><strong>📌 真题套用：</strong>"人格的特征" → 主体(独特性-每个人不同) + 属性(稳定性-跨时间一致) + 过程(统合性-各特质整合) + 功能(功能性-影响行为) + 属性(社会性-后天形成) + 属性(复杂性-多面统一) = 6个得分点</p>
+<p style="font-size:0.78rem;color:var(--text3);margin-bottom:6px;"><strong>📌 真题套用示例：</strong></p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #4ade80;">例1: <strong>"人格的特征"</strong> → 主体(独特性-每个人不同) + 属性(稳定性-跨时间一致) + 过程(统合性-各特质整合) + 功能(功能性-影响行为) + 属性(社会性-后天形成) + 属性(复杂性-多面统一) = 6个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #4ade80;">例2: <strong>"综合实践活动课程的特点"</strong> → 属性维(整体性-多学科整合) + 过程维(实践性-亲身经历) + 属性维(开放性-目标内容多元) + 过程维(生成性-动态生成) + 主体维(自主性-学生自主选择) = 5个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #4ade80;">例3: <strong>"学科课程的特点"</strong> → 属性维(逻辑性-按学科逻辑) + 功能维(系统性-系统知识) + 功能维(简约性-高效获取) = 3个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #4ade80;">例4: <strong>"注意的品质"</strong> → 属性维(广度-范围大小) + 过程维(稳定性-持续时间) + 功能维(分配-多任务) + 过程维(转移-任务切换) = 4个得分点</p>
 </div>
 
 <div class="tmpl-card" style="border-left:4px solid #fbbf24;">
@@ -355,7 +359,11 @@ function switchTheme(t,el){
 <span class="angle" style="background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);">⑤ 结果/评价<br><span style="font-size:0.7rem;">达到什么效果？怎么检查？</span></span>
 </div>
 <p style="font-size:0.8rem;color:var(--text3);margin:8px 0;"><strong>万能句式：</strong>"要做到/实现___，需要在___方面___" × 4-5个流程节点 = 4-5个得分点</p>
-<p style="font-size:0.78rem;color:var(--text3);"><strong>📌 真题套用：</strong>"一堂好课的基本标准" → ①准备(目的明确) → ②内容(内容正确) → ③方法(方法得当) → ④过程(结构合理) → ⑤表达(语言艺术) → ⑥氛围(气氛热烈) → ⑦板书(板书有序) → ⑧态度(态度从容) = 8个得分点，但按流程串起来就好记了</p>
+<p style="font-size:0.78rem;color:var(--text3);margin-bottom:6px;"><strong>📌 真题套用示例：</strong></p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #fbbf24;">例1: <strong>"一堂好课的基本标准"</strong> → ①准备(目的明确) → ②内容(内容正确) → ③方法(方法得当) → ④过程(结构合理) → ⑤表达(语言艺术) → ⑥氛围(气氛热烈) → ⑦板书(板书有序) → ⑧态度(态度从容) = 8个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #fbbf24;">例2: <strong>"布置作业的基本要求"</strong> → ①内容(符合课标) → ②分量(难易适度) → ③要求(明确+时间) → ④反馈(清晰及时) = 4个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #fbbf24;">例3: <strong>"启发性教学原则的基本要求"</strong> → ①前提(调动主动性) → ②方法(启发独立思考) → ③过程(让学生动手) → ④氛围(发扬教学民主) = 4个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #fbbf24;">例4: <strong>"班主任培养班集体的方法"</strong> → ①前提(确定目标) → ②核心(建立班委) → ③基础(建立秩序) → ④载体(组织活动) → ⑤导向(培养舆论) = 5个得分点</p>
 </div>
 
 <div class="tmpl-card" style="border-left:4px solid #f87171;">
@@ -368,7 +376,11 @@ function switchTheme(t,el){
 <div style="background:var(--bg);padding:8px;border-radius:8px;"><strong>➕ 直接→间接</strong><br><span style="font-size:0.78rem;color:var(--text2);">本来就要达成的？附带产生的？</span></div>
 </div>
 <p style="font-size:0.8rem;color:var(--text3);margin:8px 0;"><strong>万能句式：</strong>"___对___具有___作用/影响，具体表现为___" × 3-5个层次 = 3-5个得分点</p>
-<p style="font-size:0.78rem;color:var(--text3);"><strong>📌 真题套用：</strong>"教育的文化功能" → 近端直接(传递保存-把文化传下去) → 空间扩展(传播交流-文化跨区域流动) → 纵向发展(选择提升-取其精华去其糟粕) → 长远创新(更新创造-文化不是静止的) = 4个得分点，从近到远，从保存到创新</p>
+<p style="font-size:0.78rem;color:var(--text3);margin-bottom:6px;"><strong>📌 真题套用示例：</strong></p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #f87171;">例1: <strong>"教育的文化功能"</strong> → 近端直接(传递保存-把文化传下去) → 空间扩展(传播交流-跨区域流动) → 纵向发展(选择提升-取其精华) → 长远创新(更新创造-文化非静止) = 4个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #f87171;">例2: <strong>"教育促进社会生产力发展"</strong> → 直接功能(劳动力再生产-培养工人) → 间接功能(科学知识再生产-传播科技) → 创新功能(技术创新-研发新技术) = 3个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #f87171;">例3: <strong>"教学的作用/意义"</strong> → 直接(传播知识促发展) → 核心(实现培养目标的基本途径) → 地位(学校中心工作) = 3个得分点</p>
+	<p style="font-size:0.76rem;color:var(--text2);margin:3px 0;padding-left:12px;border-left:2px solid #f87171;">例4: <strong>"学校美育的基本任务"</strong> → 知识层(传授美学知识) → 能力层(培养审美+创造美) → 人格层(内外美统一) = 5个点，从基础到高级</p>
 </div>
 
 <div class="section">
@@ -396,6 +408,53 @@ function switchTheme(t,el){
 </div>
 </div>
 </div>
+
+
+	<div class="section" style="border-left:4px solid var(--purple);">
+	<h2>🧬 6大知识簇 — 同一框架回答所有变式题</h2>
+	<p style="color:var(--text2);margin-bottom:12px;font-size:0.85rem;">52道真题可以归入6个知识簇，每个簇内部题目问法不同但答题框架完全一样。掌握6个框架 = 覆盖所有可能的出题角度。</p>
+	<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px;font-size:0.82rem;">
+	<div style="background:var(--bg2);border-radius:10px;padding:14px;border-top:3px solid #4ade80;">
+	<strong style="color:#4ade80;">📗 簇1: 学习策略(M4) — 已考3次 | 剩余考点1个</strong>
+	<p style="color:var(--text3);margin:4px 0;">已考：元认知策略(19下+26上重复)、资源管理策略(23下)</p>
+	<p style="color:var(--red);margin:4px 0;">未考：<strong>认知策略(复述/精加工/组织)</strong> ← 极高概率</p>
+	<p style="color:var(--accent);margin:6px 0;">🔧 变式模板：策略名称→定义(1句)→子策略(3-4个)→每个=名称+解释+例子</p>
+	<p style="font-size:0.72rem;color:var(--text3);">无论问哪个策略，都按"定义→分类→展开"三段回答</p>
+	</div>
+	<div style="background:var(--bg2);border-radius:10px;padding:14px;border-top:3px solid #38bdf8;">
+	<strong style="color:#38bdf8;">📘 簇2: 学习理论(M4) — 已考3次 | 剩余2个</strong>
+	<p style="color:var(--text3);margin:4px 0;">已考：建构主义(21上)、人本主义(24上)、布鲁纳认知结构(23下)</p>
+	<p style="color:var(--red);margin:4px 0;">未考：<strong>行为主义/斯金纳、奥苏贝尔有意义学习</strong> ← 高概率</p>
+	<p style="color:var(--accent);margin:6px 0;">🔧 模板：代表人物→核心观点→关键概念(2-3个)→教育启示</p>
+	</div>
+	<div style="background:var(--bg2);border-radius:10px;padding:14px;border-top:3px solid #fbbf24;">
+	<strong style="color:#fbbf24;">📙 簇3: 中学生发展特点(M5) — 已考5次 | 剩余2个</strong>
+	<p style="color:var(--text3);margin:4px 0;">已考：情绪(22下+24下)、同伴(24下)、思维(25下)、自我概念(25上)、人格(22下)</p>
+	<p style="color:var(--red);margin:4px 0;">未考：<strong>认知发展特点、性心理特点</strong> ← 中概率</p>
+	<p style="color:var(--accent);margin:6px 0;">🔧 模板：发展维度→总体特征→具体表现(3-5点)→教育启示</p>
+	</div>
+	<div style="background:var(--bg2);border-radius:10px;padding:14px;border-top:3px solid #f472b6;">
+	<strong style="color:#f472b6;">📕 簇4: 班主任/教师(M8) — 已考7次 | 剩余3个</strong>
+	<p style="color:var(--text3);margin:4px 0;">已考：班集体培养、班主任工作、福勒成长、教师心理健康、班级管理原则、教师专业发展、班主任角色</p>
+	<p style="color:var(--red);margin:4px 0;">未考：<strong>课堂纪律/问题行为处理、课外活动、后进生教育</strong> ← 高概率</p>
+	<p style="color:var(--accent);margin:6px 0;">🔧 模板：概念→原则/方法/要求(4-8条)→每条=关键词+解释</p>
+	</div>
+	<div style="background:var(--bg2);border-radius:10px;padding:14px;border-top:3px solid #fb923c;">
+	<strong style="color:#fb923c;">📒 簇5: 课程(M2) — 已考7次 | 几乎全是特点类</strong>
+	<p style="color:var(--text3);margin:4px 0;">已考：学科课程、校本课程、综合实践活动、显性隐性、课程表现形式、课程作用、制约因素</p>
+	<p style="color:var(--accent);margin:6px 0;">🔧 模板：概念定义→特点/类型(3-5个)→每个=关键词+解释→统一模式A分解</p>
+	</div>
+	<div style="background:var(--bg2);border-radius:10px;padding:14px;border-top:3px solid #f87171;">
+	<strong style="color:#f87171;">📓 簇6: 教学原则与方法(M3) — 已考7次 | 剩余4个</strong>
+	<p style="color:var(--text3);margin:4px 0;">已考：教学环节、启发性原则、布置作业、读书指导法、教学意义(2次)、一堂好课标准</p>
+	<p style="color:var(--red);margin:4px 0;">未考：<strong>直观性/循序渐进/因材施教原则、讲授法/谈话法要求</strong> ← 高概率</p>
+	<p style="color:var(--accent);margin:6px 0;">🔧 模板：原则名称→定义→基本要求(3-4条)→每条=要求+原因</p>
+	</div>
+	</div>
+	<p style="font-size:0.78rem;color:var(--text3);margin-top:12px;">💡 <strong>核心策略：</strong>不要逐题背，先记6个框架，再重点复习每个簇的<strong style="color:var(--red);">未考子知识点</strong>。命题人优先翻牌簇内没考过的角度。</p>
+	</div>
+	</div>
+	</div>
 
 <!-- Tab 5: Prediction -->
 <div id="tab-predict" class="tab-panel">
