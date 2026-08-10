@@ -82,5 +82,22 @@
   <span style="font-size:0.7rem;">💡 每次新增工具或更换链接后会自动更新线上版本，手机刷新即可看到最新</span>
 </p>
 
+<script>
+// Auto version check — fetches links_version.json, compares with embedded version
+var EMBEDDED_VERSION = 1;
+(function checkUpdate() {
+  var url = 'https://harper518.github.io/sama-quiz/links_version.json?t=' + Date.now();
+  fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+    if (data.v > EMBEDDED_VERSION) {
+      var banner = document.createElement('div');
+      banner.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#fbbf24;color:#0f172a;text-align:center;padding:10px 16px;z-index:9999;font-weight:600;font-size:0.9rem;cursor:pointer;';
+      banner.textContent = '🔔 链接有更新！点击刷新页面查看最新 (' + data.msg + ')';
+      banner.onclick = function() { location.reload(true); };
+      document.body.prepend(banner);
+      document.body.style.paddingTop = '44px';
+    }
+  }).catch(function() { /* network error, ignore */ });
+})();
+</script>
 </body>
 </html>
