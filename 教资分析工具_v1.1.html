@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.3</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.4</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -85,7 +85,33 @@ td.num { text-align:center; font-weight:600; }
 .strategy-box { background: linear-gradient(135deg, #1a2332, #1e293b); border: 1px solid var(--accent); border-radius: var(--radius); padding: 20px; margin: 16px 0; }
 .strategy-box h3 { color: var(--accent); margin-bottom: 8px; }
 
-/* Changelog */
+/* Knowledge Points */
+.kp-filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+.kp-filter-btn { padding:6px 16px; border:1px solid var(--border); background:transparent; color:var(--text2); border-radius:20px; cursor:pointer; font-size:0.85rem; transition:all 0.2s; }
+.kp-filter-btn.active, .kp-filter-btn:hover { border-color:var(--accent); color:var(--accent); }
+.kp-mod-section { margin-bottom:24px; }
+.kp-mod-title { font-size:1.1rem; font-weight:700; padding:10px 16px; background:#1a2332; border-radius:8px 8px 0 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+.kp-mod-body { background:var(--card); border-radius:0 0 8px 8px; border:1px solid var(--border); border-top:none; }
+.kp-mod-body.collapsed { display:none; }
+.kp-card { padding:18px 20px; border-bottom:1px solid var(--border); transition:background 0.15s; }
+.kp-card:last-child { border-bottom:none; }
+.kp-card:hover { background:rgba(56,189,248,0.03); }
+.kp-card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; flex-wrap:wrap; gap:8px; }
+.kp-card-title { font-weight:700; font-size:1rem; }
+.kp-priority { display:inline-block; padding:2px 10px; border-radius:12px; font-size:0.75rem; font-weight:600; flex-shrink:0; }
+.kp-priority.must { background:var(--red); color:#fff; }
+.kp-priority.high { background:var(--yellow); color:#0f172a; }
+.kp-priority.mid { background:var(--accent); color:#0f172a; }
+.kp-priority.low { background:#64748b; color:#fff; }
+.kp-def { color:var(--accent); font-size:0.9rem; margin-bottom:6px; }
+.kp-detail { font-size:0.85rem; color:var(--text2); line-height:1.8; }
+.kp-detail strong { color:var(--text); }
+.kp-example { background:#0f2835; border-left:3px solid var(--accent); padding:12px 16px; margin:10px 0; border-radius:0 8px 8px 0; font-size:0.85rem; }
+.kp-example .q-text { color:var(--text); margin-bottom:4px; }
+.kp-example .q-ans { color:var(--green); font-weight:600; }
+.kp-example .q-exp { color:var(--text2); font-size:0.8rem; margin-top:4px; }
+.kp-trap { color:var(--red); font-size:0.82rem; margin-top:4px; }
+.kp-trap::before { content:'⚠️ '; }
 .changelog-entry { background:#1a2332; border-radius:var(--radius); margin-bottom:16px; border:1px solid var(--border); overflow:hidden; }
 .changelog-header { padding:14px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background 0.2s; }
 .changelog-header:hover { background:rgba(56,189,248,0.05); }
@@ -123,7 +149,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.3</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.4</p>
 </div>
 
 <div class="container">
@@ -145,6 +171,7 @@ td.num { text-align:center; font-weight:600; }
   <button class="tab-btn" onclick="switchTab('trend')">📈 趋势分析</button>
   <button class="tab-btn" onclick="switchTab('hotspot')">🔥 热点追踪</button>
   <button class="tab-btn" onclick="switchTab('syllabus')">📋 考纲对照</button>
+  <button class="tab-btn" onclick="switchTab('knowledge')">📖 知识点精讲</button>
   <button class="tab-btn" onclick="switchTab('changelog')">📝 更新日志</button>
   <button class="tab-btn" onclick="switchTab('strategy')">💡 备考策略</button>
   <button class="tab-btn" onclick="switchTab('report')">📝 详细报告</button>
@@ -328,10 +355,10 @@ td.num { text-align:center; font-weight:600; }
     </table>
     </div>
     <div class="strategy-box" style="margin-top:16px;border-color:var(--yellow);">
-      <h3 style="color:var(--yellow);">⚠️ 重要发现：热点"滞后效应"</h3>
+      <h3 style="color:var(--yellow);">⚠️ 参考发现：热点入题的"滞后"现象（非精确规律）</h3>
       <p style="font-size:0.9rem;">
-        劳动教育<span class="highlight">2020年发布→2024年才进选择题</span>，整整滞后4年！这说明教资考试对新政策的反应<span class="highlight">非常缓慢</span>。2023-2024年的新热点（教育家精神、AI教育），最快要到<span class="highlight">2027-2028年</span>才会大量出题。<br><br>
-        <strong>→ 2026下的热点题，仍然主要来自2020-2022年已发布且最近在考试中已出现的政策。</strong>
+        劳动教育<span class="highlight">2020年发布→2024年才进选择题</span>，间隔约4年。但<span class="highlight">不同热点的滞后时间不同</span>：心理健康教育(2023政策→2023下即出现，仅数月)；新课标(2022发布→2023上出现，约1年)。因此"滞后4年"<span class="highlight">不能视为精确规律</span>，仅供参考。<br><br>
+        <strong>→ 2026下的热点题更可能来自2021-2023年已发布/实施且已经在考试中出现过的政策主题。2023年后的极新热点(如教育家精神/AI教育)入题概率仍然偏低，但不能排除。</strong>
       </p>
     </div>
   </div>
@@ -538,6 +565,31 @@ td.num { text-align:center; font-weight:600; }
   </div>
 </div>
 
+<!-- Tab: Knowledge Points -->
+<div id="tab-knowledge" class="tab-panel">
+  <div class="section">
+    <h2>📖 知识点精讲 — 非师范生备考专用</h2>
+    <p style="color:var(--text2);margin-bottom:8px;">
+      按高频考点优先级排列，每个知识点包含：<span class="highlight">一句话定义</span> + <span class="text-green">关键辨析</span> + <span class="text-yellow">真题示例</span> + <span class="text-red">⚠️常见陷阱</span>
+    </p>
+    <p style="font-size:0.82rem;color:#64748b;margin-bottom:16px;">
+      优先级：<span class="kp-priority must">必考</span> 出现≥10次 | <span class="kp-priority high">高频</span> 5-9次 | <span class="kp-priority mid">中频</span> 3-4次 | <span class="kp-priority low">低频</span> 1-2次（备考时间紧可先跳过）
+    </p>
+
+    <!-- Filter -->
+    <div class="kp-filter-row">
+      <button class="kp-filter-btn active" onclick="filterKP('all')">全部</button>
+      <button class="kp-filter-btn" onclick="filterKP('must')">🔴 必考</button>
+      <button class="kp-filter-btn" onclick="filterKP('high')">🟡 高频</button>
+      <button class="kp-filter-btn" onclick="filterKP('mid')">🟢 中频</button>
+      <button class="kp-filter-btn" onclick="filterKP('low')">🔵 低频</button>
+    </div>
+
+    <!-- Content rendered by JS -->
+    <div id="kpContent"></div>
+  </div>
+</div>
+
 <!-- Tab: Changelog -->
 <div id="tab-changelog" class="tab-panel">
   <div class="section">
@@ -547,6 +599,22 @@ td.num { text-align:center; font-weight:600; }
     </p>
 
     <div class="changelog-entry open">
+      <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3><span class="badge badge-new">v1.4</span> 2026年8月10日 — 知识点精讲+预测升级+科学修复</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="changelog-body"><ul>
+        <li><span class="add">新增</span> 知识点精讲标签页（📖），30个核心知识点+真题示例+易混辨析+常见陷阱</li>
+        <li><span class="add">新增</span> 优先级筛选系统（必考/高频/中频/低频），时间紧可只看必考点</li>
+        <li><span class="add">新增</span> 每个知识点配真题示例+正确答案+详细解析</li>
+        <li><span class="opt">升级</span> 预测从模块级→知识点级：24个具体知识点的出题概率预测</li>
+        <li><span class="fix">修复</span> "近3次一致"="暂定模式"标注不确定性，避免过度推断</li>
+        <li><span class="fix">修复</span> "热点滞后4年"改为"滞后时间不等，非精确规律"</li>
+        <li><span class="fix">修复</span> 考纲对照中标注"选择题未考但主观题常考"知识点</li>
+      </ul></div>
+    </div>
+
+    <div class="changelog-entry">
       <div class="changelog-header" onclick="this.parentElement.classList.toggle('open')">
         <h3><span class="badge badge-new">v1.3</span> 2026年8月10日 — 新增更新日志模块</h3>
         <span class="toggle-icon">▼</span>
@@ -669,7 +737,7 @@ td.num { text-align:center; font-weight:600; }
 
 <div class="footer">
   <p>🤖 基于科学频次分析+趋势预测+回溯验证 | 数据来源：2019下～2026上 13套真题</p>
-  <p>预测模型仅供参考，最终以实际考试为准 | v1.3 | 2026年8月 | 新增：更新日志模块+折叠式版本历史</p>
+  <p>预测模型仅供参考，最终以实际考试为准 | v1.4 | 2026年8月 | 新增：知识点精讲(30个考点+真题解析)+预测升级知识点级+科学措辞修复</p>
 </div>
 
 <script>
@@ -779,6 +847,33 @@ const DATA = {
   },
   // Recently tested sub-topics (last 4 exams: 2025上,2025下,2026上)
   recentTested: new Set(['1.2','1.4','1.7','1.5','1.6','2.2','3.2','3.3','4.1','4.6','4.2','4.3','4.5','5.1','5.2','5.4','6.2','7.4','7.5','8.1','8.4']),
+  // 🔮 Knowledge-point level prediction (v1.4 upgraded)
+  predKnowledgePoints: [
+    {m:1,st:'1.2',title:'教育家思想与著作辨析',conf:95,reason:'模块1最高频，近3次每次都考，且2026上未直接考《学记》定位'},
+    {m:1,st:'1.4',title:'个体身心发展规律(顺序性/阶段性/不平衡性)',conf:90,reason:'5大规律从未同时出现过，交替出题，2026上考了差异性'},
+    {m:1,st:'1.3',title:'教育与社会的关系(生产力/政治/文化)',conf:85,reason:'2026上考了经济功能，2026下可能考文化或人口'},
+    {m:1,st:'1.6',title:'教育目的理论(个人本位vs社会本位)',conf:85,reason:'必考知识点，2026上未直接出，且2022版课标强化了全面发展教育'},
+    {m:1,st:'1.5',title:'学制类型与义务教育',conf:80,reason:'2026上考了癸卯学制和德国义务教育，可能转考学制类型辨析'},
+    {m:1,st:'1.1',title:'教育本质属性与起源',conf:75,reason:'近4次考试(2023下~2026上)未出现，属于"休息待考"考点'},
+    {m:4,st:'4.1',title:'知觉特性辨析(整体性/选择性/理解性/恒常性)',conf:92,reason:'认知过程在模块4中占比第一，2026上只考了知觉理解性'},
+    {m:4,st:'4.1',title:'注意类型与品质(无意注意/注意分散/注意分配)',conf:90,reason:'注意几乎每2-3次必考，2025下未考、2026上未考'},
+    {m:4,st:'4.3',title:'耶克斯-多德森定律/韦纳归因理论',conf:90,reason:'学习动机是模块4第二大考点，每个考期至少1题'},
+    {m:4,st:'4.1',title:'记忆分类与遗忘规律(艾宾浩斯/前摄抑制/倒摄抑制)',conf:85,reason:'遗忘规律2024下考过后休息，可能2026下回归'},
+    {m:4,st:'4.2',title:'学习理论辨析(行为主义vs认知vs建构)',conf:80,reason:'学习理论每考期必出，2026上已考社会建构，可能转向行为/认知'},
+    {m:7,st:'7.5',title:'德育方法辨析(榜样/说服/陶冶/锻炼/评价)',conf:90,reason:'德育方法是模块7最高频考点，2026上考了榜样示范法'},
+    {m:7,st:'7.2',title:'科尔伯格道德发展阶段理论',conf:85,reason:'2025下未考、2026上未考，属于典型"休息待考"'},
+    {m:5,st:'5.4',title:'气质类型辨析(胆汁质/多血质/黏液质/抑郁质)',conf:90,reason:'气质类型每年必考1题，2026上已考胆汁质，可能换一种'},
+    {m:5,st:'5.4',title:'埃里克森人格发展阶段(青年期自我同一性)',conf:85,reason:'2025上未考、2025下未考、2026上未考，连续3次未出现'},
+    {m:5,st:'5.2',title:'情绪分类(心境/激情/应激)与中学生情绪特点',conf:80,reason:'2025下未考、2026上考了情绪主观性，可能继续出情绪类'},
+    {m:8,st:'8.4',title:'福勒教师关注阶段(生存/情境/学生)',conf:92,reason:'几乎每次必考1题！2026上考了教学监控能力(教学效能感相关)'},
+    {m:8,st:'8.2',title:'课堂气氛类型/课堂纪律类型/课堂问题行为',conf:80,reason:'2026上考了班集体组建阶段，课堂管理已3次未出现'},
+    {m:3,st:'3.3',title:'教学原则辨析(直观性/启发性/循序渐进等)',conf:85,reason:'模块3每期1题，教学原则是最高频子知识点'},
+    {m:3,st:'3.2',title:'教学过程基本规律(4大规律)',conf:80,reason:'2024下考了教学的教育性规律，2025上未考，可能转考其他规律'},
+    {m:6,st:'6.2',title:'中学生常见心理问题识别(强迫/焦虑/抑郁)',conf:85,reason:'2026上考了强迫症，可能换个心理问题继续考'},
+    {m:6,st:'6.3',title:'心理辅导方法(系统脱敏/理性情绪ABC/强化法)',conf:80,reason:'2026上未考具体疗法，2026下可能考'},
+    {m:2,st:'2.2',title:'课程类型辨析(校本/地方/国家/必修/选修)',conf:85,reason:'2026上考了校本课程和学科课程，可能换一种课程类型'},
+    {m:5,st:'5.1',title:'皮亚杰认知发展阶段(中学生=形式运算)',conf:80,reason:'2026上考了形式运算阶段，可能转考皮亚杰vs维果斯基对比'}
+  ],
   // High-probability untested sub-topics
   untestedCandidates: [
     {st:'1.1',name:'教育的产生与发展(属性/功能)',freq:8,confidence:'高'},
@@ -818,6 +913,55 @@ const DATA = {
     '胆汁质',
     '教学监控能力',
     '强迫症'
+  ],
+  // Knowledge Points Database (~34 core topics)
+  knowledgePoints: [
+    // ===== MODULE 1: 教育基础知识与基本原理 =====
+    {m:1,st:'1.1',pri:'mid',pL:3,title:'教育的产生与发展',def:'教育是一种有目的地培养人的社会活动，这是教育的本质属性。',detail:'<strong>教育起源说：</strong>神话起源→生物起源(利托尔诺/沛西·能)→心理起源(孟禄，儿童对成人无意识模仿)→劳动起源(马克思主义，唯一科学)。<br><strong>教育形态：</strong>学校教育+家庭教育+社会教育。<br><strong>教育发展历程：</strong>原始社会→古代社会(奴隶/封建)→现代社会。',dist:'<strong>易混辨析：</strong>生物起源说(本能)vs心理起源说(模仿)。生物起源否认教育的社会性，心理起源否认教育的目的性——都不完全正确。劳动起源说才是科学的。',q:'教育具有自身的特点和规律，对政治经济制度和生产力有能动作用。这说明教育具有？',ans:'D. 相对独立性',explain:'教育的相对独立性体现在：1.教育自身的历史继承性；2.教育与社会发展的不平衡性；3.教育与其他社会意识形式的平行性。',trap:'容易选"永恒性"——永恒性是说教育永远存在(只要有人类)，相对独立性是说教育不完全受政治经济决定，有自己的规律。'},
+    {m:1,st:'1.2',pri:'must',pL:1,title:'教育学的产生与发展(教育家与著作)',def:'教育学是研究教育现象和教育问题、揭示教育规律的一门社会科学。',detail:'<strong>中国教育家：</strong>孔子(有教无类/启发诱导/因材施教/学思行结合)、《学记》(世界最早专门论述教育的著作，教学相长/长善救失/豫时孙摩/道而弗牵)、孟子(性善论)、荀子(性恶论)、陶行知(生活教育)、杨贤江(《新教育大纲》，中国第一本马克思主义教育学著作)。<br><strong>西方教育家：</strong>苏格拉底(产婆术)→柏拉图(《理想国》/寓学习于游戏)→亚里士多德(首次提出教育遵循自然)→夸美纽斯(《大教学论》/泛智教育/班级授课制/教育学独立萌芽)→卢梭(《爱弥儿》/自然主义教育/个人本位论)→裴斯泰洛齐(教育心理学化/教育与生产劳动结合第一人)→赫尔巴特(《普通教育学》/教育学独立标志/教师中心/教材中心/课堂中心/四段教学法)→杜威(《民主主义与教育》/儿童中心/活动中心/经验中心/教育即生活/从做中学)。',dist:'<strong>最高频考点——著作地位辨析：</strong><br>世界最早专门教育著作=《学记》(战国末期)<br>近代第一本教育学著作=《大教学论》(夸美纽斯/1632)<br>教育学成为独立学科标志=《普通教育学》(赫尔巴特/1806)<br>中国第一本马克思主义教育学著作=《新教育大纲》(杨贤江/1930)',q:'世界上最早专门论述教育教学问题的著作是？',ans:'B. 《学记》',explain:'《学记》是《礼记》中的一篇，成书于战国末期(约公元前3世纪)，是全世界公认最早的教育学专著。夸美纽斯《大教学论》(1632年)是欧洲近代第一部。',trap:'高频陷阱：❶《论语》是孔子弟子整理的语录，不是专门的教育著作；❷有人以为《大教学论》最早——那是欧洲最早，非世界最早。'},
+    {m:1,st:'1.3',pri:'high',pL:2,title:'教育与社会发展',def:'教育与社会各子系统（生产力、政治经济制度、文化、人口）之间存在相互制约和相互促进的关系。',detail:'<strong>生产力对教育：</strong>决定教育发展规模/速度/内容/方法/结构。<br><strong>教育对生产力：</strong>劳动力再生产+科学知识再生产(教育的经济功能)。<br><strong>政治经济制度对教育：</strong>决定教育的领导权/受教育权/教育目的性质。<br><strong>教育对政治：</strong>培养政治人才/传播政治思想/促进政治民主化。<br><strong>文化对教育：</strong>影响教育内容/传统/观念。<br><strong>教育对文化：</strong>传递保存/筛选整理/传播交流/更新创造。<br><strong>人口对教育：</strong>影响规模/结构/质量。',dist:'<strong>易混辨析：</strong>"教育对生产力有促进作用" → 考教育的经济功能<br>"教育决定政治制度" → 错！教育不能"决定/根本改变"政治制度，只能影响',q:'"建国君民，教学为先"反映了教育与社会之间的关系是？',ans:'A. 教育对政治经济制度的作用',explain:'这句话出自《学记》，意思是建设国家、统治百姓，都得把教育放在第一位——强调的是教育为政治服务的功能。',trap:'不要看到"教学"就选教学论——"建国君民"讲的是国家治理，考的是教育与社会、与政治的关系。'},
+    {m:1,st:'1.4',pri:'must',pL:1,title:'教育与人的发展',def:'个体身心发展是指作为复杂整体的个人在从生命开始到生命结束的全部人生过程中，不断发生的身心两方面的积极变化过程。',detail:'<strong>个体身心发展规律(5大规律)：</strong>1.顺序性→循序渐进，不陵节而施；2.阶段性→对不同年龄学生区别对待；3.不平衡性→抓住关键期/最佳期；4.互补性→扬长避短/长善救失；5.个别差异性→因材施教。<br><strong>影响个体发展的因素(4因素)：</strong>遗传(物质前提/可能性)→环境(外部条件/现实性)→学校教育(主导作用)→个体主观能动性(决定作用/内部动力)。<br><strong>青春期生理：</strong>身体外形/体内机能/脑发育/性成熟。',dist:'<strong>5大规律辨析——最高频考点：</strong><br>顺序性="从...到..."→循序渐进<br>阶段性="不同年龄阶段"→区别对待<br>不平衡性="快慢不同"→关键期<br>互补性="此失彼补"→长善救失<br>个别差异性="人与人不同"→因材施教',q:'儿童身心发展存在高速发展期，某一时期某一方面的发展特别迅速。这反映了身心发展的？',ans:'C. 不平衡性',explain:'"高速发展期"就是"关键期"——某方面发展特别快，对应不平衡性。顺序性是从低到高的顺序，阶段性是不同年龄段整体特征不同。',trap:'最容易混淆的是顺序性和不平衡性。看到"某时期特别快/关键期"=不平衡性；看到"从...到.../由...到..."=顺序性。'},
+    {m:1,st:'1.5',pri:'high',pL:2,title:'教育制度(学制/义务教育)',def:'教育制度是指一个国家各级各类教育机构与组织的体系及其管理规则。狭义上指学校教育制度(学制)。',detail:'<strong>学制类型：</strong>双轨制(英国/学校互不贯通)→单轨制(美国/所有人同一轨)→分支型(苏联/中国/前期单轨+后期分支)。<br><strong>我国学制沿革：</strong>壬寅学制(1902/首次颁布未实施)→癸卯学制(1904/第一个实施/日本为蓝本)→壬子癸丑学制(1912/第一次规定男女同校/蔡元培)→壬戌学制(1922/美国为蓝本/六三三制/沿用至今)。<br><strong>义务教育：</strong>德国(普鲁士)最早普及义务教育→我国1986年《义务教育法》(9年制)。',dist:'<strong>高频考点——四大旧学制辨析：</strong><br>壬寅(1902)=首个颁布但未实施<br>癸卯(1904)=首个实施(日本蓝本)<br>壬子癸丑(1912)=首个允许男女同校<br>壬戌(1922)=六三三制(美国蓝本)，沿用至今',q:'我国第一个正式实施的现代学制是？',ans:'B. 癸卯学制',explain:'记忆技巧：壬寅/壬寅，"任赢"才实施——没赢(没实施)。癸卯/"鬼卯"，鬼才去实施——就是它实施了。壬子癸丑有蔡元培=男女同校=丑(丑女也能上学)。壬戌/人戌=留美=学美国。',trap:'高频混淆：壬寅vs癸卯。壬寅(1902)先颁布但未实施，癸卯(1904)才是第一个实施的。差2年。'},
+    {m:1,st:'1.6',pri:'high',pL:2,title:'教育目的(全面发展教育)',def:'教育目的是把受教育者培养成一定社会需要的人的总要求，是教育工作的出发点和最终目标。',detail:'<strong>教育目的理论：</strong>个人本位论(卢梭/福禄贝尔/裴斯泰洛齐/孟子)=从人的需要出发→培养自然人；社会本位论(柏拉图/凯兴斯泰纳/孔德/荀子)=从社会需要出发→培养公民。<br><strong>全面发展教育：</strong>德育(方向/灵魂)→智育(核心/认识基础)→体育(物质基础)→美育(情感/审美)→劳动技术教育(实践/综合各育)。<br><strong>素质教育：</strong>以培养学生创新精神和实践能力为重点，面向全体学生，促进学生全面发展。',dist:'<strong>高频辨析：</strong>个人本位论代表=卢梭(自然主义)/裴斯泰洛齐/孟子；社会本位论代表=柏拉图(理想国培养哲学王)/凯兴斯泰纳(公民教育)/荀子。<br>记住口诀："卢梭孟裴爱个人，柏拉凯荀为社会"',q:'在教育目的的价值取向上，主张教育目的是培养"自然人"，发展人的个性的是？',ans:'A. 个人本位论',explain:'"自然人"+"个性"=个人本位论。如果题干说"培养公民/满足国家需要"=社会本位论。',trap:'最容易选错成"社会本位论"——如果题干说"培养建设者和接班人/培养公民/满足国家需要"那才选社会本位。看关键词。'},
+    {m:1,st:'1.7',pri:'mid',pL:3,title:'教育研究方法',def:'教育研究方法是按照某种途径、有组织有计划地研究教育问题、揭示教育规律的认识活动和实践活动。',detail:'<strong>5种常用方法：</strong>1.观察法(自然情境/有目的/有计划/最基本)≠日常观察；2.调查法(问卷/访谈/不干预/大面积数据)；3.历史法(文献分析/古今中外比较)；4.实验法(控制变量/因果推断/唯一能证明因果关系)；5.行动研究法(教师自己做研究/解决实际问题/边行动边研究)。',dist:'<strong>辨析关键：</strong>调查法=不干预，只看现状(问/谈/查)；实验法=主动干预+对照+控制变量，证明因果关系；行动研究=教师自己做+边做边改+解决实际问题',q:'教师针对自己教学中遇到的实际问题进行研究，在研究过程中不断改进教学。这种研究方法是？',ans:'C. 行动研究法',explain:'关键词"自己教学中的实际问题"+"在研究过程中不断改进"=行动研究。行动研究的特点是教师即研究者、在实践中研究、研究结果直接用于改进实践。',trap:'容易选成观察法或调查法——但那些不强调"自己改进"。行动研究法强调教师自身既是研究者也是实践者。'},
+
+    // ===== MODULE 2: 中学课程 =====
+    {m:2,st:'2.1',pri:'mid',pL:3,title:'课程理论流派',def:'课程理论流派是围绕"学校应该教什么"和"为什么教这些"形成的不同理论体系。',detail:'<strong>三大课程理论：</strong><br>1.学科中心课程论(知识中心)=赫尔巴特/要素主义(巴格莱)/永恒主义(赫钦斯)→强调知识体系，按学科组织。<br>2.活动中心课程论(儿童中心/经验中心)=杜威→强调儿童经验和兴趣，做中学。<br>3.社会中心课程论(社会改造主义)=布拉梅尔德→强调社会问题，改造社会。<br><strong>课程开发影响因素：</strong>儿童(学生需要)→社会(社会需求)→学科(知识特征)，三者缺一不可。',dist:'<strong>高频辨析：</strong>看到"知识体系/学科逻辑/系统知识"=学科中心；看到"儿童经验/兴趣/活动"=儿童中心(杜威)；看到"社会问题/社会改造"=社会中心。',q:'主张课程内容应当围绕儿童的兴趣和需要来组织的课程理论是？',ans:'A. 活动中心课程论',explain:'"儿童的兴趣和需要"=活动中心(儿童中心)课程论。杜威是代表人物，强调"教育即生活、做中学"。',trap:'不要把学科中心和社会中心搞混——学科中心强调"知识"(教什么知识)，社会中心强调"社会问题"(解决什么社会问题)。'},
+    {m:2,st:'2.2',pri:'high',pL:2,title:'课程类型(分类体系)',def:'课程类型是根据不同标准对课程进行的分类，理解每种类型的内涵和特征。',detail:'<strong>4种分类维度：</strong><br>1.内容组织形式：分科课程(学科课程/按学科组织)vs综合课程(跨学科整合)。<br>2.修习要求：必修课程(所有学生必须学)vs选修课程(学生自主选择)。<br>3.设计开发主体：国家课程(教育部统一)→地方课程(省级开发)→校本课程(学校自己开发，如"唱山歌"课程)。<br>4.呈现方式：显性课程(正式课表/有计划)vs隐性课程(校风/班风/师生关系/非预期影响)。',dist:'<strong>高频辨析——校本课程≠选修课程：</strong>校本课程是按"开发主体"分的(学校自己开发)，它可以是必修也可以是选修。<br><strong>隐性课程≠课外活动：</strong>隐性课程是无意识影响的(校风/班风)，课外活动是显性课程的组成部分。',q:'某校利用当地资源开发"唱山歌"课程，这种课程属于？',ans:'B. 校本课程',explain:'"学校利用当地资源自己开发"=开发主体是学校=校本课程。注意校本课程可能同时是选修课程，但题目考的是"按开发主体分类"。',trap:'容易选"地方课程"——地方课程是省级教育部门开发、在全省推广的。学校自己开发的才是校本课程。关键词：学校自己/本校/利用本地资源。'},
+    {m:2,st:'2.4',pri:'high',pL:2,title:'基础教育课程改革(新课改)',def:'2001年起我国推进的新一轮基础教育课程改革，核心理念是"为了每一位学生的发展"。',detail:'<strong>新课改核心理念：</strong>为了每一位学生的发展。<br><strong>目标(6个改变)：</strong>课程功能(知识传授→学会学习)、课程结构(学科本位→均衡综合选择性)、课程内容(繁难偏旧→精选终身必备)、课程实施(接受学习→主动参与)、课程评价(甄别选拔→促进发展)、课程管理(中央集权→三级管理)。<br><strong>综合实践活动：</strong>必修课程！从小学三年级开始设置，内容：研究性学习+社区服务与社会实践+劳动与技术教育+信息技术教育。',dist:'<strong>高频考点——综合实践活动课是必修课！不是选修！</strong><br>三维目标(旧)=知识与技能+过程与方法+情感态度价值观<br>核心素养(新，2022版课标)=正确价值观+必备品格+关键能力',q:'基础教育课程改革要求从小学至高中设置综合实践活动课程，该课程属于？',ans:'D. 必修课程',explain:'综合实践活动是国家规定的必修课程，从小学三年级开始到高中，各学段都必须开设。',trap:'90%的人会选"选修课程"——这是最高频陷阱！记住：综合实践活动课是<b>必修课程</b>，但内容可以由学校自己选择和开发。'},
+
+    // ===== MODULE 3: 中学教学 =====
+    {m:3,st:'3.2',pri:'high',pL:2,title:'教学过程的基本规律(4大规律)',def:'教学过程规律是教学过程中各要素之间内在的、本质的、必然的联系，是教学实践必须遵循的基本法则。',detail:'<strong>4大基本规律(最高频)：</strong><br>1.间接经验与直接经验相统一的规律：学生学习以间接经验(书本知识)为主，间接经验以直接经验为基础。→"纸上得来终觉浅，绝知此事要躬行"<br>2.掌握知识与发展能力相统一的规律：知识是能力发展的基础，能力发展是掌握知识的重要条件。→"授人以鱼不如授人以渔"<br>3.教师主导作用与学生主体作用相统一的规律：教师主导≠教师中心，学生主体≠学生中心。→"师傅领进门，修行在个人"<br>4.传授知识与思想教育相统一的规律(教学的教育性规律)：教书必然育人。→"文以载道"',dist:'<strong>辨析：</strong>掌握知识=发展能力？错！二者不一定同步——高分低能说明掌握了知识但能力没跟上的现象客观存在。教师主导≠教师决定一切——学生是学习的主体。',q:'教学过程不仅是学生掌握知识的过程，也是学生思想品德形成的过程。这体现了教学过程的哪条规律？',ans:'A. 传授知识与思想教育相统一的规律',explain:'又称"教学的教育性规律"，最早由赫尔巴特明确提出——"我不承认有任何无教育的教学"，意思是教书必然育人、教学必然有教育性。',trap:'不要选"教师主导与学生主体统一"——那个讲的是教师和学生的关系，这题讲的是知识和德育的关系。'},
+    {m:3,st:'3.3',pri:'high',pL:2,title:'教学原则(8大原则)',def:'教学原则是根据教育目的和教学过程规律制定的指导教学工作的基本准则，中学常用8条。',detail:'<strong>8大教学原则(按出题频率排序)：</strong><br>1.直观性原则(实物/模象/言语直观)→夸美纽斯"一切知识从感官开始"<br>2.启发性原则(引导主动思考/不直接给答案)→孔子"不愤不启，不悱不发"<br>3.循序渐进原则(按知识逻辑+学生认知顺序)→学记"不陵节而施"<br>4.因材施教原则(针对个体差异)→孔子对不同弟子有不同回答<br>5.理论联系实际原则(学以致用)→"读万卷书行万里路"<br>6.科学性与思想性统一原则(知识+德育结合)<br>7.巩固性原则(复习/记忆)→孔子"温故而知新"<br>8.量力性原则(难度适中学生年龄)→墨子"深其深浅其浅"',dist:'<strong>最高频辨析——启发性vs巩固性vs循序渐进：</strong><br>"不愤不启，不悱不发"=启发性(引导/启发)<br>"温故而知新"=巩固性原则(复习)<br>"学不躐等/不陵节而施"=循序渐进(不跳过步骤)',q:'教师在讲授新知前先引导学生回顾已学相关知识，这体现了？',ans:'A. 启发性原则',explain:'如果题中说"回顾旧知是为了启发/引导新知"=启发性；如果题中说"回顾旧知是为了巩固记忆防止遗忘"=巩固性。看清题干的目的描述。',trap:'这两个经常被混淆——题干中如果强调"为新知识做铺垫/启发思考"=启发性；如果强调"防止遗忘/加深记忆"=巩固性。看目的。'},
+    {m:3,st:'3.4',pri:'mid',pL:3,title:'教学方法与组织形式',def:'教学方法是师生为完成教学任务而采用的活动方式的总称。教学组织形式是教学活动的结构方式。',detail:'<strong>常用教学方法：</strong>讲授法(最基本/讲述/讲解/讲读/讲演)→谈话法(问答法/苏格拉底产婆术)→讨论法(生生讨论)→演示法(教师展示实物/教具)→实验法(学生动手做实验)→实习作业法(真实场景实践)→练习法(反复操作)。<br><strong>教学组织形式：</strong>班级授课制(最基本/夸美纽斯创立/高效但不利于因材施教)→特朗普制(大班教学+小班讨论+个别学习)→道尔顿制(废除班级/学生自学/教师辅导)→设计教学法(杜威/克伯屈/打破学科/项目学习)→复式教学(不同年级同班教学)。',dist:'<strong>演示法vs实验法vs实习作业法：</strong><br>演示法=教师做，学生看(教师用教具展示)<br>实验法=学生在实验室做(学生动手/验证科学原理)<br>实习作业法=在真实场景中做(工厂/农场等实地)',q:'一种教学组织形式把大班上课、小班讨论和个人独立研究结合在一起。这是？',ans:'B. 特朗普制',explain:'特朗普制=大班教学(40%时间)+小班讨论(20%)+个别学习(40%)，由美国教育学家特朗普创立，灵活且兼顾集体和个体。',trap:'不要选"道尔顿制"——道尔顿制完全取消了班级上课，全靠学生自学。特朗普制保留了班级上课，只是部分时间。'},
+
+    // ===== MODULE 4: 中学生学习心理 =====
+    {m:4,st:'4.1',pri:'must',pL:1,title:'认知过程——感觉与知觉',def:'感觉是人脑对直接作用于感觉器官的客观事物的个别属性的反映。知觉是人脑对直接作用于感觉器官的客观事物的整体属性的反映。',detail:'<strong>感觉特性：</strong>感受性/感觉阈限/感觉适应(暗适应/明适应)/感觉对比(同时对比/继时对比)/联觉(一种感觉引起另一种)。<br><strong>知觉特性(5大特性·最高频)：</strong>整体性(不完整→认出整体)/选择性(背景vs对象/双歧图)/理解性(经验影响理解/"外行看热闹，内行看门道")/恒常性(条件变化，知觉不变/大小恒常/颜色恒常)/适应性(持续刺激→感受性变化)。',dist:'<strong>知觉4大特性辨析——最重要：</strong><br>整体性=部分→整体(如看到缺角的圆仍知是圆)<br>选择性=对象vs背景(如人群中认出熟人)<br>理解性=经验不同，理解不同(如医生看CT片vs普通人)<br>恒常性=条件变了，知觉不变(如远处的人看起来小，但我们知道他不矮)',q:'英语考试中，学生需快速阅读短文把握中心思想。这主要运用了知觉的？',ans:'A. 整体性',explain:'快速阅读把握"中心思想"是从局部信息推断整体含义，属于知觉的整体性。日常生活中"一目十行"也是整体性的体现。',trap:'不要选理解性——题中没有强调"不同人理解不同"。整体性是从部分推整体；理解性是基于过去的经验理解当前事物。'},
+    {m:4,st:'4.1',pri:'must',pL:1,title:'认知过程——注意',def:'注意是心理活动对一定对象的指向和集中，不是独立的心理过程，而是伴随心理过程的心理状态。',detail:'<strong>注意分类(3种)：</strong>无意注意(不随意/无目的/不需意志努力/刺激物新奇)→有意注意(随意/有目的/需意志努力/主动)→有意后注意(有目的但无需意志努力/自动化/熟练后的状态，如老司机开车)。<br><strong>注意品质(4种)：</strong>注意广度(范围/一目十行)→注意稳定性(持久/保持时间)→注意分配(同时做两件事/"一心二用")→注意转移(主动从一个任务切换到另一个)。',dist:'<strong>高频辨析——注意分散vs注意转移：</strong><br>注意分散=被动被干扰、无目的的离开(负面，要克服)<br>注意转移=主动、有目的从一个任务切换到另一个(正面/中性)<br>注意分配=同时做两件或更多的事(一边听课一边记笔记)',q:'上课时，窗外突然飞进一只小鸟，学生都不由自主地看向小鸟。这种注意属于？',ans:'B. 无意注意',explain:'"不由自主"+"小鸟突然飞进"(刺激物新奇)=无意注意。不需要意志努力，由刺激物本身特点引起。',trap:'不要选"有意注意"——有意注意是有目的、需要意志努力的。学生"不由自主"地看=没有目的=无意注意。'},
+    {m:4,st:'4.1',pri:'must',pL:1,title:'认知过程——记忆',def:'记忆是过去的经验在人脑中的反映，包括识记、保持、回忆(再认或再现)三个基本环节。',detail:'<strong>记忆分类：</strong><br>按内容：形象记忆(形象)/逻辑记忆(概念规律)/情绪记忆(情感体验)/动作记忆(技能)。<br>按保持时间：瞬时记忆(感觉记忆/<1秒/容量大/不注意就消失)→短时记忆(<1分钟/7±2组块)→长时记忆(>1分钟/容量无限)。<br><strong>遗忘规律(艾宾浩斯)：</strong>遗忘的进程是不均衡的，"先快后慢"→要及时复习。<br><strong>遗忘原因：</strong>痕迹衰退说/干扰抑制说(前摄抑制+倒摄抑制)/同化说(奥苏贝尔)/动机说(弗洛伊德，压抑)。',dist:'<strong>前摄抑制vs倒摄抑制(高频考点)：</strong><br>前摄抑制=旧知识干扰新知识(先学的干扰后学的)<br>倒摄抑制=新知识干扰旧知识(后学的干扰先学的)<br>早晨背书好=只有倒摄抑制(无前摄)<br>晚上背书好=只有前摄抑制(无倒摄)',q:'早晨的学习效果一般较好，这是因为这一阶段的学习不受？',ans:'A. 前摄抑制的干扰',explain:'早晨是每天学习的开始，之前没有学过其他材料，所以没有先前学习的干扰=没有前摄抑制。晚上睡前学习则没有倒摄抑制(因为之后不再学习)。',trap:'容易选成"倒摄抑制"——倒摄抑制是后面的学习干扰前面的。早晨没有"前面的学习"所以没有前摄抑制。'},
+    {m:4,st:'4.2',pri:'high',pL:2,title:'学习理论(4大流派)',def:'学习理论是解释学习发生机制和规律的系统观点，主要包括行为主义、认知主义、建构主义和人本主义四大流派。',detail:'<strong>1.行为主义(S-R/刺激-反应)：</strong>巴甫洛夫经典条件反射(铃声→狗分泌唾液)；斯金纳操作条件反射(强化/惩罚/消退/普雷马克原理)；班杜拉社会学习理论(观察学习/替代强化/自我效能感)。<br><strong>2.认知主义：</strong>布鲁纳(发现学习/认知结构)；奥苏贝尔(有意义学习/先行组织者/接受学习≠被动学习)；苛勒(完形顿悟说)。<br><strong>3.建构主义：</strong>知识观(知识是主观建构的)/学习观(主动建构/社会互动/情境性)/学生观(学生已有经验很重要)。<br><strong>4.人本主义：</strong>罗杰斯(有意义自由学习/学生中心/教师是促进者)；马斯洛(需要层次→自我实现)。',dist:'<strong>高频辨析——正强化vs负强化vs惩罚（高能易混！）：</strong><br>正强化=给喜欢的东西，行为增加(考好了给奖励)<br>负强化=去掉讨厌的东西，行为增加(考好了不用洗碗)<br>惩罚=给讨厌的东西或去掉喜欢的，行为减少(考差了被骂)<br><strong>负强化≠惩罚！</strong>负强化是增加行为，惩罚是减少行为',q:'学生通过观察榜样的行为而习得新行为。这属于？',ans:'C. 观察学习',explain:'班杜拉的观察学习(社会学习理论)。经典实验：儿童观看成人打玩偶→观看后模仿打玩偶。核心概念：注意/保持/复制/动机+替代强化。',trap:'不要把观察学习归入斯金纳的操作条件反射——斯金纳强调直接强化(自己做→得到强化)，班杜拉强调替代强化(看别人做→得到了什么结果→自己模仿)。'},
+    {m:4,st:'4.3',pri:'must',pL:1,title:'学习动机',def:'学习动机是激发个体进行学习活动、维持已引起的学习活动，并使行为朝向一定学习目标的内在过程或内部心理状态。',detail:'<strong>耶克斯-多德森定律(最高频)：</strong>动机强度与工作效率呈倒U型曲线；中等动机水平效率最高；<strong>最佳动机水平随任务难度变化：</strong>简单任务→高动机效率高；困难任务→低动机效率高。<br><strong>韦纳归因理论(六因素三维度)：</strong>能力(内部/稳定/不可控)+努力(内部/不稳定/可控→最好的归因)+任务难度(外部/稳定/不可控)+运气(外部/不稳定/不可控)+身心状态(内部/不稳定/不可控)+外界环境(外部/不稳定/不可控)。<br><strong>奥苏贝尔成就动机：</strong>认知内驱力(求知欲/最稳定)+自我提高内驱力(地位/威望)+附属内驱力(赞许/认可/儿童最突出)。',dist:'<strong>高频辨析——耶克斯多德森定律应用：</strong><br>高考/重要考试→高动机反而发挥不好→保持中等动机<br>简单背诵/抄写→越高动机越好<br>难题/竞赛→低动机反而效果更好<br><strong>韦纳归因：</strong>最好归因于努力(可控)！归因于能力(不可控)容易习得性无助。',q:'根据耶克斯-多德森定律，学生在完成较容易的任务时，学习动机的最佳水平应当？',ans:'B. 偏高',explain:'简单任务→高动机效率高；困难任务→低动机效率高；中等任务→中等动机最好。',trap:'不要死记"中等最好"——那只是中等难度任务的最佳水平。简单任务要较高动机，困难任务要较低动机。'},
+    {m:4,st:'4.5',pri:'mid',pL:3,title:'学习策略(分类体系)',def:'学习策略是学习者为了提高学习的效果和效率、有目的有意识地制定的有关学习过程的复杂方案。',detail:'<strong>麦基奇分类(3大类)：</strong><br>1.认知策略：复述策略(画线/圈重点/重复)→精加工策略(记忆术/做笔记/提问/谐音法)→组织策略(列提纲/思维导图/归类)。<br>2.元认知策略：计划策略(设置目标/浏览)→监控策略(自我检查/集中注意)→调节策略(调整速度/重新阅读)。<br>3.资源管理策略：时间管理/环境管理/努力管理/寻求他人支持。',dist:'<strong>高频辨析——精加工策略vs组织策略：</strong><br>精加工=增加新信息，使知识更有意义(如编口诀/谐音/做笔记)<br>组织=整理已有知识，形成结构(如列提纲/画思维导图/归类)<br>复述=反复读写，保持记忆(如反复背诵/抄写)',q:'学生用"山巅一寺一壶酒(3.14159)"来记忆圆周率，这属于？',ans:'C. 精加工策略',explain:'谐音法是精加工策略的典型代表——通过赋予无意义材料以人为意义来帮助记忆。与组织策略的区别：组织策略是建立知识结构，精加工策略是赋予深层意义。',trap:'不要选"复述策略"——复述是简单重复(反复读/抄)，精加工是赋予意义/建立联系(编口诀/做类比/谐音)。'},
+
+    // ===== MODULE 5: 中学生发展心理 =====
+    {m:5,st:'5.1',pri:'high',pL:2,title:'认知发展——皮亚杰阶段理论',def:'皮亚杰认为认知发展是主体通过同化和顺应不断建构认知结构(图式)的过程，分为四个阶段。',detail:'<strong>皮亚杰4阶段(大量出题)：</strong><br>1.感知运动阶段(0-2岁)：通过感觉和动作认识世界→客体永久性(看不见≠不存在)。<br>2.前运算阶段(2-7岁)：能用符号但思维不可逆→自我中心(三山实验)/泛灵论/思维不可逆。<br>3.具体运算阶段(7-11岁)：逻辑思维但需要具体事物支持→可逆性/守恒概念/去自我中心。<br>4.形式运算阶段(11岁+·中学生所在阶段)：抽象逻辑思维/假设演绎推理(钟摆实验)/命题思维。<br><strong>维果斯基最近发展区：</strong>儿童独立解决问题的水平与在成人指导下达到的水平之间的差距→教学应当走在发展的前面。',dist:'<strong>皮亚杰vs维果斯基：</strong><br>皮亚杰=认知发展由内向外(个体建构/阶段固定)<br>维果斯基=认知发展由外向内(社会建构/最近发展区/支架教学)<br><strong>中学生对应：</strong>形式运算阶段(11-15+岁，能抽象思维)',q:'中学生能够理解抽象概念，进行假设演绎推理。根据皮亚杰，他们处于？',ans:'D. 形式运算阶段',explain:'"抽象概念/假设演绎推理"=形式运算阶段的标志。中学生(11-15+岁)普遍处于此阶段。',trap:'不要选"具体运算阶段"——那个是小学生(7-11岁)，还需要具体事物支持才能进行逻辑思维。'},
+    {m:5,st:'5.2',pri:'high',pL:2,title:'情绪情感发展',def:'情绪是与个体生理需要是否得到满足相联系的体验(短暂/外在/人和动物共有)。情感是与个体社会需要是否得到满足相联系的体验(持久/内在/人类特有)。',detail:'<strong>情绪分类(按状态)：</strong>心境(微弱持久弥漫→"人逢喜事精神爽")/激情(强烈短暂爆发→狂喜/暴怒)/应激(突发事件/高度紧张→急中生智/惊慌失措)。<br><strong>情感分类(按社会内容)：</strong>道德感(是非善恶)/理智感(求知/好奇/解决问题)/美感(审美/艺术)。<br><strong>情绪理论：</strong>詹姆斯-兰格(生理变化→情绪："因为哭所以悲伤")/坎农-巴德(生理+情绪同时产生)/沙赫特-辛格(情绪=生理唤醒+认知解释)/阿诺德-拉扎鲁斯(认知评价决定情绪)。<br><strong>中学生情绪特点：</strong>两极性(强烈与温和并存/外露与掩饰并存)/反抗性/不稳定性。',dist:'<strong>心境vs激情vs应激——最高频辨析：</strong><br>心境=长、弱、散(持续性长/强度弱/弥漫性→"最近心情不好")<br>激情=短、强、爆发(狂喜/暴怒/极度悲伤)<br>应激=突发、紧张、适应(面对危险时的反应)',q:'得知自己考试得了满分后，小明高兴得手舞足蹈。这种情绪状态是？',ans:'B. 激情',explain:'"高兴得手舞足蹈"是强烈而短暂的情绪爆发，属于激情。如果是"这段时间因为成绩好一直心情不错"=心境，"考试时突然看到一道不会的题心跳加速"=应激。',trap:'不要选"心境"——心境是持续一段时间的微弱情绪状态(如"这两天心情不错")，题干说"得知后"立刻"手舞足蹈"属于激情。'},
+    {m:5,st:'5.4',pri:'must',pL:1,title:'人格发展——气质类型',def:'气质是心理活动表现在强度、速度、稳定性和灵活性等方面动力性质的心理特征，主要受先天遗传影响，无好坏之分。',detail:'<strong>4种气质类型(希波克拉底+巴甫洛夫+大量出题)：</strong><br>1.胆汁质：强/不平衡→直率热情/精力旺盛/冲动急躁→张飞/李逵<br>2.多血质：强/平衡/灵活→活泼好动/反应快/善交际/注意力易转移→王熙凤<br>3.黏液质：强/平衡/不灵活→安静稳重/自制力强/反应慢→唐僧/沙僧<br>4.抑郁质：弱→敏感多疑/细腻深刻/多愁善感→林黛玉<br><strong>气质vs性格：</strong>气质=先天/无好坏之分/稳定；性格=后天/有好坏之分/可塑(核心是态度和行为的特征)。',dist:'<strong>高频辨析——4种气质类型区分(必考1题)：</strong><br>看题干关键词：<br>"冲动急躁/容易发火"=胆汁质<br>"活泼好动/兴趣多变"=多血质<br>"安静稳重/慢性子"=黏液质<br>"敏感/多愁善感/细腻"=抑郁质',q:'小强做事总是风风火火，精力旺盛但容易急躁，常常三分钟热度。他的气质类型最可能是？',ans:'A. 胆汁质',explain:'"精力旺盛/急躁/风风火火"=胆汁质。胆汁质就像"火焰"——热烈但难以持久。多血质也活泼但不会急躁冲动，而且比胆汁质更灵活善变。',trap:'容易和多血质混淆——多血质也活泼但不急躁，而且更善于社交和灵活变通；胆汁质特点是"又热又急"。"三分钟热度"这个描述更偏向多血质，但如果加上"容易急躁"=胆汁质。'},
+    {m:5,st:'5.4',pri:'must',pL:1,title:'人格发展——埃里克森阶段理论',def:'埃里克森把人格发展分为8个阶段，每个阶段有一对核心矛盾(发展危机)，矛盾解决得好人格就健康发展。',detail:'<strong>8阶段(重点中学阶段)：</strong><br>婴儿期(0-1.5)：信任vs不信任<br>儿童早期(1.5-3)：自主vs羞怯<br>学前期(3-6)：主动vs内疚<br>学龄期(6-12)：勤奋vs自卑<br><strong>青年期(12-18·中学生!)：</strong>自我同一性vs角色混乱→"我是谁？我要成为什么样的人？"→核心任务：建立自我同一性。<br>成年早期(18-30)：亲密vs孤独<br>成年中期(30-60)：繁殖vs停滞<br>成年晚期(60+)：完善vs绝望',dist:'<strong>中学生对应的阶段=青年期(12-18岁)：</strong>核心矛盾是"自我同一性对角色混乱"。学生在这个阶段如果对自己认识不清、找不到人生方向，就产生角色混乱。',q:'根据埃里克森的人格发展阶段理论，中学生面临的主要发展任务是？',ans:'C. 建立自我同一性',explain:'埃里克森把12-18岁定义为青年期，核心任务是建立自我同一性(回答"我是谁"的问题)，避免角色混乱。小学生(6-12岁)是勤奋vs自卑。',trap:'不要选"培养勤奋感"——那是小学阶段(6-12岁)的任务。中学生(12-18岁)的核心是自我同一性。'},
+
+    // ===== MODULE 6: 中学生心理辅导 =====
+    {m:6,st:'6.2',pri:'high',pL:2,title:'常见心理问题识别',def:'中学生常见的心理健康问题包括焦虑症、抑郁症、强迫症、恐惧症和网络成瘾，需掌握每种问题的核心症状。',detail:'<strong>5种常见心理问题：</strong><br>1.焦虑症(考试焦虑)：过度担忧/紧张/躯体症状→肌肉放松训练+系统脱敏<br>2.抑郁症：持续情绪低落/兴趣丧失/自责→认知疗法/理性情绪疗法<br>3.强迫症：强迫观念(反复想)+强迫行为(反复做/洗手/检查)→森田疗法(顺其自然)<br>4.恐惧症(恐怖症)：对特定事物非理性恐惧→系统脱敏法<br>5.网络成瘾：难以控制上网行为/戒断症状→行为矫正+替代活动',dist:'<strong>强迫观念vs强迫行为(最高频)：</strong><br>强迫观念=脑子反复想(如反复想"我锁门了吗")——思维层面<br>强迫行为=动手反复做(如反复回去检查门锁)——行为层面<br>注意：考试中如果题干描述"反复想...但又觉得没必要"=强迫观念',q:'小明每次出门后总反复想"我有没有锁门"，明知已经锁了但控制不住地想。这属于？',ans:'D. 强迫观念',explain:'"反复想"+"明知没必要但控制不住"=强迫观念。如果题干说"反复回去检查门锁"=强迫行为。',trap:'不要选"焦虑症"——焦虑是广泛性的担心(什么都怕)，而强迫是特定的反复想法或行为。题干中明确"明知已经锁了但控制不住"=强迫。'},
+    {m:6,st:'6.3',pri:'high',pL:2,title:'心理辅导方法(5大疗法)',def:'心理辅导方法是为改善学生心理健康状态而采用的专业干预技术，中学常用5种。',detail:'<strong>5大疗法(按出题频率排)：</strong><br>1.理性-情绪疗法(埃利斯/ABC理论)：A事件→B信念→C结果。问题不在A，在B(不合理信念)。纠正不合理信念(绝对化/过分概括/糟糕至极)。<br>2.系统脱敏法(沃尔普)：逐步暴露焦虑刺激+放松训练——治疗恐惧症/焦虑症。<br>3.强化法：目标行为出现时给予奖励(正强化)——治疗行为问题。<br>4.来访者中心疗法(罗杰斯)：无条件积极关注、真诚、共情——治疗人际/自我认同问题。<br>5.认知疗法(贝克)：纠正错误认知/消极思维模式——治疗抑郁症。',dist:'<strong>最高频辨析——系统脱敏vs理性情绪疗法：</strong><br>系统脱敏=行为层面，逐步接触害怕的东西+放松(治疗恐惧)<br>理性情绪疗法(ABC)=认知层面，改变不合理信念(治疗焦虑/抑郁)<br><strong>强化法：</strong>行为层面，用奖励来增加好行为。',q:'心理老师让害怕在众人面前发言的学生先在小组内发言，再在全班发言，最后在全校发言。这属于？',ans:'B. 系统脱敏法',explain:'"逐步暴露"+"从低到高"+"同时放松"=系统脱敏法的典型操作。先小组→再全班→最后全校，逐步减少对发言的恐惧。',trap:'强化法是给予奖励(比如发言了就给小红花)，系统脱敏法是逐步接近恐惧源+不强调奖励。'},
+
+    // ===== MODULE 7: 中学德育 =====
+    {m:7,st:'7.2',pri:'must',pL:1,title:'品德发展——科尔伯格道德发展理论',def:'科尔伯格用道德两难故事(海因茨偷药)研究道德发展，提出三水平六阶段理论，是选择题最高频考点之一。',detail:'<strong>三水平六阶段(重点中学阶段)：</strong><br>前习俗水平(9岁以下~小学低年级)：1.惩罚与服从定向(怕受罚)→2.相对功利定向(对自己有利)。<br>习俗水平(9-16岁~中学)：3.寻求认可定向/好孩子定向(做好孩子)→4.遵守法规定向(维护社会秩序/法律)。<br>后习俗水平(16岁+~部分成年人)：5.社会契约定向(法律可变/多数人利益)→6.普遍伦理定向(良心/正义/超越法律)。<br><strong>中学生大多处于：</strong>习俗水平(第3或第4阶段)。',dist:'<strong>最高频辨析——阶段3vs阶段4：</strong><br>阶段3"好孩子定向"=在乎别人怎么看自己(希望被夸"好孩子")<br>阶段4"遵守法规"=认为法律就是对的，应该遵守(不管别人怎么看)<br>阶段5"社会契约"=法律也可以改，应维护大多数人利益<br>阶段6"普遍伦理"=良心原则高于法律(如甘地/马丁路德金)',q:'小明认为偷药是不对的，因为如果人人都去偷东西，社会秩序就会乱了。根据科尔伯格，小明处于？',ans:'B. 遵守法规定向阶段(阶段4)',explain:'关键理由"社会秩序会乱"=维护社会秩序和法律的典型表述=阶段4(遵守法规定向)。如果是"偷东西会被警察抓"=阶段1(怕惩罚)；如果是"偷东西别人会说你不好"=阶段3(寻求认可)。',trap:'注意题干中给出的<b>理由</b>，而不是行为本身——同样认为"不该偷"，理由不同代表不同阶段。'},
+    {m:7,st:'7.5',pri:'must',pL:1,title:'德育方法(6大方法)',def:'德育方法是实现德育目标、完成德育任务而采用的手段和方式。6大方法是选择题的最高频考点之一。',detail:'<strong>6大德育方法(按出题频率排)：</strong><br>1.榜样示范法：用榜样人物的优秀品德来影响学生→"其身正不令而行"<br>2.说服教育法(最基本)：通过摆事实、讲道理→讲解/报告/谈话/讨论<br>3.情感陶冶法：创设情境，潜移默化→环境陶冶/艺术陶冶/教师人格感化→"润物细无声"<br>4.实际锻炼法：让学生参加实践活动→日常行为实践/组织活动/委托任务<br>5.品德评价法(奖惩法)：表扬奖励/批评惩罚/评比/操行评定<br>6.自我修养法(道德修养法)：学生自我教育→座右铭/立志/慎独/反思',dist:'<strong>最高频辨析——4个最易混方法：</strong><br>榜样示范="看别人的样子"→明星墙/雷锋事迹/教师以身作则<br>说服教育="讲道理"→开班会讨论/谈话/说服<br>情感陶冶="环境熏出来的"→优美的校园环境/音乐/诗朗诵<br>实际锻炼="干出来的"→值日/参加劳动/志愿者活动',q:'班主任在教室里悬挂名人画像和名言警句，让学生在潜移默化中受到教育。这属于？',ans:'C. 情感陶冶法',explain:'"悬挂名人画像/名言警句"=创设教育情境，让学生"潜移默化"地受到影响=情感陶冶法。它与榜样示范法的区别在于：榜样示范需要一个具体的"人"作为榜样，情感陶冶是通过"环境"来熏陶。',trap:'不要选"榜样示范法"——榜样示范法需要一个具体的人物榜样(如"雷锋/张桂梅")和学生对榜样的认知和模仿。悬挂名人画像侧重的是环境氛围的营造和潜移默化的影响=情感陶冶。'},
+    {m:7,st:'7.4',pri:'high',pL:2,title:'德育原则(8大原则)',def:'德育原则是根据德育目的和德育规律制定的指导德育工作的基本要求，中学常用8条。',detail:'<strong>8大德育原则(重点6条)：</strong><br>1.疏导原则(循循善诱/以理服人)→"夫子循循然善诱人"<br>2.尊重学生与严格要求学生相结合原则→"要尽量多地要求一个人，也要尽可能地尊重一个人"(马卡连柯)<br>3.长善救失原则(发扬优点克服缺点/依靠积极因素克服消极因素)<br>4.教育影响一致性与连贯性原则(学校+家庭+社会统一)<br>5.因材施教原则(针对个体差异)<br>6.集体教育与个别教育相结合原则(平行教育原则/马卡连柯)→通过集体影响个人，通过个人影响集体<br>7.知行统一原则(理论+实践)<br>8.正面教育与纪律约束相结合原则',dist:'<strong>疏导原则vs尊重与严格要求：</strong><br>疏导=讲道理、循循善诱(方法层面，怎么教)<br>尊重与严格要求=既尊重又严格(态度层面，怎么对待学生)<br><strong>长善救失=依靠积极因素克服消极因素</strong>→看到学生的闪光点，用优点克服缺点',q:'"要尽量多地要求一个人，也要尽可能地尊重一个人"体现的德育原则是？',ans:'B. 尊重学生与严格要求学生相结合原则',explain:'马卡连柯的名言直接对应"尊重与严格要求相结合"原则。这句话强调不能只尊重不要求(溺爱)，也不能只要求不尊重(专制)，两者必须结合。',trap:'不要选"疏导原则"——疏导原则强调"循循善诱/以理服人"的方式方法，不涉及"尊重与严格要求"的对立统一关系。'},
+
+    // ===== MODULE 8: 中学班级管理与教师心理 =====
+    {m:8,st:'8.1',pri:'mid',pL:3,title:'班集体与班级管理',def:'班集体是按照班级授课制的培养目标和教育规范组织起来的，以共同学习活动和直接人际关系为特征的学生群体。',detail:'<strong>班集体发展阶段(4阶段)：</strong>1.组建阶段(班主任直接指挥/学生互不相识)→2.核心形成阶段(班干部出现/积极分子)→3.发展阶段(集体舆论形成/大多数学生自觉)→4.成熟阶段(良好班风/学生自我管理)。<br><strong>班主任工作内容：</strong>了解和研究学生(前提和基础)→组织和培养班集体(中心环节)→协调各方面教育影响→做好个别教育工作(优等生+中等生+后进生)→做好班主任工作计划和总结。',dist:'<strong>班集体形成标志≠组建阶段：</strong>正确的集体舆论和良好的班风是班集体形成的标志。组建阶段只是把学生编到一起，还没有形成真正的集体。',q:'班主任刚接手一个新班级时，学生之间不熟悉，各项工作都由班主任直接布置。这个班级处于？',ans:'A. 组建阶段',explain:'"刚接手/学生之间不熟悉/班主任直接指挥"=组建阶段。组建阶段的最大特征就是班主任说了算，学生还没有形成集体意识。',trap:'组建阶段和核心形成阶段容易混淆——核心形成阶段已经有班干部了，班主任可以通过班干部来管理。'},
+    {m:8,st:'8.2',pri:'mid',pL:3,title:'课堂管理(气氛/纪律)',def:'课堂管理是教师通过协调课堂内各种人际关系，有效实现预定教学目标的过程。',detail:'<strong>课堂气氛类型(3种)：</strong>积极的(师生关系融洽/学生主动)→消极的(学生心不在焉/被动应付)→对抗的(师生关系紧张/学生故意捣乱)。<br><strong>课堂纪律类型：</strong>教师促成的纪律(教师要求/外部约束)→集体促成的纪律(同伴压力/从众)→任务促成的纪律(任务本身的要求/如考试时保持安静)→自我促成的纪律(自律/最高境界)。<br><strong>课堂问题行为：</strong>行为不足/行为过度/行为不适。处置方法：最小干预原则/非言语暗示/正面批评(私下进行)。',dist:'<strong>3种课堂气氛辨析：</strong>积极=有热情+主动参与；消极=没热情+被动应付但不捣乱；对抗=故意捣乱+和老师对着干。<br><strong>任务促成vs自我促成纪律：</strong>任务促成=外部任务约束(如考试时安静)；自我促成=内部自律(不需要考试也能安静)。',q:'学生在考试时自觉保持安静，认真答题。这种纪律属于？',ans:'C. 任务促成的纪律',explain:'考试时保持安静是由"考试"这个任务本身的要求促成的=任务促成。如果是平时自习课也能自觉保持安静(不需要考试约束)=自我促成。',trap:'容易选"自我促成的纪律"——考试时的纪律是由考试任务本身约束的(任务促成)，不是自律(自我促成)。自律是不管有没有考试都能安静。'},
+    {m:8,st:'8.4',pri:'must',pL:1,title:'教师心理——福勒关注阶段理论',def:'福勒(富勒)研究教师专业成长过程，提出教师关注阶段理论，分为4个阶段，是教师心理部分最高频考点。',detail:'<strong>教师关注4阶段(几乎每次必考1题)：</strong><br>1.教学前关注(pre-teaching)：还在师范院校学习/未正式教学/对教师角色是想象。<br>2.早期生存关注(early concern about survival)：刚入职/关注自己能否"活下来"/学生喜不喜欢我/同事怎么看我/领导会不会批评我。<br>3.教学情境关注(teaching situations concern)：关注教学本身/如何上好课/教学内容和方法。<br>4.关注学生(concern about students)：最高阶段/真正关注学生学了什么/学生需求/学生发展——只有到这个阶段才算成熟的教师。',dist:'<strong>必考辨析——生存关注vs关注情境vs关注学生：</strong><br>生存关注=关注自己("我能不能行"→新教师怕出丑)<br>关注情境=关注教("这堂课怎么上"→关注教学内容)<br>关注学生=关注学("学生学到了什么"→真正成熟)',q:'王老师刚参加工作时，每天最担心的是自己课上得不好，学生不喜欢自己。根据福勒的理论，她处于？',ans:'B. 早期生存关注阶段',explain:'"担心自己课上得不好/学生不喜欢自己"=关注自己能否"生存"下来=早期生存关注阶段。如果是"专门研究怎么教好文言文"=关注情境阶段。如果是"研究学生的学习困难"=关注学生阶段。',trap:'注意题干中关注对象的区别——关注"自己的表现/别人对自己的评价"=生存关注；关注"如何教好这节课"=情境关注；关注"学生学到了什么"=学生关注。'}
   ]
 };
 
@@ -977,15 +1121,17 @@ document.getElementById('topSubTopics').innerHTML = DATA.subTopicFreq.map((s,i) 
   </tr>
 `).join('');
 
-// Prediction Detail Cards
-document.getElementById('predDetailCards').innerHTML = DATA.untestedCandidates.map(c => `
-  <div class="pred-card" style="border-left-color: ${c.confidence==='高'?'#4ade80':c.confidence==='中'?'#fbbf24':'#94a3b8'}">
-    <span class="mod-tag" style="background:${mColors[DATA.subTopicFreq.find(s=>s.st===c.st)?.m-1||0]};color:#0f172a;">${c.st}</span>
-    <div class="q-title">${c.name}</div>
-    <div class="confidence">历史出现: <span>${c.freq}次</span> | 出题概率: <span class="${c.confidence==='高'?'text-green':c.confidence==='中'?'text-yellow':'text-red'}">${c.confidence}</span></div>
-    <div class="alt">💡 近4次考试未出现，属于"休息待考"考点</div>
-  </div>
-`).join('');
+// Knowledge-point level prediction cards (v1.4)
+document.getElementById('predDetailCards').innerHTML = DATA.predKnowledgePoints.map(function(c) {
+  var confColor = c.conf >= 90 ? '#4ade80' : c.conf >= 80 ? '#fbbf24' : '#94a3b8';
+  var confLabel = c.conf >= 90 ? '极高' : c.conf >= 80 ? '高' : '中';
+  return '<div class="pred-card" style="border-left-color:' + confColor + ';">' +
+    '<span class="mod-tag" style="background:' + mColors[c.m-1] + ';color:#0f172a;">M' + c.m + ' ' + c.st + '</span>' +
+    '<div class="q-title">' + c.title + '</div>' +
+    '<div class="confidence">出题概率: <span style="color:' + confColor + ';">' + confLabel + ' (' + c.conf + '%)</span></div>' +
+    '<div class="alt">💡 ' + c.reason + '</div>' +
+    '</div>';
+}).join('');
 
 // Prediction Table
 document.getElementById('predTable').innerHTML = `
@@ -1053,7 +1199,7 @@ document.getElementById('detailedReport').innerHTML = `
   <p>国家教师资格考试(中学)《教育知识与能力》选择题部分，每套试卷<span class="highlight">21道单项选择题</span>，每题2分，共42分。占总分150分的28%。本分析基于2019下半年至2026上半年共<span class="highlight">13套真题、273道选择题</span>。</p>
 
   <h3>2. 模块出题规律</h3>
-  <p><strong>核心发现：最近3次考试(2025上、2025下、2026上)的模块分布完全一致！</strong>这是近年来最稳定的出题模式。经与<span class="highlight">官方考试大纲</span>对照验证，这与大纲规定的68%/32%模块分组高度吻合：</p>
+  <p><strong>重要发现：最近3次考试(2025上、2025下、2026上)的模块分布完全一致！</strong>但注意——<span class="highlight">3次相同并不能确定为永久规律</span>（2024上vs2024下的分布就有明显差异），建议将其视为"暂定模式"而非铁律。经与官方考试大纲对照验证，该模式与大纲规定的68%/32%模块分组基本吻合：</p>
   <ul style="color:var(--text2);margin-left:20px;line-height:2;">
     <li>模块1(教育基础): <span class="highlight">6题</span> — 占比最大，涵盖教育家、教育与社会/人的关系、教育制度、教育目的等</li>
     <li>模块4(学习心理): <span class="highlight">5题</span> — 第二大模块，聚焦认知过程、学习理论、学习动机、学习策略</li>
@@ -1114,16 +1260,28 @@ new Chart(document.getElementById('syllabusSplitChart'), {
   }
 });
 
-// Syllabus Coverage Table
-document.getElementById('syllabusCoverageBody').innerHTML = DATA.syllabus.coverage.map(c => `
-  <tr>
-    <td><span class="badge" style="background:${mColors[c.m-1]};color:#0f172a;">M${c.m}</span></td>
-    <td style="font-size:0.85rem;">${c.requirement}</td>
-    <td>${c.covered ? (c.freq>=5 ? '<span class="badge badge-new">✓已覆盖</span>' : '<span class="badge" style="background:#64748b;">✓已覆盖</span>') : '<span class="badge badge-warn">⚠未考过</span>'}</td>
-    <td class="num">${c.freq}次</td>
-    <td style="font-size:0.82rem;">${c.note}</td>
-  </tr>
-`).join('');
+// Syllabus Coverage Table (v1.4: add subjective exam notes)
+document.getElementById('syllabusCoverageBody').innerHTML = DATA.syllabus.coverage.map(function(c) {
+  var statusHtml;
+  if (c.covered && c.freq >= 5) {
+    statusHtml = '<span class="badge badge-new">✓已覆盖</span>';
+  } else if (c.covered) {
+    statusHtml = '<span class="badge" style="background:#64748b;">✓已覆盖</span>';
+  } else {
+    statusHtml = '<span class="badge badge-warn">⚠选择题未考</span>';
+  }
+  var noteHtml = c.note;
+  if (c.note.indexOf('主观题') > -1 || c.note.indexOf('辨析题') > -1) {
+    noteHtml = '<span class="badge badge-hot" style="margin-right:4px;">📋主观题常考</span>' + c.note;
+  }
+  return '<tr>' +
+    '<td><span class="badge" style="background:' + mColors[c.m-1] + ';color:#0f172a;">M' + c.m + '</span></td>' +
+    '<td style="font-size:0.85rem;">' + c.requirement + '</td>' +
+    '<td>' + statusHtml + '</td>' +
+    '<td class="num">' + c.freq + '次</td>' +
+    '<td style="font-size:0.82rem;">' + noteHtml + '</td>' +
+    '</tr>';
+}).join('');
 
 // Module Syllabus Detail
 const moduleDetailHTML = [1,2,3,4,5,6,7,8].map(m => {
@@ -1149,6 +1307,64 @@ const moduleDetailHTML = [1,2,3,4,5,6,7,8].map(m => {
   `;
 }).join('');
 document.getElementById('moduleSyllabusDetail').innerHTML = moduleDetailHTML;
+
+// ========== KNOWLEDGE POINTS RENDERING ==========
+var kpCurrentFilter = 'all';
+
+function filterKP(level) {
+  kpCurrentFilter = level;
+  document.querySelectorAll('.kp-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  var btn = document.querySelector('.kp-filter-btn[onclick="filterKP(\'' + level + '\')"]');
+  if (btn) btn.classList.add('active');
+  renderKnowledgePoints();
+}
+
+function renderKnowledgePoints() {
+  var kps = DATA.knowledgePoints;
+  if (kpCurrentFilter !== 'all') {
+    var priMap = {must:1, high:2, mid:3, low:4};
+    kps = kps.filter(function(k) { return k.pri === kpCurrentFilter; });
+  }
+
+  // Group by module
+  var mods = [1,2,3,4,5,6,7,8];
+  var html = '';
+  mods.forEach(function(m) {
+    var modKps = kps.filter(function(k) { return k.m === m; });
+    if (!modKps.length) return;
+    var priClass = function(p) {
+      if (p==='must') return 'must';
+      if (p==='high') return 'high';
+      if (p==='mid') return 'mid';
+      return 'low';
+    };
+    html += '<div class="kp-mod-section">';
+    html += '<div class="kp-mod-title" style="border-left:4px solid ' + mColors[m-1] + ';" onclick="var b=this.nextElementSibling;b.classList.toggle(\'collapsed\');">';
+    html += '<span>模块' + m + '：' + DATA.moduleNames[m] + ' (' + modKps.length + '个知识点)</span>';
+    html += '<span style="font-size:0.85rem;color:var(--text2);">▼</span></div>';
+    html += '<div class="kp-mod-body">';
+    modKps.forEach(function(kp) {
+      html += '<div class="kp-card" data-priority="' + kp.pri + '">';
+      html += '<div class="kp-card-header">';
+      html += '<span class="kp-card-title">' + kp.st + ' ' + kp.title + '</span>';
+      html += '<span class="kp-priority ' + priClass(kp.pri) + '">' + (kp.pri==='must'?'🔴 必考':kp.pri==='high'?'🟡 高频':kp.pri==='mid'?'🟢 中频':'🔵 低频') + ' (' + (kp.pri==='must'?'≥10次':kp.pri==='high'?'5-9次':kp.pri==='mid'?'3-4次':'1-2次') + ')</span>';
+      html += '</div>';
+      html += '<div class="kp-def">📌 ' + kp.def + '</div>';
+      html += '<div class="kp-detail"><strong>🔍 关键内容：</strong><br>' + kp.detail + '</div>';
+      html += '<div class="kp-detail" style="margin-top:4px;"><strong>⚡ 易混辨析：</strong><br>' + kp.dist + '</div>';
+      html += '<div class="kp-example"><div class="q-text">📝 <strong>真题示例：</strong>' + kp.q + '</div>';
+      html += '<div class="q-ans">✅ ' + kp.ans + '</div>';
+      html += '<div class="q-exp">💡 ' + kp.explain + '</div></div>';
+      html += '<div class="kp-trap">' + kp.trap + '</div>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+  });
+  document.getElementById('kpContent').innerHTML = html || '<p style="text-align:center;padding:40px;color:var(--text2);">该优先级下暂无知识点</p>';
+}
+
+// Initial render
+renderKnowledgePoints();
 
 // ========== TAB SWITCHING ==========
 function switchTab(name) {
