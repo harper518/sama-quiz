@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教资《教育知识与能力》历年真题科学分析 v1.11</title>
+<title>教资《教育知识与能力》历年真题科学分析 v1.12</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
   --bg: #0f172a; --bg2: #1a2332; --card: #1e293b; --border: #334155;
   --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b; --accent: #38bdf8;
   --green: #4ade80; --red: #f87171; --yellow: #fbbf24;
+  --opt-bg: rgba(15,23,42,0.5);
   --purple: #a78bfa; --pink: #f472b6;
   --m1: #f87171; --m2: #fb923c; --m3: #fbbf24; --m4: #4ade80;
   --m5: #38bdf8; --m6: #a78bfa; --m7: #f472b6; --m8: #94a3b8;
@@ -151,7 +152,7 @@ td.num { text-align:center; font-weight:600; }
 .qb-question .q-stem { font-weight:600; margin-bottom:10px; font-size:0.9rem; line-height:1.6; }
 .qb-question .q-options { display:grid; grid-template-columns: 1fr 1fr; gap:4px; margin-bottom:10px; font-size:0.85rem; }
 @media (max-width: 600px) { .qb-question .q-options { grid-template-columns: 1fr; } }
-.qb-question .q-opt { padding:6px 10px; border-radius:6px; background:rgba(15,23,42,0.5); cursor:pointer; transition:all 0.15s; }
+.qb-question .q-opt { padding:6px 10px; border-radius:6px; background:var(--opt-bg); cursor:pointer; transition:all 0.15s; }
 .qb-question .q-opt:hover { background:rgba(56,189,248,0.1); }
 .qb-question .q-opt.correct { background:rgba(74,222,128,0.15); border:1px solid var(--green); color:var(--green); }
 .qb-question .q-opt.wrong { background:rgba(248,113,113,0.15); border:1px solid #f87171; color:#f87171; text-decoration:line-through; }
@@ -174,11 +175,11 @@ td.num { text-align:center; font-weight:600; }
 
 /* ====== COLOR THEMES (v1.11) ====== */
 /* purple — kept from original */
-body[data-theme="purple"] { --bg:#1a1028; --bg2:#221838; --card:#2a1e40; --border:#4a3870; --text:#e0d8f0; --text2:#a090c8; --text3:#7060a0; --accent:#a78bfa; --green:#86efac; --red:#fca5a5; --yellow:#fde68a; }
+body[data-theme="purple"] { --bg:#1a1028; --bg2:#221838; --card:#2a1e40; --border:#4a3870; --text:#e0d8f0; --text2:#a090c8; --text3:#7060a0; --accent:#a78bfa; --green:#86efac; --red:#fca5a5; --yellow:#fde68a; --opt-bg:rgba(26,16,40,0.5); }
 body[data-theme="purple"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); }
 
 /* light — 浅色清爽，适合白天 */
-body[data-theme="light"] { --bg:#f8fafc; --bg2:#e2e8f0; --card:#ffffff; --border:#cbd5e1; --text:#1e293b; --text2:#475569; --text3:#64748b; --accent:#2563eb; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; }
+body[data-theme="light"] { --bg:#f8fafc; --bg2:#e2e8f0; --card:#ffffff; --border:#cbd5e1; --text:#1e293b; --text2:#475569; --text3:#64748b; --accent:#2563eb; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; --opt-bg:#f1f5f9; }
 body[data-theme="light"] .header { background:linear-gradient(135deg, #dbeafe, #eff6ff); border-bottom:2px solid var(--accent); }
 body[data-theme="light"] th { background:var(--bg2); }
 body[data-theme="light"] .badge-hot, body[data-theme="light"] .badge-new, body[data-theme="light"] .badge-warn { color:#fff; }
@@ -186,7 +187,7 @@ body[data-theme="light"] .strategy-box { background:linear-gradient(135deg, #dbe
 body[data-theme="light"] .tab-btn.active, body[data-theme="light"] .tab-btn:hover { color:#fff; }
 
 /* cream — 护眼暖白，长时间阅读舒适 */
-body[data-theme="cream"] { --bg:#fef9ef; --bg2:#f5ecd7; --card:#fffdf7; --border:#e0d5bb; --text:#3d3027; --text2:#6b5d4f; --text3:#8c7b6b; --accent:#d97706; --green:#65a30d; --red:#dc2626; --yellow:#ca8a04; }
+body[data-theme="cream"] { --bg:#fef9ef; --bg2:#f5ecd7; --card:#fffdf7; --border:#e0d5bb; --text:#3d3027; --text2:#6b5d4f; --text3:#8c7b6b; --accent:#d97706; --green:#65a30d; --red:#dc2626; --yellow:#ca8a04; --opt-bg:#f5ecd7; }
 body[data-theme="cream"] .header { background:linear-gradient(135deg, #fef3c7, #fffbeb); border-bottom:2px solid var(--accent); }
 body[data-theme="cream"] th { background:var(--bg2); }
 body[data-theme="cream"] .badge-hot, body[data-theme="cream"] .badge-new, body[data-theme="cream"] .badge-warn { color:#fff; }
@@ -194,12 +195,40 @@ body[data-theme="cream"] .strategy-box { background:linear-gradient(135deg, #fef
 body[data-theme="cream"] .tab-btn.active, body[data-theme="cream"] .tab-btn:hover { color:#fff; }
 
 /* mint — 清新薄荷，缓解眼疲劳 */
-body[data-theme="mint"] { --bg:#f0fdf4; --bg2:#dcfce7; --card:#ffffff; --border:#bbf7d0; --text:#14532d; --text2:#166534; --text3:#4ade80; --accent:#059669; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; }
+body[data-theme="mint"] { --bg:#f0fdf4; --bg2:#dcfce7; --card:#ffffff; --border:#bbf7d0; --text:#14532d; --text2:#166534; --text3:#4ade80; --accent:#059669; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; --opt-bg:#dcfce7; }
 body[data-theme="mint"] .header { background:linear-gradient(135deg, #dcfce7, #f0fdf4); border-bottom:2px solid var(--accent); }
 body[data-theme="mint"] th { background:var(--bg2); }
 body[data-theme="mint"] .badge-hot, body[data-theme="mint"] .badge-new, body[data-theme="mint"] .badge-warn { color:#fff; }
 body[data-theme="mint"] .strategy-box { background:linear-gradient(135deg, #dcfce7, #f0fdf4); }
 body[data-theme="mint"] .tab-btn.active, body[data-theme="mint"] .tab-btn:hover { color:#fff; }
+
+/* 浅紫色 */
+body[data-theme="light-purple"] { --bg:#f5f3ff; --bg2:#ede9fe; --card:#ffffff; --border:#c4b5fd; --text:#2e1065; --text2:#5b21b6; --text3:#7c3aed; --accent:#7c3aed; --green:#16a34a; --red:#dc2626; --yellow:#d97706; --opt-bg:#ede9fe; }
+body[data-theme="light-purple"] .header { background:linear-gradient(135deg, #ede9fe, #f5f3ff); border-bottom:2px solid var(--accent); }
+body[data-theme="light-purple"] th { background:var(--bg2); }
+body[data-theme="light-purple"] .badge-hot, body[data-theme="light-purple"] .badge-new, body[data-theme="light-purple"] .badge-warn { color:#fff; }
+body[data-theme="light-purple"] .strategy-box { background:linear-gradient(135deg, #ede9fe, #f5f3ff); }
+body[data-theme="light-purple"] .tab-btn.active, body[data-theme="light-purple"] .tab-btn:hover { color:#fff; }
+
+/* 多巴胺撞色 A — 深紫底+亮黄撞色 */
+body[data-theme="dopamine-a"] { --bg:#1a1028; --bg2:#2d1b4e; --card:#3b2468; --border:#5b3d9e; --text:#ede9fe; --text2:#c4b5fd; --text3:#a78bfa; --accent:#fde68a; --green:#86efac; --red:#fca5a5; --yellow:#fbbf24; --opt-bg:rgba(26,16,40,0.5); }
+body[data-theme="dopamine-a"] .header { background:linear-gradient(135deg, var(--card), var(--bg)); border-bottom:2px solid var(--accent); }
+
+/* 多巴胺撞色 B — 亮黄底+紫撞色 */
+body[data-theme="dopamine-b"] { --bg:#fefce8; --bg2:#fef08a; --card:#ffffff; --border:#eab308; --text:#422006; --text2:#713f12; --text3:#a16207; --accent:#7c3aed; --green:#16a34a; --red:#dc2626; --yellow:#d97706; --opt-bg:#fef9c3; }
+body[data-theme="dopamine-b"] .header { background:linear-gradient(135deg, #fef08a, #fefce8); border-bottom:2px solid var(--accent); }
+body[data-theme="dopamine-b"] th { background:var(--bg2); }
+body[data-theme="dopamine-b"] .badge-hot, body[data-theme="dopamine-b"] .badge-new, body[data-theme="dopamine-b"] .badge-warn { color:#fff; }
+body[data-theme="dopamine-b"] .strategy-box { background:linear-gradient(135deg, #fef08a, #fefce8); border:1px solid var(--accent); }
+body[data-theme="dopamine-b"] .tab-btn.active, body[data-theme="dopamine-b"] .tab-btn:hover { color:#fff; }
+
+/* 多巴胺撞色 C — 白底+紫黄双点缀 */
+body[data-theme="dopamine-c"] { --bg:#fafafa; --bg2:#f5f3ff; --card:#ffffff; --border:#e0e0e0; --text:#1a1a2e; --text2:#4a4a6a; --text3:#7c3aed; --accent:#7c3aed; --green:#16a34a; --red:#dc2626; --yellow:#f59e0b; --opt-bg:#f5f3ff; }
+body[data-theme="dopamine-c"] .header { background:linear-gradient(135deg, #f5f3ff, #fafafa); border-bottom:2px solid var(--accent); }
+body[data-theme="dopamine-c"] th { background:var(--bg2); }
+body[data-theme="dopamine-c"] .badge-hot, body[data-theme="dopamine-c"] .badge-new, body[data-theme="dopamine-c"] .badge-warn { color:#fff; }
+body[data-theme="dopamine-c"] .strategy-box { background:linear-gradient(135deg, #f5f3ff, #fefce8); border:1px solid var(--accent); }
+body[data-theme="dopamine-c"] .tab-btn.active, body[data-theme="dopamine-c"] .tab-btn:hover { color:#fff; }
 </style>
 </head>
 <body>
@@ -210,6 +239,10 @@ body[data-theme="mint"] .tab-btn.active, body[data-theme="mint"] .tab-btn:hover 
   <button class="theme-dot" data-theme="light" title="浅色清爽" onclick="switchTheme('light',this)"><span class="dot-inner" style="background:#f8fafc;border:2px solid #2563eb;"></span></button>
   <button class="theme-dot" data-theme="cream" title="护眼暖白" onclick="switchTheme('cream',this)"><span class="dot-inner" style="background:#fef9ef;border:2px solid #d97706;"></span></button>
   <button class="theme-dot" data-theme="mint" title="清新薄荷" onclick="switchTheme('mint',this)"><span class="dot-inner" style="background:#f0fdf4;border:2px solid #059669;"></span></button>
+  <button class="theme-dot" data-theme="light-purple" title="浅紫梦幻" onclick="switchTheme('light-purple',this)"><span class="dot-inner" style="background:#f5f3ff;border:2px solid #7c3aed;"></span></button>
+  <button class="theme-dot" data-theme="dopamine-a" title="多巴胺·深紫黄撞色" onclick="switchTheme('dopamine-a',this)"><span class="dot-inner" style="background:#1a1028;border:2px solid #fde68a;"></span></button>
+  <button class="theme-dot" data-theme="dopamine-b" title="多巴胺·亮黄紫撞色" onclick="switchTheme('dopamine-b',this)"><span class="dot-inner" style="background:#fefce8;border:2px solid #7c3aed;"></span></button>
+  <button class="theme-dot" data-theme="dopamine-c" title="多巴胺·白底紫黄点缀" onclick="switchTheme('dopamine-c',this)"><span class="dot-inner" style="background:#fefce8;border:2px solid #7c3aed;"></span></button>
 </div>
 
 <script>
@@ -238,7 +271,7 @@ function switchTheme(t, el) {
 
 <div class="header">
   <h1>📊 教资《教育知识与能力》历年真题科学分析</h1>
-  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.11</p>
+  <p>2019下～2026上 | 13套真题 · 273道选择题 | 8大知识模块 | 回溯验证6/8精确命中 | v1.12</p>
 </div>
 
 <div class="container">
