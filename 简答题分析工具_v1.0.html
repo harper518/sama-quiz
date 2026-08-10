@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>教资《教育知识与能力》简答题专项 v1.2</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+<script>
+// Chart.js 异步加载，被墙不影响页面功能
+(function(){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js";s.onerror=function(){window.Chart=null;};document.head.appendChild(s);})();
 </script>
 <style>
 :root {
@@ -767,7 +769,7 @@ function switchTab(name) {
 }
 
 // ============ DASHBOARD CHARTS ============
-function initDashboard(){
+function initDashboard(){if(typeof Chart==="undefined"||Chart===null)return;
   // Module bar chart
   var modCtx = document.getElementById('modBarChart');
   if(modCtx){
@@ -787,7 +789,7 @@ function initDashboard(){
 }
 
 // ============ PREDICTION CHARTS ============
-function initPredict(){
+function initPredict(){if(typeof Chart==="undefined"||Chart===null)return;
   var predModCtx = document.getElementById('predModChart');
   if(predModCtx){
     var likelihoods = [1,2,3,4,5,6,7,8].map(function(m){var v=JD_PRED.modulePredictions[m];return v&&v.likelihood==='高'?3:v&&v.likelihood==='中'?2:1;});
