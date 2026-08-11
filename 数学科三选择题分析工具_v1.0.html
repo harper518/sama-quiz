@@ -3,12 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数学科三选择题 · 备考学习系统 v1.2</title>
+<title>数学科三选择题 · 备考学习系统 v1.2.1</title>
 <meta name="description" content="教资初中数学科三选择题：隐藏考点揭示+知识精讲+例题巩固+10套真题+预测+蒙题">
 <style>
-:root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --red:#ef4444; --purple:#a78bfa; --pink:#f472b6; --radius:12px; }
+:root { --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0; --text:#1e293b; --text2:#64748b; --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --red:#dc2626; --purple:#7c3aed; --pink:#db2777; --radius:12px; }
+body.dark { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --red:#ef4444; --purple:#a78bfa; --pink:#f472b6; }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; line-height:1.7; }
+body.dark .card, body.dark .stat-box, body.dark .flash-card, body.dark .toggle-btn, body.dark .tab, body.dark select { background:var(--card); }
+body.dark .q-block, body.dark .study-def { background:rgba(255,255,255,0.03); }
+body.dark .study-formula { background:rgba(74,222,128,0.08); }
+body.dark .study-mistake, body.dark .foundation-tip { background:rgba(251,191,36,0.06); }
+body.dark .study-example { background:rgba(56,189,248,0.06); }
+body.dark .q-solution { background:rgba(56,189,248,0.05); }
+body.dark .hidden-k-wrap summary { background:rgba(56,189,248,0.04); }
+body.dark .hidden-k-wrap summary:hover { background:rgba(56,189,248,0.08); }
+body.dark .prereq-section { background:rgba(239,68,68,0.05); border-color:rgba(239,68,68,0.2); }
+body.dark .heat-track { background:rgba(255,255,255,0.05); }
+body.dark .tabs { background:var(--bg); }
+body.dark .tab { background:var(--card); }
 .container { max-width:960px; margin:0 auto; padding:16px; }
 h1 { font-size:1.5rem; text-align:center; color:var(--accent); margin:12px 0 4px; }
 .subtitle { text-align:center; color:var(--text2); font-size:0.85rem; margin-bottom:12px; }
@@ -134,9 +147,13 @@ select { padding:10px 16px; border-radius:20px; border:1px solid var(--border); 
 <div class="container">
 
 <h1>📐 数学科三选择题 · 备考学习系统</h1>
-<p class="subtitle">初中数学教资科三 · 10套真题(19下~24下) · 隐藏考点揭示+知识精讲+例题巩固+预测+蒙题<br>版本 v1.2 · 2026-08-12</p>
+<p class="subtitle">初中数学教资科三 · 10套真题(19下~24下) · 隐藏考点揭示+知识精讲+例题巩固+预测+蒙题<br>版本 v1.2.1 · 2026-08-12</p>
 
 <div class="top-bar">
+  <div class="toggle-btn" id="themeToggle" onclick="toggleTheme()">
+    <span id="themeLabel">☀️ 白天模式</span>
+    <div class="dot"></div>
+  </div>
   <div class="toggle-btn active" id="depthToggle" onclick="toggleDepth()">
     <span id="depthLabel">📖 详细模式</span>
     <div class="dot"></div>
@@ -188,13 +205,21 @@ select { padding:10px 16px; border-radius:20px; border:1px solid var(--border); 
   <div class="flash-grid" id="flashGrid"></div>
 </div>
 
-<div class="footer">📐 数学科三选择题备考学习系统 v1.2 · 10套真题(19下~24下) · 隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
+<div class="footer">📐 数学科三选择题备考学习系统 v1.2.1 · 10套真题(19下~24下) · 隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
 </div>
 
 <script>
 // ============ GLOBAL STATE ============
 var depthMode = 'detail';
 var showHidden = false;
+var darkMode = false;
+
+function toggleTheme() {
+  darkMode = !darkMode;
+  document.body.classList.toggle('dark', darkMode);
+  document.getElementById('themeToggle').classList.toggle('active', darkMode);
+  document.getElementById('themeLabel').textContent = darkMode ? '🌙 夜间模式' : '☀️ 白天模式';
+}
 
 function toggleDepth() {
   depthMode = depthMode === 'detail' ? 'compact' : 'detail';
