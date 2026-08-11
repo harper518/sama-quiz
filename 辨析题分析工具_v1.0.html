@@ -282,7 +282,7 @@ function toggleSubAns(id){
 (function(){
   var saved=localStorage.getItem("bx-theme");
   if(saved&&saved!=="dark"){document.body.setAttribute("data-theme",saved);}
-  var dot=document.querySelector('.theme-dot[data-theme="'+(saved||"dark")+"']');
+  var dot=document.querySelector('.theme-dot[data-theme="'+(saved||"dark")+'"]');
   if(dot)dot.style.boxShadow="0 0 0 2px var(--accent)";
 })();
 
