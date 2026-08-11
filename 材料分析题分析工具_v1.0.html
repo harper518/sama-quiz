@@ -174,9 +174,15 @@ DATA.exams.forEach(exam => {
   exam.items.forEach(item => {
     ALL_Q.push({exam:exam.exam, ...item});
 
-function subTopicLabelWithLink(st){var label=st.includes("-")?st.split("-").pop():st;return label+' <span onclick="event.stopPropagation();jumpToStudy(\''+st+'\')" style="cursor:pointer;font-size:0.7rem;opacity:0.7;" title="在备考学习Tab中查看详情">📖</span>';}
+
   });
 });
+
+
+function subTopicLabel(st) {
+  if (st.includes('-')) return st.split('-').pop();
+  return st;
+}
 
 // ===== TAB 1: DASHBOARD =====
 function renderDashboard() {
@@ -298,7 +304,7 @@ function renderPredict() {
   q30Pred.topSubTopicPredictions.slice(0,8).forEach((p,i) => {
     html += '<div class="pred-item">';
     html += '<div class="pred-rank r'+(i<3?i+1:3)+'" style="'+(i>=3?'background:#334155;color:#94a3b8;':'')+'">'+(i+1)+'</div>';
-    html += '<div class="pred-info"><div class="name">'+subTopicLabelWithLink(p.subTopic)+' <span class="badge '+(p.tested?'badge-tested':'badge-blank')+'">'+(p.tested?'已考':'空白')+'</span></div>';
+    html += '<div class="pred-info"><div class="name">'+subTopicLabel(p.subTopic)+' <span class="badge '+(p.tested?'badge-tested':'badge-blank')+'">'+(p.tested?'已考':'空白')+'</span></div>';
     html += '<div class="detail">'+p.reasons.join(' · ')+'</div></div>';
     html += '<div class="pred-score">'+p.score+'分 '+likelihoodBadge(p.likelihood)+'</div>';
     html += '</div>';
@@ -310,7 +316,7 @@ function renderPredict() {
   q31Pred.topSubTopicPredictions.slice(0,10).forEach((p,i) => {
     html += '<div class="pred-item">';
     html += '<div class="pred-rank r'+(i<3?i+1:3)+'" style="'+(i>=3?'background:#334155;color:#94a3b8;':'')+'">'+(i+1)+'</div>';
-    html += '<div class="pred-info"><div class="name">'+subTopicLabelWithLink(p.subTopic)+' <span class="badge '+(p.tested?'badge-tested':'badge-blank')+'">'+(p.tested?'已考':'空白')+'</span></div>';
+    html += '<div class="pred-info"><div class="name">'+subTopicLabel(p.subTopic)+' <span class="badge '+(p.tested?'badge-tested':'badge-blank')+'">'+(p.tested?'已考':'空白')+'</span></div>';
     html += '<div class="detail">'+p.reasons.join(' · ')+'</div></div>';
     html += '<div class="pred-score">'+p.score+'分 '+likelihoodBadge(p.likelihood)+'</div>';
     html += '</div>';
@@ -599,7 +605,7 @@ function buildSelftestData() {
       exam: '🔮预测',
       number: p.module===7?30:31,
       module: p.module,
-      material: '【预测模拟题】请结合材料分析关于"'+subTopicLabelWithLink(p.subTopic)+'"的相关理论和应用。' + (p.keywords?'\n关键词提示：'+p.keywords.join('、'):''),
+      material: '【预测模拟题】请结合材料分析关于"'+subTopicLabel(p.subTopic)+'"的相关理论和应用。' + (p.keywords?'\n关键词提示：'+p.keywords.join('、'):''),
       questions: '请根据材料，运用相关理论进行分析并给出建议。',
       answer: '(此为预测题，参考答案请在"预测"Tab中查看对应子考点的详细内容)'
     });
