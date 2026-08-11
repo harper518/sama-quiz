@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>教资《教育知识与能力》简答题专项 v1.3</title>
 <script>
-// Chart.js 异步加载，被墙不影响页面功能
-(function(){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js";s.onerror=function(){window.Chart=null;};document.head.appendChild(s);})();
+// Chart.js 多CDN加载，逐个尝试直到成功
+(function(){var cdns=["https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.0/chart.umd.min.js","https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js","https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"];var idx=0;function tryLoad(){if(idx>=cdns.length){window.Chart=null;return;}var s=document.createElement("script");s.src=cdns[idx];s.onload=function(){console.log("Chart.js loaded from",cdns[idx]);};s.onerror=function(){idx++;tryLoad();};document.head.appendChild(s);}tryLoad();})();
 </script>
 <style>
 :root {
