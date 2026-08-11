@@ -208,8 +208,9 @@ function loadSelfTest(){
 
 function revealAnswer(){
   if(!stCurrent)return;
+  var j=(stCurrent.judgment==="正确");
   var html="<div style=\"margin-bottom:8px;\">";
-  html+="<span class=\"judgment-badge \"+(stCurrent.judgment==="\u6B63\u786E"?"judgment-correct":"judgment-wrong")+"\">"+(stCurrent.judgment==="\u6B63\u786E"?"\u2705 \u6B63\u786E":"\u274C \u9519\u8BEF")+"</span>";
+  html+="<span class=\""+(j?"judgment-correct":"judgment-wrong")+"\">"+(j?"✅ 正确":"❌ 错误")+"</span>";
   html+="<span class=\"tag tag-trap\">"+escHTML(stCurrent.trapType)+"</span></div>";
   html+=escHTML(stCurrent.answer);
   document.getElementById("stAnswer").innerHTML=html;
