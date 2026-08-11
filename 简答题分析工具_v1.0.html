@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>教资《教育知识与能力》简答题专项 v1.3</title>
 <script>
-// Chart.js 多CDN加载，逐个尝试直到成功
-(function(){var cdns=["https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.0/chart.umd.min.js","https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js","https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"];var idx=0;function tryLoad(){if(idx>=cdns.length){window.Chart=null;return;}var s=document.createElement("script");s.src=cdns[idx];s.onload=function(){console.log("Chart.js loaded from",cdns[idx]);};s.onerror=function(){idx++;tryLoad();};document.head.appendChild(s);}tryLoad();})();
+// Chart.js 多CDN加载，成功后自动初始化图表
+(function(){var cdns=["https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.0/chart.umd.min.js","https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js","https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"];var idx=0;function tryLoad(){if(idx>=cdns.length){window.Chart=null;return;}var s=document.createElement("script");s.src=cdns[idx];s.onload=function(){try{initDashboard();initPredict();}catch(e){};};s.onerror=function(){idx++;tryLoad();};document.head.appendChild(s);}tryLoad();})();
 </script>
 <style>
 :root {
@@ -764,8 +764,8 @@ function switchTab(name) {
   var btns = document.querySelectorAll('.tab-btn');
   btns.forEach(function(b){if(b.textContent.indexOf({dashboard:'总览',knowledge:'考点',scoring:'得分',templates:'模板',predict:'预测',selftest:'默写',deepdive:'深析'}[name])!==-1)b.classList.add('active');});
 
-  if(name==='dashboard'&&!chartsInitialized.dash){try{initDashboard();}catch(e){console.warn('initDashboard failed:',e);}chartsInitialized.dash=true;}
-  if(name==='predict'&&!chartsInitialized.pred){try{initPredict();}catch(e){console.warn('initPredict failed:',e);}chartsInitialized.pred=true;}
+  if(name==='dashboard'&&!chartsInitialized.dash){try{initDashboard();}catch(e){console.warn('initDashboard failed:',e);}}
+  if(name==='predict'&&!chartsInitialized.pred){try{initPredict();}catch(e){console.warn('initPredict failed:',e);}}
 }
 
 // ============ DASHBOARD CHARTS ============
@@ -786,6 +786,7 @@ function initDashboard(){if(typeof Chart==="undefined"||Chart===null)return;
     var datasets = [1,2,3,4,5,6,7,8].map(function(m){return {label:'M'+m,data:JD_YEARS.map(function(y){return (JD_DATA.exams.find(function(e){return e.exam===y})||{items:[]}).items.filter(function(it){return it.module===m;}).length;}),borderColor:JD_MOD_COLORS[m],backgroundColor:JD_MOD_COLORS[m]+'33',fill:false,tension:0.3};});
     new Chart(heatCtx,{type:'line',data:{labels:JD_YEARS,datasets:datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:true,ticks:{stepSize:1,max:3}}}}});
   }
+  chartsInitialized.dash=true;
 }
 
 // ============ PREDICTION CHARTS ============
@@ -800,6 +801,7 @@ function initPredict(){if(typeof Chart==="undefined"||Chart===null)return;
     var vdata = JD_PRED.validation;
     new Chart(validCtx,{type:'bar',data:{labels:vdata.map(function(v){return v.target;}),datasets:[{label:'模块命中',data:vdata.map(function(v){return v.moduleHits;}),backgroundColor:'#4ade80',borderRadius:4},{label:'模块总数',data:vdata.map(function(v){return v.moduleTotal;}),backgroundColor:'#94a3b8',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});
   }
+  chartsInitialized.pred=true;
 }
 
 // ============ KNOWLEDGE BASE FILTER ============
@@ -1058,8 +1060,8 @@ function fillExamPerspective(){
 function escHTML(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML;}
 
 // ============ INIT ============
-if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){try{initDashboard();}catch(e){console.warn('initDashboard:',e);}try{enrichRelated();}catch(e){console.warn('enrichRelated:',e);}try{fillExamPerspective();}catch(e){console.warn('fillExamPerspective:',e);}chartsInitialized.dash=true;});}
-else{try{initDashboard();}catch(e){console.warn('initDashboard:',e);}try{enrichRelated();}catch(e){console.warn('enrichRelated:',e);}try{fillExamPerspective();}catch(e){console.warn('fillExamPerspective:',e);}chartsInitialized.dash=true;}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){try{initDashboard();}catch(e){console.warn('initDashboard:',e);}try{enrichRelated();}catch(e){console.warn('enrichRelated:',e);}try{fillExamPerspective();}catch(e){console.warn('fillExamPerspective:',e);}});}
+else{try{initDashboard();}catch(e){console.warn('initDashboard:',e);}try{enrichRelated();}catch(e){console.warn('enrichRelated:',e);}try{fillExamPerspective();}catch(e){console.warn('fillExamPerspective:',e);}}
 </script>
 </body>
 </html>
