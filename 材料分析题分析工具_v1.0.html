@@ -1100,34 +1100,28 @@ function renderStudyTab() {
   h += '<div class="card" style="margin-top:16px;">';
   h += '<h4>⏰ 考前30分钟速览</h4>';
   h += '<p style="font-size:0.8rem;color:var(--text2);">进考场前快速过一遍——最精简版Top 12，每个一行</p>';
-  h += '<div id="study-speed-review">';
-  (function() {
-    var srHTML = '';
-    var srCount = 0;
-    for (var sri = 0; sri < topList.length && srCount < 12; sri++) {
-      var srt = topList[sri];
-      var srkb = KNOWLEDGE_BASE[srt.key];
-      if (!srkb) continue;
-      srCount++;
-      var srTested = srt.tested ? '已考' : '未考';
-      var srColor = srt.tested ? 'var(--green)' : 'var(--red)';
-
-      srHTML += '<div style="padding:8px 12px;margin:4px 0;border-radius:6px;background:var(--bg2);font-size:0.8rem;">';
-      srHTML += '<strong>' + srCount + '. ' + srt.key + '</strong>';
-      srHTML += ' <span style="color:' + srColor + ';font-size:0.7rem;">●' + srTested + '</span>';
-      srHTML += ' <span style="font-size:0.72rem;color:var(--yellow);">🔥' + srt.score + '分</span>';
-      if (srkb.d) {
-        var shortDef = srkb.d.substring(0, 70);
-        if (srkb.d.length > 70) shortDef += '…';
-        srHTML += ' — ' + shortDef;
-      }
-      if (srkb.m) {
-        srHTML += ' <span style="color:var(--yellow);font-size:0.75rem;">🧠 ' + srkb.m + '</span>';
-      }
-      srHTML += '</div>';
+  var srCount = 0;
+  for (var sri = 0; sri < topList.length && srCount < 12; sri++) {
+    var srt = topList[sri];
+    var srkb = KNOWLEDGE_BASE[srt.key];
+    if (!srkb) continue;
+    srCount++;
+    var srTested = srt.tested ? '已考' : '未考';
+    var srColor = srt.tested ? 'var(--green)' : 'var(--red)';
+    h += '<div style="padding:8px 12px;margin:4px 0;border-radius:6px;background:var(--bg2);font-size:0.8rem;">';
+    h += '<strong>' + srCount + '. ' + srt.key + '</strong>';
+    h += ' <span style="color:' + srColor + ';font-size:0.7rem;">●' + srTested + '</span>';
+    h += ' <span style="font-size:0.72rem;color:var(--yellow);">🔥' + srt.score + '分</span>';
+    if (srkb.d) {
+      var shortDef = srkb.d.substring(0, 70);
+      if (srkb.d.length > 70) shortDef += '…';
+      h += ' — ' + shortDef;
     }
-    document.getElementById('study-speed-review').innerHTML = srHTML;
-  })();
+    if (srkb.m) {
+      h += ' <span style="color:var(--yellow);font-size:0.75rem;">🧠 ' + srkb.m + '</span>';
+    }
+    h += '</div>';
+  }
   h += '</div>';
 
   document.getElementById('tab-study').innerHTML = h;
