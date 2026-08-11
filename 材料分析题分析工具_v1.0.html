@@ -129,6 +129,7 @@ const TABS = [
   {id:'selftest',label:'✍️ 自测'},
   {id:'syllabus',label:'📖 考纲'},
   {id:'links',label:'🔗 关联'},
+  {id:'study',label:'📚 备考学习'},
 ];
 let activeTab = 'dashboard';
 
@@ -152,6 +153,7 @@ function switchTab(id) {
   if (id==='detail') renderDetail();
   if (id==='map') renderMap();
   if (id==='selftest') renderSelfTest();
+  if (id==='study') renderStudyTab();
 }
 
 // ===== HELPERS =====
