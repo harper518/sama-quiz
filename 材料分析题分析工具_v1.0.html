@@ -7,6 +7,11 @@
 <meta name="description" content="教资科二材料分析题专项分析 · 13套真题 · 7模型预测 · 答题模板 · 采分点辞典 · 考纲对照">
 <style>
 :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --green:#4ade80; --red:#f87171; --yellow:#fbbf24; --purple:#a78bfa; --radius:12px; }
+[data-theme="light"] { --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0; --text:#1e293b; --text2:#64748b; --accent:#0284c7; --green:#16a34a; --red:#dc2626; --yellow:#ca8a04; --purple:#7c3aed; --radius:12px; }
+[data-theme="light"] .template-box { background:#f1f5f9; }
+[data-theme="light"] .accordion-header:hover { background:#f1f5f9; }
+[data-theme="light"] .self-test-card.flipped { border-color:var(--accent); background:#f0f9ff; }
+[data-theme="light"] .badge-l { background:#e2e8f0; color:#64748b; }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; min-height:100vh; }
 .container { max-width:1100px; margin:0 auto; padding:16px; }
@@ -84,7 +89,8 @@ h1 { text-align:center; color:var(--accent); font-size:clamp(1.3rem,4vw,1.8rem);
 <body>
 <div class="container">
 <h1>📋 材料分析题 · 专项分析工具</h1>
-<p class="subtitle">13套真题 · 26道题 · 7模型集成预测 · 答题模板 · 采分点辞典 · 考纲对照 <strong>v1.2</strong></p>
+<div style="text-align:center;margin-bottom:4px;"><button id="theme-toggle" onclick="toggleTheme()" style="padding:6px 16px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:0.82rem;min-height:44px;" title="切换日间/夜间模式">☀️ 日间模式</button></div>
+  <p class="subtitle">13套真题 · 26道题 · 7模型集成预测 · 答题模板 · 采分点辞典 · 考纲对照 <strong>v1.2</strong></p>
 
 <div class="tab-nav" id="tabNav"></div>
 
@@ -1119,6 +1125,10 @@ function renderStudyTab() {
   document.getElementById('tab-study').innerHTML = h;
 }
 
+
+// ===== THEME TOGGLE =====
+(function(){var saved=localStorage.getItem("theme")||"dark";document.documentElement.setAttribute("data-theme",saved);var btn=document.getElementById("theme-toggle");if(btn){btn.textContent=saved==="light"?"🌙 夜间模式":"☀️ 日间模式";}})();
+function toggleTheme(){var cur=document.documentElement.getAttribute("data-theme");var next=cur==="light"?"dark":"light";document.documentElement.setAttribute("data-theme",next);localStorage.setItem("theme",next);var btn=document.getElementById("theme-toggle");if(btn){btn.textContent=next==="light"?"🌙 夜间模式":"☀️ 日间模式";}}
 // ===== INITIAL RENDER =====
 renderDashboard();
 </script>
