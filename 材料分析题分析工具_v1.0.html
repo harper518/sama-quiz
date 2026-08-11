@@ -590,8 +590,7 @@ function buildSelftestData() {
       exam: '🔮预测',
       number: p.module===7?30:31,
       module: p.module,
-      material: '【预测模拟题】请结合材料分析关于"'+subTopicLabel(p.subTopic)+'"的相关理论和应用。' + (p.keywords?'
-关键词提示：'+p.keywords.join('、'):''),
+      material: '【预测模拟题】请结合材料分析关于"'+subTopicLabel(p.subTopic)+'"的相关理论和应用。' + (p.keywords?'\n关键词提示：'+p.keywords.join('、'):''),
       questions: '请根据材料，运用相关理论进行分析并给出建议。',
       answer: '(此为预测题，参考答案请在"预测"Tab中查看对应子考点的详细内容)'
     });
