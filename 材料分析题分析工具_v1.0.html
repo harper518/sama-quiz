@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>材料分析题分析工具 v1.0 · 教资科二</title>
+<title>材料分析题分析工具 v1.1 · 教资科二</title>
 <meta name="description" content="教资科二材料分析题专项分析 · 13套真题 · 7模型预测 · 答题模板 · 采分点辞典 · 考纲对照">
 <style>
 :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --green:#4ade80; --red:#f87171; --yellow:#fbbf24; --purple:#a78bfa; --radius:12px; }
@@ -84,7 +84,7 @@ h1 { text-align:center; color:var(--accent); font-size:clamp(1.3rem,4vw,1.8rem);
 <body>
 <div class="container">
 <h1>📋 材料分析题 · 专项分析工具</h1>
-<p class="subtitle">13套真题 · 26道题 · 7模型集成预测 · 答题模板 · 采分点辞典 · 考纲对照 <strong>v1.0</strong></p>
+<p class="subtitle">13套真题 · 26道题 · 7模型集成预测 · 答题模板 · 采分点辞典 · 考纲对照 <strong>v1.1</strong></p>
 
 <div class="tab-nav" id="tabNav"></div>
 
@@ -646,39 +646,58 @@ function rateSelftest(score) {
 }
 
 // ===== TAB 9: SYLLABUS =====
+const SYLLABUS_DATA = {"M1":{"n":"教育基础知识和基本原理","i":[{"id":"1.1","lv":"了解","ct":"国内外著名教育家的代表著作及主要教育思想","ok":false,"mp":false,"ut":[]},{"id":"1.2","lv":"掌握/理解","ct":"教育的涵义及构成要素；教育的起源、基本形态及其历史发展；教育的基本功能；教育与社会发展、教育与人的发展的基本关系；影响人发展的主要因素（遗传、环境、教育、主观能动性）","ok":true,"mp":true,"ut":["教育与社会-政治经济"]},{"id":"1.3","lv":"了解","ct":"义务教育的特点；发达国家学制改革趋势；我国现代学制沿革及当前学制","ok":false,"mp":true,"ut":["教育制度-义务教育"]},{"id":"1.4","lv":"掌握/了解","ct":"教育目的理论；新中国成立后的教育方针；当前教育方针、教育目的；全面发展教育组成部分","ok":false,"mp":true,"ut":["教育目的-全面发展"]},{"id":"1.5","lv":"了解","ct":"教育研究的基本方法（观察法、调查法、历史法、实验法、行动研究法）","ok":false,"mp":false,"ut":[]}]},"M2":{"n":"中学课程","i":[{"id":"2.1","lv":"了解","ct":"不同课程流派的基本观点（学科中心/活动中心/社会中心课程论）；课程开发的主要影响因素","ok":false,"mp":false,"ut":[]},{"id":"2.2","lv":"掌握","ct":"基本的课程类型及其特征（分科/综合/活动课程；必修/选修课程；国家/地方/校本课程；显性/隐性课程）","ok":false,"mp":false,"ut":[]},{"id":"2.3","lv":"了解","ct":"课程目标、课程内容、课程评价等涵义和相关理论","ok":false,"mp":false,"ut":[]},{"id":"2.4","lv":"了解","ct":"我国当前基础教育课程改革的理念、改革目标及其基本的实施状况","ok":false,"mp":false,"ut":[]}]},"M3":{"n":"中学教学","i":[{"id":"3.1","lv":"理解/了解","ct":"教学的意义；教学过程的各种本质观","ok":false,"mp":false,"ut":[]},{"id":"3.2","lv":"熟悉和运用","ct":"教学过程的基本规律（直接经验与间接经验相统一、掌握知识与发展能力相统一、教师主导与学生主体相统一、传授知识与思想教育相统一）","ok":false,"mp":false,"ut":[]},{"id":"3.3","lv":"掌握","ct":"教学工作的基本环节及要求；中学常用的教学原则、教学方法；教学组织形式的内容及要求","ok":true,"mp":true,"ut":["教学原则-直观性原则","教学方法-发现法"]},{"id":"3.4","lv":"了解","ct":"我国当前教学改革的主要观点与趋势","ok":false,"mp":false,"ut":[]}]},"M4":{"n":"中学生学习心理","i":[{"id":"4.1","lv":"了解/理解","ct":"感觉的特性；知觉的特性","ok":false,"mp":false,"ut":[]},{"id":"4.2","lv":"了解/掌握","ct":"注意的分类、品质及影响因素；记忆的分类、遗忘的规律和原因、应用记忆规律促进有效学习","ok":true,"mp":true,"ut":["认知过程-遗忘"]},{"id":"4.3","lv":"了解/理解","ct":"思维的种类和创造性思维的特征；皮亚杰认知发展阶段论；影响问题解决的因素","ok":false,"mp":true,"ut":["认知过程-思维与问题解决","认知过程-创造性思维"]},{"id":"4.4","lv":"了解/理解/掌握","ct":"学习动机的功能；动机理论；激发与培养中学生学习动机的方法","ok":true,"mp":true,"ut":["学习动机-耶克斯多德森","学习动机-成就动机"]},{"id":"4.5","lv":"了解/理解/掌握","ct":"学习迁移的分类；形式训练说、共同要素说、概括化理论、关系转换理论、认知结构迁移理论；有效促进学习迁移的措施","ok":true,"mp":true,"ut":["认知过程-学习迁移类型"]},{"id":"4.6","lv":"了解/掌握","ct":"学习策略的分类；认知策略、元认知策略和资源管理策略","ok":true,"mp":true,"ut":["学习方法-学习策略","学习策略-元认知"]},{"id":"4.7","lv":"理解并运用","ct":"行为主义、认知学说、人本主义、建构主义等学习理论促进教学","ok":true,"mp":true,"ut":["行为主义-斯金纳","学习理论-建构主义"]}]},"M5":{"n":"中学生发展心理","i":[{"id":"5.1","lv":"掌握","ct":"中学生认知发展的理论、特点与规律","ok":false,"mp":true,"ut":["认知发展-认知发展阶段"]},{"id":"5.2","lv":"了解/理解","ct":"情绪的分类；情绪理论；应用情绪理论分析中学生常见的情绪问题","ok":true,"mp":true,"ut":["情绪情感-情绪理论"]},{"id":"5.3","lv":"掌握","ct":"中学生的情绪特点（情绪表现的两极性、情绪的种类等）","ok":false,"mp":true,"ut":["情绪情感-中学生情绪特点"]},{"id":"5.4","lv":"掌握","ct":"中学生良好情绪的标准、培养方法，指导中学生进行有效的情绪调节","ok":true,"mp":true,"ut":["情绪情感-情绪调节"]},{"id":"5.5","lv":"理解/掌握","ct":"人格的特征；人格的结构；根据学生的个体差异塑造良好人格","ok":false,"mp":true,"ut":["身心发展-个体差异"]},{"id":"5.6","lv":"了解/理解","ct":"弗洛伊德的人格发展理论；埃里克森的社会性发展阶段理论；影响人格发展的因素","ok":false,"mp":true,"ut":["埃里克森-人格发展阶段"]},{"id":"5.7","lv":"了解/掌握","ct":"中学生身心发展的特点；性心理的特点；指导中学生正确处理异性交往","ok":true,"mp":true,"ut":["身心发展-中学生身心特点"]}]},"M6":{"n":"中学生心理辅导","i":[{"id":"6.1","lv":"了解/熟悉","ct":"心理健康的标准；中学生常见的心理健康问题（抑郁症、恐怖症、焦虑症、强迫症、网络成瘾等）","ok":true,"mp":true,"ut":["心理问题-网络成瘾"]},{"id":"6.2","lv":"理解","ct":"心理辅导的主要方法（强化法、系统脱敏法、认知疗法、来访者中心疗法、理性-情绪疗法）","ok":true,"mp":true,"ut":["心理辅导-系统脱敏","心理辅导-理性情绪"]}]},"M7":{"n":"中学德育","i":[{"id":"7.1","lv":"了解/理解","ct":"品德结构；中学生品德发展的特点","ok":false,"mp":false,"ut":[]},{"id":"7.2","lv":"理解/掌握","ct":"皮亚杰和柯尔伯格的道德发展理论；影响品德发展的因素；促进中学生形成良好品德的方法","ok":true,"mp":true,"ut":["品德形成-科尔伯格","品德形成-影响因素"]},{"id":"7.3","lv":"熟悉","ct":"德育的主要内容（爱国主义、理想和传统教育、集体主义教育、劳动教育、纪律和法制教育等）","ok":false,"mp":false,"ut":[]},{"id":"7.4","lv":"熟悉和运用","ct":"德育过程的基本规律（知情意行培养；组织活动和交往；思想内部矛盾；长期反复不断前进）","ok":true,"mp":true,"ut":["德育过程-知情意行","德育过程-活动交往"]},{"id":"7.5","lv":"理解/掌握","ct":"德育原则；德育方法；德育途径","ok":true,"mp":true,"ut":["德育原则-疏导原则","德育方法-说服教育","德育途径-学科教学"]},{"id":"7.6","lv":"了解","ct":"生存教育、生活教育、生命教育、安全教育、升学就业指导等的意义及基本途径","ok":false,"mp":false,"ut":[]}]},"M8":{"n":"中学班级管理与教师心理","i":[{"id":"8.1","lv":"熟悉","ct":"班集体的发展阶段","ok":true,"mp":true,"ut":[]},{"id":"8.2","lv":"了解/理解/掌握","ct":"课堂管理的原则；影响课堂管理的因素；课堂气氛的类型及影响因素；创设良好课堂气氛的条件","ok":true,"mp":true,"ut":["课堂管理-课堂气氛"]},{"id":"8.3","lv":"了解/掌握","ct":"课堂纪律的类型；课堂结构；课堂问题行为的性质、类型、原因及处置与矫正方法","ok":true,"mp":true,"ut":["课堂管理-问题行为"]},{"id":"8.4","lv":"了解/掌握","ct":"班主任工作的内容和方法；培养班集体的方法","ok":true,"mp":true,"ut":["班主任-工作内容"]},{"id":"8.5","lv":"了解","ct":"课外活动组织和管理的有关知识（意义、主要内容、特点、组织形式、组织管理要求）","ok":false,"mp":false,"ut":[]},{"id":"8.6","lv":"理解/了解","ct":"协调学校与家庭联系的基本内容和方式；协调学校与社会教育机构联系的方式等","ok":false,"mp":false,"ut":[]},{"id":"8.7","lv":"了解","ct":"教师角色心理和教师心理特征","ok":false,"mp":true,"ut":["教师心理-角色定位"]},{"id":"8.8","lv":"理解/掌握","ct":"教师成长心理；促进教师心理健康的理论与方法","ok":false,"mp":true,"ut":["教师心理-教师成长阶段"]}]}};
+
 document.getElementById('tab-syllabus').innerHTML = `
-<div class="card"><h3>📖 《教育知识与能力》考试大纲 — 材料分析题相关条目</h3>
-<p style="font-size:0.82rem;color:var(--text2);margin-bottom:12px;">以下为考试大纲中与材料分析题直接相关的模块和能力要求</p>
+<div class="card"><h3>📖 《教育知识与能力》考试大纲 — 材料分析题关联条目</h3>
+<p style="font-size:0.82rem;color:var(--text2);margin-bottom:12px;">考纲共<strong>43条</strong>三级指标，其中<strong style="color:var(--green);">16条</strong>（37%）已在材料分析题中出现过，<strong style="color:var(--red);">27条</strong>（63%）尚未考查——这既是26下的风险点也是机会点。</p>
 
 <div class="template-box"><h4>📋 试卷结构</h4>
 <ul>
 <li><strong>材料分析题</strong>：2题 × 18分 = <strong>36分</strong>（占试卷总分24%）</li>
 <li>题型定位：考查综合运用教育学、心理学理论分析实际教学情境的能力</li>
-<li>难度：中等偏上，需要理论联系实际</li>
+<li>难度：中等偏上，理论联系实际是核心</li>
 </ul></div>
 
-<div class="template-box"><h4>🎯 考试标准中的能力要求</h4>
+<div class="template-box"><h4>🎯 考试标准中的材料分析题能力要求</h4>
 <ol>
-<li><strong>理解能力</strong>：能准确理解材料中的教育教学情境</li>
-<li><strong>分析能力</strong>：能运用所学理论对材料进行分析和解释</li>
-<li><strong>应用能力</strong>：能根据理论提出合理的教育建议或解决方案</li>
-<li><strong>综合能力</strong>：能将教育学、心理学的多维度知识综合运用于同一案例</li>
+<li><strong>理解材料</strong>：准确识别材料中的教育教学情境和核心问题</li>
+<li><strong>理论分析</strong>：运用教育学、心理学理论对情境进行分析解释</li>
+<li><strong>实践应用</strong>：基于理论提出合理可行的教育建议或解决方案</li>
+<li><strong>综合整合</strong>：将多维度知识综合运用于同一真实案例</li>
 </ol></div>
 
-<div class="template-box"><h4>📊 考纲8大模块 — 材料分析题覆盖情况</h4>
-<table style="width:100%;font-size:0.8rem;border-collapse:collapse;">
-<tr style="border-bottom:2px solid var(--border);"><th style="padding:6px;text-align:left;">模块</th><th style="padding:6px;">考纲条数</th><th style="padding:6px;">已考子考点</th><th style="padding:6px;">已考率</th><th style="padding:6px;">用途</th></tr>
-<tr><td style="padding:6px;">M1 教育基础</td><td style="padding:6px;text-align:center;">5</td><td style="padding:6px;text-align:center;">1</td><td style="padding:6px;text-align:center;">20%</td><td style="padding:6px;">理论背景</td></tr>
-<tr><td style="padding:6px;">M3 中学教学</td><td style="padding:6px;text-align:center;">16</td><td style="padding:6px;text-align:center;">11</td><td style="padding:6px;text-align:center;">69%</td><td style="padding:6px;text-align:center;"><strong>Q30常考</strong></td></tr>
-<tr><td style="padding:6px;">M4 学习心理</td><td style="padding:6px;text-align:center;">31</td><td style="padding:6px;text-align:center;">11</td><td style="padding:6px;text-align:center;">35%</td><td style="padding:6px;text-align:center;"><strong>Q31主考</strong></td></tr>
-<tr><td style="padding:6px;">M5 发展心理</td><td style="padding:6px;text-align:center;">11</td><td style="padding:6px;text-align:center;">4</td><td style="padding:6px;text-align:center;">36%</td><td style="padding:6px;">Q31次考</td></tr>
-<tr><td style="padding:6px;">M6 心理辅导</td><td style="padding:6px;text-align:center;">9</td><td style="padding:6px;text-align:center;">5</td><td style="padding:6px;text-align:center;">56%</td><td style="padding:6px;">Q31新兴</td></tr>
-<tr><td style="padding:6px;">M7 中学德育</td><td style="padding:6px;text-align:center;">14</td><td style="padding:6px;text-align:center;">9</td><td style="padding:6px;text-align:center;">64%</td><td style="padding:6px;text-align:center;"><strong>Q30主考</strong></td></tr>
-<tr><td style="padding:6px;">M8 班级管理</td><td style="padding:6px;text-align:center;">7</td><td style="padding:6px;text-align:center;">5</td><td style="padding:6px;text-align:center;">71%</td><td style="padding:6px;">偶尔出现</td></tr>
-</table>
-<p style="font-size:0.78rem;color:var(--red);margin-top:8px;">⚠ M4学习心理考纲条数最多(31条)但已考率仅35%——26下最大的空白考点来源！</p>
-</div></div>
+<div class="template-box"><h4>📊 考纲8大模块 — 逐条比对</h4>
+<div id="syllabus-modules"></div>
+</div>
 `;
+
+// Render per-module syllabus indicators
+let modsHTML = '';
+const modColors = {'M1':'#38bdf8','M2':'#a78bfa','M3':'#4ade80','M4':'#fbbf24','M5':'#f87171','M6':'#fb923c','M7':'#e879f9','M8':'#2dd4bf'};
+for (const [modKey, modData] of Object.entries(SYLLABUS_DATA)) {
+  const tested = modData.i.filter(x => x.ok).length;
+  const total = modData.i.length;
+  const hasTests = tested > 0;
+  modsHTML += '<div style="margin-bottom:16px;border-left:3px solid '+modColors[modKey]+';padding-left:12px;">';
+  modsHTML += '<strong>'+modKey+' '+modData.n+'</strong> ';
+  modsHTML += '<span style="font-size:0.75rem;color:'+(hasTests?'var(--green)':'var(--text2)')+';">'+tested+'/'+total+'条已考</span>';
+  modsHTML += '<div style="font-size:0.78rem;margin-top:4px;">';
+  for (const ind of modData.i) {
+    const icon = ind.ok ? '✅' : (ind.mp ? '🔴' : '⚪');
+    const title = ind.ok ? '已考' : (ind.mp ? '未考（有子考点）' : '暂无子考点映射');
+    const bg = ind.ok ? 'rgba(74,222,128,0.1)' : (ind.mp ? 'rgba(248,113,113,0.1)' : '');
+    modsHTML += '<div style="padding:3px 6px;margin:2px 0;border-radius:4px;background:'+bg+';" title="'+title+'">';
+    modsHTML += icon+' <span style="color:var(--accent);">['+ind.id+']</span> ';
+    modsHTML += '<span style="color:'+(ind.ok?'var(--green)':(ind.mp?'var(--red)':'var(--text2)'))+';">'+ind.ct+'</span>';
+    if (ind.ut && ind.ut.length > 0) {
+      modsHTML += ' <span style="font-size:0.7rem;color:var(--yellow);">← '+ind.ut.join(', ')+'</span>';
+    }
+    modsHTML += '</div>';
+  }
+  modsHTML += '</div></div>';
+}
+document.getElementById('syllabus-modules').innerHTML = modsHTML;
 
 // ===== TAB 10: LINKS =====
 document.getElementById('tab-links').innerHTML = `
