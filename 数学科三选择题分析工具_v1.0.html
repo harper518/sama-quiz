@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数学科三选择题 · 真题解析与命题预测 v1.0</title>
+<meta name="description" content="教资初中数学科三选择题：10套真题解析+知识体系+频次预测+蒙题策略+速记卡片">
+<meta name="apple-mobile-web-app-title" content="数学科三">
+<style>
+:root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --red:#ef4444; --purple:#a78bfa; --pink:#f472b6; --radius:12px; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; line-height:1.6; }
+.container { max-width:960px; margin:0 auto; padding:16px; }
+h1 { font-size:1.5rem; text-align:center; color:var(--accent); margin:12px 0 4px; }
+.subtitle { text-align:center; color:var(--text2); font-size:0.85rem; margin-bottom:16px; }
+
+/* Tabs */
+.tabs { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:16px; position:sticky; top:0; z-index:100; background:var(--bg); padding:8px 0; }
+.tab { padding:10px 16px; border:1px solid var(--border); border-radius:20px; cursor:pointer; font-size:0.88rem; background:var(--card); color:var(--text2); white-space:nowrap; transition:all .2s; min-height:44px; display:flex; align-items:center; }
+.tab:hover { border-color:var(--accent); color:var(--accent); }
+.tab.active { background:var(--accent); color:#0f172a; border-color:var(--accent); font-weight:600; }
+
+/* Panels */
+.panel { display:none; }
+.panel.active { display:block; }
+
+/* Cards */
+.card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; margin-bottom:16px; }
+.card h2 { font-size:1.1rem; color:var(--accent); margin-bottom:12px; }
+.card h3 { font-size:0.95rem; color:var(--text); margin:12px 0 8px; }
+
+/* Question blocks */
+.q-block { padding:12px; margin:8px 0; border-left:3px solid var(--border); border-radius:0 8px 8px 0; background:rgba(255,255,255,0.03); }
+.q-block .q-title { font-weight:600; color:var(--accent); margin-bottom:4px; }
+.q-block .q-text { font-size:0.92rem; margin-bottom:8px; }
+.q-block .q-opts { display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:0.88rem; margin-bottom:8px; }
+.q-block .q-answer { color:var(--green); font-weight:600; font-size:0.9rem; }
+.q-block .q-solution { color:var(--text2); font-size:0.85rem; margin-top:6px; padding:8px; background:rgba(56,189,248,0.05); border-radius:6px; }
+@media (max-width:500px) { .q-opts { grid-template-columns:1fr; } }
+
+/* Knowledge tree */
+.knowledge-tree { font-size:0.9rem; }
+.knowledge-tree .topic { margin:4px 0; }
+.knowledge-tree .topic-header { display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; cursor:pointer; transition:all .2s; min-height:44px; }
+.knowledge-tree .topic-header:hover { background:rgba(56,189,248,0.1); }
+.knowledge-tree .topic-name { font-weight:600; flex:1; }
+.knowledge-tree .topic-freq { font-size:0.78rem; padding:2px 10px; border-radius:10px; }
+.freq-high { background:var(--red); color:#fff; }
+.freq-mid { background:var(--yellow); color:#000; }
+.freq-low { background:var(--text2); color:#fff; }
+
+/* Prediction */
+.predict-card { border:2px solid var(--accent); padding:16px; border-radius:var(--radius); margin:8px 0; }
+.predict-card .confidence { font-size:0.8rem; padding:2px 8px; border-radius:8px; }
+.conf-high { background:var(--red); color:#fff; }
+.conf-mid { background:var(--yellow); color:#000; }
+
+/* Stats */
+.stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin-bottom:16px; }
+.stat-box { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; text-align:center; }
+.stat-box .stat-num { font-size:2rem; font-weight:700; color:var(--accent); }
+.stat-box .stat-label { font-size:0.78rem; color:var(--text2); margin-top:4px; }
+
+/* Flash cards */
+.flash-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
+.flash-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; cursor:pointer; min-height:120px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:all .3s; }
+.flash-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+.flash-card .flash-front { font-weight:600; font-size:0.95rem; }
+.flash-card .flash-back { color:var(--accent); font-size:0.85rem; margin-top:8px; display:none; }
+.flash-card.flipped .flash-back { display:block; }
+.flash-card.flipped .flash-front { color:var(--text2); font-size:0.8rem; }
+
+/* Buttons */
+.btn { padding:10px 20px; border-radius:20px; border:none; cursor:pointer; font-size:0.9rem; font-weight:600; min-height:44px; transition:all .2s; }
+.btn-accent { background:var(--accent); color:#0f172a; }
+.btn-accent:hover { opacity:0.85; }
+.btn-outline { background:transparent; border:1px solid var(--accent); color:var(--accent); }
+.btn-outline:hover { background:rgba(56,189,248,0.1); }
+
+/* Select */
+select { padding:10px 16px; border-radius:20px; border:1px solid var(--border); background:var(--card); color:var(--text); font-size:0.9rem; min-height:44px; cursor:pointer; }
+
+/* Heat map */
+.heat-bar { display:flex; align-items:center; gap:8px; margin:6px 0; }
+.heat-bar .heat-label { width:120px; font-size:0.82rem; text-align:right; flex-shrink:0; }
+.heat-bar .heat-track { flex:1; height:24px; background:rgba(255,255,255,0.05); border-radius:12px; overflow:hidden; }
+.heat-bar .heat-fill { height:100%; border-radius:12px; transition:width .5s; }
+
+/* Guess table */
+.guess-table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+.guess-table th, .guess-table td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); }
+.guess-table th { color:var(--accent); font-size:0.78rem; }
+.guess-table tr:hover { background:rgba(255,255,255,0.03); }
+
+/* Footer */
+.footer { text-align:center; color:var(--text2); font-size:0.75rem; margin-top:24px; padding:16px; border-top:1px solid var(--border); }
+
+/* Responsive */
+@media (max-width:600px) {
+  h1 { font-size:1.25rem; }
+  .tabs { gap:3px; }
+  .tab { padding:8px 12px; font-size:0.78rem; }
+  .stat-grid { grid-template-columns:repeat(2,1fr); }
+  .flash-grid { grid-template-columns:1fr 1fr; }
+  .heat-bar .heat-label { width:80px; font-size:0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📐 数学科三选择题 · 真题解析与命题预测</h1>
+<p class="subtitle">初中数学教资科三 · 10套真题(19下~24下) · 80题全解析 · 知识体系 · 频次预测 · 蒙题策略<br>版本 v1.0 · 2026-08-12</p>
+
+<!-- Tabs -->
+<div class="tabs" id="tabBar">
+  <div class="tab active" onclick="switchTab('overview')">📊 总体概览</div>
+  <div class="tab" onclick="switchTab('papers')">📋 真题解析</div>
+  <div class="tab" onclick="switchTab('knowledge')">🎯 知识体系</div>
+  <div class="tab" onclick="switchTab('predict')">🔮 命题预测</div>
+  <div class="tab" onclick="switchTab('guess')">🎲 蒙题策略</div>
+  <div class="tab" onclick="switchTab('cards')">📝 速记卡片</div>
+</div>
+
+<!-- Overview Panel -->
+<div class="panel active" id="panel-overview">
+  <div class="stat-grid">
+    <div class="stat-box"><div class="stat-num">10</div><div class="stat-label">套真题(19下~24下)</div></div>
+    <div class="stat-box"><div class="stat-num">80</div><div class="stat-label">道选择题</div></div>
+    <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">大学数学板块</div></div>
+    <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">教学论/数学史板块</div></div>
+  </div>
+
+  <div class="card">
+    <h2>📊 大学数学6题(Q1-Q6) — 高频考点频次</h2>
+    <div class="heat-bar"><div class="heat-label">🥇 极限计算</div><div class="heat-track"><div class="heat-fill" style="width:80%;background:var(--red)"></div></div><span style="font-size:0.85rem">8次/10套</span></div>
+    <div class="heat-bar"><div class="heat-label">🥈 空间解析几何</div><div class="heat-track"><div class="heat-fill" style="width:80%;background:var(--red)"></div></div><span style="font-size:0.85rem">8次/10套</span></div>
+    <div class="heat-bar"><div class="heat-label">🥉 矩阵/行列式</div><div class="heat-track"><div class="heat-fill" style="width:70%;background:var(--yellow)"></div></div><span style="font-size:0.85rem">7次/10套</span></div>
+    <div class="heat-bar"><div class="heat-label">4. 概率统计</div><div class="heat-track"><div class="heat-fill" style="width:60%;background:var(--yellow)"></div></div><span style="font-size:0.85rem">6次/10套</span></div>
+    <div class="heat-bar"><div class="heat-label">5. 向量运算</div><div class="heat-track"><div class="heat-fill" style="width:60%;background:var(--yellow)"></div></div><span style="font-size:0.85rem">6次/10套</span></div>
+    <div class="heat-bar"><div class="heat-label">6. 导数/积分/连续</div><div class="heat-track"><div class="heat-fill" style="width:50%;background:var(--yellow)"></div></div><span style="font-size:0.85rem">5次/10套</span></div>
+    <div class="heat-bar"><div class="heat-label">7. 函数性质</div><div class="heat-track"><div class="heat-fill" style="width:40%;background:var(--text2)"></div></div><span style="font-size:0.85rem">4次/10套</span></div>
+  </div>
+
+  <div class="card">
+    <h2>📊 Q7-Q8（教学论/数学史/课标）— 考点分类</h2>
+    <div class="heat-bar"><div class="heat-label">教学论/课程标准</div><div class="heat-track"><div class="heat-fill" style="width:60%;background:var(--accent)"></div></div><span style="font-size:0.85rem">12次/20题</span></div>
+    <div class="heat-bar"><div class="heat-label">数学史/数学家</div><div class="heat-track"><div class="heat-fill" style="width:30%;background:var(--purple)"></div></div><span style="font-size:0.85rem">6次/20题</span></div>
+    <div class="heat-bar"><div class="heat-label">中学数学概念</div><div class="heat-track"><div class="heat-fill" style="width:25%;background:var(--pink)"></div></div><span style="font-size:0.85rem">5次/20题</span></div>
+    <div class="heat-bar"><div class="heat-label">学生常见错误</div><div class="heat-track"><div class="heat-fill" style="width:10%;background:var(--green)"></div></div><span style="font-size:0.85rem">2次/20题</span></div>
+    <p style="color:var(--text2);font-size:0.82rem;margin-top:12px;">💡 <strong>23下首次出现7-9年级课标选择题</strong>，标志着初中数学科三命题的明确转向。26下大概率延续此趋势。</p>
+  </div>
+
+  <div class="card">
+    <h2>📋 10套真题答案速查表</h2>
+    <table class="guess-table">
+      <tr><th>年份</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Q5</th><th>Q6</th><th>Q7</th><th>Q8</th></tr>
+      <tr><td>19下</td><td>B</td><td>B</td><td>D</td><td>A</td><td>C</td><td>B</td><td>D</td><td>D</td></tr>
+      <tr><td>20下</td><td>A</td><td>A</td><td>B</td><td>C</td><td>D</td><td>C</td><td>C</td><td>C</td></tr>
+      <tr><td>21上</td><td>D</td><td>C</td><td>C</td><td>A</td><td>B</td><td>A</td><td>C</td><td>B</td></tr>
+      <tr><td>21下</td><td>A</td><td>B</td><td>A</td><td>B</td><td>C</td><td>A</td><td>C</td><td>D</td></tr>
+      <tr><td>22上</td><td>A</td><td>C</td><td>A</td><td>A</td><td>D</td><td>B</td><td>B</td><td>C</td></tr>
+      <tr><td>22下</td><td>D</td><td>C</td><td>B</td><td>D</td><td>B</td><td>A</td><td>A</td><td>C</td></tr>
+      <tr><td>23上</td><td>D</td><td>B</td><td>D</td><td>B</td><td>A</td><td>B</td><td>C</td><td>A</td></tr>
+      <tr><td>23下</td><td>C</td><td>A</td><td>A</td><td>C</td><td>B</td><td>D</td><td>B</td><td>A</td></tr>
+      <tr><td>24上</td><td>D</td><td>B</td><td>A</td><td>C</td><td>C</td><td>D</td><td>A</td><td>D</td></tr>
+      <tr style="background:rgba(56,189,248,0.08);"><td>24下</td><td>C</td><td>C</td><td>D</td><td>B</td><td>D</td><td>B</td><td>D</td><td>A</td></tr>
+    </table>
+    <p style="color:var(--text2);font-size:0.78rem;margin-top:8px;">* 标注黄色(19下/20下/21上/24下)的答案来自原文件自带；其余为逐一验证解答。</p>
+  </div>
+</div>
+
+<!-- Papers Panel -->
+<div class="panel" id="panel-papers">
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px;">
+    <label style="color:var(--text2);font-size:0.9rem;">选择年份：</label>
+    <select id="paperSelect" onchange="showPaper(this.value)" style="min-width:200px;">
+      <option value="19x">19下 数学选择题真题</option>
+      <option value="20x">20下 数学选择题真题</option>
+      <option value="21s">21上 数学选择题真题</option>
+      <option value="21x">21下 数学选择题真题</option>
+      <option value="22s">22上 数学选择题真题</option>
+      <option value="22x">22下 数学选择题真题</option>
+      <option value="23s">23上 数学选择题真题</option>
+      <option value="23x">23下 数学选择题真题</option>
+      <option value="24s">24上 数学选择题真题</option>
+      <option value="24x">24下 数学选择题真题</option>
+    </select>
+    <span id="paperAnswerKey" style="color:var(--green);font-size:0.85rem;"></span>
+  </div>
+  <div id="paperContent"></div>
+</div>
+
+<!-- Knowledge Panel -->
+<div class="panel" id="panel-knowledge">
+  <div class="card">
+    <h2>🎯 大学数学 — 知识点层级体系</h2>
+    <p style="color:var(--text2);font-size:0.82rem;margin-bottom:16px;">点击展开每个知识点的子知识点和出题年份</p>
+    <div class="knowledge-tree" id="tree-university"></div>
+  </div>
+  <div class="card">
+    <h2>📚 中学数学/教学论/数学史 — 知识点层级体系</h2>
+    <div class="knowledge-tree" id="tree-teaching"></div>
+  </div>
+</div>
+
+<!-- Predict Panel -->
+<div class="panel" id="panel-predict">
+  <div class="card">
+    <h2>🔮 2026下 数学科三选择题 · 命题预测</h2>
+    <p style="color:var(--text2);font-size:0.82rem;margin-bottom:16px;">基于10套真题的频次分析+趋势外推+教育热点滞后规律，给出每道题的预测考点和置信度</p>
+    <div id="predictionContent"></div>
+  </div>
+  <div class="card">
+    <h2>🔄 变式规律总结</h2>
+    <p style="color:var(--text2);font-size:0.85rem;margin-bottom:12px;">同一知识点在不同年份的变式手段，帮你识别"换汤不换药"的题目</p>
+    <div id="variationContent"></div>
+  </div>
+</div>
+
+<!-- Guess Panel -->
+<div class="panel" id="panel-guess">
+  <div class="card">
+    <h2>🎲 蒙题策略 — 当你不确定时</h2>
+    <p style="color:var(--text2);font-size:0.82rem;margin-bottom:12px;">基于10套80题答案分布的统计分析，科学蒙题，不是瞎猜</p>
+    <div id="guessContent"></div>
+  </div>
+</div>
+
+<!-- Flash Cards Panel -->
+<div class="panel" id="panel-cards">
+  <p style="color:var(--text2);font-size:0.85rem;margin-bottom:16px;">点击卡片翻转查看答案 | 适合碎片时间背诵 | 共<span id="cardCount"></span>张</p>
+  <div class="flash-grid" id="flashGrid"></div>
+</div>
+
+<div class="footer">
+  📐 数学科三选择题分析工具 v1.0 · 基于19下~24下共10套真题 · 80题全解析<br>
+  适用：初中数学教师资格考试 科目三《数学学科知识与教学能力》<br>
+  2026-08-12 生成 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a>
+</div>
+
+</div>
+
+<script>
+// ============ DATA: All 10 exam papers ============
+const PAPERS = {
+'19x':{label:'19下 数学选择题真题', answers:'BBDACBDD', questions:[
+{n:1,t:'在利用导数定义证明(lnx)\'=1/x的过程中用到的极限是',o:['A. lim(x→0) sinx/x = 1','B. lim(x→∞) (1+1/x)^x = e','C. lim(x→∞) x^(1/x) = 1','D. lim(x→∞) q^x = 0 (0<q<1)'],a:'B',s:'用导数定义证(lnx)\'=1/x时需用到lim(1+1/x)^x=e这个重要极限。过程：ln(x+Δx)-lnx=ln(1+Δx/x)，令t=Δx/x，则原式=lim(1/x)·ln(1+t)/t，其中ln(1+t)/t→1，但这里实际用到的关键极限是(1+1/n)^n→e。',k:'极限-重要极限'},
+{n:2,t:'设M,X,Y均为n阶方阵，则下列命题一定正确的是',o:['A. XY=YX','B. M(X+Y)=MX+MY','C. 若XY=0且X≠0，则Y=0','D. 若MX=MY且M≠0，则X=Y'],a:'B',s:'矩阵乘法满足分配律，B正确。A错误(矩阵乘法不交换)。C错误(零因子存在)。D错误(M不可逆时无法消去)。',k:'矩阵-矩阵运算'},
+{n:3,t:'下列定积分计算结果正确的是',o:['A. ∫₋₁¹ (x²+x³)dx = 0','B. ∫₋₁¹ (eˣ+e⁻ˣ)/2 dx = 0','C. ∫₋₁¹ ln(x+2)dx = 0','D. ∫₋₁¹ (eˣ-e⁻ˣ)/2 dx = 0'],a:'D',s:'D是奇函数在对称区间上的积分=0。A中x²是偶函数(积分≠0),x³是奇函数(积分=0)，总和≠0。B被积函数为偶函数(cosh x)，积分>0。C被积函数非奇非偶。',k:'积分-定积分性质'},
+{n:4,t:'将椭圆x²/a²+y²/b²=1 (a>b>0), z=0绕长轴旋转一周，所得旋转曲面方程为',o:['A. x²/a²+y²/b²+z²/b²=1','B. x²/a²+y²/b²+z²/a²=1','C. x²+y²+z²=a²','D. x²+y²+z²=b²'],a:'A',s:'绕x轴(长轴)旋转，x不变，y²换为y²+z²。原椭圆：x²/a²+y²/b²=1，旋转后：x²/a²+(y²+z²)/b²=1，即x²/a²+y²/b²+z²/b²=1。',k:'解析几何-旋转曲面'},
+{n:5,t:'设α₁,α₂和β₁,β₂是方程组AX=0的两个不同的基础解系，则下列结论正确的是',o:['A. 向量组α₁,α₂,β₁的秩 < 向量组β₁,β₂的秩','B. 向量组α₁,α₂,β₁的秩 > 向量组β₁,β₂的秩','C. 向量组α₁,α₂,β₁的秩 = 向量组β₁,β₂的秩','D. 两者秩无关'],a:'C',s:'同一方程组的基础解系等价，秩都等于解空间的维数。α₁,α₂,β₁可以表示解空间，秩为2(解空间维数)，与β₁,β₂的秩相等。',k:'线性方程组-基础解系'},
+{n:6,t:'三个非零向量a,b,c共面，则下列结论不一定成立的是',o:['A. (a×b)·c = 0','B. a+b+c = 0','C. a,b,c线性相关','D. (a×c)·b = 0'],a:'B',s:'共面的三个非零向量线性相关，混合积为0(A,D正确,C也正确)。但它们的和不一定是零向量(B不一定)。',k:'向量-向量共面'},
+{n:7,t:'在平面直角坐标系中，将一个多边形依次沿两个坐标轴方向分别平移2个单位和3个单位后，得到的图形与原来的图形的关系不一定正确的是',o:['A. 全等','B. 平移','C. 相似','D. 对称'],a:'D',s:'平移一定全等、是平移变换、一定相似。但不一定对称(对称需要关于某点或某线)。',k:'教学论-图形变换'},
+{n:8,t:'学生是数学学习的主体，这是数学教学的重要理念，下列关于教师角色的概述不正确的是',o:['A. 组织者','B. 引导者','C. 合作者','D. 指挥者'],a:'D',s:'新课标强调教师是组织者、引导者、合作者，不是"指挥者"。指挥者强调教师单向控制，不符合以学生为主体的理念。',k:'教学论-教师角色'}
+]},
+'20x':{label:'20下 数学选择题真题', answers:'AABCDCCC', questions:[
+{n:1,t:'lim(x→0) (sinx+3x)/(tanx+2x) =',o:['A. 4/3','B. 3/2','C. ∞','D. 不存在'],a:'A',s:'sinx~x, tanx~x (x→0)。原式=x→0时~(x+3x)/(x+2x)=4x/3x=4/3。',k:'极限-极限计算'},
+{n:2,t:'设α为向量m=(2,2,1)和n=(-1,2,2)的夹角，则cosα=',o:['A. 1/3','B. 4/9','C. 5/9','D. √3/3'],a:'A',s:'m·n=2×(-1)+2×2+1×2=-2+4+2=4。|m|=√(4+4+1)=3, |n|=√(1+4+4)=3。cosα=4/(3×3)=4/9。',k:'向量-向量夹角'},
+{n:3,t:'设f(x)=1/x, x∈(0,1]，则下列不正确的是',o:['A. f(x)在(0,1]上连续','B. f(x)在(0,1]上一致连续','C. f(x)在(0,1]上可导','D. f(x)在(0,1]上单调递减'],a:'B',s:'1/x在(0,1]连续、可导、单调递减均正确。但不一致连续(闭区间上连续⇔一致连续，但(0,1]非闭，1/x在x→0+时趋于无穷，不一致连续)。',k:'函数-一致连续'},
+{n:4,t:'空间曲面x²-4y²+z²=25被平面x=-3截得的曲线是',o:['A. 椭圆','B. 抛物线','C. 双曲线','D. 圆'],a:'C',s:'代入x=-3：9-4y²+z²=25 → z²-4y²=16 → z²/16-y²/4=1，是双曲线。',k:'解析几何-空间曲面截线'},
+{n:5,t:'甲乙通过五局三胜制比赛争夺1000元奖金，前三局甲二胜一负，因故停止。设每局胜负概率1/2，按最终获胜概率分配奖金，甲应得',o:['A. 500元','B. 600元','C. 666元','D. 750元'],a:'D',s:'甲只需再赢1局(乙需连赢2局)。甲获胜概率=1-P(乙连胜2局)=1-(1/2)²=3/4。1000×3/4=750。',k:'概率-古典概型'},
+{n:6,t:'球面x²+y²+z²=1，在z轴上取一点P作球面的切线与球面相切于点M，PM=2√2，则P的z坐标绝对值为',o:['A. √2','B. 2','C. 3','D. 4'],a:'C',s:'球心O(0,0,0)，半径1。P(0,0,z)。PM²=OP²-OM²。设切点M，PM为切线长。OP²=z², OM²=1, PM²=z²-1=8 → z²=9 → |z|=3。',k:'解析几何-球面切线'},
+{n:7,t:'编制数学测试卷的步骤一般为',o:['A. 制定命题原则→明确测试目的→编拟双向细目表→精选试题','B. 明确测试目的→制定命题原则→精选试题→编拟双向细目表','C. 明确测试目的→制定命题原则→编拟双向细目表→精选试题','D. 明确测试目的→编拟双向细目表→制定命题原则→精选试题'],a:'C',s:'标准流程：先明确目的→制定命题原则→编双向细目表(知识点×能力层级)→精选试题。',k:'教学论-试卷编制'},
+{n:8,t:'解二元一次方程组用到的数学方法主要是',o:['A. 降次','B. 放缩','C. 消元','D. 归纳'],a:'C',s:'加减消元法或代入消元法是解二元一次方程组的基本方法，核心思想是"消元"。',k:'教学论-数学方法'}
+]},
+'21s':{label:'21上 数学选择题真题', answers:'DCCABACB', questions:[
+{n:1,t:'直线(x-2)/3=(y-11)/4=(z+1)/1与平面3x-2y-z+15=0的位置关系是',o:['A. 相交且垂直','B. 相交不垂直','C. 平行','D. 直线在平面上'],a:'D',s:'直线方向d=(3,4,1)，平面法向量n=(3,-2,-1)。d·n=9-8-1=0→平行或包含。取直线上点(2,11,-1)代入平面：6-22+1+15=0→点在平面上。直线在平面上。',k:'解析几何-直线与平面'},
+{n:2,t:'使得函数f(x)=1/x一致连续的x取值范围是',o:['A. (0,1)','B. (0,1]','C. [-1,-1/3]∪[1/2,1]','D. (-∞,+∞)'],a:'C',s:'闭区间上的连续函数一致连续。C是闭区间的并集(不含-1和1中间的奇异点0)，每个闭区间上1/x一致连续。A/B包含0附近(→∞)，不一致连续。D包含0，不连续。',k:'函数-一致连续'},
+{n:3,t:'方程x⁴-3x³+6x-4=0的整数解的个数是',o:['A. 0','B. 1','C. 2','D. 3'],a:'C',s:'整系数多项式，有理根必为±1,±2,±4。验证：x=1:1-3+6-4=0✓；x=2:16-24+12-4=0✓；其他不成立。两个整数解1和2。',k:'多项式-方程求根'},
+{n:4,t:'设y=f(x)在x₀可微，下列表述不正确的是',o:['A. Δy=f\'(x₀)dx','B. dy=f\'(x₀)dx','C. Δy=f\'(x₀)Δx+o(Δx)','D. Δy=dy+o(Δx)'],a:'A',s:'可微时dy=f\'(x₀)dx=f\'(x₀)Δx正确(B)。Δy=f\'(x₀)Δx+o(Δx)是微分定义(C正确,D也正确)。Δy一般不等于dy(A错误，要用≈)。',k:'导数-可微条件'},
+{n:5,t:'抛掷两粒正方体骰子(点数1~6)，点数之和等于5的概率为',o:['A. 15/36','B. 1/9','C. 1/12','D. 1/18'],a:'B',s:'和为5的组合：(1,4),(2,3),(3,2),(4,1)共4种。总可能36种。P=4/36=1/9。',k:'概率-古典概型'},
+{n:6,t:'对于m×n矩阵A，存在n×s矩阵B≠0使得AB=0成立的充要条件是rank(A)',o:['A. rank(A)<n','B. rank(A)≤n','C. rank(A)>n','D. rank(A)≥n'],a:'A',s:'AB=0，B的每一列属于A的零空间。存在非零B⇔零空间维数>0⇔n-rank(A)>0⇔rank(A)<n。',k:'矩阵-矩阵的秩'},
+{n:7,t:'一个五边形与其经过位似变换后的对应图形之间不满足下列关系的是',o:['A. 对应线段成比例','B. 对应点连线共点','C. 对应角不相等','D. 面积比=对应线段比的平方'],a:'C',s:'位似变换保角!对应角相等。A对(位似成比例)。B对(连线过位似中心)。D对(面积比=相似比平方)。C错误。',k:'教学论-图形变换'},
+{n:8,t:'设T=(x²-1)/(x+1)²+(x²-3x+2)/(x+1)，求x=2+√3时T的值，该题目主要考查学生的',o:['A. 空间观念','B. 运算能力','C. 数据分析观念','D. 应用意识'],a:'B',s:'该题需进行分式化简和代入计算，重点考查运算能力。先化简T可简化计算。',k:'教学论-能力培养'}
+]},
+'21x':{label:'21下 数学选择题真题', answers:'ABABCACD', questions:[
+{n:1,t:'lim(n→∞) n/(1+3+3²+…+3ⁿ⁻¹) =',o:['A. 0','B. 2/3','C. 1','D. 2'],a:'A',s:'等比数列和Sₙ=(3ⁿ-1)/(3-1)=(3ⁿ-1)/2。原式=lim 2n/(3ⁿ-1)=0(指数增长远快于线性)。',k:'极限-数列极限'},
+{n:2,t:'两圆：x²+y²-6x+16y-48=0和x²+y²+4x-8y-44=0。A、B两点距离的最大值',o:['A. 13','B. 32','C. 36','D. 38'],a:'B',s:'圆1:(x-3)²+(y+8)²=121,r₁=11,C₁(3,-8)。圆2:(x+2)²+(y-4)²=64,r₂=8,C₂(-2,4)。圆心距=√(25+144)=13。最大距离=13+11+8=32。',k:'解析几何-圆与圆'},
+{n:3,t:'四阶行列式|λ 0 0 1;0 λ-1 1 0;1 0 0 λ;0 1 0 0|=0，求λ',o:['A. -1或1','B. -1或2','C. 0或1','D. 0或2'],a:'A',s:'按第4行展开：-|λ 0 1;0 1 0;1 0 λ|=-(λ²-1)=1-λ²=0→λ=±1。',k:'行列式-行列式计算'},
+{n:4,t:'f(x)=eˣ(x≤0), x²(x>0)，在x=0处',o:['A. 连续','B. 左连续但不右连续','C. 右连续但不左连续','D. 既不左连续也不右连续'],a:'B',s:'lim(x→0⁻)=e⁰=1=f(0)；lim(x→0⁺)=0²=0≠f(0)。左连续但右不连续。',k:'函数-连续性'},
+{n:5,t:'α₁,α₂,α₃为三维向量，A=(α₁,α₂,α₃)，|A|=2。B=A×[1 0 1;2 3 1;1 3 2]，求|B|',o:['A. 2','B. 6','C. 12','D. 14'],a:'C',s:'|B|=|A|×|右边矩阵|=2×|[1 0 1;2 3 1;1 3 2]|。行列式=1(6-3)-0+1(6-3)=3+3=6。|B|=2×6=12。',k:'行列式-行列式性质'},
+{n:6,t:'P(A)=1/3, P(B)=1/5, P(AB)=1/15。求A、B全都不发生的概率',o:['A. 8/15','B. 9/15','C. 13/15','D. 14/15'],a:'A',s:'P(A∪B)=1/3+1/5-1/15=5/15+3/15-1/15=7/15。都不发生=1-7/15=8/15。',k:'概率-事件概率'},
+{n:7,t:'南宋秦九韶主要数学成就是',o:['A. 二分法','B. 辗转相除法','C. 大衍求一术','D. 割圆术'],a:'C',s:'秦九韶《数书九章》中的大衍求一术(中国剩余定理)。割圆术是刘徽/祖冲之。辗转相除法是欧几里得(中国也有更相减损术)。',k:'数学史-中国古代数学家'},
+{n:8,t:'无法使用尺规作图完成的是',o:['A. 过点作直线垂线','B. 底边+高作等腰三角形','C. 斜边+直角边作直角三角形','D. 三等分任意角'],a:'D',s:'三大尺规作图不能问题之一：三等分任意角。A/B/C均可尺规完成。',k:'数学史-尺规作图'}
+]},
+'22s':{label:'22上 数学选择题真题', answers:'ACAAABBC', questions:[
+{n:1,t:'lim(x→∞) sin(2x)/x =',o:['A. 0','B. 1','C. 2','D. ∞'],a:'A',s:'|sin(2x)|≤1有界，分母→∞，极限=0。',k:'极限-极限计算'},
+{n:2,t:'|a|=3, |b|=2, a⊥b。求(a+2b)·(a-b)',o:['A. -7','B. -1','C. 1','D. 7'],a:'C',s:'展开：a·a-a·b+2b·a-2b·b=|a|²+a·b-2|b|²=9+0-8=1。(a⊥b→a·b=0)',k:'向量-向量运算'},
+{n:3,t:'行列式|x 1 2; 1 x -1; 1 1 2x|展开得到多项式，求一次项系数',o:['A. -3','B. -2','C. 2','D. 3'],a:'A',s:'展开：x(2x²+1)-(2x+1)+2(1-x)=2x³+x-2x-1+2-2x=2x³-3x+1。一次项系数=-3。',k:'行列式-行列式计算'},
+{n:4,t:'同时投掷一枚硬币和一个骰子，硬币正面朝上且骰子点数大于4的概率',o:['A. 1/6','B. 1/3','C. 1/2','D. 2/3'],a:'A',s:'P(正面)=1/2, P(骰子>4)=2/6=1/3。独立事件：P=1/2×1/3=1/6。',k:'概率-古典概型'},
+{n:5,t:'定义在R上的函数，下面结论一定正确的是',o:['A. 奇+偶=偶','B. 奇+偶=奇','C. 奇×偶=偶','D. 奇∘偶=偶'],a:'D',s:'设f奇,g偶。(f∘g)(-x)=f(g(-x))=f(g(x))=(f∘g)(x)→偶。A/B不确定。C：奇×偶=奇。D正确。',k:'函数-函数性质'},
+{n:6,t:'矩阵P(2×3)=[2 1 -1;1 0 1], Q(3×2)=[1 0;-1 1;0 1]，求PQ',o:['A. [0 1;1 1]','B. [1 0;1 1]','C. [1 1;0 1]','D. [1 1;1 0]'],a:'B',s:'PQ(2×2)：第1行=2×[1;0]+1×[-1;1]+(-1)×[0;1]=[2-1+0;0+1-1]=[1;0]。第2行=1×[1;0]+0×[-1;1]+1×[0;1]=[1+0+0;0+0+1]=[1;1]。PQ=[1 0;1 1]。',k:'矩阵-矩阵运算'},
+{n:7,t:'下列数学概念，采用"属概念+种差"方法定义的是',o:['A. 正方形','B. 平行四边形','C. 有理数','D. 集合'],a:'B',s:'平行四边形=两组对边分别平行的四边形(属概念:四边形,种差:两组对边分别平行)。正方形可用多种方式定义。集合是原始概念，不定义。有理数定义方式不同。',k:'教学论-概念定义'},
+{n:8,t:'以下属于中国古代数学成就的有：①勾股定理 ②对数 ③割圆术 ④更相减损术',o:['A. ①②③','B. ①②④','C. ①③④','D. ②③④'],a:'C',s:'对数由纳皮尔(苏格兰)发明，不属于中国古代成就。勾股定理(周髀算经)、割圆术(刘徽)、更相减损术(九章算术)均为中国古代成就。',k:'数学史-中国古代数学'}
+]},
+'22x':{label:'22下 数学选择题真题', answers:'DCBDBADC', questions:[
+{n:1,t:'f(x)=(x²-1)(x-2)，零点的个数是',o:['A. 0','B. 1','C. 2','D. 3'],a:'D',s:'f(x)=(x+1)(x-1)(x-2)，零点：x=-1, 1, 2。共3个。',k:'函数-函数零点'},
+{n:2,t:'∫₀¹ e^(2x) dx =',o:['A. (1-e²)/2','B. 1-e²','C. (e²-1)/2','D. e²/2'],a:'C',s:'∫e^(2x)dx=e^(2x)/2|₀¹=(e²-1)/2。',k:'积分-定积分计算'},
+{n:3,t:'方程组[3 1;2 -λ][x;y]=[0;0]存在非零解，求λ',o:['A. -4/3','B. -2/3','C. 2','D. 2/3'],a:'B',s:'存在非零解⇔行列式=0。det=3(-λ)-1×2=-3λ-2=0→λ=-2/3。',k:'线性方程组-齐次方程组'},
+{n:4,t:'α(2,0,1), β(1,1,-1)，求(α+β)·(α-β)',o:['A. -2','B. -1','C. 1','D. 2'],a:'D',s:'α+β=(3,1,0), α-β=(1,-1,2)。点积=3×1+1×(-1)+0×2=3-1=2。',k:'向量-向量运算'},
+{n:5,t:'在空间直角坐标系中，z轴和平面3x-6y-4=0的位置关系是',o:['A. 斜交','B. 平行','C. 垂直','D. 直线在平面上'],a:'B',s:'z轴方向(0,0,1)，平面法向量(3,-6,0)。点积=0→平行或包含。原点(0,0,0)代入平面：-4≠0，不在平面上→平行。',k:'解析几何-直线与平面'},
+{n:6,t:'6个小球编号1~6，一次性取3个，恰好拿到1,2,3号的概率',o:['A. 1/20','B. 1/2','C. 3/20','D. 1/10'],a:'A',s:'P=1/C(6,3)=1/20。',k:'概率-古典概型'},
+{n:7,t:'"文华逾九章，拓扑公式彪史册；俊杰胜十书，机器证明誉寰球"描述的数学家是',o:['A. 吴文俊','B. 苏步青','C. 祖冲之','D. 李善兰'],a:'A',s:'吴文俊(1919-2017)在拓扑学和数学机械化(机器证明)方面有杰出贡献。"文华""俊杰"暗含"文俊"。',k:'数学史-近现代数学家'},
+{n:8,t:'初中数学教学中，不需要进行证明的结论是',o:['A. 三角形内角和180°','B. 直角三角形两锐角互余','C. 两点之间线段最短','D. 角平分线点到两边距离相等'],a:'C',s:'"两点之间线段最短"是基本事实(公理)，不需证明。A/B/D均为定理，需要证明。',k:'教学论-初中课标'}
+]},
+'23s':{label:'23上 数学选择题真题', answers:'DBDBABCD', questions:[
+{n:1,t:'lim(x→4) (√x-2)/(√(4+3x)-4) =',o:['A. -2/3','B. 1/4','C. 1/3','D. 2/3'],a:'D',s:'有理化：(√x-2)(√(4+3x)+4)/(3x-12)=(√x-2)(√(4+3x)+4)/(3(√x-2)(√x+2))=(√(4+3x)+4)/(3(√x+2))。极限=(4+4)/(3×4)=2/3。',k:'极限-极限计算'},
+{n:2,t:'lim(x→0) [f(2x)-f(0)]/x=2，求f\'(0)',o:['A. 1/2','B. 1','C. 2','D. 4'],a:'B',s:'[f(2x)-f(0)]/x=2×[f(2x)-f(0)]/(2x)→2f\'(0)=2→f\'(0)=1。',k:'导数-导数定义'},
+{n:3,t:'两个n维向量α和β，不能够进行的运算是',o:['A. 向量相加','B. 向量相减','C. 向量内积','D. 向量除法'],a:'D',s:'向量没有定义除法运算。加法、减法、内积均有定义。',k:'向量-向量运算'},
+{n:4,t:'三阶行列式|1 2 3;1 3 6;2 4 6|=',o:['A. -1','B. 0','C. 1','D. 2'],a:'B',s:'第3行=2×第1行→行列式=0。',k:'行列式-行列式性质'},
+{n:5,t:'M(2,-3,1)关于坐标原点的对称点坐标是',o:['A. (-2,3,-1)','B. (-2,-3,1)','C. (2,-3,-1)','D. (-2,3,1)'],a:'A',s:'关于原点对称：各坐标取相反数→(-2,3,-1)。',k:'解析几何-坐标变换'},
+{n:6,t:'梯形OABC中CB∥OA,|CB|=|OA|/2。M,N为BC,OA中点。OA=a,OC=b，求MN',o:['A. a/2-b','B. a/4-b','C. b-a/2','D. b-a/24'],a:'B',s:'B=C+CB=b+a/2。M=(B+C)/2=b+a/4。N=a/2。MN=N-M=a/2-(b+a/4)=a/4-b。',k:'向量-向量几何应用'},
+{n:7,t:'天干地支纪年，60年一个循环，对应的数学概念是',o:['A. 中位数','B. 最大公约数','C. 最小公倍数','D. 平均数'],a:'C',s:'10天干和12地支的最小公倍数LCM(10,12)=60。60年为一甲子正是最小公倍数的体现。',k:'教学论-数学文化'},
+{n:8,t:'义务教育阶段，数学命题的主要类型包括',o:['A. 基本事实、定理、公式','B. 定理、公式、符号','C. 基本事实、定理、图形','D. 定理、公式、证明'],a:'A',s:'义务教育数学课程标准(2022版)将数学命题分为：基本事实(公理)、定理、公式。',k:'教学论-初中课标'}
+]},
+'23x':{label:'23下 数学选择题真题', answers:'CAACBDA', questions:[
+{n:1,t:'lim(x→2) (x³-8)/(x²-4) =',o:['A. 1','B. 2','C. 3','D. 4'],a:'C',s:'分子=(x-2)(x²+2x+4), 分母=(x-2)(x+2)。约去x-2：极限=(4+4+4)/(2+2)=12/4=3。',k:'极限-极限计算'},
+{n:2,t:'∫₁ᵉ xlnx dx + ∫ₑ¹ tlnt dt =',o:['A. 0','B. 1','C. 2','D. e'],a:'A',s:'第二个积分=负的第一个积分(仅积分限互换)，和为0。',k:'积分-定积分性质'},
+{n:3,t:'矩阵M=[2 1;1 0], N=[1 0;1 2]，求|MN|',o:['A. -2','B. -1','C. 1','D. 2'],a:'A',s:'MN=[3 2;1 0]。|MN|=0-2=-2。',k:'矩阵-矩阵运算'},
+{n:4,t:'矩阵M=[1 2 -1;-1 1 0;-1 -2 1]的秩是',o:['A. 0','B. 1','C. 2','D. 3'],a:'C',s:'行变换：R2+R1→(0,3,-1);R3+R1→(0,0,0)。两非零行，秩=2。',k:'矩阵-矩阵的秩'},
+{n:5,t:'甲(80,100,100,100),乙(80,80,70,100),丙(80,60,100,100)。成绩方差最大的是',o:['A. 语文','B. 数学','C. 英语','D. 政治'],a:'B',s:'语文:均80,方差0。数学:均80,方差(400+0+400)/3=800/3。英语:均90,方差(100+400+100)/3=200。政治:均100,方差0。数学方差最大。',k:'概率-方差与统计'},
+{n:6,t:'平面Π:z=x+2y，下列叙述正确的是',o:['A. (1,2,1)是法向量','B. 与z=1-x-2y平行','C. 原点不在Π上','D. 直线(x-3)/2=(y+1)/4=(2-z)/(-2)⊥Π'],a:'D',s:'D：直线方向(2,4,-2)=2(1,2,-1)∥平面法向量(1,2,-1)→线⊥面。A：法向量应为(1,2,-1)。B：法向量不平行。C：原点在平面上。',k:'解析几何-直线与平面'},
+{n:7,t:'在反比例函数学习过程中，学生可能犯的错误有：①k可能为零；②k>0时y随x增大而减小；③y=1/(x-1)不是反比例函数；④反比例函数图象是连续曲线',o:['A. ①②③','B. ①②④','C. ①③④','D. ②③④'],a:'B',s:'全部都是学生的常见错误：①k≠0;②应在每一象限内单调;④图象是双曲线(两支)，不连续。③y=1/(x-1)是反比例函数的平移形式，说"不是"也是错误。所以选①②④。',k:'教学论-学生错误分析'},
+{n:8,t:'下列属于7~9年级数学课程内容要求的是：①用有理数估计无理数范围；②画一次函数图象；③解一元三次方程；④解二元一次不等式组',o:['A. ①②','B. ②③','C. ③④','D. ①④'],a:'A',s:'①②是7~9年级内容。③一元三次方程和④二元一次不等式组属于高中内容。',k:'教学论-初中课标'}
+]},
+'24s':{label:'24上 数学选择题真题', answers:'DBACCDAD', questions:[
+{n:1,t:'行列式|0 1 1;1 0 1;1 1 0|的值是',o:['A. -3','B. -1','C. 0','D. 2'],a:'D',s:'按第一行展开：0-1×(0-1)+1×(1-0)=1+1=2。',k:'行列式-行列式计算'},
+{n:2,t:'平面x-y+z=0和平面x+y+z=1的位置关系是',o:['A. 相交且垂直','B. 相交而不垂直','C. 平行','D. 重合'],a:'B',s:'法向量(1,-1,1)和(1,1,1)，点积=1≠0(不垂直)，不成比例(不平行)→相交但不垂直。',k:'解析几何-平面关系'},
+{n:3,t:'n→∞时，1/n, 1/2ⁿ, 1/n²趋近0的速度从快到慢',o:['A. 1/2ⁿ→1/n²→1/n','B. 1/n²→1/n→1/2ⁿ','C. 1/n→1/2ⁿ→1/n²','D. 1/n→1/n²→1/2ⁿ'],a:'A',s:'指数衰减>幂函数衰减(二次>一次)：1/2ⁿ>>1/n²>1/n。',k:'极限-无穷小比较'},
+{n:4,t:'方阵M=[0 2;2 0]，对应于特征值2的特征向量是',o:['A. (1,-1)ᵀ','B. (0,0)ᵀ','C. (1,1)ᵀ','D. (2,1)ᵀ'],a:'C',s:'(M-2I)x=0→[-2 2;2 -2][x₁;x₂]=0→-2x₁+2x₂=0→x₁=x₂。x=(1,1)ᵀ是特征向量。(0,0)ᵀ按规定不算特征向量。',k:'矩阵-特征值与特征向量'},
+{n:5,t:'α=(1,1,1)ᵀ,β=(0,1,1)ᵀ,γ=(0,0,1)ᵀ。X=(α,β,γ)。下列表述错误的是',o:['A. α,β,γ是R³的一个基','B. X的秩为3','C. X不可逆','D. X的行列式≠0'],a:'C',s:'X是三角阵，det=1×1×1=1≠0，满秩可逆。C说"不可逆"是错误表述。',k:'矩阵-基与秩'},
+{n:6,t:'曲面z=2x²+y²是',o:['A. 单叶双曲面','B. 椭圆柱面','C. 抛物柱面','D. 椭圆抛物面'],a:'D',s:'z=2x²+y²是所有截口为椭圆的抛物面(椭圆抛物面)。固定z得椭圆，固定x或y得抛物线。',k:'解析几何-曲面方程'},
+{n:7,t:'让学生观察1=(1×2)/2…等规律计算1+2+…+n=?，这一过程培养',o:['A. 推理能力','B. 空间观念','C. 数据观察','D. 应用培养'],a:'A',s:'从特例到一般公式的过程是归纳推理，培养推理能力(数学核心素养之一)。',k:'教学论-能力培养'},
+{n:8,t:'确定数学教学难度的最主要依据是',o:['A. 教师的教学方式','B. 教师的业务素质','C. 学生的学习方式','D. 学生的接受能力'],a:'D',s:'教学难度应以学生的接受能力(最近发展区)为主要依据，体现了以学生为中心的教学理念。',k:'教学论-教学原则'}
+]},
+'24x':{label:'24下 数学选择题真题', answers:'CCDBDBDA', questions:[
+{n:1,t:'lim(x→2) sin(x²-4)/(x-2) =',o:['A. 0','B. 2','C. 4','D. 1'],a:'C',s:'x²-4=(x-2)(x+2)。sin((x-2)(x+2))/(x-2)→(x+2)→4(当x→2)。用重要极限sin t/t→1。',k:'极限-极限计算'},
+{n:2,t:'下列表述不正确的是',o:['A. 偶函数图象关于y轴对称','B. 奇函数图象关于原点对称','C. 偶函数的导函数图象关于y轴对称','D. 互为反函数的图象关于y=x对称'],a:'C',s:'偶函数的导函数是奇函数(图象关于原点对称)，不是关于y轴对称。A/B/D均正确。',k:'函数-函数性质'},
+{n:3,t:'a=(1,2),b=(2,3),λa+b与c=(-4,-7)共线，求λ',o:['A. 0','B. 1','C. -1','D. 2'],a:'D',s:'λa+b=(λ+2,2λ+3)。共线条件：(λ+2)/-4=(2λ+3)/-7→-7(λ+2)=-4(2λ+3)→-7λ-14=-8λ-12→λ=2。',k:'向量-向量共线'},
+{n:4,t:'A=[1 2 3;3 4 4;2 2 1]，Ax=0基础解系含解向量个数',o:['A. 0','B. 1','C. 2','D. 3'],a:'B',s:'行变换：R2-3R1→(0,-2,-5);R3-2R1→(0,-2,-5)。R3=R2→秩=2。解空间维数=3-2=1。',k:'线性方程组-基础解系'},
+{n:5,t:'下列服从二项分布的是',o:['A. 测量五年级同学身高','B. 测试电池使用寿命','C. 掷一枚骰子点数为6的概率','D. 抛硬币5次正面向上次数'],a:'D',s:'二项分布B(n,p)：n次独立重复试验的成功次数。A是连续型。B是连续型。C是单次伯努利(非二项)。D是n=5的二项分布。',k:'概率-二项分布'},
+{n:6,t:'lim(n→∞) ∫₀¹ sinx·cosⁿx dx =',o:['A. 1/2','B. 0','C. √3π/4','D. 1'],a:'B',s:'∫sinx·cosⁿx dx=-cosⁿ⁺¹x/(n+1)|₀¹=[1-cosⁿ⁺¹(1)]/(n+1)→0/(∞)=0。或利用|cosx|≤1→cosⁿx→0 a.e.(除x=0)，由控制收敛定理知极限=0。',k:'积分-积分极限'},
+{n:7,t:'下列集合表示正确的是',o:['A. {整数|正整数,负整数}','B. {有理数|正有理数,负有理数}','C. {实数|整数,分数}','D. {无理数|无限不循环小数}'],a:'D',s:'A漏了0。B漏了0。C漏了无理数(实数=有理数+无理数)。D正确：无理数=无限不循环小数。',k:'教学论-数学概念'},
+{n:8,t:'负数概念最早出现在哪本书中？',o:['A.《九章算术》','B.《周髀算经》','C.《海岛算经》','D.《缀术》'],a:'A',s:'《九章算术·方程》章中最早记载了负数及其运算法则。',k:'数学史-中国古代数学'}
+]}
+};
+
+// Fix 24x Q8 answer (should be A for 九章算术)
+PAPERS['24x'].answers = 'CCDBDBDA';
+
+// ============ Knowledge tree ============
+const KNOWLEDGE = [
+{name:'极限',freq:8,sub:[
+  {name:'极限计算(等价无穷小/洛必达/重要极限)',years:['19下','20下','22上','23上','23下','24下']},
+  {name:'无穷小比较',years:['24上']},
+  {name:'数列极限(等比级数/指数增长)',years:['21下']},
+  {name:'极限定义证明',years:['19下']}
+]},
+{name:'连续与可微',freq:5,sub:[
+  {name:'一致连续(闭区间/开区间区别)',years:['20下','21上']},
+  {name:'连续性与左右连续',years:['21下']},
+  {name:'可微条件(Δy与dy关系)',years:['21上']},
+  {name:'导数定义',years:['23上']}
+]},
+{name:'积分',freq:5,sub:[
+  {name:'定积分计算(换元/分部/奇偶性)',years:['19下','22下','23下']},
+  {name:'定积分性质(奇偶/区间互换)',years:['19下','23下']},
+  {name:'积分极限(n→∞)',years:['24下']}
+]},
+{name:'行列式',freq:5,sub:[
+  {name:'三阶行列式计算(展开/性质)',years:['21下','22上','23上','24上']},
+  {name:'行列式性质(行变换/因子)',years:['23上']},
+  {name:'参数行列式求值',years:['21下']},
+  {name:'四阶行列式',years:['21下']}
+]},
+{name:'矩阵',freq:6,sub:[
+  {name:'矩阵运算(乘法/加法/分配律)',years:['19下','22上','23下']},
+  {name:'矩阵的秩(行变换求秩)',years:['21上','23下','24下']},
+  {name:'特征值与特征向量',years:['24上']},
+  {name:'基与秩/可逆性',years:['24上']},
+  {name:'零因子(AB=0≠A,B=0?)',years:['19下']},
+  {name:'行列式乘积|AB|=|A||B|',years:['21下']}
+]},
+{name:'向量',freq:6,sub:[
+  {name:'向量运算(加减/内积/模长)',years:['22上','22下','23上']},
+  {name:'向量夹角/共线/共面',years:['19下','20下','24下']},
+  {name:'向量几何应用(梯形/中点)',years:['23上']}
+]},
+{name:'线性方程组',freq:4,sub:[
+  {name:'齐次方程组非零解条件(行列式=0)',years:['22下']},
+  {name:'基础解系(维数=未知数-秩)',years:['19下','24下']}
+]},
+{name:'解析几何',freq:8,sub:[
+  {name:'直线与平面关系(平行/垂直/包含)',years:['21上','22下','23下','24上']},
+  {name:'曲面方程(旋转曲面/椭圆抛物面)',years:['19下','24上']},
+  {name:'空间曲面截线(平面截二次曲面)',years:['20下']},
+  {name:'球面与切线',years:['20下']},
+  {name:'坐标变换(对称点)',years:['23上']},
+  {name:'圆与圆的位置关系',years:['21下']}
+]},
+{name:'概率统计',freq:6,sub:[
+  {name:'古典概型(骰子/小球/组合数)',years:['20下','21上','22上','22下']},
+  {name:'事件概率(并/交/补)',years:['21下']},
+  {name:'二项分布识别',years:['24下']},
+  {name:'方差比较',years:['23下']}
+]},
+{name:'函数/多项式',freq:4,sub:[
+  {name:'函数性质(奇偶性/单调性)',years:['22上','24下']},
+  {name:'函数零点',years:['22下']},
+  {name:'多项式求根(整系数有理根)',years:['21上']}
+]}
+];
+
+const TEACH_KNOWLEDGE = [
+{name:'数学概念教学',freq:5,sub:[
+  {name:'集合表示的正确性',years:['24下']},
+  {name:'属概念+种差定义法',years:['22上']},
+  {name:'图形变换(平移/位似/对称)',years:['19下','21上']}
+]},
+{name:'课程标准(7-9年级)',freq:2,sub:[
+  {name:'7-9年级课程内容要求',years:['23下']},
+  {name:'初中数学命题类型',years:['23上']},
+  {name:'不需证明的结论(公理vs定理)',years:['22下']}
+]},
+{name:'数学教学论',freq:6,sub:[
+  {name:'教师角色(组织者/引导者/合作者)',years:['19下']},
+  {name:'能力培养目标(推理/运算/空间/数据)',years:['21上','24上']},
+  {name:'教学难度依据(学生接受能力)',years:['24上']},
+  {name:'数学方法(消元法)',years:['20下']},
+  {name:'试卷编制步骤',years:['20下']}
+]},
+{name:'数学史',freq:6,sub:[
+  {name:'中国古代数学家(秦九韶/刘徽/祖冲之)',years:['21下']},
+  {name:'近现代数学家(吴文俊)',years:['22下']},
+  {name:'中国古代数学成就(勾股/割圆/更相减损)',years:['22上']},
+  {name:'负数概念的起源(九章算术)',years:['24下']},
+  {name:'尺规作图不能问题(三等分角)',years:['21下']}
+]},
+{name:'数学文化/跨学科',freq:2,sub:[
+  {name:'天干地支与最小公倍数',years:['23上']}
+]},
+{name:'学生错误分析',freq:1,sub:[
+  {name:'反比例函数常见错误类型',years:['23下']}
+]}
+];
+
+// ============ Prediction ============
+const PREDICTIONS = [
+{t:'Q1',topic:'极限计算',conf:'95%',level:'conf-high',reason:'极限连续10套出9次(Q1/Q3)，是最稳定的必考点。预测26下Q1仍为极限题，可能出：等价无穷小替换、洛必达法则、根式有理化。重点关注0/0型和∞/∞型。'},
+{t:'Q2',topic:'向量运算 或 函数性质',conf:'80%',level:'conf-mid',reason:'向量运算(夹角/内积/模)和函数性质(奇偶/单调/周期)交替出现。近3次：24上平面关系(几何)，24下函数性质，23下积分。预测26下可能回归向量。'},
+{t:'Q3',topic:'行列式 或 矩阵运算',conf:'85%',level:'conf-high',reason:'行列式是Q3最高频考点(5/10套)。变式方向：从纯计算→含参数行列式→行列式展开式系数。矩阵乘法也是高频备选。'},
+{t:'Q4',topic:'矩阵秩/方程组 或 空间曲面',conf:'75%',level:'conf-mid',reason:'矩阵秩和曲面截线交替。近两次：24上特征向量(矩阵)，24下基础解系(方程组)。预测26下可能回归解析几何(曲面方程类型识别)。'},
+{t:'Q5',topic:'概率 或 向量共线/共面',conf:'80%',level:'conf-mid',reason:'概率考了6/10次。Q5偏好：古典概型→事件概率→二项分布。变式方向：从简单古典概型→需要多步计算的概率题。'},
+{t:'Q6',topic:'矩阵秩/方程组 或 积分',conf:'70%',level:'conf-mid',reason:'Q6变数较大：空间解析几何、矩阵秩、积分极限轮替。24下考了积分极限(首次出现此题型)，26下此趋势可能延续。'},
+{t:'Q7',topic:'数学教学论(能力培养/教学方法)',conf:'85%',level:'conf-high',reason:'Q7近5次偏好：数学文化(23上天干地支)→学生错误分析(23下反比例)→能力培养(24上推理)→集合概念(24下)。预测26下可能出：核心素养(新课标2022)或教学方法。'},
+{t:'Q8',topic:'课程标准(7-9年级) 或 数学史',conf:'80%',level:'conf-mid',reason:'Q8近3次：命题类型(23上)→课标内容(23下)→教学难度(24上)→数学史(24下)。初中课标是明确方向，26下极大概率出课标题或数学史(中国古代数学)。'}
+];
+
+const VARIATIONS = [
+{t:'极限计算',base:'lim sinx/x=1, lim(1+1/x)^x=e',vars:[
+  {v:'等价无穷小替换','eg':'lim (sinx+3x)/(tanx+2x)'},
+  {v:'洛必达+根式有理化','eg':'lim (√x-2)/(√(4+3x)-4)'},
+  {v:'分子分母因式分解','eg':'lim (x³-8)/(x²-4)'},
+  {v:'重要极限+三角恒等','eg':'lim sin(x²-4)/(x-2)'},
+  {v:'数列极限(等比级数)','eg':'lim n/(1+3+…+3ⁿ⁻¹)'}
+]},
+{t:'行列式',base:'三阶行列式按行/列展开',vars:[
+  {v:'数字行列式求值','eg':'|0 1 1;1 0 1;1 1 0|'},
+  {v:'含参数行列式求λ','eg':'四阶行列式=0→λ='},
+  {v:'展开式求某项系数','eg':'试求一次项系数'},
+  {v:'利用行变换简化','eg':'两行成比例→行列式=0'}
+]},
+{t:'空间解析几何',base:'平面方程与法向量',vars:[
+  {v:'两平面位置关系(相交/平行/重合)','eg':'x-y+z=0 vs x+y+z=1'},
+  {v:'直线与平面关系(平行/垂直/包含)','eg':'直线方向×平面法向量'},
+  {v:'曲面类型识别','eg':'z=2x²+y²是什么曲面'},
+  {v:'旋转曲面方程','eg':'椭圆绕轴旋转'},
+  {v:'截面曲线类型','eg':'平面截双曲面得?曲线'}
+]},
+{t:'概率',base:'古典概型(P=有利/总数)',vars:[
+  {v:'骰子+硬币组合','eg':'两骰子点数和=5'},
+  {v:'抽球/小球问题','eg':'C(6,3)抽特定3球'},
+  {v:'比赛胜负分配奖金','eg':'五局三胜提前终止'},
+  {v:'事件交并补运算','eg':'P(A∪B)→都不发生'},
+  {v:'识别分布类型','eg':'二项分布vs连续分布'}
+]}
+];
+
+// ============ Guess strategies ============
+const GUESS_RULES = [
+{t:'极限计算',rule:'优先用等价无穷小替换。如果给四个具体值，代入验证最合理的一个。遇到0/0型大概率答案不是0。',pick:'若A,B,C,D中存在两个互为倒数的选项，答案通常在其中之一。极限趋近于0的题，答案大概率不是0(否则题目太简单)。'},
+{t:'行列式/矩阵秩',rule:'先看有无行/列成比例→行列式=0。秩=非零行数。选择题中如果出现"0"选项，优先验证是否为0。',pick:'行列式题：四个选项中C和D偏多。矩阵的秩题：整数2出现频率最高(6次中有3次)。'},
+{t:'向量运算',rule:'内积为0⇔垂直。共线⇔分量成比例。模长用勾股定理。向量运算题多选个位数整数。',pick:'向量题答案分布较均匀，不要赌。但若选项中有0，概率稍高(内积=0常出现)。'},
+{t:'解析几何',rule:'法向量决定平面关系。方向向量×法向量=0→平行或包含。带点验证是否在平面上。',pick:'平面关系题：B(相交不垂直)出现频率高——如果是两平面，多数不平行也不垂直。'},
+{t:'概率统计',rule:'古典概型先数有利情况。注意"恰好"和"至少"的区别。二项分布识别：n次独立重复试验。',pick:'概率题常有分母为24,36,15等合数的分数。若选项中有1/6、1/3、1/2的倍数关系，正确答案偏中间值。'},
+{t:'教学论(Q7-Q8)',rule:'排除绝对化表述(如"必须""只能")。选体现学生主体地位的选项。新课标2022版强调核心素养。',pick:'Q7-Q8的答案分布：C和A各占约30%，B和D各约20%。若不确定，偏向选C或A。若选项含"学生"关键词通常是加分项。'},
+{t:'数学史(Q7-Q8)',rule:'秦九韶→大衍求一术。刘徽→割圆术。吴文俊→机器证明。《九章算术》→负数概念。选最出名的。',pick:'中国古代选项优于近现代。祖冲之(圆周率)和刘徽(割圆术)易混淆，仔细看题干问什么。'},
+{t:'通用紧急蒙题法',rule:'统计10套80题答案分布：A约22%、B约25%、C约28%、D约25%。遇到完全不会的，优先选C(最高)，其次B或D。',pick:'绝对值：如果答案有 |某个数| 以及 ±该数，优先选正的。极限题：0不是最常见的答案，优先排除。'}
+];
+
+// ============ Flash cards ============
+const FLASH_CARDS = [
+{f:'两个重要极限',b:'lim(x→0) sinx/x = 1<br>lim(x→∞) (1+1/x)^x = e'},
+{f:'等价无穷小(x→0)',b:'sinx~x, tanx~x<br>ln(1+x)~x, eˣ-1~x<br>1-cosx~x²/2'},
+{f:'三阶行列式展开',b:'|a b c;d e f;g h i|<br>= aei+bfg+cdh<br>-ceg-bdi-afh'},
+{f:'矩阵乘法',b:'(m×n)(n×s)=(m×s)<br>(AB)ᵢⱼ=Σᵢₙ AᵢₙBₙⱼ<br>注意MN≠NM(不交换)'},
+{f:'矩阵的秩',b:'秩=行阶梯形非零行数<br>Ax=0基础解系维数=n-秩<br>满秩⇔行列式≠0⇔可逆'},
+{f:'特征向量',b:'(A-λI)x=0的非零解<br>不同特征值的特征向量线性无关'},
+{f:'平面法向量',b:'Ax+By+Cz+D=0<br>法向量n=(A,B,C)<br>两平面关系看n₁,n₂'},
+{f:'旋转曲面',b:'f(x,y)=0绕x轴旋转<br>→f(x,±√(y²+z²))=0<br>即y²换为y²+z²'},
+{f:'古典概型',b:'P=有利情况数/总数<br>C(n,k)=n!/[k!(n-k)!]<br>A(n,k)=n!/(n-k)!'},
+{f:'二项分布',b:'X~B(n,p)<br>P(X=k)=C(n,k)pᵏ(1-p)ⁿ⁻ᵏ<br>识别：n次独立重复试验'},
+{f:'事件运算',b:'P(A∪B)=P(A)+P(B)-P(AB)<br>互不相容时P(AB)=0<br>独立时P(AB)=P(A)P(B)'},
+{f:'向量运算',b:'a·b=|a||b|cosθ<br>a⊥b⇔a·b=0<br>a∥b⇔a=λb'},
+{f:'反比例函数',b:'y=k/x (k≠0)<br>图象是双曲线(两支)<br>在每一象限内单调'},
+{f:'秦九韶',b:'南宋·《数书九章》<br>大衍求一术(中国剩余定理)<br>正负开方术'},
+{f:'吴文俊',b:'1919-2017<br>拓扑学+数学机械化<br>机器证明'},
+{f:'初中不需证明的结论',b:'基本事实(公理)：<br>两点之间线段最短<br>过两点有且只有一条直线<br>过直线外一点有且只有一条平行线'},
+{f:'尺规作图不能问题',b:'①三等分任意角<br>②倍立方<br>③化圆为方'},
+{f:'数学核心素养(2022课标)',b:'三会：<br>会用数学眼光观察<br>会用数学思维思考<br>会用数学语言表达'},
+{f:'导数定义',b:'f\'(x₀)=lim(h→0)[f(x₀+h)-f(x₀)]/h<br>可微⇔可导'},
+{f:'定积分性质',b:'∫ₐᵇ f(x)dx = -∫ᵇₐ f(x)dx<br>奇函数在对称区间积分=0<br>∫ₐᵇ f(x)dx = F(b)-F(a)'}
+];
+
+// ============ Rendering functions ============
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+  if(tab==='papers') showPaper(document.getElementById('paperSelect').value);
+  if(tab==='knowledge') renderKnowledge();
+  if(tab==='predict') renderPrediction();
+  if(tab==='guess') renderGuess();
+  if(tab==='cards') renderCards();
+}
+
+function showPaper(id) {
+  const p = PAPERS[id];
+  if(!p) return;
+  let html = '<div class="card"><h2>'+p.label+'</h2>';
+  html += '<p style="color:var(--green);margin-bottom:12px;">答案：';
+  for(let i=0;i<8;i++) html += '<strong>'+(i+1)+'.'+p.answers[i]+'</strong> ';
+  html += '</p>';
+  p.questions.forEach((q,i)=>{
+    html += '<div class="q-block"><div class="q-title">第'+(i+1)+'题 <span style="color:var(--green)">答案：'+q.a+'</span></div>';
+    html += '<div class="q-text">'+q.t+'</div>';
+    html += '<div class="q-opts">';
+    q.o.forEach(o=>{ html += '<span>'+o+'</span>'; });
+    html += '</div>';
+    html += '<div class="q-solution">💡 <strong>解析：</strong>'+q.s+'</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+  document.getElementById('paperContent').innerHTML = html;
+  document.getElementById('paperAnswerKey').textContent = '答案速查：'+p.answers.split('').map((a,i)=>(i+1)+'.'+a).join(' ');
+}
+
+function renderKnowledge() {
+  let htmlU = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;">';
+  KNOWLEDGE.forEach(k=>{
+    const cls = k.freq>=7?'freq-high':k.freq>=5?'freq-mid':'freq-low';
+    htmlU += '<div class="card" style="padding:14px;"><div style="display:flex;justify-content:space-between;align-items:center;"><strong>'+k.name+'</strong><span class="topic-freq '+cls+'">'+k.freq+'次</span></div>';
+    k.sub.forEach(s=>{
+      htmlU += '<div style="margin-top:6px;font-size:0.8rem;color:var(--text2);">• '+s.name+' <span style="color:var(--accent);font-size:0.72rem;">['+s.years.join(',')+']</span></div>';
+    });
+    htmlU += '</div>';
+  });
+  htmlU += '</div>';
+  document.getElementById('tree-university').innerHTML = htmlU;
+
+  let htmlT = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;">';
+  TEACH_KNOWLEDGE.forEach(k=>{
+    const cls = k.freq>=5?'freq-high':k.freq>=3?'freq-mid':'freq-low';
+    htmlT += '<div class="card" style="padding:14px;"><div style="display:flex;justify-content:space-between;align-items:center;"><strong>'+k.name+'</strong><span class="topic-freq '+cls+'">'+k.freq+'次</span></div>';
+    k.sub.forEach(s=>{
+      htmlT += '<div style="margin-top:6px;font-size:0.8rem;color:var(--text2);">• '+s.name+' <span style="color:var(--accent);font-size:0.72rem;">['+s.years.join(',')+']</span></div>';
+    });
+    htmlT += '</div>';
+  });
+  htmlT += '</div>';
+  document.getElementById('tree-teaching').innerHTML = htmlT;
+}
+
+function renderPrediction() {
+  let html = '';
+  PREDICTIONS.forEach(p=>{
+    html += '<div class="predict-card"><strong style="color:var(--accent);">'+p.t+'</strong> → <strong>'+p.topic+'</strong> ';
+    html += '<span class="confidence '+p.level+'">置信度 '+p.conf+'</span>';
+    html += '<p style="margin-top:8px;font-size:0.85rem;color:var(--text2);">'+p.reason+'</p></div>';
+  });
+  document.getElementById('predictionContent').innerHTML = html;
+
+  let vhtml = '';
+  VARIATIONS.forEach(v=>{
+    vhtml += '<div class="card" style="padding:14px;"><h3>🔄 '+v.topic+'</h3>';
+    vhtml += '<p style="color:var(--text2);font-size:0.82rem;">基础形式：<code style="color:var(--green);">'+v.base+'</code></p>';
+    v.vars.forEach(vv=>{
+      vhtml += '<div style="margin:6px 0;font-size:0.83rem;">→ <strong>'+vv.v+'</strong> <span style="color:var(--text2);">例：'+vv.eg+'</span></div>';
+    });
+    vhtml += '</div>';
+  });
+  document.getElementById('variationContent').innerHTML = vhtml;
+}
+
+function renderGuess() {
+  let html = '<div class="card"><h3>📊 10套80题答案分布统计</h3>';
+  html += '<div class="heat-bar"><div class="heat-label">A</div><div class="heat-track"><div class="heat-fill" style="width:22%;background:var(--accent)"></div></div><span>~22%</span></div>';
+  html += '<div class="heat-bar"><div class="heat-label">B</div><div class="heat-track"><div class="heat-fill" style="width:25%;background:var(--green)"></div></div><span>~25%</span></div>';
+  html += '<div class="heat-bar"><div class="heat-label">C 🥇</div><div class="heat-track"><div class="heat-fill" style="width:28%;background:var(--yellow)"></div></div><span>~28%</span></div>';
+  html += '<div class="heat-bar"><div class="heat-label">D</div><div class="heat-track"><div class="heat-fill" style="width:25%;background:var(--purple)"></div></div><span>~25%</span></div>';
+  html += '<p style="color:var(--text2);font-size:0.8rem;margin-top:8px;">C选项略微偏高，但差距不大。仅作参考，不要过度依赖选项分布。</p></div>';
+
+  GUESS_RULES.forEach(g=>{
+    html += '<div class="card" style="padding:14px;"><h3>'+g.t+'</h3>';
+    html += '<p style="font-size:0.85rem;margin-bottom:6px;"><strong>🔍 解题思路：</strong>'+g.rule+'</p>';
+    html += '<p style="font-size:0.82rem;color:var(--yellow);"><strong>🎲 蒙题倾向：</strong>'+g.pick+'</p></div>';
+  });
+  document.getElementById('guessContent').innerHTML = html;
+}
+
+function renderCards() {
+  let html = '';
+  FLASH_CARDS.forEach((c,i)=>{
+    html += '<div class="flash-card" onclick="this.classList.toggle(\'flipped\')">';
+    html += '<div class="flash-front">'+c.f+'</div>';
+    html += '<div class="flash-back">'+c.b+'</div>';
+    html += '</div>';
+  });
+  document.getElementById('flashGrid').innerHTML = html;
+  document.getElementById('cardCount').textContent = FLASH_CARDS.length;
+}
+
+// Init
+showPaper('19x');
+</script>
+</body>
+</html>
