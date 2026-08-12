@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数学科三选择题 · 备考学习系统 v1.6</title>
+<title>数学科三选择题 · 备考学习系统 v1.7</title>
 <meta name="description" content="教资初中数学科三选择题：隐藏考点揭示+知识精讲+例题巩固+10套真题+预测+蒙题">
 <style>
 :root { --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0; --text:#1e293b; --text2:#64748b; --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --red:#dc2626; --purple:#7c3aed; --pink:#db2777; --radius:12px; }
@@ -231,7 +231,7 @@ body.dark .tier-tag.tier-exam { background:rgba(248,113,113,0.2); color:#f87171;
 <div class="container">
 
 <h1>📐 数学科三选择题 · 备考学习系统</h1>
-<p class="subtitle">初中数学教资科三 · 10套真题(19下~24下) · 四维精讲+隐藏考点+知识精讲+例题+预测+蒙题<br>版本 v1.4 · 2026-08-12</p>
+<p class="subtitle">初中数学教资科三 · 10套真题(19下~24下) · 四维精讲+隐藏考点+知识精讲+例题+预测+蒙题<br>版本 v1.7 · 2026-08-12</p>
 
 <div class="top-bar">
   <div class="toggle-btn" id="themeToggle" onclick="toggleTheme()">
@@ -301,7 +301,7 @@ body.dark .tier-tag.tier-exam { background:rgba(248,113,113,0.2); color:#f87171;
   <div class="flash-grid" id="flashGrid"></div>
 </div>
 
-<div class="footer">📐 数学科三选择题备考学习系统 v1.6 · 10套真题(19下~24下) · 四维精讲+隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
+<div class="footer">📐 数学科三选择题备考学习系统 v1.7 · 10套真题(19下~24下) · 四维精讲+隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
 </div>
 
 <script>
@@ -1825,33 +1825,187 @@ function showPaper(id) {
 
 // ============ PREDICTION ============
 function renderPrediction() {
-  var preds = [
-    {t:'Q1',topic:'极限计算',conf:'95%',level:'conf-high',reason:'10套出9次，最稳定必考点。26下Q1极大概率仍为极限题。重点关注：等价无穷小替换、洛必达法则、根式有理化(0/0型)。'},
-    {t:'Q2',topic:'向量运算 或 函数性质',conf:'80%',level:'conf-mid',reason:'向量和函数性质交替出现。近3次倾向函数性质。重点：奇偶性、导函数的奇偶性。'},
-    {t:'Q3',topic:'行列式 或 矩阵运算',conf:'85%',level:'conf-high',reason:'近10次中出现了7次行列式/矩阵。26下可能：含参数行列式求值、矩阵秩判断。'},
-    {t:'Q4',topic:'矩阵秩/特征值 或 空间曲面',conf:'75%',level:'conf-mid',reason:'解析几何和矩阵交替。近2次考矩阵，26下可能回归解析几何(曲面类型识别)。'},
-    {t:'Q5',topic:'概率 或 向量共线/共面',conf:'80%',level:'conf-mid',reason:'概率考了6/10。二项分布首次出现在24下，此趋势可能延续。'},
-    {t:'Q6',topic:'积分 或 线性方程组',conf:'70%',level:'conf-mid',reason:'Q6变数最大。24下首次考积分极限，属新题型方向。还需准备基础解系维数计算。'},
-    {t:'Q7',topic:'数学教学论',conf:'85%',level:'conf-high',reason:'大概率考新课标核心素养(三会)或教学方法。关注：2022版课标新增内容。'},
-    {t:'Q8',topic:'初中课标 或 数学史',conf:'80%',level:'conf-mid',reason:'初中课程标准是明确方向。数学史备选：祖冲之圆周率、《周髀算经》勾股定理。'}
-  ];
   var html = '';
-  preds.forEach(function(p){
-    html += '<div class="predict-card"><strong style="color:var(--accent);">'+p.t+'</strong> → <strong>'+p.topic+'</strong> ';
-    html += '<span class="confidence '+p.level+'">置信度 '+p.conf+'</span>';
-    html += '<p style="margin-top:6px;font-size:0.83rem;color:var(--text2);">'+p.reason+'</p></div>';
+
+  // ===== 逐模块精准预测（基于10套真题80题数据） =====
+  var topics = [
+    {
+      name:'极限计算', freq:'8/10次', conf:'95%', level:'conf-high',
+      trend:'24下刚考（三角恒等变形，Q1），每1-2次必考一次，间隔从不超过2次',
+      tested:['重要极限e定义(19下)','等价无穷小替换(20下)','数列极限(21下)','有界性×无穷小(22上)','根式有理化(23上)','因式分解约分(23下)','三角恒等+重要极限(24下)'],
+      untested:'<b style="color:var(--yellow)">⚠️ 3种从未考过的子类型：</b>①∞-∞型（通分法） ②0·∞型（化商法） ③分段函数左右极限法。26下极大概率从这3种中选1种！',
+      focus:['<b>∞-∞型通分法</b>：lim[1/(x-1)-2/(x²-1)]→通分→因式分解→约分','<b>0·∞型化商法</b>：lim x·sin(1/x)→令t=1/x→化为0/0型','<b>左右极限法</b>：分段函数在分界点必须分别算左右极限','<b>经典回锅</b>：已有7种考法换个函数再出（如lim(tanx-sinx)/x³）']
+    },
+    {
+      name:'连续与可微', freq:'4/10次', conf:'85%', level:'conf-high',
+      trend:'<b style="color:#ef4444">🔴 已连续6次未考！</b>最近一次是21下Q4（分段函数连续性）。22上~24下全部缺席，是当前最"饥渴"的模块',
+      tested:['一致连续判断：1/x在(0,1](20下)','一致连续区间选择(21上)','微分定义：Δy vs dy(21上)','分段函数连续判断(21下)'],
+      untested:'<b style="color:var(--yellow)">⚠️ 连续6次未出，任何子类型都可能回归：</b>①导数定义 lim[f(x)-f(0)]/x ②"连续不一定可导"判断反例 ③闭区间连续⇒一致连续',
+      focus:['<b>导数定义式</b>：lim[h→0][f(x₀+h)-f(x₀)]/h——利用定义求f'(0)','<b>连续⇏可导反例</b>：|x|在x=0连续但不可导（尖点）','<b>一致连续条件</b>：闭区间上连续⇒一致连续；开区间不一定','<b>Δy vs dy</b>：dy=f'(x₀)dx是线性主部，Δy=dy+o(Δx)']
+    },
+    {
+      name:'解析几何', freq:'8/10次', conf:'90%', level:'conf-high',
+      trend:'24上有2题（Q2两平面位置+Q6曲面类型），24下缺席。按交替规律26下回归，可能1-2题',
+      tested:['旋转曲面方程(19下)','截线类型(20下)','球面切线(20下)','直线与平面位置(21上)','两圆距离(21下)','z轴与平面(22下)','空间对称(23上)','平面与直线垂直(23下)','两平面关系(24上)','二次曲面类型(24上)'],
+      untested:'<b style="color:var(--yellow)">⚠️ 未考方向：</b>①点到平面距离公式 ②双曲抛物面(马鞍面)识别 ③直线与直线（异面/相交）④柱面方程',
+      focus:['<b>二次曲面识别</b>：z=ax²+by²同号→椭圆抛物面，异号→马鞍面','<b>点到平面距离</b>：d=|Ax₀+By₀+Cz₀+D|/√(A²+B²+C²)','<b>两直线关系</b>：方向向量成比例→平行；不成比例→异面或相交','<b>法向量核心</b>：n=(A,B,C)决定平面的一切位置关系']
+    },
+    {
+      name:'矩阵', freq:'6/10次', conf:'80%', level:'conf-mid',
+      trend:'24下Q4（基础解系维数）+24上Q4（特征向量）+Q5（基/秩/可逆）。矩阵几乎每考必有，已高度覆盖',
+      tested:['矩阵分配律(19下)','基础解系等价(19下)','零空间维数(21上)','矩阵乘法(22上)','齐次方程有非零解(22下)','矩阵乘法+行列式(23下)','秩的计算(23下)','特征向量(24上)','基的判断(24上)','基础解系维数(24下)'],
+      untested:'<b style="color:var(--yellow)">⚠️ 可能新方向：</b>①特征值λ的具体数值计算 ②二次型与正定性 ③矩阵方程AX=B求解',
+      focus:['<b>特征值计算</b>：解|A-λI|=0→λ值→代入(A-λI)x=0求特征向量','<b>秩的判断</b>：行阶梯形→非零行数=秩；n-rank(A)=解空间维数','<b>矩阵可逆⇔</b>det≠0⇔满秩⇔行/列线性无关⇔特征值全不为0']
+    },
+    {
+      name:'向量', freq:'6/10次', conf:'80%', level:'conf-mid',
+      trend:'24下Q3（共线条件）刚考。向量的出现间隔通常0-1次，26下大概率继续出现',
+      tested:['混合积共面(19下)','内积+夹角(20下)','内积展开+垂直(22上)','向量加减+内积(22下)','向量运算种类(23上)','向量几何表示(23上)','共线条件(24下)'],
+      untested:'<b style="color:var(--yellow)">⚠️ 未考方向：</b>①叉积的计算与几何意义 ②施密特正交化 ③向量组的线性相关性判断',
+      focus:['<b>叉积a×b</b>：结果⊥a且⊥b，模=|a||b|sinθ，方向用右手定则','<b>共面条件</b>：(a×b)·c=0⇔混合积为零⇔线性相关','<b>❌向量不能除法</b>：这是每次向量题都可能出现的陷阱选项','<b>共线条件</b>：a∥b⇔a=λb⇔分量成比例']
+    },
+    {
+      name:'行列式', freq:'5/10次', conf:'75%', level:'conf-mid',
+      trend:'24上Q1（数字行列式）后24下缺席。按交替规律26下有较大概率回归',
+      tested:['四阶含参行列式(21下)','|AB|=|A||B|性质(21下)','展开式系数(22上)','成比例⇒=0(23上)','对称行列式(24上)'],
+      untested:'<b style="color:var(--yellow)">⚠️ 未考方向：</b>①伴随矩阵A*与逆矩阵 ②克拉默法则 ③范德蒙行列式',
+      focus:['<b>行列式=0速判</b>：两行/列成比例→直接=0（绝不要展开！）','<b>对称/特殊结构</b>：主对角全0其余全1→公式法速算','<b>含参展开</b>：按零最多的行/列展开→多项式→解方程']
+    },
+    {
+      name:'概率统计', freq:'6/10次', conf:'80%', level:'conf-mid',
+      trend:'<b style="color:var(--green)">🟢 24下Q5首次考二项分布识别</b>——新趋势信号！此前全部是古典概型/事件运算/方差',
+      tested:['比赛奖金分配(20下)','骰子古典概型(21上)','事件加法公式(21下)','独立事件乘法(22上)','组合抽球(22下)','方差计算(23下)','二项分布识别(24下)★NEW'],
+      untested:'<b style="color:var(--yellow)">⚠️ 24下首开二项分布先河，26下可能深入：</b>①二项分布P(X=k)计算 ②条件概率P(A|B) ③期望E(X)=np',
+      focus:['<b>二项分布计算</b>：P(X=k)=C(n,k) p^k (1-p)^(n-k)——不只识别，还要会算','<b>条件概率</b>：P(A|B)=P(AB)/P(B)——从未考过的新方向','<b>古典概型</b>：枚举法数有利情况，C(n,k)组合数——基本功','<b>方差公式</b>：Var=Σ(xᵢ-x̄)²/n——24下后可能再次出现']
+    },
+    {
+      name:'积分', freq:'4/10次', conf:'70%', level:'conf-mid',
+      trend:'<b style="color:var(--green)">🟢 24下Q6首次考积分+极限结合</b>——全新题型方向！此前积分都是独立计算',
+      tested:['奇偶函数简化(19下)','指数函数定积分(22下)','积分限互换抵消(23下)','积分+极限结合(24下)★NEW'],
+      untested:'<b style="color:var(--yellow)">⚠️ 未考方向：</b>①变限积分求导 ②分部积分法 ③广义积分',
+      focus:['<b>积分+极限结合</b>：先积后极限——24下新题型可能延续','<b>积分限互换</b>：∫ₐᵇ=-∫ᵇₐ——每次积分题都可能用到','<b>奇偶简化</b>：奇函数在[-a,a]积分=0——对称区间速算法','<b>原函数注意</b>：∫e^(kx) dx = e^(kx)/k + C——别忘除以系数k']
+    },
+    {
+      name:'函数性质', freq:'3/10次', conf:'60%', level:'conf-low',
+      trend:'24下Q2（导函数奇偶性）刚考过。出现间隔：21上→22上→22下→24下，间隔拉长中',
+      tested:['整数解个数(21上)','奇偶运算(22上)','零点个数(22下)','导函数奇偶性(24下)'],
+      untested:'①周期性判断 ②函数图像的对称性与平移 ③反函数存在条件——可能性较低',
+      focus:['<b>偶函数导函数是奇函数</b>：24下刚考，26下重复概率不高','<b>奇偶运算口诀</b>：奇±奇=奇，偶±偶=偶，奇×奇=偶，奇×偶=奇','<b>奇∘偶=偶</b>：复合函数看外层——外层奇则奇偶性与内层同']
+    },
+    {
+      name:'导数计算', freq:'1/10次', conf:'55%', level:'conf-low',
+      trend:'仅在23上Q2出现过1次（导数定义求f'(0)）。间隔已3次，有回升概率但非热点',
+      tested:['导数定义：lim[f(2x)-f(0)]/x→f'(0)(23上)'],
+      untested:'所有方向基本是新的：①切线方程 ②参数方程求导 ③隐函数求导',
+      focus:['<b>导数定义</b>：f'(x₀)=lim[h→0][f(x₀+h)-f(x₀)]/h——变量替换凑定义','<b>切线方程</b>：y-y₀=f'(x₀)(x-x₀)——导数的几何应用']
+    },
+    {
+      name:'无穷小比较', freq:'1/10次', conf:'45%', level:'conf-low',
+      trend:'仅在24上Q3出现1次（趋零速度排序）。题型简单，可能偶尔回归但不连续出现',
+      tested:['无穷小速度排序：1/2ⁿ>1/n²>1/n(24上)'],
+      untested:'①高阶/低阶/同阶/等价的定义判断 ②利用泰勒展开比阶',
+      focus:['<b>速度口诀</b>：指数(最快)>幂高次>幂低次>>对数(最慢)','<b>阶的判断</b>：lim α/β=0→α是β的高阶无穷小；=c≠0→同阶；=1→等价']
+    }
+  ];
+
+  // Render per-topic predictions
+  topics.forEach(function(t){
+    var confColor = t.level==='conf-high'?'var(--green)':t.level==='conf-mid'?'var(--accent)':'var(--text2)';
+    html += '<div class="card" style="padding:16px;margin-bottom:14px;border-left:4px solid '+confColor+'">';
+    html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">';
+    html += '<h3 style="margin:0;color:var(--text);">'+t.name+' <span style="font-size:0.8rem;color:var(--text2);">出现'+t.freq+'</span></h3>';
+    html += '<span class="confidence '+t.level+'">置信度 '+t.conf+'</span>';
+    html += '</div>';
+
+    html += '<p style="margin-top:8px;font-size:0.83rem;color:var(--text2);">trend: '+t.trend+'</p>';
+
+    html += '<details style="margin-top:6px;font-size:0.8rem;color:var(--text2);"><summary>已考过的子类型（点击展开）</summary>';
+    t.tested.forEach(function(x){ html += '<span style="display:inline-block;background:var(--bg);padding:2px 8px;border-radius:4px;margin:2px;font-size:0.75rem;">'+x+'</span>'; });
+    html += '</details>';
+
+    html += '<p style="margin-top:8px;font-size:0.83rem;">'+t.untested+'</p>';
+
+    html += '<div style="margin-top:6px;padding:10px;background:rgba(56,189,248,0.08);border-radius:8px;">';
+    html += '<strong style="font-size:0.82rem;color:var(--accent);"> 26下重点准备：</strong>';
+    t.focus.forEach(function(f){ html += '<div style="margin:3px 0;font-size:0.8rem;">→ '+f+'</div>'; });
+    html += '</div>';
+
+    html += '</div>';
   });
+
+  // Q7-Q8: Teaching theory + Math history + Curriculum
+  html += '<div class="card" style="padding:16px;margin-bottom:14px;border-left:4px solid var(--yellow);background:rgba(251,191,36,0.06);">';
+  html += '<h3 style="margin:0;">Q7+Q8: 教学论 / 数学史 / 初中课标 <span style="font-size:0.8rem;color:var(--text2);">固定各占2题，共20题/10次</span></h3>';
+  html += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px;">';
+
+  html += '<div><strong style="color:var(--accent);">教学论（Q7为主，12次）</strong>';
+  html += '<ul style="margin:4px 0;font-size:0.8rem;padding-left:16px;">';
+  html += '<li><b>核心素养"三会"</b>：数学眼光/思维/语言——2022课标最核心</li>';
+  html += '<li>教师角色：组织者+引导者+合作者（❌指挥者）</li>';
+  html += '<li>最近发展区→教学难度依据</li>';
+  html += '<li>试卷编制：目的→原则→细目表→选题</li>';
+  html += '<li>属+种差定义法、归纳推理</li>';
+  html += '</ul></div>';
+
+  html += '<div><strong style="color:var(--green);">数学史（Q8备选，6次）</strong>';
+  html += '<ul style="margin:4px 0;font-size:0.8rem;padding-left:16px;">';
+  html += '<li>★刘徽→割圆术（vs祖冲之发展）</li>';
+  html += '<li>★《九章算术》→负数/方程</li>';
+  html += '<li>秦九韶→大衍求一术</li>';
+  html += '<li>吴文俊→拓扑+机器证明</li>';
+  html += '<li><b style="color:var(--yellow)">⚠️ 未考：</b>《周髀算经》勾股定理、祖冲之《缀术》</li>';
+  html += '</ul></div>';
+
+  html += '<div><strong style="color:#c084fc;">初中课标（Q8备选，3次）</strong>';
+  html += '<ul style="margin:4px 0;font-size:0.8rem;padding-left:16px;">';
+  html += '<li>数学命题三类型：基本事实+定理+公式</li>';
+  html += '<li>7-9年级：不含三次方程、不等式组</li>';
+  html += '<li>反比例函数常见错误辨析</li>';
+  html += '<li><b style="color:var(--yellow)">⚠️ 未考：</b>尺规作图在课标中的要求</li>';
+  html += '</ul></div>';
+
+  html += '</div></div>';
+
+  // Heat map summary
+  html += '<div class="card" style="padding:14px;">';
+  html += '<h3 style="margin:0 0 10px 0;">26下热度排名总览</h3>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px;">';
+  var ranks = [
+    {n:'🔴 极限', v:'95%', c:'var(--green)', note:'必考，关注3种新子类型(∞-∞/0·∞/分段)'},
+    {n:'🔴 解析几何', v:'90%', c:'var(--green)', note:'24下缺席后必回归，关注曲面识别'},
+    {n:'🔴 连续与可微', v:'85%', c:'var(--green)', note:'已连续6次未考！最饥渴模块'},
+    {n:'🟡 矩阵', v:'80%', c:'var(--accent)', note:'几乎每考必有，关注特征值计算'},
+    {n:'🟡 概率统计', v:'80%', c:'var(--accent)', note:'二项分布新趋势，关注条件概率'},
+    {n:'🟡 向量', v:'80%', c:'var(--accent)', note:'叉积从未考过，关注共面条件'},
+    {n:'🟡 行列式', v:'75%', c:'var(--accent)', note:'24下缺席后可能回归'},
+    {n:'🟡 积分', v:'70%', c:'var(--accent)', note:'积分+极限新题型可能延续'},
+    {n:'🟢 函数性质', v:'60%', c:'var(--text2)', note:'24下刚考，短期重复概率低'},
+    {n:'🟢 导数计算', v:'55%', c:'var(--text2)', note:'仅1次/10套，低位震荡'},
+    {n:'🟢 无穷小比较', v:'45%', c:'var(--text2)', note:'仅1次/10套，低频冷门'}
+  ];
+  ranks.forEach(function(r){
+    html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--bg);border-radius:6px;gap:8px;">';
+    html += '<span style="font-size:0.85rem;white-space:nowrap;">'+r.n+'</span>';
+    html += '<span style="font-weight:700;color:'+r.c+';font-size:0.85rem;">'+r.v+'</span>';
+    html += '<span style="font-size:0.72rem;color:var(--text2);text-align:right;">'+r.note+'</span>';
+    html += '</div>';
+  });
+  html += '</div>';
+  html += '<p style="margin-top:10px;font-size:0.75rem;color:var(--text2);">预测公式：频次分(35%) + 趋势分(30%) + 交替规律(20%) + 空白潜力(15%) | 基于10套真题(19下~24下)共80题 | 预测的是<b>考什么内容</b>，不是具体题号</p>';
+  html += '</div>';
+
   document.getElementById('predictionContent').innerHTML = html;
 
+  // Variation section
   var vars = [
-    {t:'极限计算',base:'lim sinx/x=1, lim(1+1/x)^x=e',vars:['等价无穷小替换→lim (sinx+3x)/(tanx+2x)','洛必达+根式有理化→lim (√x-2)/(√(4+3x)-4)','因式分解→lim (x³-8)/(x²-4)','三角恒等→lim sin(x²-4)/(x-2)']},
-    {t:'行列式',base:'三阶行列式按行/列展开',vars:['数字行列式求值→|0 1 1;1 0 1;1 1 0|','含参数行列式→四阶含λ行列式=0','展开式系数→求一次项系数','利用行变换→两行成比例⇒=0']},
-    {t:'解析几何',base:'平面方程与法向量',vars:['两平面位置关系→看n₁,n₂','直线与平面关系→d·n=0','曲面类型识别→椭圆抛物面/双曲面','旋转曲面方程→y²换为y²+z²','截面曲线类型→代入平面方程']},
-    {t:'概率',base:'古典概型P=有利/总数',vars:['骰子+硬币组合','抽球/C(n,k)','比赛胜负奖金分配','事件交并补→P(A∪B)','分布类型识别→二项分布vs连续']}
+    {t:'极限计算',base:'lim sinx/x=1, lim(1+1/x)^x=e',vars:['等价无穷小替换→已考(sinx+3x)/(tanx+2x)','因式分解→已考(x³-8)/(x²-4)','根式有理化→已考(√x-2)/(√(4+3x)-4)','三角恒等→已考sin(x²-4)/(x-2)','<b style="color:var(--yellow)">∞-∞通分→未考！</b>lim[1/(x-1)-2/(x²-1)]','<b style="color:var(--yellow)">0·∞化商→未考！</b>lim x·sin(1/x)','<b style="color:var(--yellow)">分段左右极限→未考！</b>含|x|或分段函数']},
+    {t:'行列式',base:'三阶按行/列展开',vars:['数字求值→已考|0 1 1;1 0 1;1 1 0|','含参方程→已考四阶含λ行列式=0','系数提取→已考一次项系数','比例判断→已考两行成比例=0','<b style="color:var(--yellow)">范德蒙行列式→未考！</b>']},
+    {t:'解析几何',base:'平面法向量+直线方向向量',vars:['两平面位置→已考(n₁·n₂, n₁∥n₂)','直线与平面→已考(d·n=0)','曲面类型→已考(椭圆抛物面)','旋转曲面→已考(y²→y²+z²)','<b style="color:var(--yellow)">点到平面距离→未考！</b>','<b style="color:var(--yellow)">马鞍面识别→未考！</b>']},
+    {t:'概率统计',base:'古典概型+事件运算+二项分布',vars:['古典概型→已考骰子/硬币/抽球','事件运算→已考P(A∪B)+都不发生','方差→已考成绩方差比较','<b style="color:var(--green)">二项分布识别→24下首考！</b>','<b style="color:var(--yellow)">条件概率P(B|A)→未考！</b>','<b style="color:var(--yellow)">二项分布计算P(X=k)→未考！</b>']}
   ];
   var vhtml = '';
   vars.forEach(function(v){
-    vhtml += '<div class="card" style="padding:14px;"><h3>🔄 '+v.t+'</h3><p style="color:var(--text2);font-size:0.82rem;">基础：<code style="color:var(--green);">'+v.base+'</code></p>';
+    vhtml += '<div class="card" style="padding:14px;"><h3>'+v.t+'</h3><p style="color:var(--text2);font-size:0.82rem;">基础：<code style="color:var(--green);">'+v.base+'</code></p>';
     v.vars.forEach(function(vv){vhtml += '<div style="margin:4px 0;font-size:0.82rem;">→ '+vv+'</div>';});
     vhtml += '</div>';
   });
