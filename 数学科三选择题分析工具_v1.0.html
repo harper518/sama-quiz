@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数学科三选择题 · 备考学习系统 v1.8</title>
+<title>数学科三选择题 · 备考学习系统 v1.9</title>
 <meta name="description" content="教资初中数学科三选择题：隐藏考点揭示+知识精讲+例题巩固+10套真题+预测+蒙题">
 <style>
 :root { --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0; --text:#1e293b; --text2:#64748b; --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --red:#dc2626; --purple:#7c3aed; --pink:#db2777; --radius:12px; }
@@ -223,6 +223,10 @@ body.dark .tier-tag.tier-exam { background:rgba(248,113,113,0.2); color:#f87171;
   .compare-table { font-size:0.72rem; }
   .compare-table th, .compare-table td { padding:4px 6px; }
 }
+/* MathJax CHTML radical vinculum fix — ensures sqrt overline renders fully on all devices */
+mjx-container[jax="CHTML"] { will-change:opacity; }
+mjx-container[jax="CHTML"] mjx-msqrt>mjx-box { border-top-width:.1em !important; }
+mjx-container[jax="CHTML"] mjx-sqrt>mjx-box { border-top-width:.1em !important; }
 </style>
 <script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{ignoreHtmlClass:'no-mathjax',processHtmlClass:'mathjax'},startup:{typeset:false}};</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';document.head.appendChild(s);"></script>
@@ -231,7 +235,7 @@ body.dark .tier-tag.tier-exam { background:rgba(248,113,113,0.2); color:#f87171;
 <div class="container">
 
 <h1>📐 数学科三选择题 · 备考学习系统</h1>
-<p class="subtitle">初中数学教资科三 · 10套真题(19下~24下) · 四维精讲+隐藏考点+知识精讲+例题+预测+蒙题<br>版本 v1.8 · 2026-08-12</p>
+<p class="subtitle">初中数学教资科三 · 10套真题(19下~24下) · 四维精讲+隐藏考点+知识精讲+例题+预测+蒙题<br>版本 v1.9 · 2026-08-12</p>
 
 <div class="top-bar">
   <div class="toggle-btn" id="themeToggle" onclick="toggleTheme()">
@@ -301,7 +305,7 @@ body.dark .tier-tag.tier-exam { background:rgba(248,113,113,0.2); color:#f87171;
   <div class="flash-grid" id="flashGrid"></div>
 </div>
 
-<div class="footer">📐 数学科三选择题备考学习系统 v1.8 · 10套真题(19下~24下) · 四维精讲+隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
+<div class="footer">📐 数学科三选择题备考学习系统 v1.9 · 10套真题(19下~24下) · 四维精讲+隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
 </div>
 
 <script>
