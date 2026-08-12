@@ -1078,7 +1078,62 @@ f:{tree:''}
 	{tag:'核心结论',cls:'prereq',txt:'<b>求导会翻转奇偶性</b>：偶函数求导→奇函数，奇函数求导→偶函数。',pre:'24下刚考过！必须记住'},
 	{tag:'验证',cls:'calc',txt:'$f(x)=x^2$（偶函数）→ $f\'(x)=2x$（奇函数）✓<br>$f(x)=x^3$（奇函数）→ $f\'(x)=3x^2$（偶函数）✓',pre:''},
 	{tag:'归纳',cls:'summary',txt:'教资导数题不考复杂计算，最爱考这种"概念关系题"。口诀：偶变奇，奇变偶，求导翻转奇偶性。',pre:''}
-	]}
+	]},
+	{tier:'junior',q:'$f(x)=5$，求$f\'(x)$',ans:'0',src:'常数求导·基础',
+	steps:[
+	{tag:'核心概念',cls:'prereq',txt:'常数函数的导数=0。因为常数函数是一条水平线，斜率为0。',pre:''},
+	{tag:'求导',cls:'calc',txt:'$f(x)=5$→$f\'(x)=0$<br>任何常数的导数都是0：$(7)\'=0$，$(-3)\'=0$，$(\\pi)\'=0$',pre:'常数求导=0'},
+	{tag:'理解',cls:'summary',txt:'导数=变化率。常数不变→变化率为0→导数为0。这是最简单的求导法则。',pre:''}
+	]},
+	{tier:'junior',q:'$f(x)=3x-2$，求$f\'(x)$',ans:'3',src:'一次函数求导',
+	steps:[
+	{tag:'核心概念',cls:'prereq',txt:'一次函数$f(x)=kx+b$的导数恒等于$k$（斜率）。',pre:''},
+	{tag:'逐项求导',cls:'calc',txt:'$(3x)\'=3$，$(-2)\'=0$<br>$f\'(x)=3$',pre:'(kx)\'=k, (常数)\'=0'},
+	{tag:'理解',cls:'summary',txt:'一次函数求导后只剩系数。导数为正→函数递增；导数为负→函数递减。f\'(x)=3>0→一直上升。',pre:''}
+	]},
+	{tier:'senior',q:'$f(x)=x\\cdot\\sin x$，求$f\'(x)$',ans:'$\\sin x+x\\cos x$',src:'乘积法则·练手',
+	steps:[
+	{tag:'识别',cls:'review',txt:'$u=x$，$v=\\sin x$。乘积求导公式：$(uv)\'=u\'v+uv\'$',pre:''},
+	{tag:'求导',cls:'calc',txt:'$u\'=1$，$v\'=\\cos x$<br>$f\'(x)=1\\cdot\\sin x+x\\cdot\\cos x=\\sin x+x\\cos x$',pre:'前导后不导+前不导后导'},
+	{tag:'归纳',cls:'summary',txt:'乘积法则再练一次：<b>不是u\'v\'</b>，是u\'v+uv\'。很多人在考试中一紧张就写成u\'v\'了。',pre:''}
+	]},
+	{tier:'senior',q:'$f(x)=\\frac{x}{x+1}$，求$f\'(x)$',ans:'$\\frac{1}{(x+1)^2}$',src:'商法则·预测题',
+	steps:[
+	{tag:'公式',cls:'prereq',txt:'商法则：$(\\frac{u}{v})\'=\\frac{u\'v-uv\'}{v^2}$<br>$u=x$，$v=x+1$',pre:'分子先导×分母-分子×分母先导，再除以分母平方'},
+	{tag:'求导',cls:'calc',txt:'$u\'=1$，$v\'=1$<br>$f\'(x)=\\frac{1\\cdot(x+1)-x\\cdot1}{(x+1)^2}=\\frac{1}{(x+1)^2}$',pre:''},
+	{tag:'归纳',cls:'summary',txt:'商法则教资虽然不常考，但万一出现就是拉开差距的题。记住分子是<b>u\'v-uv\'</b>（注意减号！）。',pre:''}
+	]},
+	{tier:'college',q:'$x=t^2,y=t^3$，求$\\frac{dy}{dx}$',ans:'$\\frac{3}{2}t$',src:'参数方程·扩展',
+	steps:[
+	{tag:'方法',cls:'prereq',txt:'参数方程求导：$\\frac{dy}{dx}=\\frac{dy/dt}{dx/dt}$',pre:'y对x的导数=各自对t求导再相除'},
+	{tag:'计算',cls:'calc',txt:'$\\frac{dy}{dt}=3t^2$，$\\frac{dx}{dt}=2t$<br>$\\frac{dy}{dx}=\\frac{3t^2}{2t}=\\frac{3}{2}t$',pre:''},
+	{tag:'归纳',cls:'summary',txt:'参数方程求导在教资极少考，但初中教资涉及参变量表示曲线，理解即可。',pre:''}
+	]},
+	{tier:'college',q:'$y=x^x\\ (x>0)$，求$y\'$',ans:'$x^x(\\ln x+1)$',src:'对数求导法·扩展',
+	steps:[
+	{tag:'方法',cls:'prereq',txt:'幂指函数求导：取对数→隐函数求导。$\\ln y=x\\ln x$，两边对x求导。',pre:''},
+	{tag:'求导',cls:'calc',txt:'$\\frac{1}{y}\\cdot y\'=\\ln x+x\\cdot\\frac{1}{x}=\\ln x+1$<br>$y\'=y(\\ln x+1)=x^x(\\ln x+1)$',pre:'链式法则：lny求导=(1/y)·y\''},
+	{tag:'归纳',cls:'summary',txt:'对数求导法适用于<b>幂指函数</b>(底和指数都有x)。教资不会直接考，但能加深对隐函数的理解。',pre:''}
+	]},
+	{tier:'exam',q:'$f(x)=x^2-3x+2$在$x=1$处的切线方程',ans:'$y=-x+1$',src:'切线方程·真题改编',
+	steps:[
+	{tag:'求导',cls:'calc',txt:'$f\'(x)=2x-3$<br>在x=1处：$f\'(1)=2-3=-1$（切线斜率k=-1）',pre:''},
+	{tag:'求切点',cls:'calc',txt:'$f(1)=1^2-3+2=0$→切点为(1,0)',pre:''},
+	{tag:'写切线方程',cls:'calc',txt:'点斜式：$y-y_0=k(x-x_0)$<br>$y-0=-1(x-1)$→$y=-x+1$',pre:''},
+	{tag:'归纳',cls:'summary',txt:'切线方程三步：<b>①求导得斜率 ②算函数值得切点 ③点斜式写方程</b>。教资选择题常考。',pre:''}
+	]},
+	{tier:'exam',q:'$f(x)=x^3-3x$的极值点',ans:'极小值x=1，极大值x=-1',src:'极值判断·真题改编',
+	steps:[
+	{tag:'求导',cls:'calc',txt:'$f\'(x)=3x^2-3=3(x^2-1)=3(x-1)(x+1)$<br>令$f\'(x)=0$→$x=1$或$x=-1$',pre:'驻点：导数为0的点'},
+	{tag:'判断',cls:'calc',txt:'$f\'(x)$符号：x<-1正，-1<x<1负，x>1正<br>由正变负(x=-1)→极大值；由负变正(x=1)→极小值',pre:'一阶导数符号变化判断极值'},
+	{tag:'归纳',cls:'summary',txt:'极值判断：<b>①求f\'→②令f\'=0找驻点→③检查f\'符号变化</b>。正→负=极大，负→正=极小。',pre:''}
+	]},
+	{tier:'exam',q:'$f(x)=|x|$在$x=0$处可导吗？',ans:'不可导（尖点）',src:'可导性·概念题',
+	steps:[
+	{tag:'直观理解',cls:'prereq',txt:'$y=|x|$图像在x=0处是一个尖角(V形)。有尖点→不可导（切线不唯一）。',pre:''},
+	{tag:'导数定义验证',cls:'calc',txt:'$\\lim_{h\\to 0^-}\\frac{|0+h|-|0|}{h}=\\lim_{h\\to 0^-}\\frac{-h}{h}=-1$<br>$\\lim_{h\\to 0^+}\\frac{|h|}{h}=1$<br>左右导数不等→不可导',pre:''},
+	{tag:'归纳',cls:'summary',txt:'<b>不可导的三种情况</b>：①尖点(|x|) ②垂直切线(x^(1/3)) ③不连续点。教资喜欢考"连续但不可导"的例子= |x|。',pre:''}
+	]},
 	],
 	l:{tiers:[
 	{name:'初中层',cls:'junior',intro:'导数是"变化率"的精确描述。先确保理解斜率概念——导数就是曲线在某点的切线斜率。',
