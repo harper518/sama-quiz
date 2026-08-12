@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数学科三选择题 · 备考学习系统 v1.5</title>
+<title>数学科三选择题 · 备考学习系统 v1.6</title>
 <meta name="description" content="教资初中数学科三选择题：隐藏考点揭示+知识精讲+例题巩固+10套真题+预测+蒙题">
 <style>
 :root { --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0; --text:#1e293b; --text2:#64748b; --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --red:#dc2626; --purple:#7c3aed; --pink:#db2777; --radius:12px; }
@@ -300,7 +300,7 @@ body.dark .tier-tag.tier-exam { background:rgba(248,113,113,0.2); color:#f87171;
   <div class="flash-grid" id="flashGrid"></div>
 </div>
 
-<div class="footer">📐 数学科三选择题备考学习系统 v1.5 · 10套真题(19下~24下) · 四维精讲+隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
+<div class="footer">📐 数学科三选择题备考学习系统 v1.6 · 10套真题(19下~24下) · 四维精讲+隐藏考点揭示 · 初中数学教资科三 · <a href="链接汇总.html" style="color:var(--accent);">返回链接汇总</a></div>
 </div>
 
 <script>
@@ -482,6 +482,156 @@ steps:[
 {tag:'结论',cls:'calc',txt:'$\\lim_{x\\to\\infty}\\frac{\\sin x+\\cos x}{x}=0$<br>不需洛必达（sin和cos在∞处振荡，洛必达不适用！）',pre:''},
 {tag:'区分',cls:'summary',txt:'⚠️ 关键区分：$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1$（重要极限）vs $\\lim_{x\\to\\infty}\\frac{\\sin x}{x}=0$（有界性）。同一表达式，趋近方向不同答案完全不同！',pre:''}
 ]},
+{tier:'exam',q:'$\\lim_{x\\to 1}[\\frac{1}{x-1}-\\frac{2}{x^2-1}]$',ans:'$\\frac{1}{2}$',src:'∞-∞型·通分',
+steps:[
+{tag:'审题',cls:'review',txt:'直接代入x=1：$\\frac{1}{0}-\\frac{2}{0}$→两个都是∞。∞-∞型不能直接减！新考法！',pre:''},
+{tag:'通分',cls:'calc',txt:'分母：$x-1$和$x^2-1=(x-1)(x+1)$，公分母=$(x-1)(x+1)$<br>$\\frac{1}{x-1}-\\frac{2}{(x-1)(x+1)}=\\frac{(x+1)-2}{(x-1)(x+1)}=\\frac{x-1}{(x-1)(x+1)}$',pre:'关键：把减号变成同一分母'},
+{tag:'约分+代入',cls:'calc',txt:'$\\frac{x-1}{(x-1)(x+1)}=\\frac{1}{x+1}$（约去x-1）<br>代入x=1：$\\frac{1}{1+1}=\\frac{1}{2}$',pre:''},
+{tag:'归纳',cls:'summary',txt:'∞-∞型本质是伪装成减法的0/0型。<b>两步：①通分 ②因式分解+约分</b>',pre:''}
+]},
+{tier:'college',q:'$\\lim_{x\\to\\infty}[\\sqrt{x^2+x}-x]$',ans:'$\\frac{1}{2}$',src:'∞-∞型·根式有理化',
+steps:[
+{tag:'审题',cls:'review',txt:'x→∞时，$\\sqrt{x^2+x}$→∞，x→∞。∞-∞型！这次是根式相减→乘共轭',pre:''},
+{tag:'乘共轭',cls:'calc',txt:'$(\\sqrt{x^2+x}-x)\\cdot\\frac{\\sqrt{x^2+x}+x}{\\sqrt{x^2+x}+x}=\\frac{(x^2+x)-x^2}{\\sqrt{x^2+x}+x}=\\frac{x}{\\sqrt{x^2+x}+x}$',pre:'牢记：(√a-√b)(√a+√b)=a-b'},
+{tag:'∞/∞型处理',cls:'calc',txt:'$\\frac{x}{\\sqrt{x^2+x}+x}=\\frac{x}{\\sqrt{x^2}\\sqrt{1+1/x}+x}=\\frac{x}{x\\sqrt{1+1/x}+x}=\\frac{1}{\\sqrt{1+1/x}+1}$<br>当x→∞时，1/x→0：$\\frac{1}{\\sqrt{1+0}+1}=\\frac{1}{2}$',pre:'分子分母同除x'},
+{tag:'归纳',cls:'summary',txt:'根式∞-∞型：<b>乘共轭→变成∞/∞→同除最高次</b>。常见结果：$\\lim[\\sqrt{x^2+ax}-x]=\\frac{a}{2}$',pre:''}
+]},
+{tier:'exam',q:'$\\lim_{x\\to 2}[\\frac{1}{x-2}-\\frac{4}{x^2-4}]$',ans:'$\\frac{1}{4}$',src:'∞-∞型·变式练习',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=2：$\\frac{1}{0}-\\frac{4}{0}$→∞-∞型。通分！',pre:''},
+{tag:'通分',cls:'calc',txt:'$x^2-4=(x-2)(x+2)$，公分母=$(x-2)(x+2)$<br>$\\frac{1}{x-2}-\\frac{4}{(x-2)(x+2)}=\\frac{(x+2)-4}{(x-2)(x+2)}=\\frac{x-2}{(x-2)(x+2)}$',pre:''},
+{tag:'约分+代入',cls:'calc',txt:'$=\\frac{1}{x+2}$，代入x=2：$\\frac{1}{2+2}=\\frac{1}{4}$',pre:''},
+{tag:'归纳',cls:'summary',txt:'和上一题套路完全一样。练熟"通分→约分→代入"三步走。',pre:''}
+]},
+{tier:'exam',q:'$f(x)=\\begin{cases}x^2,&x<1\\\\2x-1,&x\\ge 1\\end{cases}$，判断$\\lim_{x\\to 1}f(x)$是否存在',ans:'存在，极限=1',src:'分段函数·左右极限',
+steps:[
+{tag:'审题',cls:'review',txt:'分段函数在x=1处换公式了！必须分别算左极限(x→1⁻)和右极限(x→1⁺)。',pre:'极限存在⇔左=右'},
+{tag:'算左极限',cls:'calc',txt:'x→1⁻（小于1，用x²）：<br>$\\lim_{x\\to 1^-}x^2=1^2=1$',pre:'从左边趋近，用上面的公式'},
+{tag:'算右极限',cls:'calc',txt:'x→1⁺（大于1，用2x-1）：<br>$\\lim_{x\\to 1^+}(2x-1)=2(1)-1=1$',pre:'从右边趋近，用下面的公式'},
+{tag:'结论',cls:'calc',txt:'左极限=右极限=1→<b>极限存在，等于1</b>',pre:''},
+{tag:'归纳',cls:'summary',txt:'分段函数判断极限<b>两步：①分别代入左右侧公式 ②比较是否相等</b>。相等→存在，不等→不存在。',pre:''}
+]},
+{tier:'college',q:'$\\lim_{x\\to 0}\\frac{|x|}{x}$',ans:'不存在',src:'绝对值·左右极限',
+steps:[
+{tag:'审题',cls:'review',txt:'含绝对值！|x|在x=0处行为不同。拆成左右极限分别算。',pre:''},
+{tag:'算左极限',cls:'calc',txt:'x→0⁻时x<0→|x|=-x<br>$\\lim_{x\\to 0^-}\\frac{-x}{x}=\\lim_{x\\to 0^-}(-1)=-1$',pre:'x<0时|x|=-x'},
+{tag:'算右极限',cls:'calc',txt:'x→0⁺时x>0→|x|=x<br>$\\lim_{x\\to 0^+}\\frac{x}{x}=\\lim_{x\\to 0^+}1=1$',pre:'x>0时|x|=x'},
+{tag:'结论',cls:'calc',txt:'左极限=-1≠右极限=1→<b>极限不存在！</b>',pre:''},
+{tag:'归纳',cls:'summary',txt:'含绝对值在x=0处：<b>拆开|x|→分别算左右→必不等</b>。这是经典反例。',pre:''}
+]},
+{tier:'exam',q:'$f(x)=\\begin{cases}x+2,&x<0\\\\e^x,&x\\ge 0\\end{cases}$，判断$\\lim_{x\\to 0}f(x)$是否存在',ans:'不存在（左2右1）',src:'分段函数·真题改编',
+steps:[
+{tag:'审题',cls:'review',txt:'分段点在x=0。左边用x+2，右边用eˣ。',pre:''},
+{tag:'算左极限',cls:'calc',txt:'$\\lim_{x\\to 0^-}(x+2)=0+2=2$',pre:''},
+{tag:'算右极限',cls:'calc',txt:'$\\lim_{x\\to 0^+}e^x=e^0=1$',pre:'e⁰=1'},
+{tag:'结论',cls:'calc',txt:'左=2≠右=1→<b>极限不存在</b>。虽然不存在，但左右极限各有确定值。',pre:''},
+{tag:'归纳',cls:'summary',txt:'注意区分：<b>极限不存在≠左右极限不存在</b>。有时左右极限都算得出具体值，但不相等，极限仍不存在。',pre:''}
+]},
+{tier:'exam',q:'$\\lim_{x\\to\\infty}x\\cdot\\sin\\frac{1}{x}$',ans:'1',src:'0·∞型·换元+重要极限',
+steps:[
+{tag:'审题',cls:'review',txt:'x→∞时：x→∞，sin(1/x)→sin0=0。∞·0型！不能直接得出0（因为∞的"强度"可能压过0）',pre:'∞·0是最危险的不定式之一'},
+{tag:'换元',cls:'calc',txt:'令$t=\\frac{1}{x}$，则当x→∞时t→0⁺<br>$x\\cdot\\sin\\frac{1}{x}=\\frac{1}{t}\\cdot\\sin t=\\frac{\\sin t}{t}$',pre:'倒一下：把x写成1/t，1/x变成t'},
+{tag:'用重要极限',cls:'calc',txt:'$\\lim_{t\\to 0}\\frac{\\sin t}{t}=1$（重要极限①）<br>所以原极限=<b>1</b>',pre:''},
+{tag:'归纳',cls:'summary',txt:'x·sin(1/x)是0·∞型的经典题。<b>核心技巧：令t=1/x→倒成熟悉形式</b>。类似题还有x·(e^(1/x)-1)→令t作同样处理。',pre:''}
+]},
+{tier:'college',q:'$\\lim_{x\\to\\infty}x(e^{1/x}-1)$',ans:'1',src:'0·∞型·换元+等价替换',
+steps:[
+{tag:'审题',cls:'review',txt:'x→∞时：x→∞，e^(1/x)-1→e⁰-1=0。又是0·∞型！',pre:''},
+{tag:'换元',cls:'calc',txt:'令$t=\\frac{1}{x}$，则x→∞时t→0<br>$x(e^{1/x}-1)=\\frac{e^t-1}{t}$',pre:''},
+{tag:'用等价替换',cls:'calc',txt:'t→0时，$e^t-1\\sim t$<br>$\\frac{e^t-1}{t}\\to\\frac{t}{t}=1$<br>所以原极限=<b>1</b>',pre:'等价无穷小：eᵗ-1≈t（t很小时）'},
+{tag:'归纳',cls:'summary',txt:'0·∞型<b>通用套路：①令t=1/x（或t=某因子） ②变成0/0或∞/∞ ③用等价替换/重要极限/因式分解</b>',pre:''}
+]},
+{tier:'junior',q:'$\\lim_{x\\to 3}\\frac{x^2-9}{x-3}$',ans:'6',src:'平方差·基础练习',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=3得0/0型。分子有平方差：$x^2-9=(x-3)(x+3)$',pre:''},
+{tag:'分解+约分',cls:'calc',txt:'$\\frac{(x-3)(x+3)}{x-3}=x+3$（约去x-3）',pre:'平方差公式：a²-b²=(a-b)(a+b)'},
+{tag:'代入',cls:'calc',txt:'代入x=3：$3+3=6$',pre:''},
+{tag:'归纳',cls:'summary',txt:'平方差是因式分解最常用的公式。看到$x^2-4$、$x^2-9$、$x^2-1$立刻反应。',pre:''}
+]},
+{tier:'college',q:'$\\lim_{x\\to 0}\\frac{\\sqrt{1+x}-1}{x}$',ans:'$\\frac{1}{2}$',src:'有理化·基础练习',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=0得0/0型。分子有根号→乘共轭有理化。',pre:''},
+{tag:'乘共轭',cls:'calc',txt:'$\\frac{\\sqrt{1+x}-1}{x}\\cdot\\frac{\\sqrt{1+x}+1}{\\sqrt{1+x}+1}=\\frac{(1+x)-1}{x(\\sqrt{1+x}+1)}=\\frac{x}{x(\\sqrt{1+x}+1)}$',pre:'共轭式：(√a-b)配(√a+b)'},
+{tag:'约分+代入',cls:'calc',txt:'$=\\frac{1}{\\sqrt{1+x}+1}$，代入x=0：$\\frac{1}{\\sqrt{1}+1}=\\frac{1}{2}$',pre:''},
+{tag:'归纳',cls:'summary',txt:'有理化的标志：<b>分子或分母含√</b>。乘共轭消掉根号→约分→代入。',pre:''}
+]},
+{tier:'exam',q:'$\\lim_{x\\to 0}\\frac{\\sin 3x}{\\sin 5x}$',ans:'$\\frac{3}{5}$',src:'重要极限①·系数变形',
+steps:[
+{tag:'审题',cls:'review',txt:'0/0型，分子分母都有sin→用重要极限①：$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1$',pre:''},
+{tag:'变形',cls:'calc',txt:'$\\frac{\\sin 3x}{\\sin 5x}=\\frac{\\sin 3x}{3x}\\cdot\\frac{5x}{\\sin 5x}\\cdot\\frac{3}{5}$<br>当x→0时，$\\frac{\\sin 3x}{3x}\\to 1$，$\\frac{5x}{\\sin 5x}\\to 1$',pre:'技巧：分子分母各配自己的系数'},
+{tag:'得结果',cls:'calc',txt:'$=1\\cdot 1\\cdot\\frac{3}{5}=\\frac{3}{5}$',pre:''},
+{tag:'归纳',cls:'summary',txt:'<b>通用公式</b>：$\\lim_{x\\to 0}\\frac{\\sin ax}{\\sin bx}=\\frac{a}{b}$。同理$\\lim_{x\\to 0}\\frac{\\sin ax}{bx}=\\frac{a}{b}$。记住规律：系数比就是答案！',pre:''}
+]},
+{tier:'exam',q:'$\\lim_{x\\to 0}\\frac{e^x-1}{x}$',ans:'1',src:'等价替换·基础公式',
+steps:[
+{tag:'审题',cls:'review',txt:'0/0型。这是等价替换的基础公式之一。',pre:''},
+{tag:'等价替换',cls:'calc',txt:'当x→0时，$e^x-1\\sim x$<br>$\\frac{e^x-1}{x}\\to\\frac{x}{x}=1$',pre:'等价无穷小：eˣ-1≈x'},
+{tag:'验证',cls:'calc',txt:'也可用重要极限推导：e的定义$\\lim_{n\\to\\infty}(1+\\frac{1}{n})^n=e$<br>但考试时<b>直接记住等价关系最快</b>',pre:''},
+{tag:'归纳',cls:'summary',txt:'<b>三个必背等价替换</b>：$\\sin x\\sim x$，$\\tan x\\sim x$，$e^x-1\\sim x$（x→0时）。再加$\\ln(1+x)\\sim x$。考试秒杀利器！',pre:''}
+]},
+{tier:'junior',q:'$\\lim_{x\\to -1}\\frac{x^2-1}{x+1}$',ans:'-2',src:'平方差·负号注意',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=-1：分子(-1)²-1=0，分母0→0/0型。分子用平方差分解。',pre:''},
+{tag:'分解',cls:'calc',txt:'$x^2-1=(x-1)(x+1)$<br>$\\frac{(x-1)(x+1)}{x+1}=x-1$（约去x+1）',pre:'平方差公式'},
+{tag:'代入',cls:'calc',txt:'代入x=-1：$x-1=-1-1=-2$<br><b>答案：-2</b>',pre:'⚠️ 注意：代入-1，负号别搞错'},
+{tag:'归纳',cls:'summary',txt:'练熟平方差的同时，注意代入<b>负数</b>时的符号。(-1)²=1是对的，(-1-1)=-2。',pre:''}
+]},
+{tier:'junior',q:'$\\lim_{x\\to -2}\\frac{x^3+8}{x+2}$',ans:'12',src:'立方和·公式练习',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=-2：分子(-2)³+8=-8+8=0，分母0→0/0型。立方和公式！',pre:''},
+{tag:'分解',cls:'calc',txt:'$a^3+b^3=(a+b)(a^2-ab+b^2)$<br>$x^3+8=x^3+2^3=(x+2)(x^2-2x+4)$',pre:'立方和公式'},
+{tag:'约分+代入',cls:'calc',txt:'$\\frac{(x+2)(x^2-2x+4)}{x+2}=x^2-2x+4$<br>代入x=-2：$(-2)^2-2(-2)+4=4+4+4=12$',pre:''},
+{tag:'归纳',cls:'summary',txt:'立方和公式是容易遗忘的点。<b>a³+b³=(a+b)(a²-ab+b²)</b>，和立方差差一个符号。',pre:''}
+]},
+{tier:'junior',q:'$\\lim_{x\\to 0}\\frac{x^2+3x}{x}$',ans:'3',src:'提取公因式·入门',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=0得0/0型。分子有公因式x→提取。这是最基础的约分题。',pre:''},
+{tag:'提取公因式',cls:'calc',txt:'$x^2+3x=x(x+3)$<br>$\\frac{x(x+3)}{x}=x+3$（约去x）',pre:'提取公因式：找共同因子'},
+{tag:'代入',cls:'calc',txt:'代入x=0：$0+3=3$',pre:''},
+{tag:'归纳',cls:'summary',txt:'提取公因式是最简单的0/0处理方式。<b>看到分子有共同的x，先提出来</b>。',pre:''}
+]},
+{tier:'senior',q:'$\\lim_{x\\to 4}\\frac{\\sqrt{x}-2}{x-4}$',ans:'$\\frac{1}{4}$',src:'有理化·基础入门',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=4：分子√4-2=0，分母0→0/0型。含根号→乘共轭。',pre:''},
+{tag:'乘共轭',cls:'calc',txt:'$\\frac{\\sqrt{x}-2}{x-4}\\cdot\\frac{\\sqrt{x}+2}{\\sqrt{x}+2}=\\frac{x-4}{(x-4)(\\sqrt{x}+2)}$<br>（分子用平方差：(√x-2)(√x+2)=x-4）',pre:'共轭式'},
+{tag:'约分+代入',cls:'calc',txt:'$=\\frac{1}{\\sqrt{x}+2}$，代入x=4：$\\frac{1}{\\sqrt{4}+2}=\\frac{1}{2+2}=\\frac{1}{4}$',pre:''},
+{tag:'归纳',cls:'summary',txt:'分母也是x-4，恰好和分子有理化后约掉。这是有理化题型最经典的模式。',pre:''}
+]},
+{tier:'senior',q:'$\\lim_{x\\to\\infty}\\frac{2x+3}{5x-1}$',ans:'$\\frac{2}{5}$',src:'∞/∞型·入门',
+steps:[
+{tag:'审题',cls:'review',txt:'x→∞，分子分母都→∞。同除最高次x。',pre:''},
+{tag:'同除x',cls:'calc',txt:'$\\frac{2x+3}{5x-1}=\\frac{2+\\frac{3}{x}}{5-\\frac{1}{x}}$<br>当x→∞时，$\\frac{3}{x}\\to 0$，$\\frac{1}{x}\\to 0$',pre:'同除最高次项'},
+{tag:'代入',cls:'calc',txt:'$=\\frac{2+0}{5-0}=\\frac{2}{5}$',pre:''},
+{tag:'归纳',cls:'summary',txt:'最简单的∞/∞型：分子分母同次→<b>最高次系数比</b>。这题2/5，以后看到类似直接写系数比。',pre:''}
+]},
+{tier:'senior',q:'$\\lim_{x\\to 2}\\frac{x^3-8}{x-2}$',ans:'12',src:'立方差·公式练习',
+steps:[
+{tag:'审题',cls:'review',txt:'代入x=2得0/0型。分子是立方差：$x^3-8=x^3-2^3$',pre:''},
+{tag:'分解',cls:'calc',txt:'$a^3-b^3=(a-b)(a^2+ab+b^2)$<br>$x^3-8=(x-2)(x^2+2x+4)$',pre:'立方差公式'},
+{tag:'约分+代入',cls:'calc',txt:'$\\frac{(x-2)(x^2+2x+4)}{x-2}=x^2+2x+4$<br>代入x=2：$4+4+4=12$',pre:''},
+{tag:'归纳',cls:'summary',txt:'立方差+立方和都要熟练。<b>a³±b³=(a±b)(a²∓ab+b²)</b>。符号规律：同号用加，异号用减，中间项符号与括号里相反。',pre:''}
+]},
+{tier:'college',q:'$\\lim_{x\\to 0}\\frac{\\tan x}{x}$',ans:'1',src:'重要极限·tan变形',
+steps:[
+{tag:'审题',cls:'review',txt:'0/0型。$\\tan x=\\frac{\\sin x}{\\cos x}$，这是从sinx/x推广到tanx/x。',pre:''},
+{tag:'变形',cls:'calc',txt:'$\\frac{\\tan x}{x}=\\frac{\\sin x}{x\\cos x}=\\frac{\\sin x}{x}\\cdot\\frac{1}{\\cos x}$<br>当x→0时，$\\frac{\\sin x}{x}\\to 1$，$\\cos x\\to 1$',pre:'tanx=sinx/cosx'},
+{tag:'得结果',cls:'calc',txt:'$=1\\cdot\\frac{1}{1}=1$',pre:''},
+{tag:'归纳',cls:'summary',txt:'<b>推论</b>：$\\lim_{x\\to 0}\\frac{\\tan x}{x}=1$同sinx/x。记住：$\\lim\\frac{\\sin ax}{bx}=\\frac{a}{b}$，$\\tan$也一样。',pre:''}
+]},
+{tier:'college',q:'$\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2}$',ans:'$\\frac{1}{2}$',src:'半角公式·重要极限综合',
+steps:[
+{tag:'审题',cls:'review',txt:'0/0型。分子1-cosx→用半角公式或等价替换。这是经典题！',pre:''},
+{tag:'公式转换',cls:'calc',txt:'$1-\\cos x=2\\sin^2\\frac{x}{2}$<br>$\\frac{1-\\cos x}{x^2}=\\frac{2\\sin^2\\frac{x}{2}}{x^2}=\\frac{2\\sin^2\\frac{x}{2}}{4(\\frac{x}{2})^2}=\\frac{1}{2}\\cdot\\frac{\\sin^2\\frac{x}{2}}{(\\frac{x}{2})^2}$',pre:'半角公式：1-cosx=2sin²(x/2)'},
+{tag:'用重要极限',cls:'calc',txt:'当x→0时，$\\frac{x}{2}\\to 0$<br>$\\frac{\\sin\\frac{x}{2}}{\\frac{x}{2}}\\to 1$<br>$\\frac{1}{2}\\cdot 1^2=\\frac{1}{2}$',pre:''},
+{tag:'归纳',cls:'summary',txt:'<b>实用结论</b>：$\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2}=\\frac{1}{2}$。等价替换：$1-\\cos x\\sim\\frac{x^2}{2}$。背下来秒杀同类题。',pre:''}
+]},
+{tier:'college',q:'$\\lim_{x\\to 0}\\frac{\\sin 2x}{x\\cos x}$',ans:'2',src:'综合·三角极限',
+steps:[
+{tag:'审题',cls:'review',txt:'0/0型。分子有sin2x，分母有cosx。综合运用重要极限。',pre:''},
+{tag:'拆解',cls:'calc',txt:'$\\frac{\\sin 2x}{x\\cos x}=\\frac{\\sin 2x}{2x}\\cdot\\frac{2}{\\cos x}$<br>（分子分母同乘2，凑sin2x/2x的形式）',pre:'凑重要极限形式'},
+{tag:'分别求极限',cls:'calc',txt:'$\\frac{\\sin 2x}{2x}\\to 1$（重要极限）<br>$\\cos x\\to 1$<br>$1\\cdot\\frac{2}{1}=2$',pre:''},
+{tag:'归纳',cls:'summary',txt:'复合三角极限：<b>①把sin(ax)凑成sin(ax)/(ax) ②cosx→1直接代 ③系数拿出来</b>。答案是系数比。',pre:''}
+]},
 ],
 l:{tiers:[
 {name:'初中层',cls:'junior',intro:'极限题80%的失分不在极限概念本身，而在初中代数运算。先确保以下基础。',
@@ -512,7 +662,7 @@ items:[
 ],
 example:{q:'$\\lim_{x\\to 0}\\frac{e^x-1}{\\sin x}$',ans:'1',explain:'等价替换：eˣ-1~x, sinx~x → x/x=1'}
 },
-{name:'教资层',cls:'exam',intro:'教资考试中极限的6种考法，覆盖10套真题所有极限题。',
+{name:'教资层',cls:'exam',intro:'教资考试中极限的9种考法，覆盖10套真题所有极限题。',
 items:[
 {s:'直接代入法',ok:false,formula:'代入得具体数字→直接写答案',reading:'',note:'最简单的。代入不是0/0或∞/∞就直接出答案'},
 {s:'因式分解法',ok:false,formula:'多项式$\\frac{0}{0}$型→分解+约分+代入',reading:'',note:'最常考。如 $\\lim_{x\\to 2}\\frac{x^3-8}{x^2-4}$'},
@@ -522,7 +672,10 @@ items:[
 
 {s:'重要极限②（幂指型）',ok:false,formula:'$\\lim_{x\\to\\infty}(1+\\frac{1}{x})^x=e$（$e\\approx 2.718$）',reading:'当x趋近于无穷时，1加x分之一的x次方，极限等于e，e约等于2.718',note:'特征：底数是"1+某"，指数是"某的倒数"。看到 $(1+\\frac{2}{n})^n$ 就要凑成 $(1+\\frac{1}{t})^t$ 形式→得 $e^2$。19下Q1考过！'},
 
-{s:'有界性法',ok:false,formula:'$|\\sin x|\\le 1,\\ |\\cos x|\\le 1$，有界函数÷无穷大=0',reading:'sinx和cosx的值永远在-1到1之间振荡。任何有界量除以无穷大，极限都是0',note:'最常考：$\\lim_{x\\to\\infty}\\frac{\\sin x}{x}=0$。⚠️ 区分：$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1$（重要极限①），$\\lim_{x\\to\\infty}\\frac{\\sin x}{x}=0$（有界性）。趋近方向不同，答案完全不同！'}
+{s:'有界性法',ok:false,formula:'$|\\sin x|\\le 1,\\ |\\cos x|\\le 1$，有界函数÷无穷大=0',reading:'sinx和cosx的值永远在-1到1之间振荡。任何有界量除以无穷大，极限都是0',note:'最常考：$\\lim_{x\\to\\infty}\\frac{\\sin x}{x}=0$。⚠️ 区分：$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1$（重要极限①），$\\lim_{x\\to\\infty}\\frac{\\sin x}{x}=0$（有界性）。趋近方向不同，答案完全不同！'},
+{s:'通分法（∞-∞型）',ok:false,formula:'∞-∞型→通分合并→变成$\\frac{0}{0}$或$\\frac{\\infty}{\\infty}$→常规方法',reading:'两个无穷大相减，不能直接算。两个分式相减先通分，根式相减乘共轭',note:'典型题：$\\lim_{x\\to 1}[\\frac{1}{x-1}-\\frac{2}{x^2-1}]$。通分后分子因式分解，约去(x-1)得$\\frac{1}{2}$。∞-∞本质是伪装成减法的0/0型！'},
+{s:'左右极限法（分段函数）',ok:false,formula:'极限存在 $\\Leftrightarrow$ 左极限 = 右极限',reading:'函数在某点的极限存在，当且仅当从左边趋近和从右边趋近得到的值相等',note:'教资高频考点！分段函数在分段点必须分别算左右极限。若不等→极限不存在。看到|x|或分段定义立刻警觉——必须拆开算左右'},
+{s:'化商法（0·∞型）',ok:false,formula:'$0\\cdot\\infty$型→化为$\\frac{0}{0}$或$\\frac{\\infty}{\\infty}$→常规方法',reading:'零乘无穷大型。把其中一个因子取倒数放到分母，变成分式',note:'典型：$\\lim_{x\\to\\infty}x\\cdot\\sin\\frac{1}{x}$→令$t=\\frac{1}{x}$→$\\frac{\\sin t}{t}$→1。核心思路：倒一下变成熟悉的形式'},
 ],
 example:{q:'$\\lim_{x\\to\\infty}\\frac{\\sin x}{x}$',ans:'0',explain:'|sinx|≤1有界，分母→∞，有界/无穷=0'}
 }
@@ -554,7 +707,19 @@ steps:[
 {cond:'$\\lim_{x\\to\\infty}\\frac{\\cos x}{x}$',method:'|cosx|≤1同样有界 → 极限=0',ex:'$\\lim_{x\\to\\infty}\\frac{\\cos x}{x}=0$'},
 {cond:'$\\lim_{x\\to 0}x\\sin\\frac{1}{x}$',method:'|sin(1/x)|≤1有界，乘以x→0 → 极限=0',ex:'$\\lim_{x\\to 0}x\\sin\\frac{1}{x}=0$（夹逼思想）'}
 ]},
-{step:5,action:'🧠 蒙题保底 + 自检验证（实在不会时用）',result:'选择题提高正确率的救命方法',branch:[
+{step:5,action:'得 $\\infty-\\infty$ 型？',result:'⚠️ 新考法！通分合并→变回0/0型',branch:[
+{cond:'两个分式相减',method:'通分 → 分子因式分解 → 约分 → 代入',ex:'$\\lim_{x\\to 1}[\\frac{1}{x-1}-\\frac{2}{x^2-1}]=\\frac{1}{2}$'},
+{cond:'根式相减（$x\\to\\infty$）',method:'乘共轭式有理化 → 化成∞/∞型 → 同除最高次',ex:'$\\lim_{x\\to\\infty}[\\sqrt{x^2+x}-x]=\\frac{1}{2}$'}
+]},
+{step:6,action:'是分段函数 / 含 $|x|$？',result:'⚠️ 新考法！分别算左极限和右极限',branch:[
+{cond:'左极限 = 右极限',method:'极限<b>存在</b>，等于这个共同值',ex:'$f(x)=\\begin{cases}x^2&x<1\\\\2x-1&x\\ge 1\\end{cases}$→左右都=1→极限=1'},
+{cond:'左极限 ≠ 右极限',method:'极限<b>不存在</b>！',ex:'$\\lim_{x\\to 0}\\frac{|x|}{x}$→左=-1，右=1→不存在'}
+]},
+{step:7,action:'得 $0\\cdot\\infty$ 型？',result:'⚠️ 新考法！取倒数变成分式',branch:[
+{cond:'$x\\cdot\\sin\\frac{1}{x}$ 型',method:'令 $t=\\frac{1}{x}$ → 变成 $\\frac{\\sin t}{t}$ → 重要极限=1',ex:'$\\lim_{x\\to\\infty}x\\cdot\\sin\\frac{1}{x}=1$'},
+{cond:'$x\\cdot(e^{1/x}-1)$ 型',method:'令 $t=\\frac{1}{x}$ → $\\frac{e^t-1}{t}$ → 等价替换=1',ex:'$\\lim_{x\\to\\infty}x(e^{1/x}-1)=1$'}
+]},
+{step:8,action:'🧠 蒙题保底 + 自检验证（实在不会时用）',result:'选择题提高正确率的救命方法',branch:[
 {cond:'🌟 特殊值代入验证（最保险！）',method:'算出答案后代入一个极接近的值验算：x→0则代入x=0.0001；x→2则代入x=1.9999；x→∞则代入x=10000。近似结果≈你的答案→对了',ex:'答案说是3，代入x=1.9999算 (1.9999³-8)/(1.9999²-4)≈3.0000 ✓'},
 {cond:'排除明显不合理的选项',method:'sinx有界→极限不可能是∞；分母→∞→极限不可能是很大的数',ex:'选项中有∞的直接排除（除非分子次数>分母）'},
 {cond:'选项分布规律',method:'10套真题Q1极限题答案：从未出现"不存在"。中等数值(1~5)出现最多。e≈2.718出现2次',ex:'蒙题优先选中等数值，避开极端值和"不存在"'}
