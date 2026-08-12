@@ -1360,22 +1360,14 @@ function toggleExample(n) {
   var arrow = document.getElementById('exArrow'+n);
   if (!steps || !arrow) return;
   var isOpen = steps.style.display === 'block';
-  // Close all
-  var allSteps = document.querySelectorAll('.ex-steps');
-  var allArrows = document.querySelectorAll('.ex-arrow');
-  allSteps.forEach(function(s){ s.style.display = 'none'; });
-  allArrows.forEach(function(a){ a.style.transform = 'rotate(0deg)'; });
-  // Open clicked (if wasn't already open)
+  // Toggle clicked one only, don't close others
   if (!isOpen) {
     steps.style.display = 'block';
     arrow.style.transform = 'rotate(180deg)';
     _activeExample = n;
-    // Scroll to header
-    setTimeout(function(){
-      var hdr = document.getElementById('exHeader'+n);
-      if(hdr) hdr.scrollIntoView({behavior:'smooth',block:'nearest'});
-    }, 50);
   } else {
+    steps.style.display = 'none';
+    arrow.style.transform = 'rotate(0deg)';
     _activeExample = -1;
   }
 }
