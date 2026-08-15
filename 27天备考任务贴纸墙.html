@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>27天备考任务贴纸墙 v1.0</title>
+<style>
+:root {
+  --bg: #fdf6ec;
+  --card: #ffffff;
+  --red: #c0392b;
+  --ink: #2c3e50;
+  --gray: #7f8c8d;
+  --line: #e8dcc0;
+  --green: #27ae60;
+  --blue: #2980b9;
+  --cols: 3;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html.big { --fs-st: 15px; }
+body {
+  background: var(--bg);
+  font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, sans-serif;
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 12px 10px 90px; }
+
+/* ===== 顶栏 ===== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 4px 10px;
+}
+.topbar h1 { font-size: 19px; color: var(--red); }
+.topbar .dday { font-size: 13px; color: var(--gray); white-space: nowrap; }
+.topbar .dday b { color: var(--red); }
+.abtn {
+  min-width: 44px; min-height: 36px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  border-radius: 10px;
+  font-size: 14px; font-weight: 700; color: var(--gray);
+  cursor: pointer; padding: 0 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.abtn.on { border-color: var(--red); color: var(--red); }
+
+/* ===== 日历条 ===== */
+.calbar {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  padding: 8px 2px 10px;
+  scrollbar-width: none;
+}
+.calbar::-webkit-scrollbar { display: none; }
+.cal {
+  flex: none;
+  width: 24px; height: 30px;
+  border-radius: 8px;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  font-size: 11px; color: #bdc3c7;
+  display: flex; align-items: center; justify-content: center;
+}
+.cal.today { border-color: var(--blue); color: var(--blue); font-weight: 800; box-shadow: 0 0 0 2px rgba(41,128,185,.18); }
+.cal.exam { background: var(--red); border-color: var(--red); color: #fff; font-weight: 800; font-size: 12px; }
+
+/* ===== 添加区 ===== */
+.addbox {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
+}
+.addbox textarea {
+  width: 100%;
+  min-height: 52px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14.5px;
+  font-family: inherit;
+  color: var(--ink);
+  resize: vertical;
+  outline: none;
+  background: #fffdf6;
+}
+.addbox textarea:focus { border-color: var(--red); }
+.addrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.cats { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+.cat {
+  min-height: 40px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray);
+}
+.cat .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+.cat.on { color: #fff; }
+.addbtn {
+  min-height: 46px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 23px;
+  background: var(--red);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.addbtn:active { transform: scale(.96); }
+
+/* ===== 工具栏 ===== */
+.toolbar { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.search {
+  flex: 1;
+  min-width: 150px;
+  min-height: 40px;
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  padding: 0 14px;
+  font-size: 13.5px;
+  background: var(--card);
+  outline: none;
+  font-family: inherit;
+}
+.search:focus { border-color: var(--blue); }
+.chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 20px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray);
+  cursor: pointer;
+  display: flex; align-items: center;
+}
+.chip.on { border-color: var(--red); color: var(--red); background: #fdecea; }
+
+/* ===== 贴纸墙 ===== */
+.wall { display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 8px; }
+.st {
+  position: relative;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 9px 9px;
+  min-height: 56px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+}
+.st:active { transform: scale(.97); }
+.st .bar { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--c, #7f8c8d); }
+.st .txt {
+  font-size: var(--fs-st, 12px);
+  line-height: 1.5;
+  margin-top: 3px;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.st .tag {
+  margin-top: auto;
+  padding-top: 4px;
+  font-size: 10px;
+  color: #bdc3c7;
+}
+.slot {
+  min-height: 44px;
+  border: 2px dashed #e3d5b3;
+  border-radius: 12px;
+  background: rgba(255,255,255,.45);
+  color: #d9c9a3;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.slot:active { background: #fdf3dc; }
+.slot.on { border-color: var(--red); color: var(--red); background: #fdecea; }
+.walltip {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--gray);
+  line-height: 1.7;
+  padding: 18px 8px 0;
+}
+.walltip b { color: var(--red); }
+
+/* ===== 底部统计 ===== */
+.footstat {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--gray);
+  padding: 18px 8px 4px;
+  line-height: 1.8;
+}
+.footstat b { color: var(--red); }
+
+/* ===== FAB收纳箱 ===== */
+.fab {
+  position: fixed;
+  right: 14px;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 30px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  box-shadow: 0 6px 18px rgba(192,57,43,.4);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  gap: 5px;
+  padding: 0 16px;
+  z-index: 30;
+}
+.fab .fb-n {
+  background: #fff;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 1px 7px;
+  display: none;
+}
+.fab.has .fb-n { display: inline-block; }
+.fab:active { transform: scale(.95); }
+
+/* ===== 底部操作卡 ===== */
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 40;
+  display: none;
+}
+.mask.on { display: block; }
+.sheet {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 0;
+  background: var(--card);
+  border-radius: 20px 20px 0 0;
+  padding: 18px 16px calc(18px + env(safe-area-inset-bottom));
+  z-index: 50;
+  display: none;
+  max-height: 78vh;
+  overflow-y: auto;
+}
+.sheet.on { display: block; }
+.sheet .s-title { font-size: 15.5px; font-weight: 700; line-height: 1.6; word-break: break-all; padding-right: 30px; }
+.sheet .s-meta { font-size: 12px; color: var(--gray); margin: 8px 0 14px; }
+.sheet .s-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 44px; height: 44px;
+  border: none; background: #f5efe0;
+  border-radius: 50%;
+  font-size: 18px; color: var(--gray);
+  cursor: pointer;
+}
+.sbtns { display: flex; flex-direction: column; gap: 10px; }
+.sbtn {
+  min-height: 50px;
+  border-radius: 14px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  font-size: 15.5px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+.sbtn.done { background: var(--green); border-color: var(--green); color: #fff; }
+.sbtn.edit { color: var(--blue); border-color: #cfe3f0; }
+.sbtn.del { color: var(--red); border-color: #f5c6c1; }
+
+/* ===== 弹窗modal ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal.on { display: flex; }
+.mbox {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 20px 16px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.mbox h3 { font-size: 16.5px; margin-bottom: 12px; color: var(--ink); }
+.mbox textarea {
+  width: 100%;
+  min-height: 80px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14.5px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  background: #fffdf6;
+}
+.mbox textarea:focus { border-color: var(--red); }
+.mrow { display: flex; gap: 10px; margin-top: 14px; }
+.mbtn {
+  flex: 1;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.mbtn.ok { background: var(--red); border-color: var(--red); color: #fff; }
+.mbtn.warn { background: var(--red); border-color: var(--red); color: #fff; }
+.deltext {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: #fdf3dc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+
+/* ===== 收纳箱面板 ===== */
+.boxpanel {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 70;
+  display: none;
+  flex-direction: column;
+}
+.boxpanel.on { display: flex; }
+.bp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+  background: var(--card);
+  border-bottom: 2px solid var(--line);
+}
+.bp-head h2 { font-size: 18px; color: var(--red); }
+.bp-head .bp-x {
+  width: 44px; height: 44px;
+  border: none; background: #f5efe0;
+  border-radius: 50%;
+  font-size: 18px; color: var(--gray);
+  cursor: pointer;
+}
+.bp-body { flex: 1; overflow-y: auto; padding: 14px 12px 24px; }
+.bp-stat {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.bp-stat .s1 { font-size: 14.5px; font-weight: 800; }
+.bp-stat .s2 { font-size: 12.5px; color: var(--gray); margin-top: 6px; line-height: 1.7; }
+.ditem {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-left: 6px solid var(--c, #7f8c8d);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ditem .dtxt { flex: 1; font-size: 13.5px; line-height: 1.55; word-break: break-all; }
+.ditem .dmeta { font-size: 11px; color: #bdc3c7; margin-top: 3px; }
+.ditem .dbtns { display: flex; flex-direction: column; gap: 6px; flex: none; }
+.dbtn {
+  min-width: 44px;
+  min-height: 36px;
+  border-radius: 10px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.dbtn.back { color: var(--blue); border-color: #cfe3f0; }
+.dbtn.del { color: var(--red); border-color: #f5c6c1; }
+.bp-empty { text-align: center; color: var(--gray); font-size: 13.5px; line-height: 1.9; padding: 40px 10px; }
+.bp-foot {
+  padding: 10px 16px calc(12px + env(safe-area-inset-bottom));
+  background: var(--card);
+  border-top: 2px solid var(--line);
+  display: flex;
+  gap: 10px;
+}
+.bp-foot .mbtn { flex: 1; min-height: 44px; font-size: 13.5px; }
+
+/* ===== toast ===== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%);
+  background: rgba(44,62,80,.92);
+  color: #fff;
+  font-size: 13.5px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  z-index: 90;
+  display: none;
+  max-width: 85vw;
+  text-align: center;
+}
+.toast.on { display: block; animation: tfade 1.8s ease forwards; }
+@keyframes tfade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+footer {
+  text-align: center;
+  font-size: 11.5px;
+  color: #bdc3c7;
+  line-height: 1.8;
+  padding: 10px 0 4px;
+}
+
+/* ===== 响应式 ===== */
+@media (min-width: 480px) { :root { --cols: 4; } }
+@media (min-width: 760px) {
+  :root { --cols: 6; }
+  .cal { width: 32px; height: 34px; font-size: 12px; }
+  .topbar h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <h1>📌 27天任务贴纸墙</h1>
+    <span class="dday" id="dday"></span>
+    <button class="abtn" id="bigbtn" onclick="toggleBig()">A⁺</button>
+  </div>
+
+  <div class="calbar" id="calbar"></div>
+
+  <div class="addbox">
+    <textarea id="tin" placeholder="写一个小任务，比如：背教师法第7条 3遍…"></textarea>
+    <div class="addrow">
+      <div class="cats" id="cats"></div>
+      <button class="addbtn" onclick="addTask()">＋ 贴上墙</button>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input class="search" id="search" placeholder="🔍 搜索任务（只是暂时隐藏，位置不变）" oninput="renderWall()">
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <div class="wall" id="wall"></div>
+  <div class="walltip" id="walltip">💡 墙上共 <b>24个固定位置</b>：任务贴上去位置永远不变，<b>第二天不会清理</b>——只有手动「完成收纳」或「删除」才会腾出空位<br>点贴纸操作 · 点虚线空格可把新任务填到指定位置</div>
+  <div class="footstat" id="footstat"></div>
+
+  <footer>
+    27天备考任务贴纸墙 v1.0 · 2026-08-15<br>
+    墙上最多同时贴24个任务 · 数据仅保存在本机浏览器（换设备不互通）· 收纳箱内可导出备份<br>
+    冲刺日历：2026-08-15 起 · 2026-09-10 考试
+  </footer>
+</div>
+
+<button class="fab" id="fab" onclick="openBox()">🗃️<span class="fb-n" id="fbn">0</span></button>
+
+<!-- 操作卡 -->
+<div class="mask" id="mask" onclick="closeCard()"></div>
+<div class="sheet" id="sheet">
+  <button class="s-close" onclick="closeCard()">✕</button>
+  <div class="s-title" id="stitle"></div>
+  <div class="s-meta" id="smeta"></div>
+  <div class="sbtns">
+    <button class="sbtn done" onclick="completeActive()">✅ 完成，收进收纳箱</button>
+    <button class="sbtn edit" onclick="openEdit()">✏️ 编辑任务</button>
+    <button class="sbtn del" onclick="openDelConfirm()">🗑️ 删除任务</button>
+  </div>
+</div>
+
+<!-- 编辑弹窗 -->
+<div class="modal" id="editModal">
+  <div class="mbox">
+    <h3>✏️ 编辑任务</h3>
+    <textarea id="etext"></textarea>
+    <div class="cats" id="ecats"></div>
+    <div class="mrow">
+      <button class="mbtn" onclick="closeModal('editModal')">取消</button>
+      <button class="mbtn ok" onclick="saveEdit()">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- 删除确认 -->
+<div class="modal" id="delModal">
+  <div class="mbox">
+    <h3>🗑️ 确认删除？</h3>
+    <div class="deltext" id="deltext"></div>
+    <div class="mrow">
+      <button class="mbtn" onclick="closeModal('delModal')">取消</button>
+      <button class="mbtn warn" onclick="confirmDel()">确认删除</button>
+    </div>
+  </div>
+</div>
+
+<!-- 导入确认 -->
+<div class="modal" id="importModal">
+  <div class="mbox">
+    <h3>⬆️ 导入备份</h3>
+    <p style="font-size:13.5px;color:var(--gray);line-height:1.7">导入会<b style="color:var(--red)">覆盖</b>当前墙上和收纳箱的全部数据，确定吗？</p>
+    <div class="mrow">
+      <button class="mbtn" onclick="closeModal('importModal')">取消</button>
+      <button class="mbtn ok" onclick="doImport()">覆盖导入</button>
+    </div>
+  </div>
+</div>
+
+<!-- 收纳箱 -->
+<div class="boxpanel" id="boxpanel">
+  <div class="bp-head">
+    <h2>🗃️ 收纳箱</h2>
+    <button class="bp-x" onclick="closeBox()">✕</button>
+  </div>
+  <div class="bp-body" id="bpbody"></div>
+  <div class="bp-body-tip" style="text-align:center;font-size:12px;color:#bdc3c7;line-height:1.7;padding:6px 10px 0;">备份文件可直接发给别人（微信/QQ发送）或拷到另一台设备，对方点「导入恢复」就能得到一模一样的墙</div>
+  <div class="bp-foot">
+    <button class="mbtn" onclick="exportData()">⬇️ 导出备份</button>
+    <button class="mbtn" onclick="document.getElementById('importFile').click()">⬆️ 导入恢复</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ==================== 常量 ====================
+const LS_KEY = 'stickerwall_v1';
+const START = new Date(2026, 7, 15);   // 2026-08-15 冲刺第1天
+const EXAM = new Date(2026, 8, 10);    // 2026-09-10 考试日
+const TOTAL_DAYS = 27;
+const CATS = [
+  { key: 'k1', name: '科一', color: '#c0392b' },
+  { key: 'k2', name: '科二', color: '#2980b9' },
+  { key: 'math', name: '数学', color: '#27ae60' },
+  { key: 'other', name: '其他', color: '#7f8c8d' },
+];
+const catOf = key => CATS.find(c => c.key === key) || CATS[3];
+
+// ==================== 状态 ====================
+let state = { slots: [], tasks: {} };
+let selCat = 'k1';
+let pendingSlotId = null;
+let activeTaskId = null;
+let editCat = 'k1';
+let filterCat = 'all';
+let delTargetId = null;
+let importedTasks = null;
+
+function d0(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+function today() { return d0(new Date()); }
+function fmt(dt) {
+  const d = new Date(dt);
+  return (d.getMonth() + 1) + '月' + d.getDate() + '日 ' +
+    String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+}
+function dayOf(t) { return Math.floor((d0(t) - d0(START)) / 86400000) + 1; }
+function daysLeft() { return Math.floor((d0(EXAM) - today()) / 86400000); }
+
+// ==================== 存取 ====================
+const SLOT_COUNT = 24; // 墙上固定24个位置
+function save() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+  catch (e) { toast('保存失败：浏览器存储已满'); }
+}
+function load() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (raw) {
+      const d = JSON.parse(raw);
+      if (d && Array.isArray(d.slots) && d.tasks && typeof d.tasks === 'object') {
+        state = d;
+      }
+    }
+  } catch (e) { /* 损坏则用空状态 */ }
+  // 规范化：墙上永远是24个固定位置
+  if (!Array.isArray(state.slots)) state.slots = [];
+  const ids = new Set(state.slots.map(s => s.id));
+  while (state.slots.length < SLOT_COUNT) {
+    let n = state.slots.length + 1;
+    while (ids.has('s' + n)) n++;
+    ids.add('s' + n);
+    state.slots.push({ id: 's' + n, taskId: null });
+  }
+  if (state.slots.length > SLOT_COUNT) state.slots = state.slots.slice(0, SLOT_COUNT);
+}
+
+// ==================== 顶栏 & 日历 ====================
+function renderTop() {
+  const d = dayOf(today());
+  const left = daysLeft();
+  const dd = document.getElementById('dday');
+  if (d >= 1 && d <= TOTAL_DAYS && left >= 0) {
+    dd.innerHTML = '冲刺第 <b>' + d + '</b>/27 天 · 距考试 <b>' + left + '</b> 天';
+  } else if (left < 0) {
+    dd.innerHTML = '<b>考试日已到，加油！</b>';
+  } else {
+    dd.innerHTML = '距考试 <b>' + left + '</b> 天';
+  }
+}
+function renderCal() {
+  const t = today();
+  const el = document.getElementById('calbar');
+  let html = '';
+  for (let i = 0; i < TOTAL_DAYS; i++) {
+    const d = new Date(START.getFullYear(), START.getMonth(), START.getDate() + i);
+    let cls = 'cal', label = d.getDate();
+    if (d.getTime() === t.getTime()) cls += ' today';
+    if (d.getTime() === EXAM.getTime()) { cls += ' exam'; label = '考'; }
+    html += '<div class="' + cls + '" title="' + (d.getMonth() + 1) + '月' + d.getDate() + '日">' + label + '</div>';
+  }
+  el.innerHTML = html;
+}
+
+// ==================== 科目选择器 ====================
+function renderCats(container, active, onclick) {
+  const el = document.getElementById(container);
+  el.innerHTML = CATS.map(c =>
+    '<span class="cat' + (c.key === active ? ' on' : '') + '" style="' + (c.key === active ? 'background:' + c.color + ';border-color:' + c.color : '') + '" onclick="' + onclick + '(\'' + c.key + '\')">' +
+    '<span class="dot" style="background:' + c.color + (c.key === active ? ';background:#fff' : '') + '"></span>' + c.name + '</span>'
+  ).join('');
+}
+function pickCat(key) { selCat = key; renderCats('cats', selCat, 'pickCat'); }
+function pickECat(key) { editCat = key; renderCats('ecats', editCat, 'pickECat'); }
+
+// ==================== 筛选chips ====================
+function renderChips() {
+  const items = [
+    { key: 'all', name: '全部' },
+    { key: 'empty', name: '空位' },
+    ...CATS.map(c => ({ key: c.key, name: c.name })),
+  ];
+  document.getElementById('chips').innerHTML = items.map(i =>
+    '<span class="chip' + (filterCat === i.key ? ' on' : '') + '" onclick="setFilter(\'' + i.key + '\')">' + i.name + '</span>'
+  ).join('');
+}
+function setFilter(k) { filterCat = k; renderChips(); renderWall(); }
+
+// ==================== 贴纸墙渲染 ====================
+function renderWall() {
+  const sc = window.scrollY;
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const wall = document.getElementById('wall');
+  let html = '', visCount = 0;
+  for (const s of state.slots) {
+    const t = s.taskId ? state.tasks[s.taskId] : null;
+    if (!t) {
+      // 空位
+      if (filterCat !== 'all' && filterCat !== 'empty') continue;
+      html += '<div class="slot' + (pendingSlotId === s.id ? ' on' : '') + '" onclick="pickSlot(\'' + s.id + '\')">＋</div>';
+      continue;
+    }
+    // 筛选
+    if (filterCat === 'empty') continue;
+    if (filterCat !== 'all' && t.cat !== filterCat) continue;
+    if (q && !t.text.toLowerCase().includes(q)) continue;
+    const c = catOf(t.cat).color;
+    html += '<div class="st" style="--c:' + c + '" onclick="openCard(\'' + t.id + '\')">' +
+      '<div class="bar"></div><div class="txt">' + escHtml(t.text) + '</div>' +
+      '<div class="tag">' + catOf(t.cat).name + ' · ' + (t.createdAt ? (new Date(t.createdAt).getMonth() + 1) + '/' + new Date(t.createdAt).getDate() : '') + '</div></div>';
+    visCount++;
+  }
+  wall.innerHTML = html;
+  document.getElementById('walltip').style.display = (state.slots.length === 0) ? '' : 'none';
+
+  const done = Object.values(state.tasks).filter(t => t.doneAt).length;
+  const empties = state.slots.filter(s => !s.taskId).length;
+  const active = Object.values(state.tasks).filter(t => !t.doneAt).length;
+  const full = active >= SLOT_COUNT;
+  document.getElementById('footstat').innerHTML =
+    '墙上任务 <b>' + active + '</b>/24 个 · 已完成 <b>' + done + '</b> 个 · 空位 <b>' + empties + '</b> 个' +
+    (visCount !== active ? '（当前显示 ' + visCount + ' 个）' : '') +
+    (full ? '<br><b style="font-size:13px">⚠️ 已满24个，完成或删除一个任务才能继续贴新任务</b>' : '');
+
+  const fab = document.getElementById('fab');
+  fab.classList.toggle('has', done > 0);
+  document.getElementById('fbn').textContent = done;
+
+  window.scrollTo(0, sc);
+}
+
+// ==================== 添加任务 ====================
+function addTask() {
+  const text = document.getElementById('tin').value.trim();
+  if (!text) { document.getElementById('tin').focus(); toast('先写任务内容再贴哦'); return; }
+  let slot = null;
+  if (pendingSlotId) {
+    slot = state.slots.find(s => s.id === pendingSlotId && !s.taskId) || null;
+  }
+  if (!slot) {
+    slot = state.slots.find(s => !s.taskId) || null; // 默认填最前面的空位
+  }
+  if (!slot) {
+    toast('墙上24个位置都满了！先完成或删除一个任务，腾出位置再加');
+    return;
+  }
+  const id = 't' + Date.now();
+  state.tasks[id] = { text, cat: selCat, createdAt: Date.now(), doneAt: null, slotId: slot.id };
+  slot.taskId = id;
+  pendingSlotId = null;
+  document.getElementById('tin').value = '';
+  save(); renderWall();
+  toast('已贴上墙 ✔');
+}
+function pickSlot(id) {
+  if (pendingSlotId === id) { pendingSlotId = null; }
+  else {
+    pendingSlotId = id;
+    document.getElementById('tin').focus();
+    toast('已选中空位，输入任务点「贴上墙」就填到这里');
+  }
+  renderWall();
+}
+
+// ==================== 操作卡 ====================
+function openCard(taskId) {
+  activeTaskId = taskId;
+  const t = state.tasks[taskId];
+  document.getElementById('stitle').textContent = t.text;
+  document.getElementById('smeta').textContent =
+    catOf(t.cat).name + ' · 贴于' + fmt(t.createdAt);
+  document.getElementById('mask').classList.add('on');
+  document.getElementById('sheet').classList.add('on');
+}
+function closeCard() {
+  document.getElementById('mask').classList.remove('on');
+  document.getElementById('sheet').classList.remove('on');
+  activeTaskId = null;
+}
+function completeActive() {
+  const t = state.tasks[activeTaskId];
+  t.doneAt = Date.now();
+  const s = state.slots.find(s => s.id === t.slotId);
+  if (s) s.taskId = null;
+  save(); closeCard(); renderWall();
+  toast('完成 ✅ 已收进收纳箱');
+}
+function openEdit() {
+  const t = state.tasks[activeTaskId];
+  document.getElementById('etext').value = t.text;
+  editCat = t.cat;
+  renderCats('ecats', editCat, 'pickECat');
+  document.getElementById('editModal').classList.add('on');
+}
+function saveEdit() {
+  const text = document.getElementById('etext').value.trim();
+  if (!text) { toast('内容不能为空'); return; }
+  const t = state.tasks[activeTaskId];
+  t.text = text;
+  t.cat = editCat;
+  save(); closeModal('editModal'); closeCard(); renderWall();
+  toast('已保存 ✔');
+}
+function openDelConfirm() {
+  delTargetId = activeTaskId;
+  document.getElementById('deltext').textContent = state.tasks[activeTaskId].text;
+  document.getElementById('delModal').classList.add('on');
+}
+function confirmDel() {
+  const t = state.tasks[delTargetId];
+  const s = state.slots.find(s => s.id === t.slotId);
+  if (s) s.taskId = null;
+  delete state.tasks[delTargetId];
+  delTargetId = null;
+  save(); closeModal('delModal'); closeCard(); renderWall();
+  toast('已删除，原位置留空');
+}
+function closeModal(id) { document.getElementById(id).classList.remove('on'); }
+
+// ==================== 收纳箱 ====================
+function openBox() {
+  renderBox();
+  document.getElementById('boxpanel').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeBox() {
+  document.getElementById('boxpanel').classList.remove('on');
+  document.body.style.overflow = '';
+  renderWall();
+}
+function renderBox() {
+  const doneList = Object.values(state.tasks).filter(t => t.doneAt).sort((a, b) => b.doneAt - a.doneAt);
+  const t0 = today().getTime();
+  const todayDone = doneList.filter(t => d0(new Date(t.doneAt)).getTime() === t0).length;
+  const byCat = {};
+  doneList.forEach(t => { byCat[t.cat] = (byCat[t.cat] || 0) + 1; });
+  let html = '<div class="bp-stat"><div class="s1">✅ 已收纳 ' + doneList.length + ' 个任务</div>' +
+    '<div class="s2">今日完成：<b>' + todayDone + '</b> 个 ｜ ' +
+    CATS.map(c => c.name + ' ' + (byCat[c.key] || 0)).join(' · ') + '</div></div>';
+  if (!doneList.length) {
+    html += '<div class="bp-empty">还没有完成的任务<br>回到墙上，点任务贴纸 →「✅ 完成，收进收纳箱」<br><br>任务不会按天清理，没做完的一直在墙上等你</div>';
+  } else {
+    for (const t of doneList) {
+      const c = catOf(t.cat).color;
+      html += '<div class="ditem" style="--c:' + c + '">' +
+        '<div><div class="dtxt">' + escHtml(t.text) + '</div>' +
+        '<div class="dmeta">' + catOf(t.cat).name + ' · ' + fmt(t.doneAt) + ' 完成</div></div>' +
+        '<div class="dbtns">' +
+        '<button class="dbtn back" onclick="restoreTask(\'' + t.id + '\')">↩ 放回</button>' +
+        '<button class="dbtn del" onclick="delBoxTask(\'' + t.id + '\')">删</button>' +
+        '</div></div>';
+    }
+  }
+  document.getElementById('bpbody').innerHTML = html;
+}
+function restoreTask(id) {
+  const t = state.tasks[id];
+  let s = state.slots.find(s => s.id === t.slotId && !s.taskId);
+  if (!s) s = state.slots.find(s => !s.taskId) || null;
+  if (!s) { toast('墙上24个位置都满了，先清理再放回'); return; }
+  s.taskId = id;
+  t.slotId = s.id;
+  t.doneAt = null;
+  save(); renderBox(); renderWall();
+  toast('已放回墙上 ↩');
+}
+function delBoxTask(id) {
+  delete state.tasks[id];
+  save(); renderBox(); renderWall();
+  toast('已彻底删除');
+}
+
+// ==================== 导出 / 导入 ====================
+function exportData() {
+  const data = { ver: 1, exportedAt: new Date().toISOString(), slots: state.slots, tasks: state.tasks };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '贴纸墙备份_' + today().getFullYear() + String(today().getMonth() + 1).padStart(2, '0') + String(today().getDate()).padStart(2, '0') + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('备份已下载 ⬇');
+}
+function importData(input) {
+  const f = input.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try {
+      const d = JSON.parse(rd.result);
+      if (!d || !Array.isArray(d.slots) || !d.tasks || typeof d.tasks !== 'object') throw new Error('bad');
+      importedTasks = d;
+      openBox2();
+    } catch (e) {
+      toast('导入失败：文件格式不对');
+    }
+    input.value = '';
+  };
+  rd.readAsText(f, 'utf8');
+}
+function openBox2() { // 导入确认
+  document.getElementById('importModal').classList.add('on');
+}
+function doImport() {
+  state = { slots: importedTasks.slots, tasks: importedTasks.tasks };
+  importedTasks = null;
+  save(); closeModal('importModal'); renderBox(); renderWall();
+  toast('导入成功 ✔');
+}
+
+// ==================== 大字模式 ====================
+function toggleBig() {
+  document.documentElement.classList.toggle('big');
+  document.getElementById('bigbtn').classList.toggle('on');
+  try { localStorage.setItem('stickerwall_big', document.documentElement.classList.contains('big') ? '1' : ''); } catch (e) {}
+}
+
+// ==================== 工具 ====================
+function escHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+let toastTimer = null;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.remove('on');
+  void el.offsetWidth;
+  el.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('on'), 1800);
+}
+
+// ==================== 启动 ====================
+load();
+if (localStorage.getItem('stickerwall_big') === '1') {
+  document.documentElement.classList.add('big');
+  document.getElementById('bigbtn').classList.add('on');
+}
+renderTop();
+renderCal();
+renderCats('cats', selCat, 'pickCat');
+renderCats('ecats', editCat, 'pickECat');
+renderChips();
+renderWall();
+</script>
+</body>
+</html>
