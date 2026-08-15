@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数学科三·解答题 真题精析与26下预测 · v1.1</title>
+<title>数学科三·解答题 真题精析与26下预测 · v1.2</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='8' fill='%2338bdf8'/%3E%3C/svg%3E">
 <style>
   :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --red:#f87171; --yellow:#fbbf24; --green:#4ade80; }
@@ -44,13 +44,15 @@
   details.var { margin-top:10px; border-color:rgba(56,189,248,0.35); }
   details.var summary { font-size:0.82rem; padding:11px 12px; color:var(--yellow); }
   details.var .ans { font-size:0.84rem; }
+  mjx-container { color:inherit !important; margin:0 !important; }
+  mjx-container[display="true"] { margin:6px 0 !important; overflow-x:auto; }
   .biglist li { margin-bottom:7px; font-size:0.86rem; }
   @media (min-width:1200px) { body { max-width:900px; } }
 </style>
 </head>
 <body>
 <h1>🧮 数学科三·解答题 真题精析与26下预测</h1>
-<p class="subtitle">10套真题(19下~24下)全解析 · 考点级预测 · 换形式预警 · 预测练习题 · 考试格式答案 · v1.1</p>
+<p class="subtitle">10套真题(19下~24下)全解析 · 考点级预测 · 换形式预警 · 预测练习题 · 考试格式答案 · v1.2</p>
 <div class="tabs"><div class="tab on" data-t="matrix">📊 考点分析</div><div class="tab" data-t="predict">🔮 26下预测</div><div class="tab" data-t="practice">🎯 预测练习题</div><div class="tab" data-t="bibei">🎯 解题套路</div><div class="tab" data-t="qa">📚 真题+答案</div></div>
 <div class="panel on" id="p-matrix">
 <div class="card"><h3>10道解答题考点分布（考纲规定：解答题只考学科知识=大学数学）</h3>
@@ -77,7 +79,7 @@
 <div class="card"><h3>⚠️ 换形式预警</h3>
 <table>
 <tr><th>已考(年份)</th><th>家族候选</th></tr>
-<tr><td>中值定理证明f(x)≡0(19下)</td><td>中值定理证明恒等式/不等式、罗尔定理构造辅助函数</td></tr>
+<tr><td>中值定理证明\(f(x)\equiv 0\)(19下)</td><td>中值定理证明恒等式/不等式、罗尔定理构造辅助函数</td></tr>
 <tr><td>极值证明折射定律(20下)</td><td>最值应用题(面积最大/材料最省)、导数研究函数性质</td></tr>
 <tr><td>方程组解结构(21上)</td><td>含参数方程组讨论、矩阵秩与解的关系</td></tr>
 <tr><td>向量组线性表示(21下)</td><td>向量组线性相关性判定、基与坐标</td></tr>
@@ -88,218 +90,214 @@
 </table></div>
 <div class="card"><h3>📖 级数审敛速记（24下新考点，26下可能延续）</h3>
 <ul class="biglist">
-<li>正项级数：比较判别法（与1/nᵖ、几何级数比较）、比值判别法（lim aₙ₊₁/aₙ&lt;1收敛）</li>
-<li>交错级数：莱布尼茨判别法（aₙ单调递减且趋于0）→条件收敛</li>
+<li>正项级数：比较判别法（与\(1/n^p\)、几何级数比较）、比值判别法（\(\lim a_{n+1}/a_n\lt 1\)收敛）</li>
+<li>交错级数：莱布尼茨判别法（\(a_n\)单调递减且趋于0）→条件收敛</li>
 <li>绝对收敛⇒收敛；绝对收敛可任意重排</li>
-<li>p级数Σ1/nᵖ：p&gt;1收敛，p≤1发散；Σ1/(n·lnn)发散（积分判别法）</li>
-</ul></div></div><div class="panel" id="p-practice"><div class="card"><h3>🎯 26下预测练习题（解答·自编模拟题·详细过程·变式）</h3><p class="note">⚠️ 说明：以下预测题按 19下~24下 共10套真题的考点规律自编，预测的是 26下 可能考的知识点方向（不是预测真题重现）。因为暂时没有25年、26上真题，若某考点已在 25/26上 考过，26下 大概率换形式考查或轮空——拿到真题后我会做回溯验证并修正本清单。题目按预测概率从高到低排列，先自己动手做，再点开详细答案对照。</p><details><summary>预测1｜微积分·定积分应用｜<span class="prob">≈45%</span></summary>
+<li>p级数\(\sum 1/n^p\)：\(p\gt 1\)收敛，\(p\le 1\)发散；\(\sum 1/(n\ln n)\)发散（积分判别法）</li>
+</ul></div></div><div class="panel" id="p-practice"><div class="card"><h3>🎯 26下预测练习题（解答·自编模拟题·详细答案·变式）</h3><p class="note">⚠️ 说明：以下预测题按 19下~24下 共10套真题的考点规律自编，预测的是 26下 可能考的知识点方向（不是预测真题重现）。因为暂时没有25年、26上真题，若某考点已在 25/26上 考过，26下 大概率换形式考查或轮空——拿到真题后我会做回溯验证并修正本清单。题目按预测概率从高到低排列；答案按"教会你"的标准写——大学数学概念都配了大白话讲解（标【小白讲懂】），不会的先读讲解再做题。先自己动手做，再点开详细答案对照。</p><details><summary>预测1｜微积分·定积分应用｜<span class="prob">≈45%</span></summary>
 <div class="ans">【题目】
-求由曲线 y=ln x、直线 x=e 与 x 轴围成的平面图形绕 x 轴旋转一周所得旋转体的体积。
+求由曲线 \(y=\ln x\)、直线 \(x=e\) 与 x 轴围成的平面图形绕 x 轴旋转一周所得旋转体的体积。
 <details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
-(1) 确定积分区间：y=ln x 与 x 轴(y=0)交于点 (1,0)，故 x∈[1,e]。
-(2) 截面面积：旋转体的截面是以 ln x 为半径的圆，面积 A(x)=π(ln x)²。
-(3) 体积：V=π∫₁ᵉ(ln x)²dx。
+(1) 确定积分区间：\(y=\ln x\) 与 x 轴(y=0)交于点 (1,0)，故 \(x\in[1,e]\)。
+(2) 截面面积：旋转体的截面是以 \(\ln x\) 为半径的圆，面积 \(A(x)=\pi(\ln x)^2\)。
+(3) 体积：\(V=\pi\int_1^e(\ln x)^2dx\)。
 (4) 计算不定积分（两次分部积分法）：
-∫(ln x)²dx = x(ln x)² − ∫x·2ln x·(1/x)dx = x(ln x)² − 2∫ln x dx = x(ln x)² − 2(x ln x − x) + C = x[(ln x)²−2ln x+2] + C。
+\(\int(\ln x)^2dx=x(\ln x)^2-\int x\cdot2\ln x\cdot\frac{1}{x}dx=x(\ln x)^2-2\int\ln x\,dx=x(\ln x)^2-2(x\ln x-x)+C=x[(\ln x)^2-2\ln x+2]+C\)。
 (5) 代入牛顿-莱布尼茨公式：
-V=π·x[(ln x)²−2ln x+2]|₁ᵉ = π[e×(1−2+2) − 1×(0−0+2)] = π(e−2)。
-答：旋转体体积为 π(e−2)。
-【套路】旋转体体积 V=π∫ₐᵇ[f(x)]²dx；(ln x)² 型积分必用两次分部积分，∫ln x dx=x ln x−x+C 要背熟。</div></details>
-<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】求由曲线 y=x² 与直线 y=x 围成的平面图形的面积。
+\(V=\pi\cdot x[(\ln x)^2-2\ln x+2]\Big|_1^e=\pi[e\times(1-2+2)-1\times(0-0+2)]=\pi(e-2)\)。
+答：旋转体体积为 \(\pi(e-2)\)。
+【小白讲懂】分部积分公式 \(\int u\,dv=uv-\int v\,du\) 是"乘积求导法则倒过来用"。遇到 \((\ln x)^2\) 这种"对数函数的幂"时，口诀"反、对、幂、指、三"——排前面的优先当 u（留下来求导会变简单的那个）。这里 ln 是"对"，两次都把 ln 当 u 求导，直到 ln 消失。\(\int\ln x\,dx=x\ln x-x+C\) 必背。
+【套路】旋转体体积 \(V=\pi\int_a^b[f(x)]^2dx\)；\((\ln x)^2\) 型积分必用两次分部积分。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】求由曲线 \(y=x^2\) 与直线 \(y=x\) 围成的平面图形的面积。
 
-【答案】解：由 x²=x 得交点 x=0、1。在 [0,1] 上 x≥x²。S=∫₀¹(x−x²)dx=[x²/2−x³/3]₀¹=1/2−1/3=1/6。答：面积为 1/6。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】求曲线 y=eˣ 与直线 x=0、x=1 及 x 轴围成的图形绕 x 轴旋转一周所得旋转体的体积。
+【答案】解：由 \(x^2=x\) 得交点 x=0、1。在 [0,1] 上 \(x\ge x^2\)。\(S=\int_0^1(x-x^2)dx=\left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1=\frac{1}{2}-\frac{1}{3}=\frac{1}{6}\)。答：面积为 \(\frac{1}{6}\)。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】求曲线 \(y=e^x\) 与直线 \(x=0\)、\(x=1\) 及 x 轴围成的图形绕 x 轴旋转一周所得旋转体的体积。
 
-【答案】解：V=π∫₀¹(eˣ)²dx=π∫₀¹e²ˣdx=π·(e²ˣ/2)|₀¹=π(e²−1)/2。</div></details></div></details><details><summary>预测2｜微积分·中值定理(罗尔)｜<span class="prob">中</span></summary>
+【答案】解：\(V=\pi\int_0^1(e^x)^2dx=\pi\int_0^1e^{2x}dx=\pi\cdot\frac{e^{2x}}{2}\Big|_0^1=\frac{\pi(e^2-1)}{2}\)。（\((e^x)^2=e^{2x}\)，\(e^{2x}\) 的原函数是 \(\frac{e^{2x}}{2}\)——指数不动、除以指数部分的系数。）</div></details></div></details><details><summary>预测2｜微积分·中值定理(罗尔)｜<span class="prob">中</span></summary>
 <div class="ans">【题目】
-设函数 f(x) 在 [0,1] 上连续，在 (0,1) 内可导，且 f(0)=f(1)=0。证明：存在 ξ∈(0,1)，使得 f′(ξ)=2f(ξ)。
+设函数 \(f(x)\) 在 [0,1] 上连续，在 (0,1) 内可导，且 \(f(0)=f(1)=0\)。证明：存在 \(\xi\in(0,1)\)，使得 \(f'(\xi)=2f(\xi)\)。
 <details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">证明：
-(1) 构造辅助函数：令 F(x)=e⁻²ˣf(x)。
-(2) 验证罗尔定理条件：F(x) 在 [0,1] 上连续（连续函数的乘积），在 (0,1) 内可导；F(0)=e⁰·f(0)=0，F(1)=e⁻²·f(1)=0，即 F(0)=F(1)。
-(3) 由罗尔定理，存在 ξ∈(0,1)，使 F′(ξ)=0。
-(4) 求导计算：F′(x)=−2e⁻²ˣf(x)+e⁻²ˣf′(x)=e⁻²ˣ[f′(x)−2f(x)]。
-由 F′(ξ)=0 且 e⁻²ᵝ≠0，得 f′(ξ)−2f(ξ)=0，即 f′(ξ)=2f(ξ)。证毕。
-【套路】结论含"f′ 与 f 的线性组合"的中值题：构造 F(x)=eᵏˣf(x)，使 F′ 中出现 f′+kf。本题要 f′−2f，取 k=−2，即 e⁻²ˣ。指数因子恒不为0可直接约去，这是标准操作。</div></details>
-<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】设 f(x) 在 [0,1] 上连续，在 (0,1) 内可导，f(0)=f(1)=0，证明存在 ξ∈(0,1)，使 f′(ξ)+f(ξ)=0。
+(1) 构造辅助函数：令 \(F(x)=e^{-2x}f(x)\)。
+(2) 验证罗尔定理条件：\(F(x)\) 在 [0,1] 上连续（连续函数的乘积），在 (0,1) 内可导；\(F(0)=e^0\cdot f(0)=0\)，\(F(1)=e^{-2}\cdot f(1)=0\)，即 \(F(0)=F(1)\)。
+(3) 由罗尔定理，存在 \(\xi\in(0,1)\)，使 \(F'(\xi)=0\)。
+(4) 求导计算：\(F'(x)=-2e^{-2x}f(x)+e^{-2x}f'(x)=e^{-2x}[f'(x)-2f(x)]\)。
+由 \(F'(\xi)=0\) 且 \(e^{-2\xi}\neq0\)，得 \(f'(\xi)-2f(\xi)=0\)，即 \(f'(\xi)=2f(\xi)\)。证毕。
+【小白讲懂】罗尔定理的直觉："一段两端一样高的光滑滑梯，中间至少有一瞬间是平的（切线水平）"。题目要证的结论里同时出现 f 和 f′，这是"构造辅助函数"的信号灯：结论是 \(f'-2f\)，就构造 \(F=e^{-2x}f(x)\)——因为乘积求导 \((e^{kx}f)'=e^{kx}(f'+kf)\)，正好让 f′ 和 f 一起出现。
+【套路】结论含"f′ 与 f 的线性组合"的中值题：构造 \(F(x)=e^{kx}f(x)\)。要 f′+kf 取 +k，要 f′−2f 取 k=−2。指数因子恒不为0可直接约去，这是标准操作。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】设 \(f(x)\) 在 [0,1] 上连续，在 (0,1) 内可导，\(f(0)=f(1)=0\)，证明存在 \(\xi\in(0,1)\)，使 \(f'(\xi)+f(\xi)=0\)。
 
-【答案】构造 F(x)=eˣf(x)，则 F(0)=F(1)=0，由罗尔定理存在 ξ∈(0,1) 使 F′(ξ)=0。而 F′(ξ)=eᵝ[f′(ξ)+f(ξ)]，eᵝ≠0，故 f′(ξ)+f(ξ)=0。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】设 f(x) 在 [a,b] 上连续，在 (a,b) 内可导，且 f(a)=f(b)，证明存在 ξ∈(a,b)，使 f′(ξ)=0。
+【答案】构造 \(F(x)=e^xf(x)\)，则 \(F(0)=F(1)=0\)，由罗尔定理存在 \(\xi\in(0,1)\) 使 \(F'(\xi)=0\)。而 \(F'(\xi)=e^\xi[f'(\xi)+f(\xi)]\)，\(e^\xi\neq0\)，故 \(f'(\xi)+f(\xi)=0\)。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】设 \(f(x)\) 在 [a,b] 上连续，在 (a,b) 内可导，且 \(f(a)=f(b)\)，证明存在 \(\xi\in(a,b)\)，使 \(f'(\xi)=0\)。
 
-【答案】这是罗尔定理的直接应用：f 满足罗尔定理的全部条件（闭区间连续、开区间可导、端点函数值相等），故存在 ξ∈(a,b)，使 f′(ξ)=0。</div></details></div></details><details><summary>预测3｜线性代数·方程组解结构｜<span class="prob">≈30%</span></summary>
+【答案】这是罗尔定理的直接应用：f 满足罗尔定理的全部条件（闭区间连续、开区间可导、端点函数值相等），故存在 \(\xi\in(a,b)\)，使 \(f'(\xi)=0\)。</div></details></div></details><details><summary>预测3｜线性代数·方程组解结构｜<span class="prob">≈30%</span></summary>
 <div class="ans">【题目】
-求齐次线性方程组 x₁+2x₂+3x₃=0，2x₁+3x₂+x₃=0 的基础解系与通解。
+求齐次线性方程组 \(x_1+2x_2+3x_3=0\)，\(2x_1+3x_2+x_3=0\) 的基础解系与通解。
 <details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
-(1) 系数矩阵 A=[1 2 3; 2 3 1]。
-(2) 初等行变换：第2行−2×第1行 → [1 2 3; 0 −1 −5]；第1行+2×第2行 → [1 0 −7; 0 −1 −5]；第2行×(−1) → [1 0 −7; 0 1 5]（行最简形）。
-(3) 由行最简形得同解方程组：x₁−7x₃=0，x₂+5x₃=0，即 x₁=7x₃，x₂=−5x₃，x₃ 为自由未知量。
-(4) 取 x₃=1，得基础解系 ξ=(7,−5,1)ᵀ。
-(5) 通解：x=k(7,−5,1)ᵀ，k 为任意实数。
-【套路】齐次方程组求解五步：写系数矩阵→行变换化行最简形→用自由未知量表示其余未知量→逐个令自由未知量为1得基础解系→线性组合写通解。最后一步"k 为任意实数"别忘写。</div></details>
-<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】求 λ 为何值时，齐次线性方程组 x₁+λx₂=0，λx₁+x₂=0 有非零解。
+(1) 系数矩阵 \(A=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\)。
+(2) 初等行变换：第2行−2×第1行 → \(\begin{pmatrix}1&2&3\\0&-1&-5\end{pmatrix}\)；第1行+2×第2行 → \(\begin{pmatrix}1&0&-7\\0&-1&-5\end{pmatrix}\)；第2行×(−1) → \(\begin{pmatrix}1&0&-7\\0&1&5\end{pmatrix}\)（行最简形）。
+(3) 由行最简形得同解方程组：\(x_1-7x_3=0\)，\(x_2+5x_3=0\)，即 \(x_1=7x_3\)，\(x_2=-5x_3\)，\(x_3\) 为自由未知量。
+(4) 取 \(x_3=1\)，得基础解系 \(\xi=(7,-5,1)^{\mathrm{T}}\)。
+(5) 通解：\(x=k(7,-5,1)^{\mathrm{T}}\)，k 为任意实数。
+【小白讲懂】行变换的三类操作(换行、某行乘非零数、某行的倍数加到另一行)都不会改变方程组的解，就像把方程组里两个方程"合法合并"一样。化到行最简形后，主元所在列(第1、2列)的未知数是"锁定"的，非主元列(第3列)的未知数 \(x_3\) 是自由的——让它取1就能得到一个基础解。
+【套路】齐次方程组求解五步：写系数矩阵→行变换化行最简形→用自由未知量表示其余未知量→令自由未知量为1得基础解系→线性组合写通解。最后一步"k 为任意实数"别忘写。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】求 λ 为何值时，齐次线性方程组 \(x_1+\lambda x_2=0\)，\(\lambda x_1+x_2=0\) 有非零解。
 
-【答案】系数行列式 |1 λ; λ 1| = 1−λ²。齐次方程组有非零解 ⇔ 系数行列式为0 ⇔ 1−λ²=0，即 λ=±1。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】已知 α₁=(1,0,1)，α₂=(0,1,1) 是某齐次线性方程组的两个解，判断 ξ=(2,3,5) 是否也是该方程组的解，并说明理由。
+【答案】系数行列式 \(\begin{vmatrix}1&\lambda\\\lambda&1\end{vmatrix}=1-\lambda^2\)。齐次方程组有非零解 ⇔ 系数行列式为0 ⇔ \(1-\lambda^2=0\)，即 \(\lambda=\pm1\)。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】已知 \(\alpha_1=(1,0,1)\)，\(\alpha_2=(0,1,1)\) 是某齐次线性方程组的两个解，判断 \(\xi=(2,3,5)\) 是否也是该方程组的解，并说明理由。
 
-【答案】ξ=2α₁+3α₂。齐次线性方程组的解集对线性运算封闭（解集是向量空间），任意两个解的线性组合仍是解，所以 ξ 也是该方程组的解。这是齐次方程组"解结构"的本质结论。</div></details></div></details><details><summary>预测4｜线性代数·向量组｜<span class="prob">中</span></summary>
+【答案】\(\xi=2\alpha_1+3\alpha_2\)。齐次线性方程组的解集对线性运算封闭（解集是向量空间），任意两个解的线性组合仍是解，所以 ξ 也是该方程组的解。这是齐次方程组"解结构"的本质结论。</div></details></div></details><details><summary>预测4｜线性代数·向量组｜<span class="prob">中</span></summary>
 <div class="ans">【题目】
-判断向量组 α₁=(1,2,3)，α₂=(2,4,6)，α₃=(1,1,1) 的线性相关性，并求该向量组的秩。
+判断向量组 \(\alpha_1=(1,2,3)\)，\(\alpha_2=(2,4,6)\)，\(\alpha_3=(1,1,1)\) 的线性相关性，并求该向量组的秩。
 <details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
-(1) 判断相关性：观察得 α₂=2α₁，即 α₂ 可由 α₁ 线性表示，故向量组线性相关。
-(2) 求秩：以向量为行作矩阵 A=[1 2 3; 2 4 6; 1 1 1]，初等行变换：第2行−2×第1行 → [1 2 3; 0 0 0; 1 1 1]；第3行−第1行 → [1 2 3; 0 0 0; 0 −1 −2]；交换第2、3行 → [1 2 3; 0 −1 −2; 0 0 0]（阶梯形）。非零行有2行，故秩 r=2。
+(1) 判断相关性：观察得 \(\alpha_2=2\alpha_1\)，即 \(\alpha_2\) 可由 \(\alpha_1\) 线性表示，故向量组线性相关。
+(2) 求秩：以向量为行作矩阵 \(A=\begin{pmatrix}1&2&3\\2&4&6\\1&1&1\end{pmatrix}\)，初等行变换：第2行−2×第1行 → \(\begin{pmatrix}1&2&3\\0&0&0\\1&1&1\end{pmatrix}\)；第3行−第1行 → \(\begin{pmatrix}1&2&3\\0&0&0\\0&-1&-2\end{pmatrix}\)；交换第2、3行 → \(\begin{pmatrix}1&2&3\\0&-1&-2\\0&0&0\end{pmatrix}\)（阶梯形）。非零行有2行，故秩 \(r=2\)。
 答：向量组线性相关，秩为2。
+【小白讲懂】"线性相关"的直觉：其中某个向量能被其余向量"拼"出来（本例 α₂=2α₁）。"秩"=这个向量组里"真正独立、谁也代替不了谁"的向量个数。化阶梯形后数非零行的行数就是秩。
 【套路】判断相关性两步走：①先观察有无明显的倍数/组合关系（快）；②一般方法——以向量为行（或列）作矩阵，行变换化阶梯形，非零行数即秩；秩=向量个数 ⇔ 线性无关，秩<个数 ⇔ 线性相关。</div></details>
-<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】已知 β=(2,1)，α₁=(1,2)，α₂=(3,1)，将 β 用 α₁、α₂ 线性表示。
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】已知 \(\beta=(2,1)\)，\(\alpha_1=(1,2)\)，\(\alpha_2=(3,1)\)，将 β 用 α₁、α₂ 线性表示。
 
-【答案】设 β=xα₁+yα₂，即 (2,1)=x(1,2)+y(3,1)，得方程组 x+3y=2，2x+y=1。解得 x=1/5，y=3/5。故 β=(1/5)α₁+(3/5)α₂。检验：(1/5+9/5, 2/5+3/5)=(2,1) ✓</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】设向量组 α₁,α₂,α₃ 线性无关，证明 α₁+α₂，α₂+α₃，α₃+α₁ 也线性无关。
+【答案】设 \(\beta=x\alpha_1+y\alpha_2\)，即 \((2,1)=x(1,2)+y(3,1)\)，得方程组 \(x+3y=2\)，\(2x+y=1\)。解得 \(x=\frac{1}{5}\)，\(y=\frac{3}{5}\)。故 \(\beta=\frac{1}{5}\alpha_1+\frac{3}{5}\alpha_2\)。检验：\((\frac{1}{5}+\frac{9}{5},\frac{2}{5}+\frac{3}{5})=(2,1)\) ✓</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】设向量组 \(\alpha_1,\alpha_2,\alpha_3\) 线性无关，证明 \(\alpha_1+\alpha_2\)，\(\alpha_2+\alpha_3\)，\(\alpha_3+\alpha_1\) 也线性无关。
 
-【答案】设 k₁(α₁+α₂)+k₂(α₂+α₃)+k₃(α₃+α₁)=0，整理得 (k₁+k₃)α₁+(k₁+k₂)α₂+(k₂+k₃)α₃=0。因为 α₁,α₂,α₃ 线性无关，所以 k₁+k₃=0，k₁+k₂=0，k₂+k₃=0，三式联立解得 k₁=k₂=k₃=0。由定义知新向量组线性无关。</div></details></div></details><details><summary>预测5｜概率统计·分布列与期望｜<span class="prob">≈20%</span></summary>
+【答案】设 \(k_1(\alpha_1+\alpha_2)+k_2(\alpha_2+\alpha_3)+k_3(\alpha_3+\alpha_1)=0\)，整理得 \((k_1+k_3)\alpha_1+(k_1+k_2)\alpha_2+(k_2+k_3)\alpha_3=0\)。因为 \(\alpha_1,\alpha_2,\alpha_3\) 线性无关，所以 \(k_1+k_3=0\)，\(k_1+k_2=0\)，\(k_2+k_3=0\)，三式联立解得 \(k_1=k_2=k_3=0\)。由定义知新向量组线性无关。</div></details></div></details><details><summary>预测5｜概率统计·分布列与期望｜<span class="prob">≈20%</span></summary>
 <div class="ans">【题目】
-袋中有 3 个红球、2 个白球，无放回地随机抽取 2 个球。设 X 为取到的红球个数，求 X 的分布列与数学期望 E(X)。
+袋中有 3 个红球、2 个白球，无放回地随机抽取 2 个球。设 X 为取到的红球个数，求 X 的分布列与数学期望 \(E(X)\)。
 <details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
-(1) X 的可能取值为 0,1,2。总的取法有 C₅²=10 种。
-(2) P(X=0)=C₂²/C₅²=1/10；
-P(X=1)=C₃¹C₂¹/C₅²=6/10=3/5；
-P(X=2)=C₃²/C₅²=3/10。
-(3) 验证：1/10+6/10+3/10=1 ✓
-(4) E(X)=0×1/10+1×6/10+2×3/10=12/10=1.2。
-答：分布列为 P(X=0)=0.1，P(X=1)=0.6，P(X=2)=0.3；E(X)=1.2。
-【套路】这是超几何分布模型：N 件产品中有 M 件"特殊"，不放回取 n 件，特殊件数 X 的概率 P(X=k)=C_M^k·C_{N−M}^{n−k}/C_N^n。写分布列后务必验证概率和为1。</div></details>
+(1) X 的可能取值为 0,1,2。总的取法有 \(C_5^2=10\) 种。
+(2) \(P(X=0)=\frac{C_2^2}{C_5^2}=\frac{1}{10}\)；
+\(P(X=1)=\frac{C_3^1C_2^1}{C_5^2}=\frac{6}{10}=\frac{3}{5}\)；
+\(P(X=2)=\frac{C_3^2}{C_5^2}=\frac{3}{10}\)。
+(3) 验证：\(\frac{1}{10}+\frac{6}{10}+\frac{3}{10}=1\) ✓
+(4) \(E(X)=0\times\frac{1}{10}+1\times\frac{6}{10}+2\times\frac{3}{10}=\frac{12}{10}=1.2\)。
+答：分布列为 \(P(X=0)=0.1\)，\(P(X=1)=0.6\)，\(P(X=2)=0.3\)；\(E(X)=1.2\)。
+【小白讲懂】这是超几何分布模型："N 个东西里有 M 个'特殊'，不放回摸 n 个，摸到的特殊个数 X"的概率是 \(P(X=k)=\frac{C_M^kC_{N-M}^{n-k}}{C_N^n}\)。分子=选 k 个特殊的 × 选 (n−k) 个普通的，分母=随便选 n 个。期望公式 \(E(X)=n\cdot\frac{M}{N}=2\times\frac{3}{5}=1.2\) 更快。写分布列后务必验证概率和为1。
+【套路】识别"不放回抽取"→超几何分布；写分布列→验和→求期望。</div></details>
 <details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】在题设下，若已知第一次抽到红球，求第二次抽到白球的概率。
 
-【答案】这是条件概率。第一次取红后，袋中剩 2 红 2 白共 4 个球，故 P(第二次白|第一次红)=2/4=1/2。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】若改为有放回地抽取 2 个球，求 X 的分布列与 E(X)。
+【答案】这是条件概率。第一次取红后，袋中剩 2 红 2 白共 4 个球，故 \(P(\text{第二次白}|\text{第一次红})=\frac{2}{4}=\frac{1}{2}\)。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】若改为有放回地抽取 2 个球，求 X 的分布列与 \(E(X)\)。
 
-【答案】有放回时每次抽到红球的概率恒为 3/5，X~B(2, 3/5)：P(X=0)=(2/5)²=4/25；P(X=1)=C₂¹(3/5)(2/5)=12/25；P(X=2)=(3/5)²=9/25。E(X)=np=2×3/5=6/5=1.2。（注意：有放回与无放回的期望相同，但分布不同——无放回是超几何分布，有放回是二项分布。）</div></details></div></details><details><summary>预测6｜级数·敛散性判断（24下新考点）｜<span class="prob">≈15%</span></summary>
+【答案】有放回时每次抽到红球的概率恒为 \(\frac{3}{5}\)，\(X\sim B(2,\frac{3}{5})\)：\(P(X=0)=(\frac{2}{5})^2=\frac{4}{25}\)；\(P(X=1)=C_2^1(\frac{3}{5})(\frac{2}{5})=\frac{12}{25}\)；\(P(X=2)=(\frac{3}{5})^2=\frac{9}{25}\)。\(E(X)=np=2\times\frac{3}{5}=\frac{6}{5}=1.2\)。（注意：有放回与无放回的期望相同，但分布不同——无放回是超几何分布，有放回是二项分布。）</div></details></div></details><details><summary>预测6｜级数·敛散性判断（24下新考点）｜<span class="prob">≈15%</span></summary>
 <div class="ans">【题目】
 判断下列级数的敛散性，并说明理由：
-(1) Σₙ₌₁∞ 1/(n²+1)；(2) Σₙ₌₁∞ n/(n²+1)；(3) Σₙ₌₁∞ (−1)ⁿ/√n。
+(1) \(\sum_{n=1}^{\infty}\frac{1}{n^2+1}\)；(2) \(\sum_{n=1}^{\infty}\frac{n}{n^2+1}\)；(3) \(\sum_{n=1}^{\infty}\frac{(-1)^n}{\sqrt{n}}\)。
 <details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
-(1) 因为 0<1/(n²+1)<1/n²，而 Σ1/n² 是 p=2>1 的 p 级数，收敛；由正项级数的比较判别法知 Σ1/(n²+1) 收敛。
-(2) 当 n≥1 时，n/(n²+1) ≥ n/(n²+n²) = 1/(2n)，而 Σ1/(2n)=(1/2)Σ1/n 发散（调和级数）；由比较判别法知 Σn/(n²+1) 发散。
-(3) 记 aₙ=1/√n：aₙ 单调递减，且 aₙ→0（n→∞），由莱布尼茨判别法，交错级数 Σ(−1)ⁿ/√n 收敛；又 Σ|(−1)ⁿ/√n|=Σ1/√n 是 p=1/2<1 的 p 级数，发散；故原级数条件收敛（收敛但不绝对收敛）。
+(1) 因为 \(0<\frac{1}{n^2+1}<\frac{1}{n^2}\)，而 \(\sum\frac{1}{n^2}\) 是 \(p=2>1\) 的 p 级数，收敛；由正项级数的比较判别法知 \(\sum\frac{1}{n^2+1}\) 收敛。
+(2) 当 \(n\ge1\) 时，\(\frac{n}{n^2+1}\ge\frac{n}{n^2+n^2}=\frac{1}{2n}\)，而 \(\sum\frac{1}{2n}=\frac{1}{2}\sum\frac{1}{n}\) 发散（调和级数）；由比较判别法知 \(\sum\frac{n}{n^2+1}\) 发散。
+(3) 记 \(a_n=\frac{1}{\sqrt{n}}\)：\(a_n\) 单调递减，且 \(a_n\to0\)（\(n\to\infty\)），由莱布尼茨判别法，交错级数 \(\sum\frac{(-1)^n}{\sqrt{n}}\) 收敛；又 \(\sum\left|\frac{(-1)^n}{\sqrt{n}}\right|=\sum\frac{1}{\sqrt{n}}\) 是 \(p=\frac{1}{2}<1\) 的 p 级数，发散；故原级数条件收敛（收敛但不绝对收敛）。
+【小白讲懂】判断级数收敛就是问"无限多项加起来是不是一个有限的数"。p 级数 \(\sum\frac{1}{n^p}\) 是标尺：\(p>1\) 收敛，\(p\le1\) 发散（p=1 就是调和级数）。比较判别法=拿一个已知收敛/发散的级数当"陪练"：比收敛的小就收敛，比发散的大就发散。正负交替的级数用莱布尼茨："通项单调降到 0"就收敛。
 【套路】正项级数先比较（找 p 级数/几何级数作标杆）；交错级数用莱布尼茨；"本身收敛+绝对值级数发散=条件收敛"是三级结论，答全才满分。</div></details>
-<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】判断 Σₙ₌₁∞ 2ⁿ/n! 的敛散性。
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】判断 \(\sum_{n=1}^{\infty}\frac{2^n}{n!}\) 的敛散性。
 
-【答案】用比值判别法：lim(n→∞) aₙ₊₁/aₙ = lim [2ⁿ⁺¹/(n+1)!]·[n!/2ⁿ] = lim 2/(n+1) = 0 < 1，故级数收敛。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】判断 Σₙ₌₁∞ (−1)ⁿ⁻¹·n/(n²+1) 的敛散性（是否绝对收敛）。
+【答案】用比值判别法：\(\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=\lim\frac{2^{n+1}}{(n+1)!}\cdot\frac{n!}{2^n}=\lim\frac{2}{n+1}=0<1\)，故级数收敛。（比值判别法=看"后一项是前一项的多少倍"：极限<1 收敛，>1 发散，=1 失效。）</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】判断 \(\sum_{n=1}^{\infty}(-1)^{n-1}\cdot\frac{n}{n^2+1}\) 的敛散性（是否绝对收敛）。
 
-【答案】绝对值级数 Σn/(n²+1) 发散（见上(2)），故不绝对收敛；但 aₙ=n/(n²+1) 单调递减且趋于0（可用求导验证：f′(x)=(1−x²)/(x²+1)²<0，x>1），由莱布尼茨判别法原级数收敛；所以原级数为条件收敛。</div></details></div></details><p class="note">💡 建议：先把每道题在草稿纸上做一遍，再点开详细答案对照得分点</p></div></div><div class="panel" id="p-bibei">
+【答案】绝对值级数 \(\sum\frac{n}{n^2+1}\) 发散（见主题(2)），故不绝对收敛；但 \(a_n=\frac{n}{n^2+1}\) 单调递减且趋于0（可用求导验证：\(f'(x)=\frac{1-x^2}{(x^2+1)^2}<0\)，当 \(x>1\)），由莱布尼茨判别法原级数收敛；所以原级数为条件收敛。</div></details></div></details><p class="note">💡 建议：先把每道题在草稿纸上做一遍，再点开详细答案对照得分点</p></div><div class="card"><h3>🔁 换形式家族候选题（解答·题目+答案全套·按已考考点换马甲预警）</h3><p class="note">⚠️ 本tab为"换形式预警"家族候选：已考考点很可能换马甲回归，建议考前过一遍。题目为自编模拟题（非真题），因缺25上/26上真题，仅作知识方向参考。</p><details><summary>家族候选1｜中值定理·拉格朗日</summary>
+<div class="ans">【题目】
+设函数 \(f(x)\) 在 \([a,b]\) 上连续，在 \((a,b)\) 内可导，且对任意 \(x\in(a,b)\) 有 \(|f'(x)|\le M\)，\(f(a)=0\)。证明：\(|f(b)|\le M(b-a)\)。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">证明：由拉格朗日中值定理，存在 \(\xi\in(a,b)\)，使 \(f(b)-f(a)=f'(\xi)(b-a)\)。
+因为 \(f(a)=0\)，所以 \(f(b)=f'(\xi)(b-a)\)。
+两边取绝对值：\(|f(b)|=|f'(\xi)|\cdot(b-a)\le M(b-a)\)。证毕。
+【小白讲懂】拉格朗日中值定理的直觉："全程平均速度 = 中间某一瞬间的瞬时速度"——\(f'(\xi)\) 就是那个瞬间。它能把"函数值之差"换成"导数值×长度"，于是只要导数被 M 管住，函数值也被管住了。套路：题目说"导数有界，证函数值有界"→ 想到拉格朗日。</div></details>
+</div></details><details><summary>家族候选2｜定积分·最值应用</summary>
+<div class="ans">【题目】
+用一块边长为 12 的正方形铁皮，四个角各剪去一个边长为 x 的小正方形，把四边折起做成一个无盖盒子。问 x 取何值时盒子容积最大？最大容积是多少？
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：(1) 盒子底面是边长为 \(12-2x\) 的正方形，高为 x，容积 \(V(x)=x(12-2x)^2=4x(6-x)^2\)，其中 \(0<x<6\)。
+(2) 求导：\(V'(x)=4[(6-x)^2+2x(6-x)(-1)]=4(6-x)(6-3x)=12(6-x)(2-x)\)。
+(3) 令 \(V'(x)=0\)，得 \(x=2\) 或 \(x=6\)（端点，舍去）。
+(4) 判断：当 \(0<x<2\) 时 \(V'(x)>0\)，V 递增；当 \(2<x<6\) 时 \(V'(x)<0\)，V 递减。故 \(x=2\) 时容积最大。
+(5) 最大容积 \(V(2)=2\times(12-4)^2=2\times64=128\)。
+答：剪去小正方形边长为 2 时容积最大，最大容积为 128。
+【小白讲懂】容积=底面积×高（长方体体积公式）。求最大值的通用方法：列函数→求导→令导数为 0 找"山顶"→看导数正负确认是山顶。导数 \(\gt 0\) 函数在爬坡，导数 \(\lt 0\) 在下坡，两段交界处就是山顶。</div></details>
+</div></details><details><summary>家族候选3｜线代·含参方程组</summary>
+<div class="ans">【题目】
+讨论 \(\lambda\) 取何值时，线性方程组 \(x_1+x_2+\lambda x_3=1\)，\(x_1+\lambda x_2+x_3=1\)，\(\lambda x_1+x_2+x_3=1\) 有唯一解、无解、无穷多解。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：(1) 系数行列式 \(D=\begin{vmatrix}1&1&\lambda\\1&\lambda&1\\\lambda&1&1\end{vmatrix}=-(\lambda-1)^2(\lambda+2)\)（用对角线法则展开：\(D=3\lambda-2-\lambda^3\)，因式分解得）。
+(2) 当 \(D\neq0\)，即 \(\lambda\neq1\) 且 \(\lambda\neq-2\) 时，由克莱姆法则，方程组有唯一解。
+(3) 当 \(\lambda=-2\) 时，三个方程为 \(x_1+x_2-2x_3=1\)，\(x_1-2x_2+x_3=1\)，\(-2x_1+x_2+x_3=1\)。三式相加得 \(0=3\)，矛盾，方程组无解。
+(4) 当 \(\lambda=1\) 时，三个方程都是 \(x_1+x_2+x_3=1\)，方程组有无穷多解。
+答：\(\lambda\neq1\) 且 \(\lambda\neq-2\) 时唯一解；\(\lambda=-2\) 时无解；\(\lambda=1\) 时有无穷多解。
+【小白讲懂】含参方程组的判断三步：①先算系数行列式 D（对角线法则：主对角线三项乘积之和减去副对角线三项乘积之和）；②D≠0 直接判唯一解；③D=0 时把参数值代回原方程，加减消元看矛盾（无解）还是方程重复（无穷多解）。</div></details>
+</div></details><details><summary>家族候选4｜线代·基与坐标</summary>
+<div class="ans">【题目】
+设 \(\beta_1=(1,1,0)\)，\(\beta_2=(1,0,1)\)，\(\beta_3=(0,1,1)\) 是 \(R^3\) 的一组基。求向量 \(\beta=(1,2,3)\) 在这组基下的坐标。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：设 \(\beta=x\beta_1+y\beta_2+z\beta_3\)，即 \((1,2,3)=x(1,1,0)+y(1,0,1)+z(0,1,1)\)。
+按分量列出方程组：\(x+y=1\)，\(x+z=2\)，\(y+z=3\)。
+由前两式相减得 \(y-z=-1\)，与 \(y+z=3\) 联立解得 \(y=1\)，\(z=2\)，再得 \(x=0\)。
+故 \(\beta=0\cdot\beta_1+1\cdot\beta_2+2\cdot\beta_3\)，坐标是 \((0,1,2)\)。
+检验：\(1\times(1,0,1)+2\times(0,1,1)=(1,2,3)\) ✓
+【小白讲懂】"坐标"就是"用基向量拼出目标向量所需的倍数"。标准基 \((1,0,0),(0,1,0),(0,0,1)\) 下坐标就是分量本身；换了基，坐标就变成解一个三元一次方程组。</div></details>
+</div></details><details><summary>家族候选5｜线代·含参行列式</summary>
+<div class="ans">【题目】
+求 \(\lambda\) 的值，使行列式 \(D=\begin{vmatrix}\lambda&1&1\\1&\lambda&1\\1&1&\lambda\end{vmatrix}=0\)。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：用对角线法则展开：
+\(D=\lambda\cdot\lambda\cdot\lambda+1\cdot1\cdot1+1\cdot1\cdot1-1\cdot\lambda\cdot1-1\cdot1\cdot\lambda-\lambda\cdot1\cdot1=\lambda^3+2-3\lambda\)。
+因式分解：\(\lambda^3-3\lambda+2=(\lambda-1)^2(\lambda+2)\)（试根 \(\lambda=1\) 代入为 0，除以 \((\lambda-1)\) 继续分解）。
+由 \(D=0\) 得 \((\lambda-1)^2(\lambda+2)=0\)，解得 \(\lambda=1\) 或 \(\lambda=-2\)。
+【小白讲懂】三阶行列式=主对角线三个乘积之和 减 副对角线三个乘积之和（把行列式右边再抄两列来数斜线更直观）。得到的多项式先试 \(\lambda=1,2,-1\) 等简单值找根，再因式分解。</div></details>
+</div></details><details><summary>家族候选6｜概率·全概率与贝叶斯</summary>
+<div class="ans">【题目】
+两台机器生产同一种零件，甲机器产量占 60%，次品率 5%；乙机器产量占 40%，次品率 2.5%。(1) 求任取一件零件是次品的概率；(2) 若取到的是次品，求它由甲机器生产的概率。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：设事件 A=“零件由甲机器生产”，B=“零件是次品”。
+(1) 由全概率公式：\(P(B)=P(A)P(B|A)+P(\bar{A})P(B|\bar{A})=0.6\times0.05+0.4\times0.025=0.03+0.01=0.04\)。
+(2) 由贝叶斯公式：\(P(A|B)=\frac{P(A)P(B|A)}{P(B)}=\frac{0.6\times0.05}{0.04}=\frac{0.03}{0.04}=\frac{3}{4}\)。
+答：(1) 任取一件是次品的概率为 0.04；(2) 次品来自甲机器的概率为 \(\frac{3}{4}\)。
+【小白讲懂】全概率公式="分路线求和"：次品可能走"甲"这条路线（甲产量占比×甲次品率），也可能走"乙"这条路线，两条路线的概率加起来。贝叶斯公式="反着查出身"：已知结果是次品，它走甲路线的那份贡献 ÷ 所有路线总贡献。</div></details>
+</div></details><details><summary>家族候选7｜概率·连续型分布函数</summary>
+<div class="ans">【题目】
+设连续型随机变量 X 的分布函数为 \(F(x)=\begin{cases}0,&x<0\\x^2,&0\le x<1\\1,&x\ge1\end{cases}\)。求：(1) \(P(0.3<X<0.7)\)；(2) X 的概率密度 \(f(x)\)。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：(1) 对连续型随机变量，\(P(0.3<X<0.7)=F(0.7)-F(0.3)=0.7^2-0.3^2=0.49-0.09=0.40\)。
+(2) 概率密度是分布函数的导数：\(f(x)=F'(x)\)。在 \((0,1)\) 内 \(f(x)=(x^2)'=2x\)；其余处 \(f(x)=0\)。
+即 \(f(x)=\begin{cases}2x,&0<x<1\\0,&\text{其他}\end{cases}\)。
+验证：\(\int_0^1 2x\,dx=x^2\big|_0^1=1\) ✓（密度在全区间积分等于 1）。
+【小白讲懂】分布函数 \(F(x)=P(X\le x)\) 是"累计到 x 的概率"，像水杯里已经装的水。求区间概率=右边累计减左边累计：\(F(右)-F(左)\)。密度函数是分布函数的"水位上升速度"（导数），总水量（积分）等于 1。</div></details>
+</div></details><details><summary>家族候选8｜级数·幂级数收敛域</summary>
+<div class="ans">【题目】
+求幂级数 \(\sum_{n=1}^{\infty}\frac{x^n}{n}\) 的收敛域。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：(1) 求收敛半径：\(\rho=\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\lim_{n\to\infty}\frac{\frac{1}{n+1}}{\frac{1}{n}}=\lim_{n\to\infty}\frac{n}{n+1}=1\)，故收敛半径 \(R=\frac{1}{\rho}=1\)。幂级数在 \((-1,1)\) 内绝对收敛。
+(2) 检验端点：当 \(x=1\) 时，级数为 \(\sum\frac{1}{n}\)，是调和级数，发散；
+当 \(x=-1\) 时，级数为 \(\sum\frac{(-1)^n}{n}\)，通项 \(\frac{1}{n}\) 单调递减且趋于 0，由莱布尼茨判别法收敛。
+答：收敛域为 \([-1,1)\)。
+【小白讲懂】幂级数像以 x 为中心的"同心圆"：半径 R 内保证收敛，半径外发散。求 R 用比值判别法（后项比前项的极限）取倒数。端点 \(x=\pm R\) 必须单独代进去检验——这是最常丢分的步骤。</div></details>
+</div></details><p class="note">💡 建议：先把每道题在草稿纸上做一遍，再点开详细答案对照得分点</p></div></div><div class="panel" id="p-bibei">
 <div class="card"><h3>解答题四大题型通用套路（背框架，考场套用）</h3>
 <ul class="biglist">
 <li><b>行列式计算</b>：①观察行列式特点(对称/循环/三角)；②化三角形或按行(列)展开；③答前复查符号</li>
-<li><b>方程组求解</b>：①增广矩阵→行最简形；②求特解+齐次基础解系；③通解=特解+k₁ξ₁+k₂ξ₂</li>
+<li><b>方程组求解</b>：①增广矩阵→行最简形；②求特解+齐次基础解系；③通解=特解+\(k_1\xi_1+k_2\xi_2\)</li>
 <li><b>中值定理证明</b>：①写清定理条件验证；②构造函数/迭代关系；③结合连续有界性放缩；④结论收尾</li>
-<li><b>分布函数</b>：①确定取值与概率；②按区间分段写F(x)=P(X≤x)；③草图：阶梯状跳跃</li>
+<li><b>分布函数</b>：①确定取值与概率；②按区间分段写\(F(x)=P(X\le x)\)；③草图：阶梯状跳跃</li>
 <li><b>概率题</b>：①识别模型(古典/条件/独立)；②列等可能基本事件数；③条件分布别忘除以条件概率</li>
 </ul></div></div><div class="panel" id="p-qa"><div class="card"><h3>📚 10道解答题真题与完整解题过程（按年份）</h3><div class="yearh">19下 年（解答题）</div><details><summary>19下 Q14｜中值定理证明f(x)≡0</summary><div class="ans">【参考答案】
-解：(1)步骤①的依据是拉格朗日中值定理（微分中值定理）：函数f在[0,x]上连续、在(0,x)内可导，故存在ξ1∈(0,x)，使 f(x)-f(0)=f'(ξ1)(x-0)=f'(ξ1)x。
-(2)步骤②的依据是题设条件：对任意x∈[0,1]，|f'(x)|≤|f(x)|。
-(3)步骤③是步骤①的反复（迭代）应用：先将①中的x换成ξ1，得 |f(ξ1)-f(0)|=|f'(ξ2)|ξ1（0<ξ2<ξ1），再用②放缩，并与前面结果合并，得到关于x²的估计式。
-(4)完成证明：由①②得 |f(x)|=|f(x)-f(0)|=|f'(ξ1)|x≤|f(ξ1)|x。
-对f(ξ1)再应用①并利用②，得 |f(ξ1)|=|f(ξ1)-f(0)|=|f'(ξ2)|ξ1≤|f(ξ2)|ξ1≤|f(ξ2)|x，故 |f(x)|≤|f(ξ2)|x²。
-重复上述过程，对任意正整数n，存在ξn∈(0,1)，使 |f(x)|≤|f(ξn)|xⁿ。
-因为f在[0,1]上连续，故有界，设 |f(ξn)|≤M。
-当0≤x<1时，|f(x)|≤M·xⁿ，令n→∞，得f(x)=0。
-又f在x=1处连续，f(1)=lim(x→1⁻)f(x)=0。
-综上，f(x)=0，x∈[0,1]。</div></details><div class="yearh">20下 年（解答题）</div><details><summary>20下 Q14｜费马原理证明折射定律</summary><div class="ans">【参考答案】
-解：(1)以水面为x轴建立坐标系，设A在空气中，其坐标为(0,a)（a>0）；B在水中，坐标为(L,-b)（b>0）；P(x,0)为入射点，且OP=x0。
-则 AP=√(x²+a²)，PB=√((L-x)²+b²)，
-光线从A到B所需时间为 T(x)=√(x²+a²)/c + √((L-x)²+b²)/c'。
-(2)求导得 T'(x)=x/(c√(x²+a²)) - (L-x)/(c'√((L-x)²+b²))。
-由题意T(x0)是极小值，故 T'(x0)=0，即
-x0/(c·√(x0²+a²)) = (L-x0)/(c'·√((L-x0)²+b²))。
-而 sinθ=x0/√(x0²+a²)=x0/AP，sinθ'=(L-x0)/√((L-x0)²+b²)=(L-x0)/PB，
-代入上式得 sinθ/c = sinθ'/c'，即 sinθ/sinθ' = c/c'。
-证毕。</div></details><div class="yearh">21上 年（解答题）</div><details><summary>21上 Q14｜方程组解空间维数与通解</summary><div class="ans">【参考答案】
-解：增广矩阵为
-[1 2 -4 -5 | -6]
-[0 1 -1 -2 | -2]
-[2 5 -9 -12 | -14]
-[1 3 -5 a | -8]
-作初等行变换：第3行减去第1行的2倍，第4行减去第1行，得
-[1 2 -4 -5 | -6]
-[0 1 -1 -2 | -2]
-[0 1 -1 -2 | -2]
-[0 1 -1 a+5 | -2]
-(1)对应齐次方程组解空间维数为2，即 r(A)=4-2=2。由变换结果，要使第4行与第2行线性相关（秩为2），须 a+5=-2，即 a=-7。
-(2)当a=-7时，同解方程组为
-x1+2x2-4x3-5x4=-6，x2-x3-2x4=-2。
-取x3=x4=0，得特解 η=(-2,-2,0,0)ᵀ。
-对应齐次方程组的通解：令x3、x4为自由未知量，
-x2=x3+2x4，x1=-2x2+4x3+5x4=2x3+x4，
-即 ξ=(2,1,1,0)ᵀ 与 ζ=(1,2,0,1)ᵀ 构成基础解系。
-所以非齐次方程组的通解为
-x=(-2,-2,0,0)ᵀ+k1(2,1,1,0)ᵀ+k2(1,2,0,1)ᵀ，k1,k2为任意实数。</div></details><div class="yearh">21下 年（解答题）</div><details><summary>21下 Q14｜向量组线性无关与线性表示</summary><div class="ans">【参考答案】
-解：(1)以α1,α2,α3为列向量构成矩阵A，其行列式为
-|A| = |4 4 -3; 2 4 -1; -2 0 3|
-= 4×(4×3-(-1)×0) - 4×(2×3-(-1)×(-2)) + (-3)×(2×0-4×(-2))
-= 4×12 - 4×4 - 3×8 = 48-16-24 = 8 ≠ 0。
-所以向量组α1,α2,α3线性无关。
-(2)设 β=xα1+yα2+zα3，即解方程组
-4x+4y-3z=4，2x+4y-z=5，-2x+3z=-1。
-由第三式得 z=(2x-1)/3，代入前两式：
-2x+4y-(2x-1)=4，即 2x+4y=3；
-2x+4y-(2x-1)/3=5，整理得 2x+6y=7。
-两式相减得 2y=4，即 y=2；代入得 x=-5/2；z=(-5-1)/3=-2。
-所以 β=(-5/2)α1+2α2-2α3。</div></details><div class="yearh">22上 年（解答题）</div><details><summary>22上 Q14｜行列式与面积及最值</summary><div class="ans">【参考答案】
-解：(1)由定义
-M(A,B,C)=(1/2)×|-1 0 1; 1 0 1; 0 1 1|
-=(1/2)×[-1×(0×1-1×1)+1×(1×1-0×0)]
-=(1/2)×[1+1]=1。
-M(A,C,B)=(1/2)×|-1 0 1; 0 1 1; 1 0 1|
-=(1/2)×[-1×(1×1-1×0)+1×(0×0-1×1)]
-=(1/2)×[-1-1]=-1。
-(2)M(A,B,C)的绝对值等于三角形ABC的面积S，即 |M(A,B,C)|=S。（本题中S=1/2×2×1=1=|M(A,B,C)|。）
-(3)点P(x,y)在单位圆上，则(x-1)²+(y-2)²=1，故 y∈[1,3]。
-M(A,B,P)=(1/2)×|-1 0 1; 1 0 1; x y 1|
-=(1/2)×[-1×(0×1-1×y)+1×(1×y-0×x)]
-=(1/2)×[y+y]=y。
-所以当 y=3（即P取(1,3)）时，M(A,B,P)取得最大值3。</div></details><div class="yearh">22下 年（解答题）</div><details><summary>22下 Q14｜行列式求值与方程组求解</summary><div class="ans">【参考答案】
-解：(1)|A| = |3 2 1; -1 0 1; 1 3 -1|
-= 3×[0×(-1)-1×3] - 2×[(-1)×(-1)-1×1] + 1×[(-1)×3-0×1]
-= 3×(-3) - 2×0 + 1×(-3) = -12。
-(2)解方程组 3x+2y+z=10，-x+z=2，x+3y-z=4。
-由第二式得 z=x+2。代入第三式：x+3y-(x+2)=4，得 y=2。
-代入第一式：3x+2×2+(x+2)=10，即 4x=4，得 x=1，从而 z=3。
-所以方程组的解为 x=1，y=2，z=3。</div></details><div class="yearh">23上 年（解答题）</div><details><summary>23上 Q14｜二次方程实根概率与条件分布</summary><div class="ans">【参考答案】
-解：共有5×5=25种等可能的抽取结果(B,C)。
-(1)方程有相等实根的条件是判别式 Δ=B²-4C=0，即 B²=4C。
-B,C∈{1,2,3,4,5}，满足条件的有：(B,C)=(2,1)或(4,4)，共2种。
-所以 P(有相等实根)=2/25。
-(2)方程有实根的条件是 B²-4C≥0。逐一检验：
-B=1时无解；B=2时C=1（1种）；B=3时C=1,2（2种）；B=4时C=1,2,3,4（4种）；B=5时C=1,2,3,4,5（5种）。
-共1+2+4+5=12种，所以 P(有实根)=12/25。
-(3)在“有相等实根”的条件下，可能情形为(2,1)与(4,4)，且各以1/2的概率发生。此时方程的根为 x=B/2。
-当(B,C)=(2,1)时，x=1；当(B,C)=(4,4)时，x=2。
-所以根的概率分布为：P(x=1)=1/2，P(x=2)=1/2。</div></details><div class="yearh">23下 年（解答题）</div><details><summary>23下 Q14｜直线方程与定积分面积</summary><div class="ans">【参考答案】
-解：(1)直线l与直线y=-x+1垂直，故l的斜率为1。又l过原点O(0,0)，所以直线l的方程为 y=x。
-(2)求l与曲线y=-x²+4x的交点：
-由 x=-x²+4x，得 x²-3x=0，即 x=0 或 x=3。交点坐标为(0,0)和(3,3)。
-在[0,3]上，-x²+4x≥x，故所围封闭图形的面积为
-S=∫₀³ [(-x²+4x)-x]dx = ∫₀³ (-x²+3x)dx
-= [-x³/3+3x²/2]|₀³ = -9+27/2 = 9/2。</div></details><div class="yearh">24上 年（解答题）</div><details><summary>24上 Q14｜离散型随机变量的分布函数</summary><div class="ans">【参考答案】
-解：由题意，X的可能取值为1和-1，且
-P(X=1)=P(掷出1,3,5点)=3/6=1/2，
-P(X=-1)=P(掷出2,4,6点)=3/6=1/2。
-X的分布函数 F(x)=P(X≤x)：
-当 x<-1 时，F(x)=0；
-当 -1≤x<1 时，F(x)=P(X=-1)=1/2；
-当 x≥1 时，F(x)=1。
-即 F(x)={0, x<-1; 1/2, -1≤x<1; 1, x≥1}。
-草图（文字描述）：阶梯函数——在(-∞,-1)上图象与x轴重合；在x=-1处向上跳跃到1/2；在[-1,1)上保持水平直线y=1/2；在x=1处再向上跳跃到1；在[1,+∞)上保持水平直线y=1。</div></details><div class="yearh">24下 年（解答题）</div><details><summary>24下 Q14｜中值定理求通项与级数敛散性</summary><div class="ans">【参考答案】
-解：(1)由题意 f(n+1)-f(1)=ln(n+1)-ln1=ln(n+1)，
-又 f'(x)=1/x，故 f'(ξn)=1/ξn。
-由 f(n+1)-f(1)=f'(ξn)·n，得 ln(n+1)=n/ξn，
-所以数列{ξn}的通项公式为 ξn=n/ln(n+1)（n≥1）。
-(2)级数从n=1起讨论（n=0时该项无意义）：
-Σ(-1)ⁿ·ξn/n² = Σ(-1)ⁿ·[n/ln(n+1)]/n² = Σ(-1)ⁿ/[n·ln(n+1)]。
-记 aₙ=1/[n·ln(n+1)]，则{aₙ}单调递减（n≥1时），且 aₙ→0（n→∞）。
-由莱布尼茨判别法，交错级数 Σ(-1)ⁿaₙ 收敛。
-又 Σaₙ=Σ1/[n·ln(n+1)] 发散（与 Σ1/(n·ln n) 同敛散，由积分判别法 ∫₂^∞ dx/(x·lnx) 发散）。
-所以原级数条件收敛（收敛但不绝对收敛）。</div></details><p class="note">💡 点开任意一题可查看题目考点与考试格式答案</p></div></div>
-<p class="footer">数学科三（初中）非选择题分析 · 数学科三·解答题 真题精析与26下预测 · v1.1<br>数据：19下~24下共10套真题 · 答案按考试答题格式整理 · 预测题均为自编模拟题（非真题重现） · 仅供备考使用<br><a class="backlink" href="https://harper518.github.io/sama-quiz/链接汇总.html">← 返回链接汇总</a></p>
+解：(1)步骤①的依据是拉格朗日中值定理（微分中值定理）：函数\(f\)在\([0,x]\)上连续、在\((0,x)\)内可导，故存在\(\xi_{1}\in(0,x)\)，使 \(f(x)-f(0)=f'(\xi_{1})(x-0)=f'(\xi_{1})x\)。\n(2)步骤②的依据是题设条件：对任意\(x\in[0,1]\)，\(|f'(x)|\leq|f(x)|\)。\n(3)步骤③是步骤①的反复（迭代）应用：先将①中的\(x\)换成\(\xi_{1}\)，得 \(|f(\xi_{1})-f(0)|=|f'(\xi_{2})|\xi_{1}\)（\(0\lt\xi_{2}\lt\xi_{1}\)），再用②放缩，并与前面结果合并，得到关于\(x^{2}\)的估计式。\n(4)完成证明：由①②得 \(|f(x)|=|f(x)-f(0)|=|f'(\xi_{1})|x\leq|f(\xi_{1})|x\)。\n对\(f(\xi_{1})\)再应用①并利用②，得 \(|f(\xi_{1})|=|f(\xi_{1})-f(0)|=|f'(\xi_{2})|\xi_{1}\leq|f(\xi_{2})|\xi_{1}\leq|f(\xi_{2})|x\)，故 \(|f(x)|\leq|f(\xi_{2})|x^{2}\)。\n重复上述过程，对任意正整数\(n\)，存在\(\xi_{n}\in(0,1)\)，使 \(|f(x)|\leq|f(\xi_{n})|x^{n}\)。\n因为\(f\)在\([0,1]\)上连续，故有界，设 \(|f(\xi_{n})|\leq M\)。\n当\(0\leq x\lt1\)时，\(|f(x)|\leq M\cdot x^{n}\)，令\(n\to\infty\)，得\(f(x)=0\)。\n又\(f\)在\(x=1\)处连续，\(f(1)=\lim_{x\to1^{-}}f(x)=0\)。\n综上，\(f(x)=0\)，\(x\in[0,1]\)。</div></details><div class="yearh">20下 年（解答题）</div><details><summary>20下 Q14｜费马原理证明折射定律</summary><div class="ans">【参考答案】
+解：(1)以水面为\(x\)轴建立坐标系，设\(A\)在空气中，其坐标为\((0,a)\)（\(a\gt0\)）；\(B\)在水中，坐标为\((L,-b)\)（\(b\gt0\)）；\(P(x,0)\)为入射点，且\(OP=x_0\)。\n则 \(AP=\sqrt{x^{2}+a^{2}}\)，\(PB=\sqrt{(L-x)^{2}+b^{2}}\)，\n光线从\(A\)到\(B\)所需时间为 \(T(x)=\frac{\sqrt{x^{2}+a^{2}}}{c}+\frac{\sqrt{(L-x)^{2}+b^{2}}}{c'}\)。\n(2)求导得 \(T'(x)=\frac{x}{c\sqrt{x^{2}+a^{2}}}-\frac{L-x}{c'\sqrt{(L-x)^{2}+b^{2}}}\)。\n由题意\(T(x_0)\)是极小值，故 \(T'(x_0)=0\)，即\n\(\frac{x_0}{c\cdot\sqrt{x_0^{2}+a^{2}}}=\frac{L-x_0}{c'\cdot\sqrt{(L-x_0)^{2}+b^{2}}}\)。\n而 \(\sin\theta=\frac{x_0}{\sqrt{x_0^{2}+a^{2}}}=\frac{x_0}{AP}\)，\(\sin\theta'=\frac{L-x_0}{\sqrt{(L-x_0)^{2}+b^{2}}}=\frac{L-x_0}{PB}\)，\n代入上式得 \(\frac{\sin\theta}{c}=\frac{\sin\theta'}{c'}\)，即 \(\frac{\sin\theta}{\sin\theta'}=\frac{c}{c'}\)。\n证毕。</div></details><div class="yearh">21上 年（解答题）</div><details><summary>21上 Q14｜方程组解空间维数与通解</summary><div class="ans">【参考答案】
+解：增广矩阵为\n\(\begin{pmatrix}1&2&-4&-5&|&-6\\0&1&-1&-2&|&-2\\2&5&-9&-12&|&-14\\1&3&-5&a&|&-8\end{pmatrix}\)\n作初等行变换：第3行减去第1行的2倍，第4行减去第1行，得\n\(\begin{pmatrix}1&2&-4&-5&|&-6\\0&1&-1&-2&|&-2\\0&1&-1&-2&|&-2\\0&1&-1&a+5&|&-2\end{pmatrix}\)\n(1)对应齐次方程组解空间维数为2，即 \(r(A)=4-2=2\)。由变换结果，要使第4行与第2行线性相关（秩为2），须 \(a+5=-2\)，即 \(a=-7\)。\n(2)当\(a=-7\)时，同解方程组为\n\(x_1+2x_2-4x_3-5x_4=-6\)，\(x_2-x_3-2x_4=-2\)。\n取\(x_3=x_4=0\)，得特解 \(\eta=(-2,-2,0,0)^{\mathrm{T}}\)。\n对应齐次方程组的通解：令\(x_3\)、\(x_4\)为自由未知量，\n\(x_2=x_3+2x_4\)，\(x_1=-2x_2+4x_3+5x_4=2x_3+x_4\)，\n即 \(\xi=(2,1,1,0)^{\mathrm{T}}\) 与 \(\zeta=(1,2,0,1)^{\mathrm{T}}\) 构成基础解系。\n所以非齐次方程组的通解为\n\(x=(-2,-2,0,0)^{\mathrm{T}}+k_1(2,1,1,0)^{\mathrm{T}}+k_2(1,2,0,1)^{\mathrm{T}}\)，\(k_1,k_2\)为任意实数。</div></details><div class="yearh">21下 年（解答题）</div><details><summary>21下 Q14｜向量组线性无关与线性表示</summary><div class="ans">【参考答案】
+解：(1)以\(\alpha_1,\alpha_2,\alpha_3\)为列向量构成矩阵\(A\)，其行列式为\n\(|A|=\begin{vmatrix}4&4&-3\\2&4&-1\\-2&0&3\end{vmatrix}\)\n\(=4\times(4\times3-(-1)\times0)-4\times(2\times3-(-1)\times(-2))+(-3)\times(2\times0-4\times(-2))\)\n\(=4\times12-4\times4-3\times8=48-16-24=8\neq0\)。\n所以向量组\(\alpha_1,\alpha_2,\alpha_3\)线性无关。\n(2)设 \(\beta=x\alpha_1+y\alpha_2+z\alpha_3\)，即解方程组\n\(4x+4y-3z=4\)，\(2x+4y-z=5\)，\(-2x+3z=-1\)。\n由第三式得 \(z=\frac{2x-1}{3}\)，代入前两式：\n\(2x+4y-(2x-1)=4\)，即 \(2x+4y=3\)；\n\(2x+4y-\frac{2x-1}{3}=5\)，整理得 \(2x+6y=7\)。\n两式相减得 \(2y=4\)，即 \(y=2\)；代入得 \(x=-\frac{5}{2}\)；\(z=\frac{-5-1}{3}=-2\)。\n所以 \(\beta=-\frac{5}{2}\alpha_1+2\alpha_2-2\alpha_3\)。</div></details><div class="yearh">22上 年（解答题）</div><details><summary>22上 Q14｜行列式与面积及最值</summary><div class="ans">【参考答案】
+解：(1)由定义\n\(M(A,B,C)=\frac{1}{2}\times\begin{vmatrix}-1&0&1\\1&0&1\\0&1&1\end{vmatrix}\)\n\(=\frac{1}{2}\times[-1\times(0\times1-1\times1)+1\times(1\times1-0\times0)]\)\n\(=\frac{1}{2}\times[1+1]=1\)。\n\(M(A,C,B)=\frac{1}{2}\times\begin{vmatrix}-1&0&1\\0&1&1\\1&0&1\end{vmatrix}\)\n\(=\frac{1}{2}\times[-1\times(1\times1-1\times0)+1\times(0\times0-1\times1)]\)\n\(=\frac{1}{2}\times[-1-1]=-1\)。\n(2)\(M(A,B,C)\)的绝对值等于三角形\(ABC\)的面积\(S\)，即 \(|M(A,B,C)|=S\)。（本题中\(S=\frac{1}{2}\times2\times1=1=|M(A,B,C)|\)。）\n(3)点\(P(x,y)\)在单位圆上，则\((x-1)^{2}+(y-2)^{2}=1\)，故 \(y\in[1,3]\)。\n\(M(A,B,P)=\frac{1}{2}\times\begin{vmatrix}-1&0&1\\1&0&1\\x&y&1\end{vmatrix}\)\n\(=\frac{1}{2}\times[-1\times(0\times1-1\times y)+1\times(1\times y-0\times x)]\)\n\(=\frac{1}{2}\times[y+y]=y\)。\n所以当 \(y=3\)（即\(P\)取\((1,3)\)）时，\(M(A,B,P)\)取得最大值3。</div></details><div class="yearh">22下 年（解答题）</div><details><summary>22下 Q14｜行列式求值与方程组求解</summary><div class="ans">【参考答案】
+解：(1)\(|A|=\begin{vmatrix}3&2&1\\-1&0&1\\1&3&-1\end{vmatrix}\)\n\(=3\times[0\times(-1)-1\times3]-2\times[(-1)\times(-1)-1\times1]+1\times[(-1)\times3-0\times1]\)\n\(=3\times(-3)-2\times0+1\times(-3)=-12\)。\n(2)解方程组 \(3x+2y+z=10\)，\(-x+z=2\)，\(x+3y-z=4\)。\n由第二式得 \(z=x+2\)。代入第三式：\(x+3y-(x+2)=4\)，得 \(y=2\)。\n代入第一式：\(3x+2\times2+(x+2)=10\)，即 \(4x=4\)，得 \(x=1\)，从而 \(z=3\)。\n所以方程组的解为 \(x=1\)，\(y=2\)，\(z=3\)。</div></details><div class="yearh">23上 年（解答题）</div><details><summary>23上 Q14｜二次方程实根概率与条件分布</summary><div class="ans">【参考答案】
+解：共有\(5\times5=25\)种等可能的抽取结果\((B,C)\)。\n(1)方程有相等实根的条件是判别式 \(\Delta=B^{2}-4C=0\)，即 \(B^{2}=4C\)。\n\(B,C\in\{1,2,3,4,5\}\)，满足条件的有：\((B,C)=(2,1)\)或\((4,4)\)，共2种。\n所以 \(P(\text{有相等实根})=\frac{2}{25}\)。\n(2)方程有实根的条件是 \(B^{2}-4C\geq0\)。逐一检验：\n\(B=1\)时无解；\(B=2\)时\(C=1\)（1种）；\(B=3\)时\(C=1,2\)（2种）；\(B=4\)时\(C=1,2,3,4\)（4种）；\(B=5\)时\(C=1,2,3,4,5\)（5种）。\n共\(1+2+4+5=12\)种，所以 \(P(\text{有实根})=\frac{12}{25}\)。\n(3)在“有相等实根”的条件下，可能情形为\((2,1)\)与\((4,4)\)，且各以\(\frac{1}{2}\)的概率发生。此时方程的根为 \(x=\frac{B}{2}\)。\n当\((B,C)=(2,1)\)时，\(x=1\)；当\((B,C)=(4,4)\)时，\(x=2\)。\n所以根的概率分布为：\(P(x=1)=\frac{1}{2}\)，\(P(x=2)=\frac{1}{2}\)。</div></details><div class="yearh">23下 年（解答题）</div><details><summary>23下 Q14｜直线方程与定积分面积</summary><div class="ans">【参考答案】
+解：(1)直线\(l\)与直线\(y=-x+1\)垂直，故\(l\)的斜率为1。又\(l\)过原点\(O(0,0)\)，所以直线\(l\)的方程为 \(y=x\)。\n(2)求\(l\)与曲线\(y=-x^{2}+4x\)的交点：\n由 \(x=-x^{2}+4x\)，得 \(x^{2}-3x=0\)，即 \(x=0\) 或 \(x=3\)。交点坐标为\((0,0)\)和\((3,3)\)。\n在\([0,3]\)上，\(-x^{2}+4x\geq x\)，故所围封闭图形的面积为\n\(S=\int_0^{3}[(-x^{2}+4x)-x]\,dx=\int_0^{3}(-x^{2}+3x)\,dx\)\n\(=\left[-\frac{x^{3}}{3}+\frac{3x^{2}}{2}\right]_0^{3}=-9+\frac{27}{2}=\frac{9}{2}\)。</div></details><div class="yearh">24上 年（解答题）</div><details><summary>24上 Q14｜离散型随机变量的分布函数</summary><div class="ans">【参考答案】
+解：由题意，\(X\)的可能取值为1和-1，且\n\(P(X=1)=P(\text{掷出1,3,5点})=\frac{3}{6}=\frac{1}{2}\)，\n\(P(X=-1)=P(\text{掷出2,4,6点})=\frac{3}{6}=\frac{1}{2}\)。\n\(X\)的分布函数 \(F(x)=P(X\leq x)\)：\n当 \(x\lt-1\) 时，\(F(x)=0\)；\n当 \(-1\leq x\lt1\) 时，\(F(x)=P(X=-1)=\frac{1}{2}\)；\n当 \(x\geq1\) 时，\(F(x)=1\)。\n即 \(F(x)=\begin{cases}0,&x\lt-1\\\frac{1}{2},&-1\leq x\lt1\\1,&x\geq1\end{cases}\)。\n草图（文字描述）：阶梯函数——在\((-\infty,-1)\)上图象与\(x\)轴重合；在\(x=-1\)处向上跳跃到\(\frac{1}{2}\)；在\([-1,1)\)上保持水平直线\(y=\frac{1}{2}\)；在\(x=1\)处再向上跳跃到1；在\([1,+\infty)\)上保持水平直线\(y=1\)。</div></details><div class="yearh">24下 年（解答题）</div><details><summary>24下 Q14｜中值定理求通项与级数敛散性</summary><div class="ans">【参考答案】
+解：(1)由题意 \(f(n+1)-f(1)=\ln(n+1)-\ln 1=\ln(n+1)\)，\n又 \(f'(x)=\frac{1}{x}\)，故 \(f'(\xi_{n})=\frac{1}{\xi_{n}}\)。\n由 \(f(n+1)-f(1)=f'(\xi_{n})\cdot n\)，得 \(\ln(n+1)=\frac{n}{\xi_{n}}\)，\n所以数列\(\{\xi_{n}\}\)的通项公式为 \(\xi_{n}=\frac{n}{\ln(n+1)}\)（\(n\geq1\)）。\n(2)级数从\(n=1\)起讨论（\(n=0\)时该项无意义）：\n\(\sum(-1)^{n}\cdot\frac{\xi_{n}}{n^{2}}=\sum(-1)^{n}\cdot\left[\frac{n}{\ln(n+1)}\right]\cdot\frac{1}{n^{2}}=\sum\frac{(-1)^{n}}{n\cdot\ln(n+1)}\)。\n记 \(a_n=\frac{1}{n\cdot\ln(n+1)}\)，则\(\{a_n\}\)单调递减（\(n\geq1\)时），且 \(a_n\to0\)（\(n\to\infty\)）。\n由莱布尼茨判别法，交错级数 \(\sum(-1)^{n}a_n\) 收敛。\n又 \(\sum a_n=\sum\frac{1}{n\cdot\ln(n+1)}\) 发散（与 \(\sum\frac{1}{n\cdot\ln n}\) 同敛散，由积分判别法 \(\int_2^{\infty}\frac{dx}{x\cdot\ln x}\) 发散）。\n所以原级数条件收敛（收敛但不绝对收敛）。</div></details><p class="note">💡 点开任意一题可查看题目考点与考试格式答案</p></div></div>
+<p class="footer">数学科三（初中）非选择题分析 · 数学科三·解答题 真题精析与26下预测 · v1.2<br>数据：19下~24下共10套真题 · 答案按考试答题格式整理 · 预测题均为自编模拟题（非真题重现） · 公式为 MathJax 排版 · 仅供备考使用<br><a class="backlink" href="https://harper518.github.io/sama-quiz/链接汇总.html">← 返回链接汇总</a></p>
 <script>
+window.MathJax = { tex:{inlineMath:[['\\(','\\)']]}, options:{enableMenu:false}, startup:{pageReady:function(){}} };
+function typeset(el){ if(window.MathJax&&MathJax.typesetPromise){ MathJax.typesetClear([el]); MathJax.typesetPromise([el]).catch(function(){}); } }
+(function(){
+  var srcs=['https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js','https://cdn.staticfile.org/mathjax/3.2.2/es5/tex-chtml.js','https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js'];
+  var i=0;
+  function next(){
+    if(i>=srcs.length)return;
+    var s=document.createElement('script');
+    s.src=srcs[i++]; s.async=true;
+    s.onerror=function(){ next(); };
+    s.onload=function(){ var on=document.querySelector('.panel.on'); if(on)typeset(on); };
+    document.head.appendChild(s);
+  }
+  next();
+})();
+document.addEventListener('toggle', function(e){ if(e.target.tagName==='DETAILS'&&e.target.open)typeset(e.target); }, true);
 document.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click', function(){
     document.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('on'); });
     document.querySelectorAll('.panel').forEach(function(x){ x.classList.remove('on'); });
     t.classList.add('on');
-    document.getElementById('p-' + t.dataset.t).classList.add('on');
+    var p=document.getElementById('p-' + t.dataset.t);
+    p.classList.add('on');
+    typeset(p);
     window.scrollTo(0,0);
   });
 });
