@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>27天备考任务贴纸墙 v1.1</title>
+<title>27天备考任务贴纸墙 v1.2</title>
 <style>
 :root {
   --bg: #f5f7fa;
@@ -508,7 +508,7 @@ footer {
   <div class="footstat" id="footstat"></div>
 
   <footer>
-    27天备考任务贴纸墙 v1.1 · 2026-08-15<br>
+    27天备考任务贴纸墙 v1.2 · 2026-08-15<br>
     墙上最多同时贴24个任务 · 数据仅保存在本机浏览器（换设备不互通）· 收纳箱内可导出备份<br>
     冲刺日历：2026-08-15 起 · 2026-09-10 考试
   </footer>
@@ -609,10 +609,10 @@ let importedTasks = null;
 
 function d0(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
 function today() { return d0(new Date()); }
+function p2(n) { return n < 10 ? '0' + n : '' + n; }
 function fmt(dt) {
   const d = new Date(dt);
-  return (d.getMonth() + 1) + '月' + d.getDate() + '日 ' +
-    String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+  return (d.getMonth() + 1) + '月' + d.getDate() + '日 ' + p2(d.getHours()) + ':' + p2(d.getMinutes());
 }
 function dayOf(t) { return Math.floor((d0(t) - d0(START)) / 86400000) + 1; }
 function daysLeft() { return Math.floor((d0(EXAM) - today()) / 86400000); }
@@ -775,12 +775,13 @@ function pickSlot(id) {
 // ==================== 操作卡 ====================
 function openCard(taskId) {
   activeTaskId = taskId;
-  const t = state.tasks[taskId];
-  document.getElementById('stitle').textContent = t.text;
-  document.getElementById('smeta').textContent =
-    catOf(t.cat).name + ' · 贴于' + fmt(t.createdAt);
+  // 先弹卡片，再填内容——即使老浏览器报错，卡片也能显示
   document.getElementById('mask').classList.add('on');
   document.getElementById('sheet').classList.add('on');
+  const t = state.tasks[taskId];
+  if (!t) return;
+  document.getElementById('stitle').textContent = t.text;
+  document.getElementById('smeta').textContent = catOf(t.cat).name + ' · 贴于' + fmt(t.createdAt);
 }
 function closeCard() {
   document.getElementById('mask').classList.remove('on');
@@ -886,7 +887,7 @@ function exportData() {
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = '贴纸墙备份_' + today().getFullYear() + String(today().getMonth() + 1).padStart(2, '0') + String(today().getDate()).padStart(2, '0') + '.json';
+  a.download = '贴纸墙备份_' + today().getFullYear() + p2(today().getMonth() + 1) + p2(today().getDate()) + '.json';
   a.click();
   URL.revokeObjectURL(a.href);
   toast('备份已下载 ⬇');
