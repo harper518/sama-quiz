@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>科一《综合素质》单选题·多模型预测分析 v1.0（26下）</title>
+<style>
+:root{
+  --bg:#f2f5fa; --card:#fff; --ink:#1f2a44; --sub:#5c6b8a; --line:#e3e9f4;
+  --blue:#2b5cff; --blue-d:#1e44c8; --gold:#b8860b; --red:#d64545; --green:#2e8b57;
+  --ca:#e05050; --cb:#3d7bfa; --cc:#2fae6b; --cd:#ef9f2f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:0 0 60px}
+.wrap{max-width:980px;margin:0 auto;padding:0 14px}
+/* 头部 */
+header.hero{background:linear-gradient(135deg,#1f2a44 0%,#2b5cff 90%);color:#fff;padding:34px 0 30px;border-radius:0 0 22px 22px;text-align:center}
+header.hero h1{font-size:clamp(20px,4.5vw,30px);font-weight:800;letter-spacing:.5px;padding:0 12px}
+header.hero .sub{font-size:clamp(13px,3vw,15px);opacity:.92;margin-top:8px;padding:0 12px}
+header.hero .badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 12px}
+header.hero .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 12px;font-size:12.5px}
+/* 速览卡 */
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:20px}
+.qcard{background:var(--card);border-radius:14px;padding:16px 16px 14px;box-shadow:0 2px 10px rgba(31,42,68,.07);border-top:4px solid var(--blue)}
+.qcard.red{border-top-color:var(--red)} .qcard.gold{border-top-color:var(--gold)} .qcard.green{border-top-color:var(--green)} .qcard.purple{border-top-color:#8a5cf6}
+.qcard h3{font-size:15px;margin-bottom:6px}
+.qcard p{font-size:13.5px;color:var(--sub)}
+.qcard b{color:var(--ink)}
+/* 章节 */
+section{margin-top:26px}
+h2.sec{font-size:clamp(17px,3.6vw,21px);font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+h2.sec .n{background:var(--blue);color:#fff;border-radius:8px;min-width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+.sec-note{color:var(--sub);font-size:13px;margin-bottom:12px}
+.card{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(31,42,68,.07);margin-bottom:12px}
+.card h3{font-size:15.5px;margin-bottom:8px}
+.card h4{font-size:14px;margin:12px 0 6px;color:var(--blue-d)}
+/* 表格 */
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:center}
+th{background:#f5f8ff;font-weight:700;white-space:nowrap;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+td.l{text-align:left}
+.hot{font-weight:800}
+/* 选项色点 */
+.da,.db,.dc,.dd{display:inline-block;min-width:22px;height:22px;line-height:22px;border-radius:6px;color:#fff;font-weight:700;padding:0 5px;font-size:12px;text-align:center}
+.da{background:var(--ca)} .db{background:var(--cb)} .dc{background:var(--cc)} .dd{background:var(--cd)}
+.bar{height:10px;border-radius:5px;background:#e8edf7;overflow:hidden;display:flex;margin:4px 0 2px}
+.bar i{display:block;height:100%}
+.bar .a{background:var(--ca)} .bar .b{background:var(--cb)} .bar .c{background:var(--cc)} .bar .d{background:var(--cd)}
+/* 高亮框 */
+.tip{background:#fff8e8;border:1px solid #f0dfae;border-radius:10px;padding:12px 14px;font-size:13.5px;margin:10px 0}
+.tip.blue{background:#eef4ff;border-color:#c9d9ff}
+.tip.red{background:#fff0f0;border-color:#f5cccc}
+.tip.green{background:#eefaf2;border-color:#c8ecd5}
+.tip b.t{color:var(--gold)}
+.tip.blue b.t{color:var(--blue-d)}
+.tip.red b.t{color:var(--red)}
+.tip.green b.t{color:var(--green)}
+/* 预测表星 */
+.star{color:var(--gold);letter-spacing:1px;white-space:nowrap}
+/* 折叠 */
+details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:10px;overflow:hidden}
+details summary{cursor:pointer;padding:13px 16px;font-weight:700;font-size:14.5px;list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;user-select:none;-webkit-tap-highlight-color:transparent}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸";color:var(--blue);font-size:16px;transition:transform .2s;flex:0 0 auto}
+details[open] summary::before{transform:rotate(90deg)}
+details .body{padding:2px 16px 14px}
+ul.li{margin:6px 0 6px 18px;font-size:13.5px}
+ul.li li{margin:5px 0}
+ul.li li::marker{color:var(--blue)}
+.mono{font-family:Consolas,monospace;font-size:12.5px}
+.small{font-size:12.5px;color:var(--sub)}
+.pill{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:700;margin-right:4px}
+.pill.r{background:#ffe9e9;color:#c03030} .pill.b{background:#e8f0ff;color:#2b5cff} .pill.g{background:#e6f7ee;color:#1e7a46} .pill.y{background:#fff3df;color:#b07208} .pill.p{background:#f0ebff;color:#6a42d6}
+/* 蒙题卡 */
+.strategy{border:2px solid var(--gold);background:#fffdf4;border-radius:14px;padding:16px;margin-top:6px}
+.strategy ol{margin:8px 0 0 20px;font-size:14px}
+.strategy li{margin:8px 0;min-height:32px;display:flex;align-items:flex-start;gap:6px}
+.strategy li b{color:#9a6b00;flex:0 0 auto}
+footer{margin-top:36px;text-align:center;color:var(--sub);font-size:12.5px;line-height:2}
+footer .ver{display:inline-block;background:#e8edf7;border-radius:999px;padding:2px 12px;font-size:12px;color:var(--ink);margin-bottom:8px}
+a{color:var(--blue);text-decoration:none}
+.legend{font-size:12.5px;color:var(--sub);display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}
+@media(max-width:640px){
+  .card{padding:13px}
+  table{font-size:12px}
+  th,td{padding:6px 6px}
+}
+@media(min-width:641px){
+  .wrap{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>科一《综合素质》单选题 · 多模型预测分析</h1>
+  <div class="sub">13套真题 · 346题全量统计｜26下半年预测｜答案规律 + 蒙题策略</div>
+  <div class="badges">
+    <span class="badge">📊 数据：2019下—2026上 全13套</span>
+    <span class="badge">🧠 多模型：频次+趋势+交替+空白</span>
+    <span class="badge">✅ 回溯验证：法条命中87.5%</span>
+    <span class="badge">v1.0 · 2026-08-15</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 1 结论速览 ============ -->
+<div class="quick">
+  <div class="qcard"><h3>① 整体无"全选C"式规律</h3><p>346题答案 A89 / B92 / C86 / D79，几乎均匀。<b>但分模块有真规律</b>：法律法规D只占19%、职业理念D占31%、基本能力B占33%。</p></div>
+  <div class="qcard red"><h3>② 蒙题先排除"最短选项"</h3><p>264题可测：正确选项是最短选项的仅<b>18.6%</b>（远低于25%期望）。完全不会时，先划掉明显最短的那个。</p></div>
+  <div class="qcard gold"><h3>③ 选非题蒙B或D，避开A</h3><p>"哪项错误/不属于"类51题：<b>B、D各占31%</b>，A仅占18%。选非题不会做时按 B→D→C→A 排。</p></div>
+  <div class="qcard green"><h3>④ 多模型预测26下法规TOP3</h3><p><b>学生伤害事故处理办法 · 教师法 · 未保法</b>。模型回溯验证：用前9套预测后4套，法条命中率87.5%。</p></div>
+  <div class="qcard purple"><h3>⑤ 文化素养三大方向</h3><p>历史30次、科技17次、文学16次——26下大概率仍是"<b>历史+科技+文学</b>"三驾马车（回溯命中83.3%）。</p></div>
+</div>
+
+<!-- ============ 2 数据与方法 ============ -->
+<section>
+<h2 class="sec"><span class="n">1</span>数据与方法</h2>
+<div class="sec-note">数据来源：你提供的13套历年真题解析（docx），图片题31道已剔除，共346道单选题（每套29题×13套=377，覆盖率92%）。</div>
+<details>
+<summary>📋 13套真题清单（每套解析出的题数）</summary>
+<div class="body">
+<div class="tblwrap"><table>
+<tr><th>套次</th><th>19下</th><th>20下</th><th>21上</th><th>21下</th><th>22上</th><th>22下</th><th>23上</th><th>23下</th><th>24上</th><th>24下</th><th>25上</th><th>25下</th><th>26上</th></tr>
+<tr><th>题数</th><td>24</td><td>27</td><td>26</td><td>27</td><td>25</td><td>27</td><td>27</td><td>26</td><td>28</td><td>28</td><td>26</td><td>28</td><td>27</td></tr>
+</table></div>
+<p class="small">注：19下、24上、26上无独立真题文件，题目取自解析文档；24上仅解析、26上仅解析。缺失题均为图片题，不影响统计结论。</p>
+</div>
+</details>
+<details>
+<summary>🧠 多模型科学预测是怎么算的</summary>
+<div class="body">
+<p class="small">每个考点按四个独立模型打分，再加权合成综合分：</p>
+<div class="tblwrap"><table>
+<tr><th>模型</th><th>权重</th><th>打分规则</th></tr>
+<tr><td class="l">M1 历史频次</td><td>35%</td><td class="l">13套累计出现次数（0-5次归一化）</td></tr>
+<tr><td class="l">M2 近期趋势</td><td>30%</td><td class="l">近4套（24下—26上）出现次数</td></tr>
+<tr><td class="l">M3 交替规律</td><td>20%</td><td class="l">距26上间隔：刚考过(0套)→0.1；隔1套→0.7；隔2套→1.0；久未考→0.6</td></tr>
+<tr><td class="l">M4 空白潜力</td><td>15%</td><td class="l">低频但属大纲重点的考点轮换补充（出现≤1次给0.6-0.7）</td></tr>
+</table></div>
+<div class="tip blue"><b class="t">回溯验证（关键）：</b>只用19下—24上共9套数据训练模型，去预测24下—26上共4套实际考了什么，计算命中率：<b>法条预测87.5%（8中7）· 文化素养方向83.3%（6中5）· 基本能力75% · 职业道德67% · 职业理念50%</b>。法条和文化素养方向命中率很高——这两块的预测结论可信度最高。</div>
+<p class="small">说明：职业理念/职业道德因历年考点表述碎片化（同一知识点不同叫法），命中率偏低，这两块的预测结论以"高频组+必考项"方式呈现，保守使用。</p>
+</div>
+</details>
+</section>
+
+<!-- ============ 3 答案分布全景 ============ -->
+<section>
+<h2 class="sec"><span class="n">2</span>答案分布全景</h2>
+<div class="sec-note">346题的答案字母分布、每套差异、题号位置规律、题型规律——蒙题策略的全部数据依据。</div>
+
+<div class="card">
+<h3>总体：A 89 · B 92 · C 86 · D 79（接近均匀，D最少）</h3>
+<div class="bar"><i class="a" style="width:25.7%"></i><i class="b" style="width:26.6%"></i><i class="c" style="width:24.9%"></i><i class="d" style="width:22.8%"></i></div>
+<div class="legend"><span><span class="da">A</span> 89题 25.7%</span><span><span class="db">B</span> 92题 26.6%</span><span><span class="dc">C</span> 86题 24.9%</span><span><span class="dd">D</span> 79题 22.8%</span></div>
+<div class="tip"><b class="t">结论：</b>整体均匀到无规律可言，"全选C"式策略在科一无效（和科二不同，科二D明显少）。<b>真正有用的是分模块差异</b>，见下表——模块差异比整体规律强得多。</div>
+</div>
+
+<details>
+<summary>📊 每套答案分布（13套逐个看）</summary>
+<div class="body">
+<div class="tblwrap"><table>
+<tr><th>套次</th><th>题数</th><th>A</th><th>B</th><th>C</th><th>D</th><th>特点</th></tr>
+<tr><td class="l">19下</td><td>24</td><td>5</td><td class="hot">8</td><td>6</td><td>5</td><td class="l">B最多</td></tr>
+<tr><td class="l">20下</td><td>27</td><td>6</td><td>6</td><td class="hot">8</td><td>7</td><td class="l">C最多</td></tr>
+<tr><td class="l">21上</td><td>26</td><td class="hot">8</td><td>5</td><td>7</td><td>6</td><td class="l">A最多</td></tr>
+<tr><td class="l">21下</td><td>27</td><td class="hot">9</td><td>8</td><td>6</td><td>4</td><td class="l">A最多D最少</td></tr>
+<tr><td class="l">22上</td><td>25</td><td>6</td><td>7</td><td>4</td><td class="hot">8</td><td class="l">D最多C最少</td></tr>
+<tr><td class="l">22下</td><td>27</td><td>7</td><td>7</td><td>7</td><td>6</td><td class="l">A=B=C最均匀</td></tr>
+<tr><td class="l">23上</td><td>27</td><td>6</td><td>9</td><td class="hot">9</td><td>3</td><td class="l">B=C多、D仅3次</td></tr>
+<tr><td class="l">23下</td><td>26</td><td>7</td><td>4</td><td>7</td><td class="hot">8</td><td class="l">D最多B最少</td></tr>
+<tr><td class="l">24上</td><td>28</td><td>6</td><td>8</td><td>6</td><td class="hot">8</td><td class="l">B=D最多</td></tr>
+<tr><td class="l">24下</td><td>28</td><td>7</td><td>7</td><td class="hot">9</td><td>5</td><td class="l">C最多</td></tr>
+<tr><td class="l">25上</td><td>26</td><td>8</td><td class="hot">8</td><td>4</td><td>6</td><td class="l">A=B多、C仅4次</td></tr>
+<tr><td class="l">25下</td><td>28</td><td>6</td><td class="hot">8</td><td>6</td><td>8</td><td class="l">B=D最多</td></tr>
+<tr><td class="l">26上</td><td>27</td><td class="hot">8</td><td>7</td><td>7</td><td>5</td><td class="l">A最多</td></tr>
+</table></div>
+<p class="small">解读：每套"最多字母"在A/B/C/D之间轮换（A最多3套、B最多4套、C最多4套、D最多3套），<b>连续两套同字母最多的很少</b>——这就是"交替规律"的数据基础：26上A最多→26下押A的期望值低，可偏向B/C。</p>
+</div>
+</details>
+
+<details>
+<summary>🎯 题号位置规律（第几题倾向什么答案）</summary>
+<div class="body">
+<div class="tblwrap"><table>
+<tr><th>题号</th><th>题数</th><th>A</th><th>B</th><th>C</th><th>D</th><th>规律</th></tr>
+<tr><td>1</td><td>13</td><td>1</td><td>4</td><td>4</td><td>4</td><td class="l">B/C/D多</td></tr>
+<tr><td>2</td><td>12</td><td>2</td><td class="hot">4</td><td>3</td><td>3</td><td class="l">B多</td></tr>
+<tr><td>3</td><td>13</td><td class="hot">6</td><td>0</td><td>2</td><td>5</td><td class="l"><b>A/D多，B为0</b></td></tr>
+<tr><td>4</td><td>13</td><td>2</td><td class="hot">5</td><td>3</td><td>3</td><td class="l">B多</td></tr>
+<tr><td>5</td><td>13</td><td>4</td><td>4</td><td>3</td><td>2</td><td class="l">A/B多</td></tr>
+<tr><td>6</td><td>13</td><td>4</td><td>1</td><td class="hot">6</td><td>2</td><td class="l">C多、B仅1</td></tr>
+<tr><td>7</td><td>13</td><td>3</td><td>1</td><td>2</td><td class="hot">7</td><td class="l"><b>D 7/13 强烈</b></td></tr>
+<tr><td>8</td><td>13</td><td>3</td><td>2</td><td class="hot">6</td><td>2</td><td class="l">C多</td></tr>
+<tr><td>9</td><td>13</td><td>3</td><td class="hot">7</td><td>2</td><td>1</td><td class="l"><b>B 7/13、D仅1</b></td></tr>
+<tr><td>10</td><td>13</td><td class="hot">5</td><td>4</td><td>1</td><td>3</td><td class="l">A/B多、C仅1</td></tr>
+<tr><td>11</td><td>13</td><td>5</td><td>2</td><td class="hot">6</td><td>0</td><td class="l"><b>C多、D为0</b></td></tr>
+<tr><td>12</td><td>13</td><td>3</td><td class="hot">5</td><td>2</td><td>3</td><td class="l">B多</td></tr>
+<tr><td>13</td><td>13</td><td class="hot">5</td><td>3</td><td>2</td><td>3</td><td class="l">A多</td></tr>
+<tr><td>14</td><td>13</td><td>0</td><td>4</td><td class="hot">5</td><td>4</td><td class="l"><b>A为0</b>、B/C/D均分</td></tr>
+<tr><td>15</td><td>13</td><td>3</td><td>3</td><td>3</td><td>4</td><td class="l">D略多</td></tr>
+<tr><td>16</td><td>13</td><td class="hot">5</td><td>3</td><td>4</td><td>1</td><td class="l">A多、D仅1</td></tr>
+<tr><td>17</td><td>13</td><td>4</td><td class="hot">5</td><td>3</td><td>1</td><td class="l">B多、D仅1</td></tr>
+<tr><td>18</td><td>12</td><td>3</td><td>3</td><td>3</td><td>3</td><td class="l">均匀</td></tr>
+<tr><td>19</td><td>11</td><td>3</td><td>3</td><td>3</td><td>2</td><td class="l">均匀</td></tr>
+<tr><td>20</td><td>12</td><td class="hot">5</td><td>2</td><td>3</td><td>2</td><td class="l">A多</td></tr>
+<tr><td>21</td><td>13</td><td>4</td><td>3</td><td>2</td><td>4</td><td class="l">A/D多</td></tr>
+<tr><td>22</td><td>12</td><td>3</td><td class="hot">4</td><td>3</td><td>2</td><td class="l">B略多</td></tr>
+<tr><td>23</td><td>10</td><td>1</td><td>3</td><td>1</td><td class="hot">5</td><td class="l"><b>D 5/10</b></td></tr>
+<tr><td>24</td><td>8</td><td>2</td><td>1</td><td class="hot">4</td><td>1</td><td class="l">C 4/8（样本少）</td></tr>
+<tr><td>25</td><td>10</td><td>1</td><td>2</td><td class="hot">5</td><td>2</td><td class="l">C 5/10</td></tr>
+<tr><td>26</td><td>6</td><td>0</td><td class="hot">5</td><td>0</td><td>1</td><td class="l"><b>B 5/6、A/C为0</b>（样本少）</td></tr>
+<tr><td>27</td><td>11</td><td class="hot">5</td><td>1</td><td>1</td><td>4</td><td class="l">A/D多</td></tr>
+<tr><td>28</td><td>13</td><td>2</td><td class="hot">5</td><td>3</td><td>3</td><td class="l">B多</td></tr>
+<tr><td>29</td><td>8</td><td>2</td><td>3</td><td>1</td><td>2</td><td class="l">B略多</td></tr>
+</table></div>
+<p class="small">用法：只作"最后一刻参考"，样本每格仅6-13题。最强信号：<b>第7题D(7/13)、第9题B(7/13)、第11题D为0、第14题A为0、第3题B为0、第23题D(5/10)</b>。做题时"第11题排除D、第14题排除A"这类反向信号比正向押宝更可靠。</p>
+</div>
+</details>
+
+<details>
+<summary>🧩 分模块答案分布（蒙题的核心依据）</summary>
+<div class="body">
+<div class="tblwrap"><table>
+<tr><th>模块</th><th>题数</th><th>A</th><th>B</th><th>C</th><th>D</th><th>蒙题指向</th></tr>
+<tr><td class="l">职业理念</td><td>55</td><td>11 (20%)</td><td>14</td><td>13</td><td class="hot">17 (31%)</td><td class="l">蒙D、避A</td></tr>
+<tr><td class="l">法律法规</td><td>105</td><td class="hot">31 (30%)</td><td>26</td><td>28</td><td>20 (19%)</td><td class="l">蒙A、避D</td></tr>
+<tr><td class="l">职业道德</td><td>46</td><td>11</td><td>12</td><td>13</td><td>10</td><td class="l">C略多，基本均匀</td></tr>
+<tr><td class="l">文化素养</td><td>93</td><td>25</td><td>25</td><td>22</td><td>21</td><td class="l">A=B略多，基本均匀</td></tr>
+<tr><td class="l">基本能力</td><td>46</td><td>10</td><td class="hot">15 (33%)</td><td>10</td><td>11</td><td class="l">蒙B</td></tr>
+</table></div>
+<div class="tip green"><b class="t">最强两条：</b>①法律法规105题D只出现20次（19%），显著低于25%——<b>法规题排除D后三选一，期望值提高</b>；②基本能力46题B占33%——逻辑/信息题不会时蒙B。职业理念的D占31%同理。</div>
+</div>
+</details>
+
+<details>
+<summary>⚠️ 题型规律：选非题 & 选项长度</summary>
+<div class="body">
+<h4>选非题（问"错误的是/不属于/不正确"）</h4>
+<p>共识别51道选非题（占可判断题目的19.2%），答案分布：</p>
+<div class="tblwrap"><table>
+<tr><th>答案</th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+<tr><td>次数</td><td>9 (17.6%)</td><td class="hot">16 (31.4%)</td><td>10 (19.6%)</td><td class="hot">16 (31.4%)</td></tr>
+</table></div>
+<div class="tip red"><b class="t">规律：</b>选非题正确项（即"错误的那项"）集中在<b>B和D</b>（合计63%），A只占18%。不会做时蒙 B→D→C→A。</div>
+<h4>选项长度（264题可测）</h4>
+<ul class="li">
+<li>正确选项是<b>最长选项</b>的：27.7% ——"选最长"策略无效</li>
+<li>正确选项是<b>最短选项</b>的：仅<b>18.6%</b>（49/264）——明显低于25%，<b>排除最短项是有效策略</b></li>
+<li>正确答案长度并列第一的占68.6%——"长答案"在教资里确实略占优，但"最短"是最差的</li>
+</ul>
+<p class="small">组合题（①②③选项）仅识别到6道，样本太少不列规律。</p>
+</div>
+</details>
+</section>
+
+<!-- ============ 4 职业理念 ============ -->
+<section>
+<h2 class="sec"><span class="n">3</span>模块①职业理念（约4题/套，55题）</h2>
+<div class="sec-note">位置：第1-4题。考点=三观（教育观/学生观/教师观）+教师专业发展。</div>
+<div class="card">
+<h3>考点组频率（13套全历史 → 近4套）</h3>
+<div class="tblwrap"><table>
+<tr><th>考点组</th><th>历史次数</th><th>近4套</th><th>距26上</th><th>26下预测</th></tr>
+<tr><td class="l">学生观（以人为本）</td><td class="hot">10</td><td>3</td><td>0套</td><td><span class="star">★★★★</span></td></tr>
+<tr><td class="l">教师观（角色/行为转变）</td><td>9</td><td class="hot">4</td><td>1套</td><td><span class="star">★★★★</span></td></tr>
+<tr><td class="l">教师专业发展（阶段/途径）</td><td>9</td><td>2</td><td>2套</td><td><span class="star">★★★</span></td></tr>
+<tr><td class="l">素质教育内涵</td><td>8</td><td>2</td><td>0套</td><td><span class="star">★★★</span></td></tr>
+<tr><td class="l">身心发展规律</td><td>4</td><td>2</td><td>1套</td><td><span class="star">★★</span></td></tr>
+<tr><td class="l">教师劳动特征</td><td>4</td><td>0</td><td><b>5套</b></td><td><span class="star">★★★</span>（回补）</td></tr>
+<tr><td class="l">教育公正/公平</td><td>3</td><td>0</td><td><b>7套</b></td><td><span class="star">★★</span>（回补）</td></tr>
+</table></div>
+<div class="tip blue"><b class="t">26下预测：</b>4道理念题大概率 = <b>学生观1 + 教师观1 + 素质教育1</b>（三观常年占3道），第4道从"专业发展/劳动特征/身心发展"轮换。<b>教师劳动特征已5套未考、教育公正已7套未考</b>——按交替+空白模型，26下回补概率高，各备1道模拟练习。</div>
+<div class="tip"><b class="t">答题要点：</b>理念题全是"教师行为→对应理念"的匹配题。抓关键词定位：<b>学生观</b>=独立意义/发展/独特的人；<b>教师观</b>=促进者/引导者/研究者（角色）+尊重赞赏/引导促进（行为）；<b>素质教育</b>=全面/个性/均衡/创新；<b>专业发展</b>=关注生存→情境→学生。题干出现"引导、启发、放手让学生做"→学生观；"走下讲台、与学生商量"→教师观。</div>
+<div class="tip red"><b class="t">蒙题：</b>职业理念题D占31%最多、A仅20%。不会时蒙D避A。</div>
+</div>
+</section>
+
+<!-- ============ 5 法律法规 ============ -->
+<section>
+<h2 class="sec"><span class="n">4</span>模块②法律法规（8题/套，105题 · 最重要）</h2>
+<div class="sec-note">位置：第5-12题。分值16/58≈28%，是单选的大头。法条可背，是单选里唯一能"复习拿满分"的模块。</div>
+<div class="card">
+<h3>七部高频法（出现次数）</h3>
+<div class="tblwrap"><table>
+<tr><th>法律文件</th><th>13套次数</th><th>近4套</th><th>距26上</th><th>综合分</th><th>26下预测</th></tr>
+<tr><td class="l">学生伤害事故处理办法</td><td>12</td><td class="hot">4</td><td>1套</td><td class="hot">0.752</td><td><span class="star">★★★</span></td></tr>
+<tr><td class="l">教师法</td><td>15</td><td class="hot">4</td><td>1套</td><td class="hot">0.752</td><td><span class="star">★★★</span></td></tr>
+<tr><td class="l">未成年人保护法</td><td class="hot">23</td><td class="hot">6</td><td>0套</td><td>0.692</td><td><span class="star">★★★</span></td></tr>
+<tr><td class="l">义务教育法</td><td>14</td><td>4</td><td>0套</td><td>0.632</td><td><span class="star">★★</span></td></tr>
+<tr><td class="l">宪法</td><td>13</td><td>4</td><td>0套</td><td>0.632</td><td><span class="star">★★</span></td></tr>
+<tr><td class="l">教育法</td><td>16</td><td>3</td><td>0套</td><td>0.573</td><td><span class="star">★★</span></td></tr>
+<tr><td class="l">预防未成年人犯罪法</td><td>9</td><td>2</td><td>0套</td><td>0.512</td><td><span class="star">★</span></td></tr>
+<tr><td class="l">教育惩戒规则</td><td>3</td><td>3</td><td>0套</td><td>0.34</td><td><span class="star">★</span>（热点新贵）</td></tr>
+</table></div>
+<p class="small">综合分 = 0.35×历史频次 + 0.30×近期趋势 + 0.20×交替 + 0.15×空白（算法见第1节）。未保法虽然历史23次最高频，但26上刚考了6次，交替模型给它降权；学生伤害事故处理办法和教师法"高频+近期也热+隔了1套"，综合分最高。</p>
+<div class="tip green"><b class="t">26下预测：</b>8道法规题的分布大概率是：<b>未保法1-2题 + 学生伤害事故1题 + 教师法1题 + 教育法/义务教育法/宪法合计2-3题 + 预防犯罪法或惩戒规则1题</b>。空白的低频候选（民法典/刑法/互联网上网服务条例，各只考过1次且久未出现）是换新考点的备选池，遇到陌生法条题不必慌——八成是"未考过的热点新条"。</div>
+</div>
+<details>
+<summary>📖 高频具体条款（哪部法第几条反复考）</summary>
+<div class="body">
+<div class="tblwrap"><table>
+<tr><th>法律</th><th>条款</th><th>考次</th><th>考点内容</th></tr>
+<tr><td class="l">教师法</td><td class="l">第七条</td><td class="hot">3</td><td class="l">教师权利（教学/科研/指导评定/报酬待遇/参与管理/进修培训）</td></tr>
+<tr><td class="l">学生伤害事故处理办法</td><td class="l">第十三条</td><td class="hot">3</td><td class="l">学校不承担责任的四类情形</td></tr>
+<tr><td class="l">学生伤害事故处理办法</td><td class="l">第十条</td><td class="hot">3</td><td class="l">学生/未成年学生监护人担责情形</td></tr>
+<tr><td class="l">学生伤害事故处理办法</td><td class="l">第九条</td><td>2</td><td class="l">学校担责的十二种情形（体罚→学校过错责任）</td></tr>
+<tr><td class="l">未保法</td><td class="l">第五十八条</td><td>2</td><td class="l">不得开除/变相开除未成年学生</td></tr>
+<tr><td class="l">未保法</td><td class="l">第二十八条</td><td>2</td><td class="l">辍学劝返复学、书面报告教育行政部门</td></tr>
+<tr><td class="l">宪法</td><td class="l">第六十七条</td><td>2</td><td class="l">全国人大常委会职权</td></tr>
+<tr><td class="l">宪法</td><td class="l">第六十四条</td><td>2</td><td class="l">修宪提议与通过程序</td></tr>
+<tr><td class="l">义务教育法</td><td class="l">第二十二条</td><td>2</td><td class="l">均衡发展、不得分重点班</td></tr>
+<tr><td class="l">义务教育法</td><td class="l">第二十四条</td><td>2</td><td class="l">学校安全制度、安全教育</td></tr>
+</table></div>
+<div class="tip"><b class="t">背诵优先级：</b>①教师法第7条（权利）——13套考了3次同一条；②学生伤害事故处理办法第9/10/13条——"学校担责/学生或监护人担责/学校不担责"三件套几乎每年必考；③未保法第28/58条；④义务教育法第22/24条。这几条背熟，法规8题至少稳拿3-4题。</div>
+<p class="small">完整高频条清单（出现2次及以上）：第十条×4、第七条×4、第二十二条×3、第十三条×3、第五十八条×3、第四十三条×3、第五十六条×3、第二十八条×3、第二十九条×2、第三十五条×2、第二十四条×2、第三十七条×2、第九条×2、第十一条×2、第六十七条×2、第十七条×2、第六十四条×2、第三十九条×2、第六十二条×2。</p>
+</div>
+</details>
+<details>
+<summary>✍️ 法规题答题要点 + 蒙题</summary>
+<div class="body">
+<ul class="li">
+<li><b>情景→主体→责任/权利</b>三步：先看题干问谁（学校/教师/学生/监护人/行政机关），再对号入座责任条款</li>
+<li><b>数字题背高频条</b>：任期5年、修宪2/3、义务教育入学年龄6周岁、严重不良行为等——纯记忆分，白送</li>
+<li><b>选项用"法言法语"鉴别</b>：出现"责令改正/行政处罚/行政处分/撤销资格"要分清对象（对学校vs对教师vs对主管人员）</li>
+<li><b>选非题陷阱</b>：法规题的选非题最多，先圈出"错误/不属于"再排除</li>
+</ul>
+<div class="tip red"><b class="t">蒙题：</b>法规题D仅占19%（105题中20次）——<b>没把握时先排除D</b>；A占30%最多。排除D后三选一，期望命中率从25%提到约33%。若同时是选非题，按B/D优先的规则走（选非题的D占31%，与"避D"冲突时以选非题规则优先）。</div>
+</div>
+</details>
+</section>
+
+<!-- ============ 6 职业道德 ============ -->
+<section>
+<h2 class="sec"><span class="n">5</span>模块③职业道德（4题/套，47题）</h2>
+<div class="sec-note">位置：第13-16题。考点=师德规范(2008)"三爱两人一终身"+师德范畴。</div>
+<div class="card">
+<h3>考点组频率 → 26下预测</h3>
+<div class="tblwrap"><table>
+<tr><th>考点组</th><th>历史</th><th>近4套</th><th>距26上</th><th>预测</th><th>备考内容</th></tr>
+<tr><td class="l">职业道德总论</td><td>12</td><td class="hot">4</td><td>0套</td><td><span class="star">★★★★</span></td><td class="l">教师职业道德含义/原则</td></tr>
+<tr><td class="l">师德规范(2008)</td><td>9</td><td>3</td><td>1套</td><td><span class="star">★★★★</span></td><td class="l">三爱两人一终身6条目对号入座</td></tr>
+<tr><td class="l">师德行为规范</td><td>9</td><td>3</td><td>2套</td><td><span class="star">★★★</span></td><td class="l">仪表/人际/师生/家校关系</td></tr>
+<tr><td class="l">师德范畴</td><td>6</td><td>2</td><td>0套</td><td><span class="star">★★</span></td><td class="l">道德义务/荣誉/情感</td></tr>
+<tr><td class="l">教育关怀与幸福</td><td>4</td><td>3</td><td>0套</td><td><span class="star">★★★</span></td><td class="l">关怀学生/职业幸福特点</td></tr>
+<tr><td class="l">违反师德处理办法</td><td>4</td><td>0</td><td>5套</td><td><span class="star">★★</span>（回补）</td><td class="l">处分类型/处理程序</td></tr>
+</table></div>
+<div class="tip blue"><b class="t">26下预测：</b>4道职业道德题 = <b>规范条目对号入座1-2题（关爱学生/为人师表最常考）+ 总论/范畴1题 + 关怀幸福或行为规范1题</b>。"违反师德处理办法"已5套未考，注意回补。</div>
+<div class="tip"><b class="t">答题要点：</b>①场景里老师"关心身体/心理/困难学生"→关爱学生；"穿得体、不说脏话、给学生做榜样"→为人师表；"不断学习进修"→终身学习；"认真备课上课"→爱岗敬业；②问"体现哪一条"时，<b>选最贴切的那条</b>，不要选"也对但不够准"的；③出现"教师节收礼/有偿补课/推销资料"→必是违反为人师表。</div>
+<p class="small">蒙题：本模块C略多（13/46）但基本均匀，无可靠字母规律——靠知识点拿分，别靠蒙。</p>
+</div>
+</section>
+
+<!-- ============ 7 文化素养 ============ -->
+<section>
+<h2 class="sec"><span class="n">6</span>模块④文化素养（9题/套，93题 · 范围最大）</h2>
+<div class="sec-note">位置：第17-25题。范围海量、无法穷尽，靠"方向判断+知识块积累"。</div>
+<div class="card">
+<h3>七大方向频率（13套 → 近4套）</h3>
+<div class="tblwrap"><table>
+<tr><th>方向</th><th>历史次数</th><th>占比</th><th>近4套</th><th>26下预测</th></tr>
+<tr><td class="l">历史（中国史+世界史）</td><td class="hot">30</td><td>32%</td><td class="hot">9</td><td><span class="star">★★★★</span></td></tr>
+<tr><td class="l">科技（发明/医学/理化生）</td><td>17</td><td>18%</td><td class="hot">8</td><td><span class="star">★★★★</span></td></tr>
+<tr><td class="l">文学（中外作家作品）</td><td>16</td><td>17%</td><td>7</td><td><span class="star">★★★★</span></td></tr>
+<tr><td class="l">艺术（音乐/美术/戏曲/电影）</td><td>14</td><td>15%</td><td>3</td><td><span class="star">★★★</span></td></tr>
+<tr><td class="l">地理</td><td>6</td><td>6%</td><td>1</td><td><span class="star">★★</span></td></tr>
+<tr><td class="l">传统文化（节日/成语/文物）</td><td>3</td><td>3%</td><td>0</td><td><span class="star">★★</span>（回补）</td></tr>
+<tr><td class="l">体育</td><td>2</td><td>2%</td><td>2</td><td><span class="star">★</span></td></tr>
+</table></div>
+<div class="tip green"><b class="t">26下预测：</b>9道文化素养 ≈ <b>历史3题 + 科技2题 + 文学2题 + 艺术1题 + 地理/其他1题</b>。历史、科技、文学合计占67%，这三块是复习重点中的重点（回溯验证该方向预测命中83.3%）。</div>
+<h4>细分考点TOP（13套累计）</h4>
+<p><span class="pill b">文学常识×11</span><span class="pill r">历史常识×11</span><span class="pill g">科技常识×10</span><span class="pill y">文化常识×9</span><span class="pill p">音乐常识×3</span><span class="pill b">中国古代文学×2</span><span class="pill r">世界历史×2</span><span class="pill g">生物常识×2</span><span class="pill y">地理常识×2</span><span class="pill b">国际奥赛×1</span><span class="pill r">古代科技成就×1</span><span class="pill g">多普勒效应×1</span><span class="pill y">文化遗址×1</span><span class="pill p">外国文学×1</span><span class="pill b">戏剧作品×1</span><span class="pill r">外国美术×1</span><span class="pill g">电影常识×1</span><span class="pill y">手工艺品×1</span><span class="pill p">传统游戏×1</span><span class="pill b">世界遗产×1</span></p>
+<h4>常考具体题材（从真题题干归纳）</h4>
+<ul class="li">
+<li><b>历史</b>：丝绸之路（从西域引进的品种）、近代人物成就（严复）、世界文明（雅典民主/马拉松起源）、历史事件对应诗词</li>
+<li><b>文学</b>：四大名著（红楼梦诗句）、外国名著《红与黑》《百年孤独》、马克·吐温作品、楚辞、《伤寒杂病论》年代</li>
+<li><b>科技</b>：四大发明（指南针）、银版照相法发明者、国产第一辆汽车品牌、血液成分功能、细菌知识、医学家张仲景</li>
+<li><b>艺术</b>：音乐流派、美术流派、国际电影节奖项、地方戏曲（评剧《刘巧儿》）、彩塑</li>
+</ul>
+<div class="tip red"><b class="t">蒙题：</b>文化素养答案A=B最多、均匀分布，<b>没有字母规律</b>——本模块唯一有效的策略是"排除法"：绝对化表述（最早/唯一/全部）在文化题里常是错误项，先排除；再排除明显违背常识的。剩下的交给知识储备。</div>
+</div>
+</section>
+
+<!-- ============ 8 基本能力 ============ -->
+<section>
+<h2 class="sec"><span class="n">7</span>模块⑤基本能力（4题/套，46题）</h2>
+<div class="sec-note">位置：第26-29题。考点=逻辑推理 + 信息处理(Word/Excel/PPT) + 统计测量。</div>
+<div class="card">
+<h3>三类能力频率 → 26下预测</h3>
+<div class="tblwrap"><table>
+<tr><th>能力</th><th>历史</th><th>近4套</th><th>高频具体考点</th><th>预测</th></tr>
+<tr><td class="l">逻辑推理</td><td class="hot">20</td><td class="hot">8</td><td class="l">概念关系×6、数字推理×3、类比推理×2、逻辑推理×2、三段论×1、命题推理×1、图形推理×1</td><td><span class="star">★★★★</span>（必考2题）</td></tr>
+<tr><td class="l">信息处理</td><td>17</td><td>4</td><td class="l">Word×7、Excel×3、PowerPoint×1、域名/因特网×2、信息处理×1</td><td><span class="star">★★★★</span>（必考1-2题）</td></tr>
+<tr><td class="l">统计测量</td><td>8</td><td>1</td><td class="l">数学常识(正态分布)×3、统计常识(中位数)×2、难度×1、信度×1、区分度×1</td><td><span class="star">★★</span>（轮换）</td></tr>
+</table></div>
+<div class="tip blue"><b class="t">26下预测：</b>4道基本能力 = <b>概念关系1 + 数字推理或类比1 + Word或Excel 1 + 统计测量或逻辑1</b>。逻辑题每年稳定2道，是性价比最高的练习项。</div>
+<h4>答题要点</h4>
+<ul class="li">
+<li><b>概念关系</b>：画两个圈判断关系——全同（西红柿=番茄）、包含（大米⊂粮食）、交叉（教授∩科学家）、全异（篮球vs足球）。题干给"四季—秋天"→包含关系，答案找同款</li>
+<li><b>数字推理</b>：先看差、再看商、再看交替（奇数位/偶数位各自成规律），8、10、13、17、22这种差递增(2,3,4,5)最常见</li>
+<li><b>三段论/命题</b>：用"所有/有些/是/不是"画文氏图，别凭语感</li>
+<li><b>Word/Excel</b>：只考基础操作——Word：查找替换/悬挂缩进/删除表格；Excel：SUM/AVERAGE/COUNTIF、单元格区域计数（C3:D7=2×5=10格）</li>
+<li><b>统计测量</b>：正态分布"中间多两头少"、中位数先排序、难度=(高分组通过率+低分组通过率)/2、区分度=高低组通过率之差</li>
+</ul>
+<div class="tip red"><b class="t">蒙题：</b>基本能力B占33%（46题中15次）最多——不会时蒙B。位置参考：第26题6次中5次是B（样本少但信号强）。</div>
+</div>
+</section>
+
+<!-- ============ 9 蒙题策略 ============ -->
+<section>
+<h2 class="sec"><span class="n">8</span>蒙题策略汇总（实战优先级）</h2>
+<div class="strategy">
+<ol>
+<li><b>先排除最短选项</b>——正确项是"最短项"的只有18.6%。<span class="small">（对10套264题实测）</span></li>
+<li><b>判断题型</b>：题干有"错误/不属于/不正确"→选非题，蒙 <b>B→D→C→A</b>；普通题按模块走。</li>
+<li><b>看模块定字母</b>：法律法规→避D押A/C；基本能力→押B；职业理念→押D；文化素养/职业道德→无字母规律，纯排除法。</li>
+<li><b>位置反向信号</b>：第3题B为0、第11题D为0、第14题A为0——这些位置排除对应字母。<span class="small">（样本6-13题/格，参考级）</span></li>
+<li><b>组合拳示例</b>：法规题不会做→排除最短项→还剩ABC→排除D（法规D仅19%）→在A/C中选一个，若题干还是选非题则优先B/D规则。命中期望从25%提到35%+。</li>
+</ol>
+<p class="small" style="margin-top:8px">全部规则基于13套346题实测。请注意：统计规律是"多数情况"，个别试卷可能全反着来——蒙题策略用于"最后没把握的2-3题"，能做题的题永远别用蒙。</p>
+</div>
+</section>
+
+<!-- ============ 10 复习安排 ============ -->
+<section>
+<h2 class="sec"><span class="n">9</span>单选复习安排（衔接28天冲刺）</h2>
+<div class="card">
+<div class="tblwrap"><table>
+<tr><th>阶段</th><th>日期</th><th>每天动作（单选部分）</th></tr>
+<tr><td class="l">第1周</td><td class="l">8.15-8.21</td><td class="l">法规15分钟：教师法第7条+未保法28/58条背熟；文化素养20分钟：文学块（四大名著+外国名著TOP10）</td></tr>
+<tr><td class="l">第2周</td><td class="l">8.22-8.28</td><td class="l">法规15分钟：学生伤害事故处理办法9/10/13条+义务教育法22/24条；文化素养20分钟：中国史+世界史高频（丝绸之路/雅典/近代事件）</td></tr>
+<tr><td class="l">第3周</td><td class="l">8.29-9.04</td><td class="l">法规15分钟：宪法64/67条+教育法高频条；文化素养20分钟：科技块（四大发明/医学/外国科技史）；每周三、六各做1套单选真题限时15分钟</td></tr>
+<tr><td class="l">第4周</td><td class="l">9.05-9.09</td><td class="l">只看本文档第4、8节（法规预测+蒙题卡）；每天1套单选限时10分钟找手感；错题回看一遍</td></tr>
+</table></div>
+<div class="tip green"><b class="t">每天总投入</b>：单选部分35-40分钟，法规和文化素养各一半。理念/道德/基本能力通过刷题自然覆盖，不单独占时间。</div>
+</div>
+</section>
+
+<footer>
+<span class="ver">科一《综合素质》单选题·多模型预测分析 v1.0 · 2026-08-15</span><br>
+数据：2019下—2026上共13套真题解析（docx），346道单选题，图片题31道已剔除<br>
+方法：四模型加权预测（历史频次35% + 近期趋势30% + 交替规律20% + 空白潜力15%），回溯验证见第1节<br>
+<a href="https://harper518.github.io/sama-quiz/科一材料分析题与作文预测报告_26下.html">配套：科一材料分析题+作文预测报告（12篇范文+万能工具箱）</a><br>
+本页预测基于历史数据统计，仅供参考；真题为原创命题，预测不构成"泄题"，请以实际考试为准
+</footer>
+
+</div>
+</body>
+</html>
