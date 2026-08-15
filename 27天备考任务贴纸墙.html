@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>27天备考任务贴纸墙 v1.0</title>
+<title>27天备考任务贴纸墙 v1.1</title>
 <style>
 :root {
-  --bg: #fdf6ec;
+  --bg: #f5f7fa;
   --card: #ffffff;
   --red: #c0392b;
   --ink: #2c3e50;
   --gray: #7f8c8d;
-  --line: #e8dcc0;
+  --line: #dde3e9;
   --green: #27ae60;
   --blue: #2980b9;
   --cols: 3;
@@ -89,7 +89,7 @@ body {
   color: var(--ink);
   resize: vertical;
   outline: none;
-  background: #fffdf6;
+  background: #fafbfc;
 }
 .addbox textarea:focus { border-color: var(--red); }
 .addrow {
@@ -195,10 +195,10 @@ body {
 }
 .slot {
   min-height: 44px;
-  border: 2px dashed #e3d5b3;
+  border: 2px dashed #d5dbe0;
   border-radius: 12px;
-  background: rgba(255,255,255,.45);
-  color: #d9c9a3;
+  background: rgba(255,255,255,.6);
+  color: #c0c8cf;
   font-size: 18px;
   font-weight: 700;
   display: flex;
@@ -206,7 +206,7 @@ body {
   justify-content: center;
   cursor: pointer;
 }
-.slot:active { background: #fdf3dc; }
+.slot:active { background: #eef2f6; }
 .slot.on { border-color: var(--red); color: var(--red); background: #fdecea; }
 .walltip {
   text-align: center;
@@ -286,7 +286,7 @@ body {
   position: absolute;
   top: 12px; right: 12px;
   width: 44px; height: 44px;
-  border: none; background: #f5efe0;
+  border: none; background: #eef2f6;
   border-radius: 50%;
   font-size: 18px; color: var(--gray);
   cursor: pointer;
@@ -340,7 +340,7 @@ body {
   font-family: inherit;
   resize: vertical;
   outline: none;
-  background: #fffdf6;
+  background: #f3f4f6;
 }
 .mbox textarea:focus { border-color: var(--red); }
 .mrow { display: flex; gap: 10px; margin-top: 14px; }
@@ -361,7 +361,7 @@ body {
   font-size: 14px;
   line-height: 1.7;
   color: var(--ink);
-  background: #fdf3dc;
+  background: #f3f4f6;
   border-radius: 10px;
   padding: 10px 12px;
   margin-bottom: 4px;
@@ -389,7 +389,7 @@ body {
 .bp-head h2 { font-size: 18px; color: var(--red); }
 .bp-head .bp-x {
   width: 44px; height: 44px;
-  border: none; background: #f5efe0;
+  border: none; background: #eef2f6;
   border-radius: 50%;
   font-size: 18px; color: var(--gray);
   cursor: pointer;
@@ -508,7 +508,7 @@ footer {
   <div class="footstat" id="footstat"></div>
 
   <footer>
-    27天备考任务贴纸墙 v1.0 · 2026-08-15<br>
+    27天备考任务贴纸墙 v1.1 · 2026-08-15<br>
     墙上最多同时贴24个任务 · 数据仅保存在本机浏览器（换设备不互通）· 收纳箱内可导出备份<br>
     冲刺日历：2026-08-15 起 · 2026-09-10 考试
   </footer>
