@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>27天备考任务贴纸墙 v1.3</title>
+<title>27天备考任务贴纸墙 v1.4</title>
 <style>
 :root {
   --bg: #f5f7fa;
@@ -521,7 +521,7 @@ footer {
   <div class="footstat" id="footstat"></div>
 
   <footer>
-    27天备考任务贴纸墙 v1.3 · 2026-08-15<br>
+    27天备考任务贴纸墙 v1.4 · 2026-08-15<br>
     墙上最多同时贴24个任务 · 数据仅保存在本机浏览器（换设备不互通）· 收纳箱内可导出备份<br>
     冲刺日历：2026-08-15 起 · 2026-09-10 考试
   </footer>
@@ -656,6 +656,10 @@ function load() {
     state.slots.push({ id: 's' + n, taskId: null });
   }
   if (state.slots.length > SLOT_COUNT) state.slots = state.slots.slice(0, SLOT_COUNT);
+  fixIds();
+}
+function fixIds() { // 老数据任务没有id字段，用key补上——否则点贴纸拿到的编号是undefined
+  for (const k in state.tasks) { const t = state.tasks[k]; if (t && !t.id) t.id = k; }
 }
 
 // ==================== 顶栏 & 日历 ====================
@@ -728,7 +732,7 @@ function renderWall() {
     if (filterCat !== 'all' && t.cat !== filterCat) continue;
     if (q && !t.text.toLowerCase().includes(q)) continue;
     const c = catOf(t.cat).color;
-    html += '<div class="st" style="--c:' + c + '" onclick="openCard(\'' + t.id + '\')">' +
+    html += '<div class="st" style="--c:' + c + '" onclick="openCard(\'' + s.taskId + '\')">' +
       '<div class="bar"></div><div class="txt">' + escHtml(t.text) + '</div>' +
       '<div class="tag">' + catOf(t.cat).name + ' · ' + (t.createdAt ? (new Date(t.createdAt).getMonth() + 1) + '/' + new Date(t.createdAt).getDate() : '') + '</div></div>';
     visCount++;
@@ -768,7 +772,7 @@ function addTask() {
     return;
   }
   const id = 't' + Date.now();
-  state.tasks[id] = { text, cat: selCat, createdAt: Date.now(), doneAt: null, slotId: slot.id };
+  state.tasks[id] = { id, text, cat: selCat, createdAt: Date.now(), doneAt: null, slotId: slot.id };
   slot.taskId = id;
   pendingSlotId = null;
   document.getElementById('tin').value = '';
@@ -853,7 +857,9 @@ function closeBox() {
   renderWall();
 }
 function renderBox() {
-  const doneList = valuesOf(state.tasks).filter(t => t.doneAt).sort((a, b) => b.doneAt - a.doneAt);
+  const doneList = [];
+  for (const k in state.tasks) { const t = state.tasks[k]; if (t.doneAt) { t.id = t.id || k; doneList.push(t); } }
+  doneList.sort((a, b) => b.doneAt - a.doneAt);
   const t0 = today().getTime();
   const todayDone = doneList.filter(t => d0(new Date(t.doneAt)).getTime() === t0).length;
   const byCat = {};
@@ -928,6 +934,7 @@ function openBox2() { // 导入确认
 function doImport() {
   state = { slots: importedTasks.slots, tasks: importedTasks.tasks };
   importedTasks = null;
+  fixIds();
   save(); closeModal('importModal'); renderBox(); renderWall();
   toast('导入成功 ✔');
 }
