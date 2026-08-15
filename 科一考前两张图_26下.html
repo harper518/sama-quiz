@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>科一考前两张图 v1.0（26下）</title>
+<title>科一考前速览 v1.1（26下·文本版）</title>
 <style>
 :root {
   --bg: #fdf6ec;
@@ -12,6 +12,7 @@
   --gold: #d4ac0d;
   --ink: #2c3e50;
   --gray: #7f8c8d;
+  --line: #e8dcc0;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -21,10 +22,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 .wrap { max-width: 720px; margin: 0 auto; padding: 16px 12px 40px; }
-header {
-  text-align: center;
-  padding: 28px 0 18px;
-}
+header { text-align: center; padding: 28px 0 18px; }
 header h1 { font-size: 26px; color: var(--red); margin-bottom: 8px; }
 header .sub { font-size: 14px; color: var(--gray); line-height: 1.6; }
 header .badge {
@@ -37,14 +35,7 @@ header .badge {
   margin-bottom: 10px;
 }
 /* Tab */
-.tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-  position: sticky;
-  top: 8px;
-  z-index: 10;
-}
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; position: sticky; top: 8px; z-index: 10; }
 .tab {
   flex: 1;
   min-height: 52px;
@@ -54,7 +45,7 @@ header .badge {
   text-align: center;
   border-radius: 14px;
   background: var(--card);
-  border: 2px solid #e8dcc0;
+  border: 2px solid var(--line);
   font-size: 15px;
   font-weight: 700;
   color: var(--gray);
@@ -63,78 +54,367 @@ header .badge {
   padding: 6px 10px;
   line-height: 1.3;
 }
-.tab.on {
-  border-color: var(--red);
-  background: var(--red);
-  color: #fff;
-}
+.tab.on { border-color: var(--red); background: var(--red); color: #fff; }
 .panel { display: none; }
 .panel.on { display: block; }
-.imgbox {
+
+.card {
   background: var(--card);
-  border: 2px solid #e8dcc0;
+  border: 2px solid var(--line);
   border-radius: 16px;
-  overflow: hidden;
+  padding: 16px 14px;
+  margin-bottom: 14px;
   box-shadow: 0 2px 12px rgba(0,0,0,.06);
 }
-.imgbox img {
-  display: block;
-  width: 100%;
-  height: auto;
+.sec {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 4px 10px;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--red);
+  line-height: 1.4;
 }
-.hint {
-  margin-top: 12px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--gray);
-  line-height: 1.7;
-  padding: 0 10px;
+.sec .sn {
+  width: 26px; height: 26px; min-width: 26px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
 }
-.hint b { color: var(--red); }
-footer {
-  margin-top: 28px;
-  text-align: center;
-  font-size: 12px;
-  color: #bdc3c7;
+
+/* ===== 树状思维导图 ===== */
+.tree {
+  font-family: "Courier New", Consolas, "Microsoft YaHei", monospace;
+  font-size: 13.5px;
   line-height: 1.8;
+  padding: 14px 12px;
+  background: #fffdf6;
 }
+.tree .t-root { color: var(--red); font-weight: 700; }
+.tree .t-law { color: #1f4e79; font-weight: 700; }
+.tree .t-gray { color: var(--gray); }
+.lawcard { border-left: 5px solid #1f4e79; }
+.lawcard .lh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.lawcard .lname { font-weight: 800; font-size: 16.5px; }
+.lawcard .lbadge {
+  font-size: 11.5px;
+  padding: 3px 9px;
+  border-radius: 10px;
+  color: #fff;
+  white-space: nowrap;
+}
+.art {
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 6px 2px 6px 0;
+  border-top: 1px dashed #f0e6cf;
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.art:first-of-type { border-top: none; }
+.art .t { color: #b7950b; font-family: "Courier New", Consolas, monospace; flex: none; }
+.art .k { color: #1f4e79; font-weight: 700; flex: none; }
+.art .c {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 12px;
+  background: #fdecea;
+  border-radius: 6px;
+  padding: 1px 5px;
+  flex: none;
+}
+.art .d { color: var(--ink); }
+
+/* ===== 蒙题策略 ===== */
+.plain { font-size: 14.5px; line-height: 1.8; }
+.plain b { color: var(--red); }
+.plain .cA { color: #e74c3c; font-weight: 700; }
+.plain .cB { color: #e67e22; font-weight: 700; }
+.plain .cC { color: #27ae60; font-weight: 700; }
+.plain .cD { color: #2980b9; font-weight: 700; }
+.mod { border: 2px solid var(--line); border-radius: 14px; padding: 12px 12px 10px; margin-bottom: 12px; }
+.mod .mh {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.mod .stat {
+  font-size: 12.5px;
+  color: #fff;
+  border-radius: 9px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+.mod .rule { font-size: 14px; font-weight: 700; margin: 6px 0 4px; }
+.mod .tip { font-size: 13px; color: var(--gray); line-height: 1.6; }
+.mod .cnt { font-size: 12px; color: #bdc3c7; margin-top: 5px; }
+.sig { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.sig .s {
+  border: 2px solid var(--line);
+  border-left-width: 6px;
+  border-radius: 12px;
+  padding: 9px 10px;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--card);
+}
+.sig .s b { font-size: 14px; }
+.sig .s .v { font-size: 14px; font-weight: 800; margin-top: 1px; }
+.sig .s .x { font-size: 12px; color: var(--gray); margin-top: 2px; }
+.step {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #f0e6cf;
+  align-items: flex-start;
+}
+.step:last-child { border-bottom: none; }
+.step .n {
+  width: 30px; height: 30px; min-width: 30px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.step .st { font-size: 14.5px; font-weight: 800; }
+.step .sd { font-size: 13px; color: var(--gray); line-height: 1.55; margin-top: 2px; }
+.sum {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  color: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+}
+.sum .l1 { font-size: 15px; font-weight: 800; }
+.sum .l2 { font-size: 13.5px; line-height: 1.7; margin-top: 6px; opacity: .95; }
+footer { margin-top: 28px; text-align: center; font-size: 12px; color: #bdc3c7; line-height: 1.8; }
 @media (min-width: 760px) {
   header h1 { font-size: 32px; }
   .tab { font-size: 17px; }
+  .sig { grid-template-columns: repeat(5, 1fr); }
+  .tree { font-size: 14.5px; }
 }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <span class="badge">v1.0 · 2026-08-15</span>
-    <h1>科一考前两张图</h1>
-    <div class="sub">必背法条思维导图 ＋ 选择题蒙题策略<br>数据来源：2019下—2026上 13套真题 346题</div>
+    <span class="badge">v1.1 · 2026-08-15</span>
+    <h1>科一考前速览</h1>
+    <div class="sub">必背法条思维导图 ＋ 选择题蒙题策略（文本版）<br>数据来源：2019下—2026上 13套真题 346题</div>
   </header>
 
   <div class="tabs">
-    <div class="tab on" id="tab1" onclick="sw(1)">🗺️ 必背法条<br>思维导图</div>
-    <div class="tab" id="tab2" onclick="sw(2)">🎯 选择题蒙题<br>策略一张图</div>
+    <div class="tab on" id="tab1" onclick="sw(1)">📜 必背法条<br>思维导图</div>
+    <div class="tab" id="tab2" onclick="sw(2)">🎯 选择题蒙题<br>策略</div>
   </div>
 
+  <!-- ================= 面板1：法条思维导图（文本树） ================= -->
   <div class="panel on" id="p1">
-    <div class="imgbox">
-      <img src="科一必背法条思维导图_26下.png" alt="科一必背法条思维导图" loading="lazy">
+    <div class="sec"><span class="sn">1</span>背诵优先级总览（26下预测排序）</div>
+    <div class="card tree">
+      <span class="t-root">科一必背法条</span><br>
+      <span class="t-gray">├── 法律法规模块（第5—12题）· 8部法</span><br>
+      <span class="t-law">├── ● 学生伤害事故处理办法（考12次 · 26下预测TOP1 · 0.752）</span><br>
+      <span class="t-law">├── ● 教师法（考11次 · 26下预测TOP1 · 0.752）</span><br>
+      <span class="t-law">├── ● 未成年人保护法（考10次 · 26下预测TOP2 · 0.692）</span><br>
+      <span class="t-law">├── ● 义务教育法（考8次 · 26下预测TOP3 · 0.632）</span><br>
+      <span class="t-law">├── ● 教育法（考11次 · 26下预测 · 0.573）</span><br>
+      <span class="t-law">├── ● 宪法（考7次 · 26下预测 · 0.632）</span><br>
+      <span class="t-law">├── ● 预防未成年人犯罪法（考5次 · 26下预测 · 0.512）</span><br>
+      <span class="t-law">└── ● 教育惩戒规则（考4次 · 26下预测 · 0.34）</span>
     </div>
-    <div class="hint">8部法按<b>26下预测优先级</b>排布（学生伤害事故处理办法+教师法TOP1）<br>★×3=考过3次及以上｜条款速记+考次一目了然</div>
+
+    <div class="sec"><span class="sn">2</span>逐部展开（先背粗体顺序，再逐条回忆内容）</div>
+
+    <div class="card lawcard" style="border-left-color:#1f4e79">
+      <div class="lh"><span class="lname">学生伤害事故处理办法</span><span class="lbadge" style="background:#1f4e79">TOP1 · 考12次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第9条</span><span class="c">×3</span><span class="d">学校担责9情形：校舍场地设施不安全、管理疏漏、体罚变相体罚、违反工作要求操作规程等</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第10条</span><span class="c">×3</span><span class="d">学生/监护人过错担责：违反法规纪律、明知危险、特异体质隐瞒、监护人未履职</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第13条</span><span class="c">×3</span><span class="d">学校免责：自行上学放学离校返校、自行外出、节假日留校、管理职责范围外</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第28条</span><span class="c">×2</span><span class="d">未成年学生致害→由其监护人承担赔偿责任</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第12条</span><span class="c">×1</span><span class="d">意外免责：地震雷击台风洪水、突发疾病、自杀自伤等不可抗力</span></div>
+    </div>
+
+    <div class="card lawcard" style="border-left-color:#c0392b">
+      <div class="lh"><span class="lname">教师法</span><span class="lbadge" style="background:#c0392b">TOP1 · 考11次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第7条</span><span class="c">×4</span><span class="d">教师六权利：教育教学、科学研究、指导评价、报酬待遇(带薪寒暑假)、民主管理、进修培训</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第37条</span><span class="c">×2</span><span class="d">解聘三情形：故意不完成任务造成损失、体罚学生经教育不改、品行不良侮辱学生影响恶劣</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第14条</span><span class="c">×2</span><span class="d">故意犯罪/被剥夺政治权利→不能取得教师资格，已取得→丧失</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第39条</span><span class="c">×2</span><span class="d">教师申诉：对学校处理不服→向教育行政部门申诉</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第8条</span><span class="c">×1</span><span class="d">教师义务：守法遵规、为人师表、完成教育教学工作、爱护尊重学生</span></div>
+    </div>
+
+    <div class="card lawcard" style="border-left-color:#2980b9">
+      <div class="lh"><span class="lname">未成年人保护法</span><span class="lbadge" style="background:#2980b9">TOP2 · 考10次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第58条</span><span class="c">×2</span><span class="d">学校幼儿园周边不得设营业性娱乐场所、酒吧、网吧</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第28条</span><span class="c">×2</span><span class="d">保障受教育权、不得开除变相开除、劝返复学书面报告</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第62条</span><span class="c">×2</span><span class="d">密切接触未成年人单位招聘→查询性侵虐待拐卖暴力伤害犯罪记录</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第17条</span><span class="c">×1</span><span class="d">监护人义务：不得放任迫使辍学等</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第92条</span><span class="c">×1</span><span class="d">民政部门临时监护情形(流浪乞讨等)</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第108条</span><span class="c">×1</span><span class="d">监护人不履职→法院可撤销监护人资格</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第63条</span><span class="c">×1</span><span class="d">不得隐匿毁弃未成年人信件日记网络内容</span></div>
+    </div>
+
+    <div class="card lawcard" style="border-left-color:#27ae60">
+      <div class="lh"><span class="lname">义务教育法</span><span class="lbadge" style="background:#27ae60">TOP3 · 考8次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第22条</span><span class="c">×2</span><span class="d">均衡发展，不得分重点学校重点班</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第24条</span><span class="c">×2</span><span class="d">安全制度应急机制＋不得聘用曾故意犯罪人员</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第29条</span><span class="c">×1</span><span class="d">教师不得体罚变相体罚侮辱学生人格尊严</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第19条</span><span class="c">×1</span><span class="d">残疾儿童少年→随班就读</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第56条</span><span class="c">×1</span><span class="d">推销商品服务谋利→通报批评、没收违法所得</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第11条</span><span class="c">×1</span><span class="d">延缓入学/休学→乡镇政府或县级教育部门批准</span></div>
+    </div>
+
+    <div class="card lawcard" style="border-left-color:#8e44ad">
+      <div class="lh"><span class="lname">教育法</span><span class="lbadge" style="background:#8e44ad">预测0.573 · 考11次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第43条</span><span class="c">×4</span><span class="d">受教育者五权利：教育教学活动、奖贷助学金、公正评价获学业证书、申诉起诉、其他</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第82条</span><span class="c">×2</span><span class="d">作弊剽窃欺诈获得证书→撤销＋违法所得追缴</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第72条</span><span class="c">×2</span><span class="d">结伙斗殴寻衅滋事→公安治安处罚，构成犯罪追刑责</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第80条</span><span class="c">×1</span><span class="d">国家教育考试作弊→没收违法所得、罚款</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第58条</span><span class="c">×1</span><span class="d">教育费附加由税务机关依法征收</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第29条</span><span class="c">×1</span><span class="d">学校有权对受教育者实施奖励或处分</span></div>
+    </div>
+
+    <div class="card lawcard" style="border-left-color:#f39c12">
+      <div class="lh"><span class="lname">宪法</span><span class="lbadge" style="background:#f39c12">预测0.632 · 考7次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第64条</span><span class="c">×2</span><span class="d">修宪：常委会或1/5以上代表提议，全体代表2/3以上多数通过</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第35条</span><span class="c">×1</span><span class="d">言论、出版、集会、结社、游行、示威自由</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第60条</span><span class="c">×1</span><span class="d">全国人大每届任期五年</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第56条</span><span class="c">×1</span><span class="d">公民有依法纳税的义务</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第61条</span><span class="c">×1</span><span class="d">全国人大每年举行一次，由常委会召集</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第1条</span><span class="c">×1</span><span class="d">工人阶级领导、工农联盟为基础的人民民主专政社会主义国家</span></div>
+    </div>
+
+    <div class="card lawcard" style="border-left-color:#16a085">
+      <div class="lh"><span class="lname">预防未成年人犯罪法</span><span class="lbadge" style="background:#16a085">预测0.512 · 考5次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第43条</span><span class="c">×2</span><span class="d">严重不良行为干预：监护人配合专门教育矫治</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第35条</span><span class="c">×1</span><span class="d">严重不良行为→送专门学校</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第16条</span><span class="c">×1</span><span class="d">父母对未成年人预防犯罪教育负直接责任</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第39条</span><span class="c">×1</span><span class="d">26上新考点：不良行为家校干预衔接</span></div>
+    </div>
+
+    <div class="card lawcard" style="border-left-color:#7f8c8d">
+      <div class="lh"><span class="lname">教育惩戒规则</span><span class="lbadge" style="background:#7f8c8d">预测0.34 · 考4次</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第7条</span><span class="c">×1</span><span class="d">吸烟饮酒言行失范→制止批评，必要时可实施惩戒</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第2条</span><span class="c">×1</span><span class="d">定义：基于教育目的，对违规违纪学生管理训导矫治</span></div>
+      <div class="art"><span class="t">├─</span><span class="k">第9条</span><span class="c">×1</span><span class="d">情节较重拒不改正→训导/公益服务/暂停外出活动</span></div>
+      <div class="art"><span class="t">└─</span><span class="k">第10条</span><span class="c">×1</span><span class="d">情节严重→停课≤一周/法治副校长训诫/心理辅导</span></div>
+    </div>
+
+    <div class="card plain">💡 <b>用法</b>：第1步背熟8部法的优先级顺序（=26下出题概率排序）；第2步遮住内容，只看条款号回忆考点；第3步重点攻<b>×3、×4</b>的高频条款（教师法第7条、教育法第43条、学生伤害事故办法第9/10/13条）。</div>
   </div>
 
+  <!-- ================= 面板2：蒙题策略（文本卡） ================= -->
   <div class="panel" id="p2">
-    <div class="imgbox">
-      <img src="科一选择题蒙题策略_26下考前一张图.png" alt="科一选择题蒙题策略" loading="lazy">
+    <div class="sec"><span class="sn">1</span>总原则：先排最短，别信"全选C"</div>
+    <div class="card plain">
+      <b>整体答案分布：基本均匀，无强规律</b><br>
+      <span class="cA">A=89</span> · <span class="cB">B=92</span> · <span class="cC">C=86</span> · <span class="cD">D=79</span>（346题）<br>
+      结论：B最多(92)但只多7% —— <b>没有能蒙的强规律</b>
     </div>
-    <div class="hint">五模块字母规律 ＋ 选非题专卡 ＋ 位置信号 ＋ 蒙题七步流程<br><b>考前1分钟过一遍</b>：先排最短 → 再排绝对化 → 字母规律兜底</div>
-  </div>
+    <div class="card plain">
+      <b>正确选项＝最短项，只有 18.6%（49/264题）</b><br>
+      正确项长度排名：最长27.7% ＞ 次长29.2% ＞ 次短24.6% ＞ <b>最短18.6%</b><br>
+      → <b>蒙题第一步：果断排除最短的选项</b>（4选1变3选1，命中率立升）
+    </div>
 
-  <div class="hint" style="margin-top:20px">📱 手机端：<b>长按图片</b>可直接保存到相册，考前路上随时看</div>
+    <div class="sec"><span class="sn">2</span>五大模块字母规律（先数题号，对号入座）</div>
+
+    <div class="mod">
+      <div class="mh"><span>职业理念 · 第1-4题</span><span class="stat" style="background:#e74c3c">D 17/55 = 31% 最高</span></div>
+      <div class="rule" style="color:#e74c3c">押 D，避开 A（A仅20%）</div>
+      <div class="tip">三观题：先排违背素质教育理念的选项，剩余里优先D</div>
+      <div class="cnt">题量：A=11 · B=14 · C=13 · D=17</div>
+    </div>
+    <div class="mod">
+      <div class="mh"><span>法律法规 · 第5-12题</span><span class="stat" style="background:#c0392b">A 31/105 = 30% 最高</span></div>
+      <div class="rule" style="color:#c0392b">押 A，避开 D（D仅19%）</div>
+      <div class="tip">法条题：记不住就选最"合情合理、保护学生"的，剩余里优先A</div>
+      <div class="cnt">题量：A=31 · B=26 · C=28 · D=20</div>
+    </div>
+    <div class="mod">
+      <div class="mh"><span>职业道德 · 第13-16题</span><span class="stat" style="background:#8e44ad">C 13/46 = 28% 微高</span></div>
+      <div class="rule" style="color:#8e44ad">无强信号，C微优先</div>
+      <div class="tip">师德题：选最"关爱学生、廉洁从教"的，四选项接近时选C</div>
+      <div class="cnt">题量：A=11 · B=12 · C=13 · D=10</div>
+    </div>
+    <div class="mod">
+      <div class="mh"><span>文化素养 · 第17-25题</span><span class="stat" style="background:#27ae60">A/B 各25/93 = 27%</span></div>
+      <div class="rule" style="color:#27ae60">均匀 → 只靠排除法</div>
+      <div class="tip">常识题：排除绝对化表述＋明显错误常识，剩余两项凭语感选</div>
+      <div class="cnt">题量：A=25 · B=25 · C=22 · D=21</div>
+    </div>
+    <div class="mod">
+      <div class="mh"><span>基本能力 · 第26-29题</span><span class="stat" style="background:#2980b9">B 15/46 = 33% 最高</span></div>
+      <div class="rule" style="color:#2980b9">押 B，次选 C</div>
+      <div class="tip">逻辑/信息处理：不会做的题直接押B，B=0时再选C</div>
+      <div class="cnt">题量：A=10 · B=15 · C=10 · D=11</div>
+    </div>
+
+    <div class="sec"><span class="sn">3</span>选非题专卡（"以下哪项不正确/不符合"）</div>
+    <div class="card plain">
+      <b>51道选非题：B、D 各16次(31.4%) 远高于 A(17.6%)</b><br>
+      <span class="cA">A=9</span> · <span class="cB">B=16</span> · <span class="cC">C=10</span> · <span class="cD">D=16</span> → <b>选非题：蒙 B 或 D，避开 A</b><br>
+      技巧①：先排除"最正确、最漂亮"的选项（它常是选是题的答案）<br>
+      技巧②：再排除"绝对化表述"项，剩余两项按 B ＞ D 顺序选
+    </div>
+
+    <div class="sec"><span class="sn">4</span>位置信号（题号×答案热力，13套统计）</div>
+    <div class="sig">
+      <div class="s" style="border-left-color:#c0392b"><b>Q3</b><span class="v" style="color:#c0392b">B = 0/13</span><span class="x">强避B ｜ A·D各5-6次</span></div>
+      <div class="s" style="border-left-color:#2980b9"><b>Q7</b><span class="v" style="color:#2980b9">D = 7/13</span><span class="x">强押D 54%！法规题号</span></div>
+      <div class="s" style="border-left-color:#f39c12"><b>Q9</b><span class="v" style="color:#e67e22">B = 7/13</span><span class="x">强押B 54%！法规题号</span></div>
+      <div class="s" style="border-left-color:#c0392b"><b>Q11</b><span class="v" style="color:#c0392b">D = 0/13</span><span class="x">强避D 与"法规避D"一致</span></div>
+      <div class="s" style="border-left-color:#c0392b"><b>Q14</b><span class="v" style="color:#c0392b">A = 0/13</span><span class="x">强避A 职业道德题号</span></div>
+      <div class="s" style="border-left-color:#e67e22"><b>Q16</b><span class="v" style="color:#e67e22">D = 1/13</span><span class="x">避D ｜ A·C各4-5次</span></div>
+      <div class="s" style="border-left-color:#2980b9"><b>Q23</b><span class="v" style="color:#2980b9">D = 5/10</span><span class="x">押D 文化素养题号</span></div>
+      <div class="s" style="border-left-color:#27ae60"><b>Q25</b><span class="v" style="color:#27ae60">C = 5/10</span><span class="x">押C 文化素养题号</span></div>
+      <div class="s" style="border-left-color:#f39c12"><b>Q26</b><span class="v" style="color:#e67e22">B = 5/6</span><span class="x">强押B 83%！逻辑题号</span></div>
+      <div class="s" style="border-left-color:#e74c3c"><b>Q27</b><span class="v" style="color:#e74c3c">A = 5/11</span><span class="x">押A 信息处理题号</span></div>
+    </div>
+
+    <div class="sec"><span class="sn">5</span>组合拳：蒙题七步流程</div>
+    <div class="card">
+      <div class="step"><span class="n" style="background:#c0392b">1</span><span><span class="st">数题号定模块</span><br><span class="sd">1-4理念 / 5-12法规 / 13-16道德 / 17-25素养 / 26-29能力</span></span></div>
+      <div class="step"><span class="n" style="background:#f39c12">2</span><span><span class="st">排除最短选项</span><br><span class="sd">正确项=最短项只有18.6%，先排掉它</span></span></div>
+      <div class="step"><span class="n" style="background:#16a085">3</span><span><span class="st">排除绝对化表述</span><br><span class="sd">"一定/必须/所有/唯一/总是"——教育类语境多为错误项</span></span></div>
+      <div class="step"><span class="n" style="background:#8e44ad">4</span><span><span class="st">排除价值观错误项</span><br><span class="sd">违反素质教育、新课改、以学生为本的选项直接排除</span></span></div>
+      <div class="step"><span class="n" style="background:#2980b9">5</span><span><span class="st">按模块字母优先级选</span><br><span class="sd">理念押D、法规押A避D、道德选C、素养靠排除、能力押B</span></span></div>
+      <div class="step"><span class="n" style="background:#16a085">6</span><span><span class="st">选非题反转</span><br><span class="sd">先排"最正确"的选项，再在 B / D 中选</span></span></div>
+      <div class="step"><span class="n" style="background:#c0392b">7</span><span><span class="st">位置信号微调</span><br><span class="sd">Q3避B / Q7押D / Q9押B / Q11避D / Q14避A / Q26押B</span></span></div>
+    </div>
+
+    <div class="sec"><span class="sn">6</span>一句话总结（考前1分钟过一遍）</div>
+    <div class="sum">
+      <div class="l1">排除法为主：先排最短 → 再排绝对化</div>
+      <div class="l2">字母规律兜底：理念D / 法规A / 道德C / 素养排除 / 能力B<br>选非题 B/D，最后看位置信号</div>
+    </div>
+  </div>
 
   <footer>
-    科一考前两张图 v1.0 · 2026-08-15<br>
+    科一考前速览 v1.1（文本版）· 2026-08-15<br>
     数据：19下—26上 13套真题 346题（图片题已剔除）· 四模型预测法<br>
     配套：科一单选题预测分析_26下（完整数据与推导过程）
   </footer>
