@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数学科三·解答题 真题精析与26下预测 · v1.0</title>
+<title>数学科三·解答题 真题精析与26下预测 · v1.1</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='8' fill='%2338bdf8'/%3E%3C/svg%3E">
 <style>
   :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --red:#f87171; --yellow:#fbbf24; --green:#4ade80; }
@@ -39,14 +39,19 @@
   .hot { color:var(--red); }
   .note { font-size:0.78rem; color:var(--text2); }
   .footer { text-align:center; color:var(--text2); font-size:0.75rem; margin-top:28px; padding-top:14px; border-top:1px solid var(--border); }
+  .backlink { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 28px; margin-top:14px; border-radius:12px; background:var(--accent); color:#0f172a; font-weight:700; font-size:1rem; text-decoration:none; }
+  .backlink:active { transform:scale(0.97); }
+  details.var { margin-top:10px; border-color:rgba(56,189,248,0.35); }
+  details.var summary { font-size:0.82rem; padding:11px 12px; color:var(--yellow); }
+  details.var .ans { font-size:0.84rem; }
   .biglist li { margin-bottom:7px; font-size:0.86rem; }
   @media (min-width:1200px) { body { max-width:900px; } }
 </style>
 </head>
 <body>
 <h1>🧮 数学科三·解答题 真题精析与26下预测</h1>
-<p class="subtitle">10套真题(19下~24下)全解析 · 考点级预测 · 换形式预警 · 考试格式答案 · v1.0</p>
-<div class="tabs"><div class="tab on" data-t="matrix">📊 考点分析</div><div class="tab" data-t="predict">🔮 26下预测</div><div class="tab" data-t="bibei">🎯 解题套路</div><div class="tab" data-t="qa">📚 真题+答案</div></div>
+<p class="subtitle">10套真题(19下~24下)全解析 · 考点级预测 · 换形式预警 · 预测练习题 · 考试格式答案 · v1.1</p>
+<div class="tabs"><div class="tab on" data-t="matrix">📊 考点分析</div><div class="tab" data-t="predict">🔮 26下预测</div><div class="tab" data-t="practice">🎯 预测练习题</div><div class="tab" data-t="bibei">🎯 解题套路</div><div class="tab" data-t="qa">📚 真题+答案</div></div>
 <div class="panel on" id="p-matrix">
 <div class="card"><h3>10道解答题考点分布（考纲规定：解答题只考学科知识=大学数学）</h3>
 <table>
@@ -87,7 +92,93 @@
 <li>交错级数：莱布尼茨判别法（aₙ单调递减且趋于0）→条件收敛</li>
 <li>绝对收敛⇒收敛；绝对收敛可任意重排</li>
 <li>p级数Σ1/nᵖ：p&gt;1收敛，p≤1发散；Σ1/(n·lnn)发散（积分判别法）</li>
-</ul></div></div><div class="panel" id="p-bibei">
+</ul></div></div><div class="panel" id="p-practice"><div class="card"><h3>🎯 26下预测练习题（解答·自编模拟题·详细过程·变式）</h3><p class="note">⚠️ 说明：以下预测题按 19下~24下 共10套真题的考点规律自编，预测的是 26下 可能考的知识点方向（不是预测真题重现）。因为暂时没有25年、26上真题，若某考点已在 25/26上 考过，26下 大概率换形式考查或轮空——拿到真题后我会做回溯验证并修正本清单。题目按预测概率从高到低排列，先自己动手做，再点开详细答案对照。</p><details><summary>预测1｜微积分·定积分应用｜<span class="prob">≈45%</span></summary>
+<div class="ans">【题目】
+求由曲线 y=ln x、直线 x=e 与 x 轴围成的平面图形绕 x 轴旋转一周所得旋转体的体积。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
+(1) 确定积分区间：y=ln x 与 x 轴(y=0)交于点 (1,0)，故 x∈[1,e]。
+(2) 截面面积：旋转体的截面是以 ln x 为半径的圆，面积 A(x)=π(ln x)²。
+(3) 体积：V=π∫₁ᵉ(ln x)²dx。
+(4) 计算不定积分（两次分部积分法）：
+∫(ln x)²dx = x(ln x)² − ∫x·2ln x·(1/x)dx = x(ln x)² − 2∫ln x dx = x(ln x)² − 2(x ln x − x) + C = x[(ln x)²−2ln x+2] + C。
+(5) 代入牛顿-莱布尼茨公式：
+V=π·x[(ln x)²−2ln x+2]|₁ᵉ = π[e×(1−2+2) − 1×(0−0+2)] = π(e−2)。
+答：旋转体体积为 π(e−2)。
+【套路】旋转体体积 V=π∫ₐᵇ[f(x)]²dx；(ln x)² 型积分必用两次分部积分，∫ln x dx=x ln x−x+C 要背熟。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】求由曲线 y=x² 与直线 y=x 围成的平面图形的面积。
+
+【答案】解：由 x²=x 得交点 x=0、1。在 [0,1] 上 x≥x²。S=∫₀¹(x−x²)dx=[x²/2−x³/3]₀¹=1/2−1/3=1/6。答：面积为 1/6。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】求曲线 y=eˣ 与直线 x=0、x=1 及 x 轴围成的图形绕 x 轴旋转一周所得旋转体的体积。
+
+【答案】解：V=π∫₀¹(eˣ)²dx=π∫₀¹e²ˣdx=π·(e²ˣ/2)|₀¹=π(e²−1)/2。</div></details></div></details><details><summary>预测2｜微积分·中值定理(罗尔)｜<span class="prob">中</span></summary>
+<div class="ans">【题目】
+设函数 f(x) 在 [0,1] 上连续，在 (0,1) 内可导，且 f(0)=f(1)=0。证明：存在 ξ∈(0,1)，使得 f′(ξ)=2f(ξ)。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">证明：
+(1) 构造辅助函数：令 F(x)=e⁻²ˣf(x)。
+(2) 验证罗尔定理条件：F(x) 在 [0,1] 上连续（连续函数的乘积），在 (0,1) 内可导；F(0)=e⁰·f(0)=0，F(1)=e⁻²·f(1)=0，即 F(0)=F(1)。
+(3) 由罗尔定理，存在 ξ∈(0,1)，使 F′(ξ)=0。
+(4) 求导计算：F′(x)=−2e⁻²ˣf(x)+e⁻²ˣf′(x)=e⁻²ˣ[f′(x)−2f(x)]。
+由 F′(ξ)=0 且 e⁻²ᵝ≠0，得 f′(ξ)−2f(ξ)=0，即 f′(ξ)=2f(ξ)。证毕。
+【套路】结论含"f′ 与 f 的线性组合"的中值题：构造 F(x)=eᵏˣf(x)，使 F′ 中出现 f′+kf。本题要 f′−2f，取 k=−2，即 e⁻²ˣ。指数因子恒不为0可直接约去，这是标准操作。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】设 f(x) 在 [0,1] 上连续，在 (0,1) 内可导，f(0)=f(1)=0，证明存在 ξ∈(0,1)，使 f′(ξ)+f(ξ)=0。
+
+【答案】构造 F(x)=eˣf(x)，则 F(0)=F(1)=0，由罗尔定理存在 ξ∈(0,1) 使 F′(ξ)=0。而 F′(ξ)=eᵝ[f′(ξ)+f(ξ)]，eᵝ≠0，故 f′(ξ)+f(ξ)=0。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】设 f(x) 在 [a,b] 上连续，在 (a,b) 内可导，且 f(a)=f(b)，证明存在 ξ∈(a,b)，使 f′(ξ)=0。
+
+【答案】这是罗尔定理的直接应用：f 满足罗尔定理的全部条件（闭区间连续、开区间可导、端点函数值相等），故存在 ξ∈(a,b)，使 f′(ξ)=0。</div></details></div></details><details><summary>预测3｜线性代数·方程组解结构｜<span class="prob">≈30%</span></summary>
+<div class="ans">【题目】
+求齐次线性方程组 x₁+2x₂+3x₃=0，2x₁+3x₂+x₃=0 的基础解系与通解。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
+(1) 系数矩阵 A=[1 2 3; 2 3 1]。
+(2) 初等行变换：第2行−2×第1行 → [1 2 3; 0 −1 −5]；第1行+2×第2行 → [1 0 −7; 0 −1 −5]；第2行×(−1) → [1 0 −7; 0 1 5]（行最简形）。
+(3) 由行最简形得同解方程组：x₁−7x₃=0，x₂+5x₃=0，即 x₁=7x₃，x₂=−5x₃，x₃ 为自由未知量。
+(4) 取 x₃=1，得基础解系 ξ=(7,−5,1)ᵀ。
+(5) 通解：x=k(7,−5,1)ᵀ，k 为任意实数。
+【套路】齐次方程组求解五步：写系数矩阵→行变换化行最简形→用自由未知量表示其余未知量→逐个令自由未知量为1得基础解系→线性组合写通解。最后一步"k 为任意实数"别忘写。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】求 λ 为何值时，齐次线性方程组 x₁+λx₂=0，λx₁+x₂=0 有非零解。
+
+【答案】系数行列式 |1 λ; λ 1| = 1−λ²。齐次方程组有非零解 ⇔ 系数行列式为0 ⇔ 1−λ²=0，即 λ=±1。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】已知 α₁=(1,0,1)，α₂=(0,1,1) 是某齐次线性方程组的两个解，判断 ξ=(2,3,5) 是否也是该方程组的解，并说明理由。
+
+【答案】ξ=2α₁+3α₂。齐次线性方程组的解集对线性运算封闭（解集是向量空间），任意两个解的线性组合仍是解，所以 ξ 也是该方程组的解。这是齐次方程组"解结构"的本质结论。</div></details></div></details><details><summary>预测4｜线性代数·向量组｜<span class="prob">中</span></summary>
+<div class="ans">【题目】
+判断向量组 α₁=(1,2,3)，α₂=(2,4,6)，α₃=(1,1,1) 的线性相关性，并求该向量组的秩。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
+(1) 判断相关性：观察得 α₂=2α₁，即 α₂ 可由 α₁ 线性表示，故向量组线性相关。
+(2) 求秩：以向量为行作矩阵 A=[1 2 3; 2 4 6; 1 1 1]，初等行变换：第2行−2×第1行 → [1 2 3; 0 0 0; 1 1 1]；第3行−第1行 → [1 2 3; 0 0 0; 0 −1 −2]；交换第2、3行 → [1 2 3; 0 −1 −2; 0 0 0]（阶梯形）。非零行有2行，故秩 r=2。
+答：向量组线性相关，秩为2。
+【套路】判断相关性两步走：①先观察有无明显的倍数/组合关系（快）；②一般方法——以向量为行（或列）作矩阵，行变换化阶梯形，非零行数即秩；秩=向量个数 ⇔ 线性无关，秩<个数 ⇔ 线性相关。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】已知 β=(2,1)，α₁=(1,2)，α₂=(3,1)，将 β 用 α₁、α₂ 线性表示。
+
+【答案】设 β=xα₁+yα₂，即 (2,1)=x(1,2)+y(3,1)，得方程组 x+3y=2，2x+y=1。解得 x=1/5，y=3/5。故 β=(1/5)α₁+(3/5)α₂。检验：(1/5+9/5, 2/5+3/5)=(2,1) ✓</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】设向量组 α₁,α₂,α₃ 线性无关，证明 α₁+α₂，α₂+α₃，α₃+α₁ 也线性无关。
+
+【答案】设 k₁(α₁+α₂)+k₂(α₂+α₃)+k₃(α₃+α₁)=0，整理得 (k₁+k₃)α₁+(k₁+k₂)α₂+(k₂+k₃)α₃=0。因为 α₁,α₂,α₃ 线性无关，所以 k₁+k₃=0，k₁+k₂=0，k₂+k₃=0，三式联立解得 k₁=k₂=k₃=0。由定义知新向量组线性无关。</div></details></div></details><details><summary>预测5｜概率统计·分布列与期望｜<span class="prob">≈20%</span></summary>
+<div class="ans">【题目】
+袋中有 3 个红球、2 个白球，无放回地随机抽取 2 个球。设 X 为取到的红球个数，求 X 的分布列与数学期望 E(X)。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
+(1) X 的可能取值为 0,1,2。总的取法有 C₅²=10 种。
+(2) P(X=0)=C₂²/C₅²=1/10；
+P(X=1)=C₃¹C₂¹/C₅²=6/10=3/5；
+P(X=2)=C₃²/C₅²=3/10。
+(3) 验证：1/10+6/10+3/10=1 ✓
+(4) E(X)=0×1/10+1×6/10+2×3/10=12/10=1.2。
+答：分布列为 P(X=0)=0.1，P(X=1)=0.6，P(X=2)=0.3；E(X)=1.2。
+【套路】这是超几何分布模型：N 件产品中有 M 件"特殊"，不放回取 n 件，特殊件数 X 的概率 P(X=k)=C_M^k·C_{N−M}^{n−k}/C_N^n。写分布列后务必验证概率和为1。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】在题设下，若已知第一次抽到红球，求第二次抽到白球的概率。
+
+【答案】这是条件概率。第一次取红后，袋中剩 2 红 2 白共 4 个球，故 P(第二次白|第一次红)=2/4=1/2。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】若改为有放回地抽取 2 个球，求 X 的分布列与 E(X)。
+
+【答案】有放回时每次抽到红球的概率恒为 3/5，X~B(2, 3/5)：P(X=0)=(2/5)²=4/25；P(X=1)=C₂¹(3/5)(2/5)=12/25；P(X=2)=(3/5)²=9/25。E(X)=np=2×3/5=6/5=1.2。（注意：有放回与无放回的期望相同，但分布不同——无放回是超几何分布，有放回是二项分布。）</div></details></div></details><details><summary>预测6｜级数·敛散性判断（24下新考点）｜<span class="prob">≈15%</span></summary>
+<div class="ans">【题目】
+判断下列级数的敛散性，并说明理由：
+(1) Σₙ₌₁∞ 1/(n²+1)；(2) Σₙ₌₁∞ n/(n²+1)；(3) Σₙ₌₁∞ (−1)ⁿ/√n。
+<details class="var"><summary>📖 详细答案（做完再看）</summary><div class="ans">解：
+(1) 因为 0<1/(n²+1)<1/n²，而 Σ1/n² 是 p=2>1 的 p 级数，收敛；由正项级数的比较判别法知 Σ1/(n²+1) 收敛。
+(2) 当 n≥1 时，n/(n²+1) ≥ n/(n²+n²) = 1/(2n)，而 Σ1/(2n)=(1/2)Σ1/n 发散（调和级数）；由比较判别法知 Σn/(n²+1) 发散。
+(3) 记 aₙ=1/√n：aₙ 单调递减，且 aₙ→0（n→∞），由莱布尼茨判别法，交错级数 Σ(−1)ⁿ/√n 收敛；又 Σ|(−1)ⁿ/√n|=Σ1/√n 是 p=1/2<1 的 p 级数，发散；故原级数条件收敛（收敛但不绝对收敛）。
+【套路】正项级数先比较（找 p 级数/几何级数作标杆）；交错级数用莱布尼茨；"本身收敛+绝对值级数发散=条件收敛"是三级结论，答全才满分。</div></details>
+<details class="var"><summary>🔄 变式1</summary><div class="ans">【题目】判断 Σₙ₌₁∞ 2ⁿ/n! 的敛散性。
+
+【答案】用比值判别法：lim(n→∞) aₙ₊₁/aₙ = lim [2ⁿ⁺¹/(n+1)!]·[n!/2ⁿ] = lim 2/(n+1) = 0 < 1，故级数收敛。</div></details><details class="var"><summary>🔄 变式2</summary><div class="ans">【题目】判断 Σₙ₌₁∞ (−1)ⁿ⁻¹·n/(n²+1) 的敛散性（是否绝对收敛）。
+
+【答案】绝对值级数 Σn/(n²+1) 发散（见上(2)），故不绝对收敛；但 aₙ=n/(n²+1) 单调递减且趋于0（可用求导验证：f′(x)=(1−x²)/(x²+1)²<0，x>1），由莱布尼茨判别法原级数收敛；所以原级数为条件收敛。</div></details></div></details><p class="note">💡 建议：先把每道题在草稿纸上做一遍，再点开详细答案对照得分点</p></div></div><div class="panel" id="p-bibei">
 <div class="card"><h3>解答题四大题型通用套路（背框架，考场套用）</h3>
 <ul class="biglist">
 <li><b>行列式计算</b>：①观察行列式特点(对称/循环/三角)；②化三角形或按行(列)展开；③答前复查符号</li>
@@ -201,7 +292,7 @@ X的分布函数 F(x)=P(X≤x)：
 由莱布尼茨判别法，交错级数 Σ(-1)ⁿaₙ 收敛。
 又 Σaₙ=Σ1/[n·ln(n+1)] 发散（与 Σ1/(n·ln n) 同敛散，由积分判别法 ∫₂^∞ dx/(x·lnx) 发散）。
 所以原级数条件收敛（收敛但不绝对收敛）。</div></details><p class="note">💡 点开任意一题可查看题目考点与考试格式答案</p></div></div>
-<p class="footer">数学科三（初中）非选择题分析 · 数学科三·解答题 真题精析与26下预测 · v1.0<br>数据：19下~24下共10套真题 · 答案按考试答题格式整理 · 仅供备考使用</p>
+<p class="footer">数学科三（初中）非选择题分析 · 数学科三·解答题 真题精析与26下预测 · v1.1<br>数据：19下~24下共10套真题 · 答案按考试答题格式整理 · 预测题均为自编模拟题（非真题重现） · 仅供备考使用<br><a class="backlink" href="https://harper518.github.io/sama-quiz/链接汇总.html">← 返回链接汇总</a></p>
 <script>
 document.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click', function(){
