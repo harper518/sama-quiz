@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数学科三·解答题 真题精析与26下预测 · v1.2</title>
+<title>数学科三·解答题 真题精析与26下预测 · v1.3</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='8' fill='%2338bdf8'/%3E%3C/svg%3E">
 <style>
-  :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --red:#f87171; --yellow:#fbbf24; --green:#4ade80; }
+  :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --accent-text:#0f172a; --red:#f87171; --yellow:#fbbf24; --green:#4ade80; --accentbg:rgba(56,189,248,0.1); --bluebg:rgba(56,189,248,0.15); --redbg:rgba(248,113,113,0.15); --yellowbg:rgba(251,191,36,0.15); --greenbg:rgba(74,222,128,0.15); --varborder:rgba(56,189,248,0.35); }
+  body.day { --bg:#f1f5f9; --card:#ffffff; --border:#cbd5e1; --text:#1e293b; --text2:#64748b; --accent:#0369a1; --accent-text:#ffffff; --red:#dc2626; --yellow:#b45309; --green:#15803d; --accentbg:rgba(3,105,161,0.08); --bluebg:rgba(3,105,161,0.1); --redbg:rgba(220,38,38,0.1); --yellowbg:rgba(180,83,9,0.12); --greenbg:rgba(21,128,61,0.1); --varborder:rgba(3,105,161,0.35); }
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); max-width:840px; margin:0 auto; padding:16px 14px 48px; line-height:1.7; }
   h1 { color:var(--accent); text-align:center; font-size:1.45rem; margin:8px 0 2px; }
   .subtitle { text-align:center; color:var(--text2); font-size:0.8rem; margin-bottom:18px; }
   .tabs { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:16px; }
   .tab { padding:10px 14px; min-height:44px; border-radius:10px; border:1px solid var(--border); background:var(--card); color:var(--text2); cursor:pointer; font-size:0.88rem; font-weight:600; user-select:none; }
-  .tab.on { background:var(--accent); color:#0f172a; border-color:var(--accent); }
+  .tab.on { background:var(--accent); color:var(--accent-text); border-color:var(--accent); }
   .panel { display:none; }
   .panel.on { display:block; }
   .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:14px; }
@@ -21,12 +22,12 @@
   .card h4 { margin:12px 0 6px; font-size:0.92rem; color:var(--text); }
   table { width:100%; border-collapse:collapse; font-size:0.82rem; margin:8px 0; }
   th, td { border:1px solid var(--border); padding:7px 8px; text-align:left; vertical-align:top; }
-  th { background:rgba(56,189,248,0.1); color:var(--accent); white-space:nowrap; }
+  th { background:var(--accentbg); color:var(--accent); white-space:nowrap; }
   .tag { display:inline-block; padding:2px 8px; border-radius:8px; font-size:0.7rem; margin:1px 3px 1px 0; }
-  .t-red { background:rgba(248,113,113,0.15); color:var(--red); }
-  .t-yellow { background:rgba(251,191,36,0.15); color:var(--yellow); }
-  .t-green { background:rgba(74,222,128,0.15); color:var(--green); }
-  .t-blue { background:rgba(56,189,248,0.15); color:var(--accent); }
+  .t-red { background:var(--redbg); color:var(--red); }
+  .t-yellow { background:var(--yellowbg); color:var(--yellow); }
+  .t-green { background:var(--greenbg); color:var(--green); }
+  .t-blue { background:var(--bluebg); color:var(--accent); }
   details { border:1px solid var(--border); border-radius:10px; margin-bottom:10px; background:var(--card); overflow:hidden; }
   summary { padding:13px 14px; cursor:pointer; font-size:0.88rem; font-weight:600; min-height:44px; display:flex; align-items:center; gap:8px; user-select:none; list-style:none; }
   summary::-webkit-details-marker { display:none; }
@@ -39,9 +40,12 @@
   .hot { color:var(--red); }
   .note { font-size:0.78rem; color:var(--text2); }
   .footer { text-align:center; color:var(--text2); font-size:0.75rem; margin-top:28px; padding-top:14px; border-top:1px solid var(--border); }
-  .backlink { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 28px; margin-top:14px; border-radius:12px; background:var(--accent); color:#0f172a; font-weight:700; font-size:1rem; text-decoration:none; }
+  .backlink { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 28px; margin-top:14px; border-radius:12px; background:var(--accent); color:var(--accent-text); font-weight:700; font-size:1rem; text-decoration:none; }
   .backlink:active { transform:scale(0.97); }
-  details.var { margin-top:10px; border-color:rgba(56,189,248,0.35); }
+  .theme-row { display:flex; justify-content:flex-end; margin-bottom:2px; }
+  .theme-btn { min-height:44px; padding:8px 16px; border-radius:22px; border:1px solid var(--border); background:var(--card); color:var(--text2); font-size:0.85rem; font-weight:600; cursor:pointer; }
+  .theme-btn:active { transform:scale(0.96); }
+  details.var { margin-top:10px; border-color:var(--varborder); }
   details.var summary { font-size:0.82rem; padding:11px 12px; color:var(--yellow); }
   details.var .ans { font-size:0.84rem; }
   mjx-container { color:inherit !important; margin:0 !important; }
@@ -51,8 +55,9 @@
 </style>
 </head>
 <body>
+<div class="theme-row"><button class="theme-btn" id="themeBtn" type="button">☀️ 日间模式</button></div>
 <h1>🧮 数学科三·解答题 真题精析与26下预测</h1>
-<p class="subtitle">10套真题(19下~24下)全解析 · 考点级预测 · 换形式预警 · 预测练习题 · 考试格式答案 · v1.2</p>
+<p class="subtitle">10套真题(19下~24下)全解析 · 考点级预测 · 换形式预警 · 预测练习题 · 考试格式答案 · v1.3</p>
 <div class="tabs"><div class="tab on" data-t="matrix">📊 考点分析</div><div class="tab" data-t="predict">🔮 26下预测</div><div class="tab" data-t="practice">🎯 预测练习题</div><div class="tab" data-t="bibei">🎯 解题套路</div><div class="tab" data-t="qa">📚 真题+答案</div></div>
 <div class="panel on" id="p-matrix">
 <div class="card"><h3>10道解答题考点分布（考纲规定：解答题只考学科知识=大学数学）</h3>
@@ -272,7 +277,7 @@
 解：(1)直线\(l\)与直线\(y=-x+1\)垂直，故\(l\)的斜率为1。又\(l\)过原点\(O(0,0)\)，所以直线\(l\)的方程为 \(y=x\)。\n(2)求\(l\)与曲线\(y=-x^{2}+4x\)的交点：\n由 \(x=-x^{2}+4x\)，得 \(x^{2}-3x=0\)，即 \(x=0\) 或 \(x=3\)。交点坐标为\((0,0)\)和\((3,3)\)。\n在\([0,3]\)上，\(-x^{2}+4x\geq x\)，故所围封闭图形的面积为\n\(S=\int_0^{3}[(-x^{2}+4x)-x]\,dx=\int_0^{3}(-x^{2}+3x)\,dx\)\n\(=\left[-\frac{x^{3}}{3}+\frac{3x^{2}}{2}\right]_0^{3}=-9+\frac{27}{2}=\frac{9}{2}\)。</div></details><div class="yearh">24上 年（解答题）</div><details><summary>24上 Q14｜离散型随机变量的分布函数</summary><div class="ans">【参考答案】
 解：由题意，\(X\)的可能取值为1和-1，且\n\(P(X=1)=P(\text{掷出1,3,5点})=\frac{3}{6}=\frac{1}{2}\)，\n\(P(X=-1)=P(\text{掷出2,4,6点})=\frac{3}{6}=\frac{1}{2}\)。\n\(X\)的分布函数 \(F(x)=P(X\leq x)\)：\n当 \(x\lt-1\) 时，\(F(x)=0\)；\n当 \(-1\leq x\lt1\) 时，\(F(x)=P(X=-1)=\frac{1}{2}\)；\n当 \(x\geq1\) 时，\(F(x)=1\)。\n即 \(F(x)=\begin{cases}0,&x\lt-1\\\frac{1}{2},&-1\leq x\lt1\\1,&x\geq1\end{cases}\)。\n草图（文字描述）：阶梯函数——在\((-\infty,-1)\)上图象与\(x\)轴重合；在\(x=-1\)处向上跳跃到\(\frac{1}{2}\)；在\([-1,1)\)上保持水平直线\(y=\frac{1}{2}\)；在\(x=1\)处再向上跳跃到1；在\([1,+\infty)\)上保持水平直线\(y=1\)。</div></details><div class="yearh">24下 年（解答题）</div><details><summary>24下 Q14｜中值定理求通项与级数敛散性</summary><div class="ans">【参考答案】
 解：(1)由题意 \(f(n+1)-f(1)=\ln(n+1)-\ln 1=\ln(n+1)\)，\n又 \(f'(x)=\frac{1}{x}\)，故 \(f'(\xi_{n})=\frac{1}{\xi_{n}}\)。\n由 \(f(n+1)-f(1)=f'(\xi_{n})\cdot n\)，得 \(\ln(n+1)=\frac{n}{\xi_{n}}\)，\n所以数列\(\{\xi_{n}\}\)的通项公式为 \(\xi_{n}=\frac{n}{\ln(n+1)}\)（\(n\geq1\)）。\n(2)级数从\(n=1\)起讨论（\(n=0\)时该项无意义）：\n\(\sum(-1)^{n}\cdot\frac{\xi_{n}}{n^{2}}=\sum(-1)^{n}\cdot\left[\frac{n}{\ln(n+1)}\right]\cdot\frac{1}{n^{2}}=\sum\frac{(-1)^{n}}{n\cdot\ln(n+1)}\)。\n记 \(a_n=\frac{1}{n\cdot\ln(n+1)}\)，则\(\{a_n\}\)单调递减（\(n\geq1\)时），且 \(a_n\to0\)（\(n\to\infty\)）。\n由莱布尼茨判别法，交错级数 \(\sum(-1)^{n}a_n\) 收敛。\n又 \(\sum a_n=\sum\frac{1}{n\cdot\ln(n+1)}\) 发散（与 \(\sum\frac{1}{n\cdot\ln n}\) 同敛散，由积分判别法 \(\int_2^{\infty}\frac{dx}{x\cdot\ln x}\) 发散）。\n所以原级数条件收敛（收敛但不绝对收敛）。</div></details><p class="note">💡 点开任意一题可查看题目考点与考试格式答案</p></div></div>
-<p class="footer">数学科三（初中）非选择题分析 · 数学科三·解答题 真题精析与26下预测 · v1.2<br>数据：19下~24下共10套真题 · 答案按考试答题格式整理 · 预测题均为自编模拟题（非真题重现） · 公式为 MathJax 排版 · 仅供备考使用<br><a class="backlink" href="https://harper518.github.io/sama-quiz/链接汇总.html">← 返回链接汇总</a></p>
+<p class="footer">数学科三（初中）非选择题分析 · 数学科三·解答题 真题精析与26下预测 · v1.3<br>数据：19下~24下共10套真题 · 答案按考试答题格式整理 · 预测题均为自编模拟题（非真题重现） · 公式为 MathJax 排版 · 支持日/夜模式 · 仅供备考使用<br><a class="backlink" href="https://harper518.github.io/sama-quiz/链接汇总.html">← 返回链接汇总</a></p>
 <script>
 window.MathJax = { tex:{inlineMath:[['\\(','\\)']]}, options:{enableMenu:false}, startup:{pageReady:function(){}} };
 function typeset(el){ if(window.MathJax&&MathJax.typesetPromise){ MathJax.typesetClear([el]); MathJax.typesetPromise([el]).catch(function(){}); } }
@@ -290,6 +295,18 @@ function typeset(el){ if(window.MathJax&&MathJax.typesetPromise){ MathJax.typese
   next();
 })();
 document.addEventListener('toggle', function(e){ if(e.target.tagName==='DETAILS'&&e.target.open)typeset(e.target); }, true);
+(function(){
+  var btn=document.getElementById('themeBtn');
+  function setDay(d){
+    document.body.classList.toggle('day', d);
+    btn.textContent = d ? '🌙 夜间模式' : '☀️ 日间模式';
+    try { localStorage.setItem('ke3-theme', d ? 'day' : 'night'); } catch(err) {}
+  }
+  var saved=null;
+  try { saved=localStorage.getItem('ke3-theme'); } catch(err) {}
+  setDay(saved==='day');
+  btn.addEventListener('click', function(){ setDay(!document.body.classList.contains('day')); });
+})();
 document.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click', function(){
     document.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('on'); });
