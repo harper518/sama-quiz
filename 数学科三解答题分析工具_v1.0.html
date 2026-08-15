@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数学科三·解答题 真题精析与26下预测 · v1.0</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='8' fill='%2338bdf8'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --text2:#94a3b8; --accent:#38bdf8; --red:#f87171; --yellow:#fbbf24; --green:#4ade80; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); max-width:840px; margin:0 auto; padding:16px 14px 48px; line-height:1.7; }
+  h1 { color:var(--accent); text-align:center; font-size:1.45rem; margin:8px 0 2px; }
+  .subtitle { text-align:center; color:var(--text2); font-size:0.8rem; margin-bottom:18px; }
+  .tabs { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:16px; }
+  .tab { padding:10px 14px; min-height:44px; border-radius:10px; border:1px solid var(--border); background:var(--card); color:var(--text2); cursor:pointer; font-size:0.88rem; font-weight:600; user-select:none; }
+  .tab.on { background:var(--accent); color:#0f172a; border-color:var(--accent); }
+  .panel { display:none; }
+  .panel.on { display:block; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:14px; }
+  .card h3 { margin:0 0 10px; font-size:1rem; color:var(--accent); }
+  .card h4 { margin:12px 0 6px; font-size:0.92rem; color:var(--text); }
+  table { width:100%; border-collapse:collapse; font-size:0.82rem; margin:8px 0; }
+  th, td { border:1px solid var(--border); padding:7px 8px; text-align:left; vertical-align:top; }
+  th { background:rgba(56,189,248,0.1); color:var(--accent); white-space:nowrap; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:8px; font-size:0.7rem; margin:1px 3px 1px 0; }
+  .t-red { background:rgba(248,113,113,0.15); color:var(--red); }
+  .t-yellow { background:rgba(251,191,36,0.15); color:var(--yellow); }
+  .t-green { background:rgba(74,222,128,0.15); color:var(--green); }
+  .t-blue { background:rgba(56,189,248,0.15); color:var(--accent); }
+  details { border:1px solid var(--border); border-radius:10px; margin-bottom:10px; background:var(--card); overflow:hidden; }
+  summary { padding:13px 14px; cursor:pointer; font-size:0.88rem; font-weight:600; min-height:44px; display:flex; align-items:center; gap:8px; user-select:none; list-style:none; }
+  summary::-webkit-details-marker { display:none; }
+  summary::before { content:'▶'; color:var(--accent); font-size:0.65rem; transition:transform .2s; }
+  details[open] summary::before { transform:rotate(90deg); }
+  .ans { padding:0 16px 14px; font-size:0.86rem; color:var(--text); white-space:pre-wrap; border-top:1px dashed var(--border); padding-top:12px; margin:0 14px 14px; }
+  .yearh { font-size:0.92rem; font-weight:700; color:var(--yellow); margin:16px 0 8px; }
+  .prob { color:var(--green); font-weight:700; }
+  .gap { color:var(--yellow); }
+  .hot { color:var(--red); }
+  .note { font-size:0.78rem; color:var(--text2); }
+  .footer { text-align:center; color:var(--text2); font-size:0.75rem; margin-top:28px; padding-top:14px; border-top:1px solid var(--border); }
+  .biglist li { margin-bottom:7px; font-size:0.86rem; }
+  @media (min-width:1200px) { body { max-width:900px; } }
+</style>
+</head>
+<body>
+<h1>🧮 数学科三·解答题 真题精析与26下预测</h1>
+<p class="subtitle">10套真题(19下~24下)全解析 · 考点级预测 · 换形式预警 · 考试格式答案 · v1.0</p>
+<div class="tabs"><div class="tab on" data-t="matrix">📊 考点分析</div><div class="tab" data-t="predict">🔮 26下预测</div><div class="tab" data-t="bibei">🎯 解题套路</div><div class="tab" data-t="qa">📚 真题+答案</div></div>
+<div class="panel on" id="p-matrix">
+<div class="card"><h3>10道解答题考点分布（考纲规定：解答题只考学科知识=大学数学）</h3>
+<table>
+<tr><th>类别</th><th>次数</th><th>已考</th></tr>
+<tr><td>微积分</td><td class="prob">4</td><td>19下中值定理证明 / 20下极值证明折射 / 23下定积分面积 / 24下中值定理+级数</td></tr>
+<tr><td>线性代数</td><td>3</td><td>21上方程组解结构 / 21下向量组线性表示 / 22下行列式+方程组</td></tr>
+<tr><td>概率统计</td><td>2</td><td>23上古典概型+条件分布 / 24上分布函数</td></tr>
+<tr><td>行列式综合</td><td>1</td><td>22上行列式几何意义+最值</td></tr>
+</table>
+<ul class="biglist">
+<li>解答题<b>从不考初中内容</b>，全部是大学数学——这就是考纲"学科知识→解答"的官方边界</li>
+<li><span class="hot">24下首次考级数</span>（中值定理+级数敛散性）——大学数学考查范围在扩大，级数是最大变数</li>
+<li>线代解答题21-22年密集后<b>缺席23、24两年</b>——轮换到期，26下回归概率上升</li>
+</ul></div></div><div class="panel" id="p-predict">
+<div class="card"><h3>26下解答题预测</h3>
+<table>
+<tr><th>预测方向</th><th>概率</th><th>依据</th></tr>
+<tr><td><b>微积分</b>：定积分应用(面积/旋转体) 或 中值定理证明</td><td class="prob">≈45%</td><td>历史占比40%；23下考定积分、24下考中值定理+级数，两者都是主流考法</td></tr>
+<tr><td><b>线性代数</b>：方程组解结构 或 向量组线性相关性</td><td class="prob">≈30%</td><td>历史占比30%，且已缺席两年（轮换到期）</td></tr>
+<tr><td><b>概率统计</b>：分布函数 或 古典概型+条件分布</td><td class="prob">≈20%</td><td>历史占比20%；23上、24上连续两年考概率→26下概率回落</td></tr>
+<tr><td><b>级数</b>（24下新方向）</td><td class="prob">≈15%</td><td>首次出现后常常会延续，常与中值定理组合</td></tr>
+</table></div>
+<div class="card"><h3>⚠️ 换形式预警</h3>
+<table>
+<tr><th>已考(年份)</th><th>家族候选</th></tr>
+<tr><td>中值定理证明f(x)≡0(19下)</td><td>中值定理证明恒等式/不等式、罗尔定理构造辅助函数</td></tr>
+<tr><td>极值证明折射定律(20下)</td><td>最值应用题(面积最大/材料最省)、导数研究函数性质</td></tr>
+<tr><td>方程组解结构(21上)</td><td>含参数方程组讨论、矩阵秩与解的关系</td></tr>
+<tr><td>向量组线性表示(21下)</td><td>向量组线性相关性判定、基与坐标</td></tr>
+<tr><td>行列式+方程组(22下)</td><td>克拉默法则、行列式性质计算</td></tr>
+<tr><td>古典概型+条件分布(23上)</td><td>全概率公式与贝叶斯公式</td></tr>
+<tr><td>分布函数(24上)</td><td>连续型随机变量的分布函数与密度函数</td></tr>
+<tr><td>中值定理+级数(24下)</td><td>级数审敛(比较/比值/莱布尼茨)、幂级数</td></tr>
+</table></div>
+<div class="card"><h3>📖 级数审敛速记（24下新考点，26下可能延续）</h3>
+<ul class="biglist">
+<li>正项级数：比较判别法（与1/nᵖ、几何级数比较）、比值判别法（lim aₙ₊₁/aₙ&lt;1收敛）</li>
+<li>交错级数：莱布尼茨判别法（aₙ单调递减且趋于0）→条件收敛</li>
+<li>绝对收敛⇒收敛；绝对收敛可任意重排</li>
+<li>p级数Σ1/nᵖ：p&gt;1收敛，p≤1发散；Σ1/(n·lnn)发散（积分判别法）</li>
+</ul></div></div><div class="panel" id="p-bibei">
+<div class="card"><h3>解答题四大题型通用套路（背框架，考场套用）</h3>
+<ul class="biglist">
+<li><b>行列式计算</b>：①观察行列式特点(对称/循环/三角)；②化三角形或按行(列)展开；③答前复查符号</li>
+<li><b>方程组求解</b>：①增广矩阵→行最简形；②求特解+齐次基础解系；③通解=特解+k₁ξ₁+k₂ξ₂</li>
+<li><b>中值定理证明</b>：①写清定理条件验证；②构造函数/迭代关系；③结合连续有界性放缩；④结论收尾</li>
+<li><b>分布函数</b>：①确定取值与概率；②按区间分段写F(x)=P(X≤x)；③草图：阶梯状跳跃</li>
+<li><b>概率题</b>：①识别模型(古典/条件/独立)；②列等可能基本事件数；③条件分布别忘除以条件概率</li>
+</ul></div></div><div class="panel" id="p-qa"><div class="card"><h3>📚 10道解答题真题与完整解题过程（按年份）</h3><div class="yearh">19下 年（解答题）</div><details><summary>19下 Q14｜中值定理证明f(x)≡0</summary><div class="ans">【参考答案】
+解：(1)步骤①的依据是拉格朗日中值定理（微分中值定理）：函数f在[0,x]上连续、在(0,x)内可导，故存在ξ1∈(0,x)，使 f(x)-f(0)=f'(ξ1)(x-0)=f'(ξ1)x。
+(2)步骤②的依据是题设条件：对任意x∈[0,1]，|f'(x)|≤|f(x)|。
+(3)步骤③是步骤①的反复（迭代）应用：先将①中的x换成ξ1，得 |f(ξ1)-f(0)|=|f'(ξ2)|ξ1（0<ξ2<ξ1），再用②放缩，并与前面结果合并，得到关于x²的估计式。
+(4)完成证明：由①②得 |f(x)|=|f(x)-f(0)|=|f'(ξ1)|x≤|f(ξ1)|x。
+对f(ξ1)再应用①并利用②，得 |f(ξ1)|=|f(ξ1)-f(0)|=|f'(ξ2)|ξ1≤|f(ξ2)|ξ1≤|f(ξ2)|x，故 |f(x)|≤|f(ξ2)|x²。
+重复上述过程，对任意正整数n，存在ξn∈(0,1)，使 |f(x)|≤|f(ξn)|xⁿ。
+因为f在[0,1]上连续，故有界，设 |f(ξn)|≤M。
+当0≤x<1时，|f(x)|≤M·xⁿ，令n→∞，得f(x)=0。
+又f在x=1处连续，f(1)=lim(x→1⁻)f(x)=0。
+综上，f(x)=0，x∈[0,1]。</div></details><div class="yearh">20下 年（解答题）</div><details><summary>20下 Q14｜费马原理证明折射定律</summary><div class="ans">【参考答案】
+解：(1)以水面为x轴建立坐标系，设A在空气中，其坐标为(0,a)（a>0）；B在水中，坐标为(L,-b)（b>0）；P(x,0)为入射点，且OP=x0。
+则 AP=√(x²+a²)，PB=√((L-x)²+b²)，
+光线从A到B所需时间为 T(x)=√(x²+a²)/c + √((L-x)²+b²)/c'。
+(2)求导得 T'(x)=x/(c√(x²+a²)) - (L-x)/(c'√((L-x)²+b²))。
+由题意T(x0)是极小值，故 T'(x0)=0，即
+x0/(c·√(x0²+a²)) = (L-x0)/(c'·√((L-x0)²+b²))。
+而 sinθ=x0/√(x0²+a²)=x0/AP，sinθ'=(L-x0)/√((L-x0)²+b²)=(L-x0)/PB，
+代入上式得 sinθ/c = sinθ'/c'，即 sinθ/sinθ' = c/c'。
+证毕。</div></details><div class="yearh">21上 年（解答题）</div><details><summary>21上 Q14｜方程组解空间维数与通解</summary><div class="ans">【参考答案】
+解：增广矩阵为
+[1 2 -4 -5 | -6]
+[0 1 -1 -2 | -2]
+[2 5 -9 -12 | -14]
+[1 3 -5 a | -8]
+作初等行变换：第3行减去第1行的2倍，第4行减去第1行，得
+[1 2 -4 -5 | -6]
+[0 1 -1 -2 | -2]
+[0 1 -1 -2 | -2]
+[0 1 -1 a+5 | -2]
+(1)对应齐次方程组解空间维数为2，即 r(A)=4-2=2。由变换结果，要使第4行与第2行线性相关（秩为2），须 a+5=-2，即 a=-7。
+(2)当a=-7时，同解方程组为
+x1+2x2-4x3-5x4=-6，x2-x3-2x4=-2。
+取x3=x4=0，得特解 η=(-2,-2,0,0)ᵀ。
+对应齐次方程组的通解：令x3、x4为自由未知量，
+x2=x3+2x4，x1=-2x2+4x3+5x4=2x3+x4，
+即 ξ=(2,1,1,0)ᵀ 与 ζ=(1,2,0,1)ᵀ 构成基础解系。
+所以非齐次方程组的通解为
+x=(-2,-2,0,0)ᵀ+k1(2,1,1,0)ᵀ+k2(1,2,0,1)ᵀ，k1,k2为任意实数。</div></details><div class="yearh">21下 年（解答题）</div><details><summary>21下 Q14｜向量组线性无关与线性表示</summary><div class="ans">【参考答案】
+解：(1)以α1,α2,α3为列向量构成矩阵A，其行列式为
+|A| = |4 4 -3; 2 4 -1; -2 0 3|
+= 4×(4×3-(-1)×0) - 4×(2×3-(-1)×(-2)) + (-3)×(2×0-4×(-2))
+= 4×12 - 4×4 - 3×8 = 48-16-24 = 8 ≠ 0。
+所以向量组α1,α2,α3线性无关。
+(2)设 β=xα1+yα2+zα3，即解方程组
+4x+4y-3z=4，2x+4y-z=5，-2x+3z=-1。
+由第三式得 z=(2x-1)/3，代入前两式：
+2x+4y-(2x-1)=4，即 2x+4y=3；
+2x+4y-(2x-1)/3=5，整理得 2x+6y=7。
+两式相减得 2y=4，即 y=2；代入得 x=-5/2；z=(-5-1)/3=-2。
+所以 β=(-5/2)α1+2α2-2α3。</div></details><div class="yearh">22上 年（解答题）</div><details><summary>22上 Q14｜行列式与面积及最值</summary><div class="ans">【参考答案】
+解：(1)由定义
+M(A,B,C)=(1/2)×|-1 0 1; 1 0 1; 0 1 1|
+=(1/2)×[-1×(0×1-1×1)+1×(1×1-0×0)]
+=(1/2)×[1+1]=1。
+M(A,C,B)=(1/2)×|-1 0 1; 0 1 1; 1 0 1|
+=(1/2)×[-1×(1×1-1×0)+1×(0×0-1×1)]
+=(1/2)×[-1-1]=-1。
+(2)M(A,B,C)的绝对值等于三角形ABC的面积S，即 |M(A,B,C)|=S。（本题中S=1/2×2×1=1=|M(A,B,C)|。）
+(3)点P(x,y)在单位圆上，则(x-1)²+(y-2)²=1，故 y∈[1,3]。
+M(A,B,P)=(1/2)×|-1 0 1; 1 0 1; x y 1|
+=(1/2)×[-1×(0×1-1×y)+1×(1×y-0×x)]
+=(1/2)×[y+y]=y。
+所以当 y=3（即P取(1,3)）时，M(A,B,P)取得最大值3。</div></details><div class="yearh">22下 年（解答题）</div><details><summary>22下 Q14｜行列式求值与方程组求解</summary><div class="ans">【参考答案】
+解：(1)|A| = |3 2 1; -1 0 1; 1 3 -1|
+= 3×[0×(-1)-1×3] - 2×[(-1)×(-1)-1×1] + 1×[(-1)×3-0×1]
+= 3×(-3) - 2×0 + 1×(-3) = -12。
+(2)解方程组 3x+2y+z=10，-x+z=2，x+3y-z=4。
+由第二式得 z=x+2。代入第三式：x+3y-(x+2)=4，得 y=2。
+代入第一式：3x+2×2+(x+2)=10，即 4x=4，得 x=1，从而 z=3。
+所以方程组的解为 x=1，y=2，z=3。</div></details><div class="yearh">23上 年（解答题）</div><details><summary>23上 Q14｜二次方程实根概率与条件分布</summary><div class="ans">【参考答案】
+解：共有5×5=25种等可能的抽取结果(B,C)。
+(1)方程有相等实根的条件是判别式 Δ=B²-4C=0，即 B²=4C。
+B,C∈{1,2,3,4,5}，满足条件的有：(B,C)=(2,1)或(4,4)，共2种。
+所以 P(有相等实根)=2/25。
+(2)方程有实根的条件是 B²-4C≥0。逐一检验：
+B=1时无解；B=2时C=1（1种）；B=3时C=1,2（2种）；B=4时C=1,2,3,4（4种）；B=5时C=1,2,3,4,5（5种）。
+共1+2+4+5=12种，所以 P(有实根)=12/25。
+(3)在“有相等实根”的条件下，可能情形为(2,1)与(4,4)，且各以1/2的概率发生。此时方程的根为 x=B/2。
+当(B,C)=(2,1)时，x=1；当(B,C)=(4,4)时，x=2。
+所以根的概率分布为：P(x=1)=1/2，P(x=2)=1/2。</div></details><div class="yearh">23下 年（解答题）</div><details><summary>23下 Q14｜直线方程与定积分面积</summary><div class="ans">【参考答案】
+解：(1)直线l与直线y=-x+1垂直，故l的斜率为1。又l过原点O(0,0)，所以直线l的方程为 y=x。
+(2)求l与曲线y=-x²+4x的交点：
+由 x=-x²+4x，得 x²-3x=0，即 x=0 或 x=3。交点坐标为(0,0)和(3,3)。
+在[0,3]上，-x²+4x≥x，故所围封闭图形的面积为
+S=∫₀³ [(-x²+4x)-x]dx = ∫₀³ (-x²+3x)dx
+= [-x³/3+3x²/2]|₀³ = -9+27/2 = 9/2。</div></details><div class="yearh">24上 年（解答题）</div><details><summary>24上 Q14｜离散型随机变量的分布函数</summary><div class="ans">【参考答案】
+解：由题意，X的可能取值为1和-1，且
+P(X=1)=P(掷出1,3,5点)=3/6=1/2，
+P(X=-1)=P(掷出2,4,6点)=3/6=1/2。
+X的分布函数 F(x)=P(X≤x)：
+当 x<-1 时，F(x)=0；
+当 -1≤x<1 时，F(x)=P(X=-1)=1/2；
+当 x≥1 时，F(x)=1。
+即 F(x)={0, x<-1; 1/2, -1≤x<1; 1, x≥1}。
+草图（文字描述）：阶梯函数——在(-∞,-1)上图象与x轴重合；在x=-1处向上跳跃到1/2；在[-1,1)上保持水平直线y=1/2；在x=1处再向上跳跃到1；在[1,+∞)上保持水平直线y=1。</div></details><div class="yearh">24下 年（解答题）</div><details><summary>24下 Q14｜中值定理求通项与级数敛散性</summary><div class="ans">【参考答案】
+解：(1)由题意 f(n+1)-f(1)=ln(n+1)-ln1=ln(n+1)，
+又 f'(x)=1/x，故 f'(ξn)=1/ξn。
+由 f(n+1)-f(1)=f'(ξn)·n，得 ln(n+1)=n/ξn，
+所以数列{ξn}的通项公式为 ξn=n/ln(n+1)（n≥1）。
+(2)级数从n=1起讨论（n=0时该项无意义）：
+Σ(-1)ⁿ·ξn/n² = Σ(-1)ⁿ·[n/ln(n+1)]/n² = Σ(-1)ⁿ/[n·ln(n+1)]。
+记 aₙ=1/[n·ln(n+1)]，则{aₙ}单调递减（n≥1时），且 aₙ→0（n→∞）。
+由莱布尼茨判别法，交错级数 Σ(-1)ⁿaₙ 收敛。
+又 Σaₙ=Σ1/[n·ln(n+1)] 发散（与 Σ1/(n·ln n) 同敛散，由积分判别法 ∫₂^∞ dx/(x·lnx) 发散）。
+所以原级数条件收敛（收敛但不绝对收敛）。</div></details><p class="note">💡 点开任意一题可查看题目考点与考试格式答案</p></div></div>
+<p class="footer">数学科三（初中）非选择题分析 · 数学科三·解答题 真题精析与26下预测 · v1.0<br>数据：19下~24下共10套真题 · 答案按考试答题格式整理 · 仅供备考使用</p>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click', function(){
+    document.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('on'); });
+    document.querySelectorAll('.panel').forEach(function(x){ x.classList.remove('on'); });
+    t.classList.add('on');
+    document.getElementById('p-' + t.dataset.t).classList.add('on');
+    window.scrollTo(0,0);
+  });
+});
+</script>
+</body>
+</html>
