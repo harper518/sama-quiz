@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover">
-<title>教资26下 考前冲刺背诵清单 v1.2（含AI补充答案）</title>
+<title>教资26下 考前冲刺背诵清单 v1.3（含AI补充答案）</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -113,7 +113,9 @@ body[data-theme="dark"] .tabswrap::after{
   scrollbar-width:none
 }
 .tabs::-webkit-scrollbar{display:none}
-@media (min-width:900px){
+/* 只要是用鼠标的设备（不管窗口多窄）就换行铺开——电脑上横向滚动条被隐藏了，
+   鼠标又不像手指能滑，一旦退回滚动模式后面几个标签就永远点不到。 */
+@media (min-width:900px), (hover:hover) and (pointer:fine){
   .tabswrap{max-width:860px}
   .tabs{flex-wrap:wrap;overflow-x:visible;padding-bottom:2px}
   .tabswrap::after{display:none}
@@ -278,8 +280,8 @@ th{background:var(--bg);font-weight:700;white-space:nowrap}
 
 <div class="top" id="topFull">
   <div class="topbar">
-    <h1>📚 教资26下 考前冲刺背诵清单<small>科一 · 科二 ｜ 初中 · 2026年9月13日笔试 ｜ v1.2 含AI补充答案</small></h1>
-    <div class="cd">距考试 <b id="cdNum">--</b> 天</div>
+    <h1>📚 教资26下 考前冲刺背诵清单<small>科一 · 科二 ｜ 初中 · 2026年9月13日笔试 ｜ v1.3 含AI补充答案</small></h1>
+    <div class="cd" id="cdBox">距考试 <b id="cdNum">--</b> 天</div>
     <div class="topact">
       <button class="tbtn" onclick="expandAll()">展开全部</button>
       <button class="tbtn" onclick="collapseAll()">折叠全部</button>
@@ -2754,8 +2756,17 @@ function switchTheme(){
   }catch(e){}
   var exam=new Date(2026,8,13); // 2026-09-13
   var now=new Date();
-  var d=Math.ceil((exam-now)/86400000);
-  document.getElementById('cdNum').textContent = d>0? d : (d===0?'今天':'已考完');
+  var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  /* 只数「中间完整的天」——今天和考试日本身都不算进倒计时。
+     9/11 → 1 天 ｜ 9/12 → 0（明天就考）｜ 9/13 → -1（今天考试） */
+  var d=Math.round((exam-today)/86400000)-1;
+  var cdBox=document.getElementById('cdBox');
+  if(cdBox){
+    cdBox.innerHTML = d>0  ? '距考试 <b>'+d+'</b> 天'
+                   : d===0 ? '<b>⚡ 明天就考</b>'
+                   : d===-1? '<b>🔥 今天考试</b>'
+                   : '已考完';
+  }
   buildTabs();
   updateProgress();
   tabsFade();
